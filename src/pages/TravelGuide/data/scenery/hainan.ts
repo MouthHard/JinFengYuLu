@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 海南省自然风光数据
 const hainanNatureSpots: ScenerySpot[] = [
   {
     id: "sanyaTianyaHaijiao",
     name: "三亚天涯海角",
-    description: "海南省三亚市的著名景点，以其独特的海滨风光和丰富的历史文化而闻名",
+    description:
+      "海南省三亚市的著名景点，以其独特的海滨风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "海南省三亚市天涯区",
     type: "nature",
@@ -14,12 +20,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "beach",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "sanyaYalongBay",
     name: "三亚亚龙湾",
-    description: "海南省三亚市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
+    description:
+      "海南省三亚市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "海南省三亚市亚龙湾国家旅游度假区",
     type: "nature",
@@ -28,12 +35,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "beach",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "haikouVolcanicCrater",
     name: "海口火山口",
-    description: "海南省海口市的著名火山遗址，以其独特的地质景观和丰富的历史文化而闻名",
+    description:
+      "海南省海口市的著名火山遗址，以其独特的地质景观和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "海南省海口市秀英区",
     type: "nature",
@@ -42,12 +50,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "volcano",
     landscapeCategory: ["地理景观"],
-    landformTags: ["火山景观"]
+    landformTags: ["火山景观"],
   },
   {
     id: "wanningShimeiBay",
     name: "万宁石梅湾",
-    description: "海南省万宁市的著名海滩，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "海南省万宁市的著名海滩，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "海南省万宁市石梅湾旅游度假区",
     type: "nature",
@@ -56,12 +65,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "beach",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "lingaoBohaiBay",
     name: "临高渤海湾",
-    description: "海南省临高县的著名海湾，以其美丽的自然风光和丰富的海洋资源而闻名",
+    description:
+      "海南省临高县的著名海湾，以其美丽的自然风光和丰富的海洋资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "海南省临高县渤海湾旅游度假区",
     type: "nature",
@@ -70,12 +80,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "bay",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "qionghaiBoaoForum",
     name: "琼海博鳌论坛",
-    description: "海南省琼海市的著名国际会议中心，以其独特的建筑设计和重要的国际地位而闻名",
+    description:
+      "海南省琼海市的著名国际会议中心，以其独特的建筑设计和重要的国际地位而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "海南省琼海市博鳌镇",
     type: "nature",
@@ -84,12 +95,13 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "building",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "dongfangCoconutGrove",
     name: "东方椰林",
-    description: "海南省东方市的著名椰林景观，以其美丽的自然风光和独特的热带风情而闻名",
+    description:
+      "海南省东方市的著名椰林景观，以其美丽的自然风光和独特的热带风情而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "海南省东方市八所镇",
     type: "nature",
@@ -98,8 +110,8 @@ const hainanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["植物景观"]
-  }
+    landformTags: ["植物景观"],
+  },
 ];
 
 // 海南省人文景观数据
@@ -107,7 +119,8 @@ const hainanCultureSpots: ScenerySpot[] = [
   {
     id: "haikouOldTown",
     name: "海口骑楼老街",
-    description: "海南省海口市的著名历史街区，以其独特的骑楼建筑风格和丰富的历史文化而闻名",
+    description:
+      "海南省海口市的著名历史街区，以其独特的骑楼建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "海南省海口市龙华区",
     type: "culture",
@@ -116,12 +129,13 @@ const hainanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "sanyaNanshanCulturalTourismZone",
     name: "三亚南山文化旅游区",
-    description: "海南省三亚市的著名文化旅游区，以其丰富的佛教文化和壮丽的自然风光而闻名",
+    description:
+      "海南省三亚市的著名文化旅游区，以其丰富的佛教文化和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "海南省三亚市崖州区",
     type: "culture",
@@ -130,12 +144,13 @@ const hainanCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "wenchangSatelliteLaunchCenter",
     name: "文昌卫星发射中心",
-    description: "海南省文昌市的著名航天发射基地，以其先进的航天技术和重要的国家地位而闻名",
+    description:
+      "海南省文昌市的著名航天发射基地，以其先进的航天技术和重要的国家地位而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "海南省文昌市龙楼镇",
     type: "culture",
@@ -144,12 +159,13 @@ const hainanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "building",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "qiongzhongLiAndMiaoEthnicVillage",
     name: "琼中黎苗村寨",
-    description: "海南省琼中黎族苗族自治县的著名民族村寨，以其独特的民俗文化和建筑风格而闻名",
+    description:
+      "海南省琼中黎族苗族自治县的著名民族村寨，以其独特的民俗文化和建筑风格而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "海南省琼中黎族苗族自治县红毛镇",
     type: "culture",
@@ -158,12 +174,13 @@ const hainanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗景观"]
+    landformTags: ["民俗景观"],
   },
   {
     id: "tunchangHotSpring",
     name: "屯昌温泉",
-    description: "海南省屯昌县的著名温泉，以其独特的温泉资源和丰富的休闲设施而闻名",
+    description:
+      "海南省屯昌县的著名温泉，以其独特的温泉资源和丰富的休闲设施而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "海南省屯昌县枫木镇",
     type: "culture",
@@ -172,36 +189,58 @@ const hainanCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "spring",
     landscapeCategory: ["水景观"],
-    landformTags: ["泉水景观"]
-  }
+    landformTags: ["泉水景观"],
+  },
 ];
 
 // 海南省季节性数据
 const hainanSeasonalData: Record<string, SeasonalScenery> = {
   spring: {
     name: "春季",
-    description: "春季的海南，温暖宜人，是游览海口火山口、琼中黎苗村寨的最佳时节",
+    description:
+      "春季的海南，温暖宜人，是游览海口火山口、琼中黎苗村寨的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["海口火山口参观", "琼中黎苗村寨体验", "三亚天涯海角游览", "东方椰林漫步"]
+    activities: [
+      "海口火山口参观",
+      "琼中黎苗村寨体验",
+      "三亚天涯海角游览",
+      "东方椰林漫步",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的海南，阳光明媚，是游览三亚亚龙湾、万宁石梅湾的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["三亚亚龙湾海滩休闲", "万宁石梅湾冲浪", "临高渤海湾潜水", "琼海博鳌论坛参观"]
+    activities: [
+      "三亚亚龙湾海滩休闲",
+      "万宁石梅湾冲浪",
+      "临高渤海湾潜水",
+      "琼海博鳌论坛参观",
+    ],
   },
   autumn: {
     name: "秋季",
-    description: "秋季的海南，天高气爽，是游览海口骑楼老街、文昌卫星发射中心的最佳时节",
+    description:
+      "秋季的海南，天高气爽，是游览海口骑楼老街、文昌卫星发射中心的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["海口骑楼老街游览", "文昌卫星发射中心参观", "三亚南山文化旅游区游览", "东方椰林赏秋"]
+    activities: [
+      "海口骑楼老街游览",
+      "文昌卫星发射中心参观",
+      "三亚南山文化旅游区游览",
+      "东方椰林赏秋",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的海南，温暖如春，是游览三亚天涯海角、屯昌温泉的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["三亚天涯海角游览", "屯昌温泉泡浴", "海口骑楼老街休闲", "三亚南山文化旅游区祈福"]
-  }
+    activities: [
+      "三亚天涯海角游览",
+      "屯昌温泉泡浴",
+      "海口骑楼老街休闲",
+      "三亚南山文化旅游区祈福",
+    ],
+  },
 };
 
 // 海南省活动数据
@@ -215,7 +254,7 @@ const hainanActivities: TravelActivity[] = [
     location: "海南省三亚市亚龙湾国家旅游度假区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "2",
@@ -226,7 +265,7 @@ const hainanActivities: TravelActivity[] = [
     location: "海南省万宁市石梅湾旅游度假区",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +276,7 @@ const hainanActivities: TravelActivity[] = [
     location: "海南省海口市龙华区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +287,7 @@ const hainanActivities: TravelActivity[] = [
     location: "海南省三亚市崖州区",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +298,8 @@ const hainanActivities: TravelActivity[] = [
     location: "海南省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 海南省路线数据
@@ -279,7 +318,7 @@ const hainanRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +327,25 @@ const hainanRoutes: RouteInfo[] = [
     description: "探索海南的文化遗产",
     duration: "4天",
     difficulty: "简单",
-    highlights: ["海口骑楼老街", "三亚南山文化旅游区", "文昌卫星发射中心", "琼中黎苗村寨"],
-    spots: ["海口骑楼老街", "三亚南山文化旅游区", "文昌卫星发射中心", "琼中黎苗村寨"],
+    highlights: [
+      "海口骑楼老街",
+      "三亚南山文化旅游区",
+      "文昌卫星发射中心",
+      "琼中黎苗村寨",
+    ],
+    spots: [
+      "海口骑楼老街",
+      "三亚南山文化旅游区",
+      "文昌卫星发射中心",
+      "琼中黎苗村寨",
+    ],
     tags: ["历史", "文化", "建筑"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.7,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 海南省非物质文化遗产数据
@@ -312,7 +361,7 @@ const hainanIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🧵",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "2",
@@ -325,7 +374,7 @@ const hainanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +387,7 @@ const hainanIntangibleHeritage = [
     tags: ["传统节日", "国家级非遗", "民间艺术"],
     icon: "🎉",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["庆祝方式独特", "内容丰富", "历史悠久"]
+    features: ["庆祝方式独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +400,7 @@ const hainanIntangibleHeritage = [
     tags: ["传统节日", "国家级非遗", "民间艺术"],
     icon: "🎉",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["庆祝方式独特", "内容丰富", "历史悠久"]
+    features: ["庆祝方式独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +413,8 @@ const hainanIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🪚",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
-  }
+    features: ["作品精美", "风格独特", "工艺精湛"],
+  },
 ];
 
 // 海南省数据
@@ -378,40 +427,45 @@ export const hainanData = {
       {
         name: "三亚亚龙湾",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "海南省三亚市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名"
+        description:
+          "海南省三亚市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
       },
       {
         name: "三亚天涯海角",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "海南省三亚市的著名景点，以其独特的海滨风光和丰富的历史文化而闻名"
+        description:
+          "海南省三亚市的著名景点，以其独特的海滨风光和丰富的历史文化而闻名",
       },
       {
         name: "海口骑楼老街",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "海南省海口市的著名历史街区，以其独特的骑楼建筑风格和丰富的历史文化而闻名"
+        description:
+          "海南省海口市的著名历史街区，以其独特的骑楼建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "万宁石梅湾",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "海南省万宁市的著名海滩，以其美丽的自然风光和丰富的生态资源而闻名"
+        description:
+          "海南省万宁市的著名海滩，以其美丽的自然风光和丰富的生态资源而闻名",
       },
       {
         name: "海口火山口",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "海南省海口市的著名火山遗址，以其独特的地质景观和丰富的历史文化而闻名"
-      }
-    ]
+        description:
+          "海南省海口市的著名火山遗址，以其独特的地质景观和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...hainanNatureSpots, ...hainanCultureSpots],
   seasonal: [
     hainanSeasonalData.spring,
     hainanSeasonalData.summer,
     hainanSeasonalData.autumn,
-    hainanSeasonalData.winter
+    hainanSeasonalData.winter,
   ],
   activities: hainanActivities,
   routes: hainanRoutes,
-  intangibleHeritage: hainanIntangibleHeritage
+  intangibleHeritage: hainanIntangibleHeritage,
 };
 
 // 海南省风俗文化数据
@@ -426,29 +480,31 @@ export const hainanCustomsData = {
       location: "海南省民族博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "琼剧表演欣赏",
-      description: "欣赏海南省传统戏曲艺术琼剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏海南省传统戏曲艺术琼剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "海南省海口市琼剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "黎族三月三体验",
-      description: "体验海南省黎族传统节日三月三，感受其独特的庆祝方式和丰富的内容",
+      description:
+        "体验海南省黎族传统节日三月三，感受其独特的庆祝方式和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "海南省琼中黎族苗族自治县",
       duration: "1天",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +515,7 @@ export const hainanCustomsData = {
       location: "海南省海口市工艺美术协会",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +526,9 @@ export const hainanCustomsData = {
       location: "海南省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 海南民俗风情元素数据
@@ -481,32 +537,32 @@ export const hainanFolkCustomsElements = [
     name: "黎族传统纺染织绣技艺",
     description: "海南省黎族传统纺织技艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "纺织艺术", "非遗文化", "黎族特色", "工艺美术"]
+    tags: ["传统技艺", "纺织艺术", "非遗文化", "黎族特色", "工艺美术"],
   },
   {
     name: "琼剧",
     description: "海南省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "海南特色", "地方剧种"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "海南特色", "地方剧种"],
   },
   {
     name: "黎族三月三",
     description: "海南省黎族传统节日，以其独特的庆祝方式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["民俗节日", "非遗文化", "黎族特色", "民俗活动", "文化传承"]
+    tags: ["民俗节日", "非遗文化", "黎族特色", "民俗活动", "文化传承"],
   },
   {
     name: "苗族盘王节",
     description: "海南省苗族传统节日，以其独特的庆祝方式和丰富的内容著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["民俗节日", "非遗文化", "苗族特色", "民俗信仰", "文化传承"]
+    tags: ["民俗节日", "非遗文化", "苗族特色", "民俗信仰", "文化传承"],
   },
   {
     name: "海南椰雕",
     description: "海南省传统雕刻技艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "雕刻艺术", "非遗文化", "海南特色", "工艺美术"]
-  }
+    tags: ["传统技艺", "雕刻艺术", "非遗文化", "海南特色", "工艺美术"],
+  },
 ];
 
 // 海南省文化节庆数据
@@ -518,7 +574,7 @@ export const hainanFestivals = [
     month: "11月",
     day: "20日",
     location: "海南省海口市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +583,7 @@ export const hainanFestivals = [
     month: "12月",
     day: "25日",
     location: "海南省三亚市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +592,7 @@ export const hainanFestivals = [
     month: "4月",
     day: "18日",
     location: "海南省琼海市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +601,7 @@ export const hainanFestivals = [
     month: "10月",
     day: "1日",
     location: "海南省文昌市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +610,7 @@ export const hainanFestivals = [
     month: "4月",
     day: "5日",
     location: "海南省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +619,8 @@ export const hainanFestivals = [
     month: "9月",
     day: "21日",
     location: "海南省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default hainanData;

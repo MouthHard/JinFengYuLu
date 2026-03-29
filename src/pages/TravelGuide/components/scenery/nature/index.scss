@@ -1,71 +1,71 @@
 .nature-scenery {
-	padding: 0;
-	background: linear-gradient(
-		135deg,
-		rgba(15, 18, 35, 0.98) 0%,
-		rgba(8, 10, 22, 0.98) 100%
-	);
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 18, 35, 0.98) 0%,
+    rgba(8, 10, 22, 0.98) 100%
+  );
 }
 
 .empty-state {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 80px 20px;
-	text-align: center;
-	position: relative;
-	z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 
-	.empty-icon {
-		font-size: 64px;
-		margin-bottom: 20px;
-		filter: drop-shadow(0 0 25px rgba(100, 200, 255, 0.25));
-		animation: emptyIconFloat 3s ease-in-out infinite;
-	}
+  .empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px rgba(100, 200, 255, 0.25));
+    animation: emptyIconFloat 3s ease-in-out infinite;
+  }
 
-	.empty-title {
-		font-size: 20px;
-		font-weight: 700;
-		color: #ffffff;
-		margin: 0 0 10px 0;
-	}
+  .empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+  }
 
-	.empty-desc {
-		font-size: 14px;
-		color: rgba(255, 255, 255, 0.5);
-		margin: 0 0 28px 0;
-	}
+  .empty-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 28px 0;
+  }
 
-	.reset-btn {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 12px 24px;
-		border-radius: 12px;
-		background: rgba(100, 200, 255, 0.12);
-		border: 1px solid rgba(100, 200, 255, 0.3);
-		color: #64c8ff;
-		font-size: 14px;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all 0.3s ease;
+  .reset-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: rgba(100, 200, 255, 0.12);
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    color: #64c8ff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-		&:hover {
-			background: rgba(100, 200, 255, 0.2);
-			border-color: rgba(100, 200, 255, 0.5);
-			box-shadow: 0 0 25px rgba(100, 200, 255, 0.25);
-			transform: translateY(-2px);
-		}
-	}
+    &:hover {
+      background: rgba(100, 200, 255, 0.2);
+      border-color: rgba(100, 200, 255, 0.5);
+      box-shadow: 0 0 25px rgba(100, 200, 255, 0.25);
+      transform: translateY(-2px);
+    }
+  }
 }
 
 @keyframes emptyIconFloat {
-	0%,
-	100% {
-		transform: translateY(0) scale(1);
-	}
-	50% {
-		transform: translateY(-12px) scale(1.1);
-	}
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.1);
+  }
 }

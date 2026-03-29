@@ -1,0 +1,577 @@
+.tab-content-section {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5faf5 0%, #f0f7f0 50%, #ebf4eb 100%);
+  border-radius: 0;
+  box-shadow:
+    0 8px 24px rgba(129, 199, 132, 0.1),
+    0 0 40px rgba(165, 214, 167, 0.15);
+  border: 2px solid rgba(129, 199, 132, 0.2);
+  margin-bottom: 0;
+  min-height: calc(100vh - 200px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(129, 199, 132, 0.2);
+
+    .section-title {
+      font-size: 2.2rem;
+      color: #023605;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #17691b;
+      margin: 0;
+    }
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .info-card {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 4px 8px rgb(6, 6, 6),
+        0 0 8px rgba(165, 214, 167, 0.2);
+      border: 1px solid rgba(129, 199, 132, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      .card-header {
+        background: linear-gradient(
+          135deg,
+          #0c372c 0%,
+          #23a32a 50%,
+          #a5d6a7 100%
+        );
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.4);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          svg {
+            width: 24px;
+            height: 24px;
+            color: #fff;
+          }
+        }
+
+        h3 {
+          font-size: 1.3rem;
+          color: #fff;
+          margin: 0;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+
+      .card-body {
+        padding: 1.5rem;
+
+        .time-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(129, 199, 132, 0.15);
+
+          &:last-of-type {
+            border-bottom: none;
+          }
+
+          .label {
+            color: #546e7a;
+            font-size: 0.95rem;
+            font-weight: 500;
+          }
+
+          .value {
+            color: #37474f;
+            font-size: 0.95rem;
+            font-weight: 600;
+          }
+
+          &.highlight {
+            background: rgba(129, 199, 132, 0.15);
+            margin: 0 -1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+
+            .value {
+              color: #43a047;
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        .notice-badge {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: 1rem;
+          padding: 0.75rem 1rem;
+          background: rgba(187, 170, 102, 0.3);
+          border-radius: 6px;
+          color: #585806;
+          font-size: 0.85rem;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+          }
+        }
+
+        // 票务信息样式
+        .price-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+          background: linear-gradient(
+            135deg,
+            rgba(129, 199, 132, 0.12) 0%,
+            rgba(165, 214, 167, 0.08) 100%
+          );
+          border-radius: 8px;
+          margin-bottom: 1rem;
+
+          .price-label {
+            color: #546e7a;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+
+          .price-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            &.free {
+              color: #257b29;
+            }
+          }
+        }
+
+        .booking-info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+
+          .booking-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #37474f;
+            font-size: 0.95rem;
+
+            svg {
+              width: 20px;
+              height: 20px;
+              color: #1f7923;
+              flex-shrink: 0;
+            }
+          }
+        }
+
+        .discount-list {
+          padding-top: 1rem;
+          border-top: 1px solid rgba(129, 199, 132, 0.15);
+
+          .discount-title {
+            color: #0b8411;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+          }
+
+          p {
+            color: #07425e;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0.25rem 0;
+          }
+        }
+
+        // 参观须知样式
+        .rule-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+
+          .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+
+            .rule-icon {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 700;
+              font-size: 0.85rem;
+              flex-shrink: 0;
+
+              &.allow {
+                background: rgba(129, 199, 132, 0.2);
+                color: #1b7f20;
+              }
+
+              &.forbid {
+                background: rgba(244, 67, 54, 0.2);
+                color: #f21b0c;
+              }
+            }
+
+            span:last-child {
+              color: #546e7a;
+              font-size: 0.95rem;
+            }
+          }
+        }
+
+        // 交通指南样式
+        .transport-item {
+          display: flex;
+          gap: 1rem;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(129, 199, 132, 0.15);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .transport-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: rgba(129, 199, 132, 0.15);
+
+            svg {
+              width: 24px;
+              height: 24px;
+              color: #459c4a;
+            }
+
+            &.metro {
+              background: linear-gradient(135deg, #136d17 0%, #c0e6c1 100%);
+
+              span {
+                color: #fff;
+                font-weight: 700;
+                font-size: 1.2rem;
+              }
+            }
+
+            &.bus {
+              background: linear-gradient(45deg, #b84725 0%, #f5ccaa 100%);
+
+              svg {
+                color: #fff;
+              }
+            }
+          }
+
+          .transport-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.25rem;
+
+            .transport-label {
+              color: #78909c;
+              font-size: 0.85rem;
+            }
+
+            .transport-value {
+              color: #37474f;
+              font-size: 0.95rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        // 服务设施样式
+        .service-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+
+          .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(129, 199, 132, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: rgba(129, 199, 132, 0.4);
+              transform: translateY(-2px);
+            }
+
+            svg {
+              width: 28px;
+              height: 28px;
+              color: #248929;
+            }
+
+            span {
+              color: #113e79;
+              font-size: 0.85rem;
+              text-align: center;
+            }
+          }
+        }
+
+        // 联系方式样式
+        .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(129, 199, 132, 0.2);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          svg {
+            width: 24px;
+            height: 24px;
+            color: #2a7e2e;
+            flex-shrink: 0;
+          }
+
+          .contact-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .contact-label {
+              color: #2e7599;
+              font-size: 0.85rem;
+            }
+
+            .contact-value {
+              color: #021823;
+              font-size: 0.95rem;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .museum-footer {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(
+      135deg,
+      #002001 0%,
+      #175d1a 30%,
+      #153811 70%,
+      #000000 100%
+    );
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(129, 199, 132, 0.25);
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .footer-info {
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #f1f8e9;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid rgba(165, 214, 167, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        svg {
+          width: 28px;
+          height: 28px;
+          color: #f1f8e9;
+        }
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: translateX(5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+        }
+
+        .info-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          svg {
+            width: 22px;
+            height: 22px;
+            color: #f1f8e9;
+          }
+        }
+
+        .info-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .info-label {
+            font-size: 0.8rem;
+            color: rgba(241, 248, 233, 0.7);
+            font-weight: 500;
+          }
+
+          .info-value {
+            font-size: 0.95rem;
+            color: #f1f8e9;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .footer-links {
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: #f1f8e9;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid rgba(165, 214, 167, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          color: #f1f8e9;
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.75rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .official-tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: linear-gradient(135deg, #248db6 0%, #061c64 100%);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          a {
+            color: rgba(241, 248, 233, 0.95);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+
+            svg {
+              width: 18px;
+              height: 18px;
+              color: #a5d6a7;
+            }
+
+            &:hover {
+              color: #f1f8e9;
+              background: rgba(119, 189, 250, 0.4);
+              transform: translateX(5px);
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

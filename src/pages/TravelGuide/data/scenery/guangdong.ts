@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 广东省自然风光数据
 const guangdongNatureSpots: ScenerySpot[] = [
   {
     id: "danxiaMountain",
     name: "丹霞山",
-    description: "广东省韶关市的著名山脉，以其独特的丹霞地貌和壮丽的自然风光而闻名",
+    description:
+      "广东省韶关市的著名山脉，以其独特的丹霞地貌和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "广东省韶关市仁化县",
     type: "nature",
@@ -14,12 +20,13 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "guangzhouCantonTower",
     name: "广州塔",
-    description: "广东省广州市的著名地标，以其独特的建筑设计和壮丽的城市景观而闻名",
+    description:
+      "广东省广州市的著名地标，以其独特的建筑设计和壮丽的城市景观而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "广东省广州市海珠区",
     type: "nature",
@@ -28,12 +35,13 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "building",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "shenzhenWindowoftheWorld",
     name: "深圳世界之窗",
-    description: "广东省深圳市的著名主题公园，以其丰富的世界文化景观和娱乐设施而闻名",
+    description:
+      "广东省深圳市的著名主题公园，以其丰富的世界文化景观和娱乐设施而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "广东省深圳市南山区",
     type: "nature",
@@ -42,12 +50,13 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "park",
     landscapeCategory: ["人文景观"],
-    landformTags: ["主题公园"]
+    landformTags: ["主题公园"],
   },
   {
     id: "zhuhaiFisherGirl",
     name: "珠海渔女",
-    description: "广东省珠海市的著名地标，以其独特的雕塑设计和美丽的海滨风光而闻名",
+    description:
+      "广东省珠海市的著名地标，以其独特的雕塑设计和美丽的海滨风光而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "广东省珠海市香洲区",
     type: "nature",
@@ -56,12 +65,13 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "statue",
     landscapeCategory: ["人文景观"],
-    landformTags: ["雕塑景观"]
+    landformTags: ["雕塑景观"],
   },
   {
     id: "qingyuanFeilaiGorge",
     name: "清远飞来峡",
-    description: "广东省清远市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "广东省清远市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "广东省清远市清城区",
     type: "nature",
@@ -70,7 +80,7 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "maomingShangchuanIsland",
@@ -84,12 +94,13 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岛景观"]
+    landformTags: ["海岛景观"],
   },
   {
     id: "heyuanWanluLake",
     name: "河源万绿湖",
-    description: "广东省河源市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "广东省河源市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "广东省河源市东源县",
     type: "nature",
@@ -98,8 +109,8 @@ const guangdongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 广东省人文景观数据
@@ -107,7 +118,8 @@ const guangdongCultureSpots: ScenerySpot[] = [
   {
     id: "guangzhouChenClanAncestralHall",
     name: "广州陈家祠",
-    description: "广东省广州市的著名古建筑，以其精美的工艺和丰富的历史文化而闻名",
+    description:
+      "广东省广州市的著名古建筑，以其精美的工艺和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "广东省广州市荔湾区",
     type: "culture",
@@ -116,7 +128,7 @@ const guangdongCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "foshanLiangyuan",
@@ -130,12 +142,13 @@ const guangdongCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "garden",
     landscapeCategory: ["人文景观"],
-    landformTags: ["园林景观"]
+    landformTags: ["园林景观"],
   },
   {
     id: "chaozhouAncientCity",
     name: "潮州古城",
-    description: "广东省潮州市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "广东省潮州市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "广东省潮州市湘桥区",
     type: "culture",
@@ -144,12 +157,13 @@ const guangdongCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古城"]
+    landformTags: ["历史古城"],
   },
   {
     id: "zhaoqingDinghuMountain",
     name: "肇庆鼎湖山",
-    description: "广东省肇庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "广东省肇庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "广东省肇庆市鼎湖区",
     type: "culture",
@@ -158,12 +172,13 @@ const guangdongCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "meizhouHakkaRoundHouse",
     name: "梅州客家围屋",
-    description: "广东省梅州市的著名古建筑，以其独特的建筑风格和丰富的客家文化而闻名",
+    description:
+      "广东省梅州市的著名古建筑，以其独特的建筑风格和丰富的客家文化而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "广东省梅州市梅县区",
     type: "culture",
@@ -172,8 +187,8 @@ const guangdongCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
-  }
+    landformTags: ["历史建筑"],
+  },
 ];
 
 // 广东省季节性数据
@@ -182,26 +197,41 @@ const guangdongSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的广东，万物复苏，是游览丹霞山、梁园的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["丹霞山赏春", "梁园踏青", "广州塔游览", "深圳世界之窗参观"]
+    activities: ["丹霞山赏春", "梁园踏青", "广州塔游览", "深圳世界之窗参观"],
   },
   summer: {
     name: "夏季",
     description: "夏季的广东，气温较高，是游览清远飞来峡、茂名上川岛的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["清远飞来峡漂流", "茂名上川岛海滩休闲", "河源万绿湖游船", "珠海渔女游览"]
+    activities: [
+      "清远飞来峡漂流",
+      "茂名上川岛海滩休闲",
+      "河源万绿湖游船",
+      "珠海渔女游览",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的广东，天高气爽，是游览肇庆鼎湖山、潮州古城的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["肇庆鼎湖山赏秋", "潮州古城游览", "广州陈家祠参观", "梅州客家围屋游览"]
+    activities: [
+      "肇庆鼎湖山赏秋",
+      "潮州古城游览",
+      "广州陈家祠参观",
+      "梅州客家围屋游览",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的广东，温暖如春，是游览深圳世界之窗、珠海渔女的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["深圳世界之窗游览", "珠海渔女观光", "广州塔夜游", "佛山梁园参观"]
-  }
+    activities: [
+      "深圳世界之窗游览",
+      "珠海渔女观光",
+      "广州塔夜游",
+      "佛山梁园参观",
+    ],
+  },
 };
 
 // 广东省活动数据
@@ -215,7 +245,7 @@ const guangdongActivities: TravelActivity[] = [
     location: "广东省韶关市仁化县",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +256,7 @@ const guangdongActivities: TravelActivity[] = [
     location: "广东省清远市清城区",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +267,7 @@ const guangdongActivities: TravelActivity[] = [
     location: "广东省广州市海珠区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +278,7 @@ const guangdongActivities: TravelActivity[] = [
     location: "广东省深圳市南山区",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +289,8 @@ const guangdongActivities: TravelActivity[] = [
     location: "广东省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 广东省路线数据
@@ -279,7 +309,7 @@ const guangdongRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +325,8 @@ const guangdongRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 广东省非物质文化遗产数据
@@ -312,7 +342,7 @@ const guangdongIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +355,7 @@ const guangdongIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +368,7 @@ const guangdongIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["演奏独特", "内容丰富", "历史悠久"]
+    features: ["演奏独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +381,7 @@ const guangdongIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
+    features: ["演唱独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +394,8 @@ const guangdongIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🪚",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
-  }
+    features: ["作品精美", "风格独特", "工艺精湛"],
+  },
 ];
 
 // 广东省数据
@@ -378,40 +408,45 @@ export const guangdongData = {
       {
         name: "丹霞山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "广东省韶关市的著名山脉，以其独特的丹霞地貌和壮丽的自然风光而闻名"
+        description:
+          "广东省韶关市的著名山脉，以其独特的丹霞地貌和壮丽的自然风光而闻名",
       },
       {
         name: "广州塔",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "广东省广州市的著名地标，以其独特的建筑设计和壮丽的城市景观而闻名"
+        description:
+          "广东省广州市的著名地标，以其独特的建筑设计和壮丽的城市景观而闻名",
       },
       {
         name: "深圳世界之窗",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "广东省深圳市的著名主题公园，以其丰富的世界文化景观和娱乐设施而闻名"
+        description:
+          "广东省深圳市的著名主题公园，以其丰富的世界文化景观和娱乐设施而闻名",
       },
       {
         name: "潮州古城",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "广东省潮州市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "广东省潮州市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "清远飞来峡",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "广东省清远市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名"
-      }
-    ]
+        description:
+          "广东省清远市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名",
+      },
+    ],
   },
   spots: [...guangdongNatureSpots, ...guangdongCultureSpots],
   seasonal: [
     guangdongSeasonalData.spring,
     guangdongSeasonalData.summer,
     guangdongSeasonalData.autumn,
-    guangdongSeasonalData.winter
+    guangdongSeasonalData.winter,
   ],
   activities: guangdongActivities,
   routes: guangdongRoutes,
-  intangibleHeritage: guangdongIntangibleHeritage
+  intangibleHeritage: guangdongIntangibleHeritage,
 };
 
 // 广东省风俗文化数据
@@ -420,35 +455,38 @@ export const guangdongCustomsData = {
     {
       id: "1",
       name: "粤剧表演欣赏",
-      description: "欣赏广东省传统戏曲艺术粤剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏广东省传统戏曲艺术粤剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "广东省广州市粤剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "潮剧表演欣赏",
-      description: "欣赏广东省潮州市传统戏曲艺术潮剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏广东省潮州市传统戏曲艺术潮剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "广东省潮州市潮剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "广东音乐欣赏",
-      description: "欣赏广东省传统音乐广东音乐表演，感受其独特的演奏形式和丰富的内容",
+      description:
+        "欣赏广东省传统音乐广东音乐表演，感受其独特的演奏形式和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "广东省广州市星海音乐厅",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +497,7 @@ export const guangdongCustomsData = {
       location: "广东省广州市荔湾区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "美食体验"
+      type: "美食体验",
     },
     {
       id: "5",
@@ -470,9 +508,9 @@ export const guangdongCustomsData = {
       location: "广东省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 广东民俗风情元素数据
@@ -481,32 +519,32 @@ export const guangdongFolkCustomsElements = [
     name: "粤剧",
     description: "广东省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "粤派文化", "文化遗产"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "粤派文化", "文化遗产"],
   },
   {
     name: "潮剧",
     description: "广东省潮州市传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "潮汕文化", "地方剧种", "表演艺术"]
+    tags: ["传统戏曲", "非遗文化", "潮汕文化", "地方剧种", "表演艺术"],
   },
   {
     name: "广东音乐",
     description: "广东省传统音乐，以其独特的演奏形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统音乐", "非遗文化", "民间艺术", "岭南文化", "丝竹乐"]
+    tags: ["传统音乐", "非遗文化", "民间艺术", "岭南文化", "丝竹乐"],
   },
   {
     name: "客家山歌",
     description: "广东省梅州市传统民歌，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统音乐", "非遗文化", "客家文化", "民间艺术", "口头文学"]
+    tags: ["传统音乐", "非遗文化", "客家文化", "民间艺术", "口头文学"],
   },
   {
     name: "广州牙雕",
     description: "广东省广州市传统雕刻技艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "雕刻艺术", "非遗文化", "工艺美术", "岭南工艺"]
-  }
+    tags: ["传统技艺", "雕刻艺术", "非遗文化", "工艺美术", "岭南工艺"],
+  },
 ];
 
 // 广东省文化节庆数据
@@ -518,7 +556,7 @@ export const guangdongFestivals = [
     month: "1月",
     day: "20日",
     location: "广东省广州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +565,7 @@ export const guangdongFestivals = [
     month: "2月",
     day: "15日",
     location: "广东省潮州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +574,7 @@ export const guangdongFestivals = [
     month: "10月",
     day: "1日",
     location: "广东省梅州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +583,7 @@ export const guangdongFestivals = [
     month: "5月",
     day: "16日",
     location: "广东省深圳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +592,7 @@ export const guangdongFestivals = [
     month: "4月",
     day: "5日",
     location: "广东省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +601,8 @@ export const guangdongFestivals = [
     month: "9月",
     day: "21日",
     location: "广东省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default guangdongData;

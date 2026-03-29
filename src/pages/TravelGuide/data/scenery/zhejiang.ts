@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 浙江省自然风光数据
 const zhejiangNatureSpots: ScenerySpot[] = [
   {
     id: "westLake",
     name: "西湖",
-    description: "浙江省杭州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
+    description:
+      "浙江省杭州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "浙江省杭州市西湖区",
     type: "nature",
@@ -14,12 +20,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "qiandaoLake",
     name: "千岛湖",
-    description: "浙江省杭州市淳安县的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
+    description:
+      "浙江省杭州市淳安县的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "浙江省杭州市淳安县",
     type: "nature",
@@ -28,12 +35,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "moganshan",
     name: "莫干山",
-    description: "浙江省湖州市德清县的著名山脉，以其清凉的气候和丰富的竹林资源而闻名",
+    description:
+      "浙江省湖州市德清县的著名山脉，以其清凉的气候和丰富的竹林资源而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "浙江省湖州市德清县",
     type: "nature",
@@ -42,12 +50,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "putuoMountain",
     name: "普陀山",
-    description: "浙江省舟山市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
+    description:
+      "浙江省舟山市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "浙江省舟山市普陀区",
     type: "nature",
@@ -56,12 +65,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "yandangMountain",
     name: "雁荡山",
-    description: "浙江省温州市乐清市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "浙江省温州市乐清市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "浙江省温州市乐清市",
     type: "nature",
@@ -70,12 +80,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "nanxiRiver",
     name: "楠溪江",
-    description: "浙江省温州市永嘉县的著名河流，以其美丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "浙江省温州市永嘉县的著名河流，以其美丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "浙江省温州市永嘉县",
     type: "nature",
@@ -84,12 +95,13 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
+    landformTags: ["河流景观"],
   },
   {
     id: "dongqianLake",
     name: "东钱湖",
-    description: "浙江省宁波市鄞州区的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
+    description:
+      "浙江省宁波市鄞州区的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "浙江省宁波市鄞州区",
     type: "nature",
@@ -98,8 +110,8 @@ const zhejiangNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 浙江省人文景观数据
@@ -107,7 +119,8 @@ const zhejiangCultureSpots: ScenerySpot[] = [
   {
     id: "hangzhouWestLakeCulturalLandscape",
     name: "杭州西湖文化景观",
-    description: "浙江省杭州市的著名文化景观，以其美丽的湖光山色和丰富的历史文化而闻名",
+    description:
+      "浙江省杭州市的著名文化景观，以其美丽的湖光山色和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "浙江省杭州市西湖区",
     type: "culture",
@@ -116,7 +129,7 @@ const zhejiangCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["文化景观"]
+    landformTags: ["文化景观"],
   },
   {
     id: "ningboTianyiPavilion",
@@ -130,12 +143,13 @@ const zhejiangCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "shaoxingLuXunAncestralHome",
     name: "绍兴鲁迅故居",
-    description: "浙江省绍兴市的著名历史故居，以其丰富的历史文化和鲁迅的文学成就而闻名",
+    description:
+      "浙江省绍兴市的著名历史故居，以其丰富的历史文化和鲁迅的文学成就而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "浙江省绍兴市越城区",
     type: "culture",
@@ -144,12 +158,13 @@ const zhejiangCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "wenzhouYuliaoAncientVillage",
     name: "温州屿北古村",
-    description: "浙江省温州市永嘉县的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "浙江省温州市永嘉县的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "浙江省温州市永嘉县",
     type: "culture",
@@ -158,12 +173,13 @@ const zhejiangCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史村落"]
+    landformTags: ["历史村落"],
   },
   {
     id: "jinhuaYuantongTemple",
     name: "金华圆通寺",
-    description: "浙江省金华市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "浙江省金华市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "浙江省金华市婺城区",
     type: "culture",
@@ -172,8 +188,8 @@ const zhejiangCultureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "religious",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 浙江省季节性数据
@@ -182,26 +198,32 @@ const zhejiangSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的浙江，万物复苏，是游览西湖、雁荡山的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["西湖赏春", "雁荡山踏青", "莫干山赏竹", "普陀山祈福"]
+    activities: ["西湖赏春", "雁荡山踏青", "莫干山赏竹", "普陀山祈福"],
   },
   summer: {
     name: "夏季",
     description: "夏季的浙江，气温较高，是游览千岛湖、莫干山的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["千岛湖游船", "莫干山避暑", "楠溪江漂流", "东钱湖消暑"]
+    activities: ["千岛湖游船", "莫干山避暑", "楠溪江漂流", "东钱湖消暑"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的浙江，天高气爽，是游览西湖、雁荡山的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["西湖赏秋", "雁荡山赏红叶", "莫干山赏竹", "普陀山祈福"]
+    activities: ["西湖赏秋", "雁荡山赏红叶", "莫干山赏竹", "普陀山祈福"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的浙江，虽然寒冷，但节日氛围浓厚，是游览西湖、普陀山的好去处",
+    description:
+      "冬季的浙江，虽然寒冷，但节日氛围浓厚，是游览西湖、普陀山的好去处",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["西湖赏雪", "普陀山祈福", "绍兴鲁迅故居游览", "宁波天一阁参观"]
-  }
+    activities: [
+      "西湖赏雪",
+      "普陀山祈福",
+      "绍兴鲁迅故居游览",
+      "宁波天一阁参观",
+    ],
+  },
 };
 
 // 浙江省活动数据
@@ -215,7 +237,7 @@ const zhejiangActivities: TravelActivity[] = [
     location: "浙江省杭州市西湖区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "2",
@@ -226,7 +248,7 @@ const zhejiangActivities: TravelActivity[] = [
     location: "浙江省杭州市淳安县",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +259,7 @@ const zhejiangActivities: TravelActivity[] = [
     location: "浙江省湖州市德清县",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -248,7 +270,7 @@ const zhejiangActivities: TravelActivity[] = [
     location: "浙江省舟山市普陀区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +281,8 @@ const zhejiangActivities: TravelActivity[] = [
     location: "浙江省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 浙江省路线数据
@@ -279,7 +301,7 @@ const zhejiangRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +310,20 @@ const zhejiangRoutes: RouteInfo[] = [
     description: "探索浙江的历史文化",
     duration: "4天",
     difficulty: "简单",
-    highlights: ["杭州西湖文化景观", "宁波天一阁", "绍兴鲁迅故居", "温州屿北古村"],
+    highlights: [
+      "杭州西湖文化景观",
+      "宁波天一阁",
+      "绍兴鲁迅故居",
+      "温州屿北古村",
+    ],
     spots: ["杭州西湖文化景观", "宁波天一阁", "绍兴鲁迅故居", "温州屿北古村"],
     tags: ["历史", "文化", "建筑"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.6,
     bestTime: "四季皆宜",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 浙江省非物质文化遗产数据
@@ -312,7 +339,7 @@ const zhejiangIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +352,7 @@ const zhejiangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["工艺精湛", "釉色独特", "历史悠久"]
+    features: ["工艺精湛", "釉色独特", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +365,7 @@ const zhejiangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪡",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["图案精美", "工艺独特", "历史悠久"]
+    features: ["图案精美", "工艺独特", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +378,7 @@ const zhejiangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍶",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["工艺独特", "口感醇厚", "历史悠久"]
+    features: ["工艺独特", "口感醇厚", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +391,8 @@ const zhejiangIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
-  }
+    features: ["图案精美", "风格独特", "工艺精湛"],
+  },
 ];
 
 // 浙江省数据
@@ -378,40 +405,45 @@ export const zhejiangData = {
       {
         name: "西湖",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "浙江省杭州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名"
+        description:
+          "浙江省杭州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
       },
       {
         name: "千岛湖",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "浙江省杭州市淳安县的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名"
+        description:
+          "浙江省杭州市淳安县的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
       },
       {
         name: "莫干山",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "浙江省湖州市德清县的著名山脉，以其清凉的气候和丰富的竹林资源而闻名"
+        description:
+          "浙江省湖州市德清县的著名山脉，以其清凉的气候和丰富的竹林资源而闻名",
       },
       {
         name: "普陀山",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "浙江省舟山市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名"
+        description:
+          "浙江省舟山市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
       },
       {
         name: "雁荡山",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "浙江省温州市乐清市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名"
-      }
-    ]
+        description:
+          "浙江省温州市乐清市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...zhejiangNatureSpots, ...zhejiangCultureSpots],
   seasonal: [
     zhejiangSeasonalData.spring,
     zhejiangSeasonalData.summer,
     zhejiangSeasonalData.autumn,
-    zhejiangSeasonalData.winter
+    zhejiangSeasonalData.winter,
   ],
   activities: zhejiangActivities,
   routes: zhejiangRoutes,
-  intangibleHeritage: zhejiangIntangibleHeritage
+  intangibleHeritage: zhejiangIntangibleHeritage,
 };
 
 // 浙江省风俗文化数据
@@ -420,13 +452,14 @@ export const zhejiangCustomsData = {
     {
       id: "1",
       name: "越剧表演",
-      description: "欣赏浙江省传统戏曲艺术越剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏浙江省传统戏曲艺术越剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "浙江省杭州市越剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +470,7 @@ export const zhejiangCustomsData = {
       location: "浙江省丽水市龙泉市青瓷博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +481,7 @@ export const zhejiangCustomsData = {
       location: "浙江省杭州市刺绣研究所",
       duration: "2-3小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +492,7 @@ export const zhejiangCustomsData = {
       location: "浙江省绍兴市黄酒博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +503,9 @@ export const zhejiangCustomsData = {
       location: "浙江省杭州市西湖区剪纸艺术坊",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
-    }
-  ]
+      type: "文化体验",
+    },
+  ],
 };
 
 // 浙江民俗风情元素数据
@@ -481,32 +514,32 @@ export const zhejiangFolkCustomsElements = [
     name: "越剧",
     description: "浙江省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "江南特色", "浙派文化"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "江南特色", "浙派文化"],
   },
   {
     name: "龙泉青瓷",
     description: "浙江省龙泉市传统制瓷技艺，以其精美的工艺和独特的釉色著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "浙江特色", "青瓷文化"]
+    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "浙江特色", "青瓷文化"],
   },
   {
     name: "杭州刺绣",
     description: "浙江省杭州市传统刺绣技艺，以其精美的图案和独特的工艺著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "刺绣艺术", "非遗文化", "杭绣特色", "工艺美术"]
+    tags: ["传统技艺", "刺绣艺术", "非遗文化", "杭绣特色", "工艺美术"],
   },
   {
     name: "绍兴黄酒",
     description: "浙江省绍兴市传统酿酒技艺，以其独特的工艺和醇厚的口感著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "饮食文化", "非遗文化", "绍兴特色", "酒文化"]
+    tags: ["传统技艺", "饮食文化", "非遗文化", "绍兴特色", "酒文化"],
   },
   {
     name: "浙江剪纸",
     description: "浙江省传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "浙江特色", "民间美术"]
-  }
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "浙江特色", "民间美术"],
+  },
 ];
 
 // 浙江省文化节庆数据
@@ -518,7 +551,7 @@ export const zhejiangFestivals = [
     month: "10月",
     day: "1日",
     location: "浙江省杭州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +560,7 @@ export const zhejiangFestivals = [
     month: "9月",
     day: "10日",
     location: "浙江省宁波市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +569,7 @@ export const zhejiangFestivals = [
     month: "10月",
     day: "18日",
     location: "浙江省绍兴市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +578,7 @@ export const zhejiangFestivals = [
     month: "5月",
     day: "1日",
     location: "浙江省温州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +587,7 @@ export const zhejiangFestivals = [
     month: "4月",
     day: "5日",
     location: "浙江省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +596,8 @@ export const zhejiangFestivals = [
     month: "9月",
     day: "21日",
     location: "浙江省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default zhejiangData;

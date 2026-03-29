@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 西藏自治区自然风光数据
 const xizangNatureSpots: ScenerySpot[] = [
   {
     id: "potalaPalace",
     name: "布达拉宫",
-    description: "西藏自治区拉萨市的著名宫殿，以其壮丽的建筑和重要的宗教意义而闻名",
+    description:
+      "西藏自治区拉萨市的著名宫殿，以其壮丽的建筑和重要的宗教意义而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "西藏自治区拉萨市城关区",
     type: "nature",
@@ -14,12 +20,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "namtsoLake",
     name: "纳木错",
-    description: "西藏自治区那曲市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名",
+    description:
+      "西藏自治区那曲市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "西藏自治区那曲市班戈县",
     type: "nature",
@@ -28,12 +35,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "yamdrokLake",
     name: "羊卓雍错",
-    description: "西藏自治区山南市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名",
+    description:
+      "西藏自治区山南市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "西藏自治区山南市浪卡子县",
     type: "nature",
@@ -42,12 +50,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "mountEverest",
     name: "珠穆朗玛峰",
-    description: "西藏自治区日喀则市的著名山峰，以其世界最高峰的地位和壮丽的自然风光而闻名",
+    description:
+      "西藏自治区日喀则市的著名山峰，以其世界最高峰的地位和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "西藏自治区日喀则市定日县",
     type: "nature",
@@ -56,12 +65,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "lhasaJokhangTemple",
     name: "拉萨大昭寺",
-    description: "西藏自治区拉萨市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
+    description:
+      "西藏自治区拉萨市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "西藏自治区拉萨市城关区",
     type: "nature",
@@ -70,12 +80,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "shigatseTashilhunpoMonastery",
     name: "日喀则扎什伦布寺",
-    description: "西藏自治区日喀则市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
+    description:
+      "西藏自治区日喀则市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "西藏自治区日喀则市桑珠孜区",
     type: "nature",
@@ -84,12 +95,13 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "linzhiBaishuiheGlacier",
     name: "林芝巴松错",
-    description: "西藏自治区林芝市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "西藏自治区林芝市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "西藏自治区林芝市工布江达县",
     type: "nature",
@@ -98,8 +110,8 @@ const xizangNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 西藏自治区人文景观数据
@@ -107,7 +119,8 @@ const xizangCultureSpots: ScenerySpot[] = [
   {
     id: "lhasaBarkhorStreet",
     name: "拉萨八廓街",
-    description: "西藏自治区拉萨市的著名商业街，以其独特的藏族建筑风格和丰富的民俗文化而闻名",
+    description:
+      "西藏自治区拉萨市的著名商业街，以其独特的藏族建筑风格和丰富的民俗文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "西藏自治区拉萨市城关区",
     type: "culture",
@@ -116,12 +129,13 @@ const xizangCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "lhasaNorbulingka",
     name: "拉萨罗布林卡",
-    description: "西藏自治区拉萨市的著名园林，以其精美的建筑和美丽的自然风光而闻名",
+    description:
+      "西藏自治区拉萨市的著名园林，以其精美的建筑和美丽的自然风光而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "西藏自治区拉萨市城关区",
     type: "culture",
@@ -130,7 +144,7 @@ const xizangCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "park",
     landscapeCategory: ["人文景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "lhasaTibetMuseum",
@@ -144,12 +158,13 @@ const xizangCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "aliGonchenMonastery",
     name: "阿里古格王朝遗址",
-    description: "西藏自治区阿里地区的著名历史遗址，以其重要的历史意义和独特的建筑风格而闻名",
+    description:
+      "西藏自治区阿里地区的著名历史遗址，以其重要的历史意义和独特的建筑风格而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "西藏自治区阿里地区札达县",
     type: "culture",
@@ -158,12 +173,13 @@ const xizangCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
+    landformTags: ["历史遗址"],
   },
   {
     id: "linzhiNyingchiPeachBlossomValley",
     name: "林芝桃花谷",
-    description: "西藏自治区林芝市的著名景区，以其美丽的桃花景观和壮丽的自然风光而闻名",
+    description:
+      "西藏自治区林芝市的著名景区，以其美丽的桃花景观和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "西藏自治区林芝市波密县",
     type: "culture",
@@ -172,8 +188,8 @@ const xizangCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["植物景观"]
-  }
+    landformTags: ["植物景观"],
+  },
 ];
 
 // 西藏自治区季节性数据
@@ -182,26 +198,43 @@ const xizangSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的西藏，万物复苏，是游览林芝桃花谷、珠穆朗玛峰的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["林芝桃花谷赏桃", "珠穆朗玛峰登山", "拉萨大昭寺朝圣", "八廓街民俗体验"]
+    activities: [
+      "林芝桃花谷赏桃",
+      "珠穆朗玛峰登山",
+      "拉萨大昭寺朝圣",
+      "八廓街民俗体验",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的西藏，气候宜人，是游览纳木错、羊卓雍错的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["纳木错湖畔休闲", "羊卓雍错观光", "罗布林卡避暑", "扎什伦布寺参观"]
+    activities: [
+      "纳木错湖畔休闲",
+      "羊卓雍错观光",
+      "罗布林卡避暑",
+      "扎什伦布寺参观",
+    ],
   },
   autumn: {
     name: "秋季",
-    description: "秋季的西藏，天高气爽，是游览阿里古格王朝遗址、林芝巴松错的最佳时节",
+    description:
+      "秋季的西藏，天高气爽，是游览阿里古格王朝遗址、林芝巴松错的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["阿里古格王朝遗址探险", "林芝巴松错赏秋", "布达拉宫参观", "大昭寺朝圣"]
+    activities: [
+      "阿里古格王朝遗址探险",
+      "林芝巴松错赏秋",
+      "布达拉宫参观",
+      "大昭寺朝圣",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的西藏，虽然寒冷，但阳光明媚，是参观布达拉宫、大昭寺的好时节",
+    description:
+      "冬季的西藏，虽然寒冷，但阳光明媚，是参观布达拉宫、大昭寺的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["布达拉宫深度游", "大昭寺朝圣", "八廓街购物", "罗布林卡赏冬"]
-  }
+    activities: ["布达拉宫深度游", "大昭寺朝圣", "八廓街购物", "罗布林卡赏冬"],
+  },
 };
 
 // 西藏自治区活动数据
@@ -209,13 +242,14 @@ const xizangActivities: TravelActivity[] = [
   {
     id: "1",
     name: "布达拉宫参观",
-    description: "参观西藏自治区拉萨市的著名宫殿布达拉宫，欣赏其壮丽的建筑和重要的宗教意义",
+    description:
+      "参观西藏自治区拉萨市的著名宫殿布达拉宫，欣赏其壮丽的建筑和重要的宗教意义",
     image: "https://picsum.photos/id/1053/600/400",
     category: "culture",
     location: "西藏自治区拉萨市城关区",
     duration: "半天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +260,7 @@ const xizangActivities: TravelActivity[] = [
     location: "西藏自治区那曲市班戈县",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +271,7 @@ const xizangActivities: TravelActivity[] = [
     location: "西藏自治区日喀则市定日县",
     duration: "7-10天",
     difficulty: "困难",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +282,7 @@ const xizangActivities: TravelActivity[] = [
     location: "西藏自治区拉萨市城关区",
     duration: "半天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +293,8 @@ const xizangActivities: TravelActivity[] = [
     location: "西藏自治区拉萨市八廓街",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 西藏自治区路线数据
@@ -279,7 +313,7 @@ const xizangRoutes: RouteInfo[] = [
     rating: 4.9,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +329,8 @@ const xizangRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 西藏自治区非物质文化遗产数据
@@ -312,7 +346,7 @@ const xizangIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +359,7 @@ const xizangIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🖼️",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "3",
@@ -338,7 +372,7 @@ const xizangIntangibleHeritage = [
     tags: ["民间文学", "国家级非遗", "民间艺术"],
     icon: "📚",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["篇幅宏大", "内容丰富", "历史悠久"]
+    features: ["篇幅宏大", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +385,7 @@ const xizangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "⚒️",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "5",
@@ -364,8 +398,8 @@ const xizangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏛️",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["建筑独特", "工艺精湛", "历史悠久"]
-  }
+    features: ["建筑独特", "工艺精湛", "历史悠久"],
+  },
 ];
 
 // 西藏自治区数据
@@ -378,40 +412,45 @@ export const xizangData = {
       {
         name: "布达拉宫",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "西藏自治区拉萨市的著名宫殿，以其壮丽的建筑和重要的宗教意义而闻名"
+        description:
+          "西藏自治区拉萨市的著名宫殿，以其壮丽的建筑和重要的宗教意义而闻名",
       },
       {
         name: "纳木错",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "西藏自治区那曲市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名"
+        description:
+          "西藏自治区那曲市的著名湖泊，以其美丽的自然风光和神圣的宗教地位而闻名",
       },
       {
         name: "珠穆朗玛峰",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "西藏自治区日喀则市的著名山峰，以其世界最高峰的地位和壮丽的自然风光而闻名"
+        description:
+          "西藏自治区日喀则市的著名山峰，以其世界最高峰的地位和壮丽的自然风光而闻名",
       },
       {
         name: "大昭寺",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "西藏自治区拉萨市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名"
+        description:
+          "西藏自治区拉萨市的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
       },
       {
         name: "林芝桃花谷",
         image: "https://picsum.photos/id/1048/600/400",
-        description: "西藏自治区林芝市的著名景区，以其美丽的桃花景观和壮丽的自然风光而闻名"
-      }
-    ]
+        description:
+          "西藏自治区林芝市的著名景区，以其美丽的桃花景观和壮丽的自然风光而闻名",
+      },
+    ],
   },
   spots: [...xizangNatureSpots, ...xizangCultureSpots],
   seasonal: [
     xizangSeasonalData.spring,
     xizangSeasonalData.summer,
     xizangSeasonalData.autumn,
-    xizangSeasonalData.winter
+    xizangSeasonalData.winter,
   ],
   activities: xizangActivities,
   routes: xizangRoutes,
-  intangibleHeritage: xizangIntangibleHeritage
+  intangibleHeritage: xizangIntangibleHeritage,
 };
 
 // 西藏自治区风俗文化数据
@@ -420,13 +459,14 @@ export const xizangCustomsData = {
     {
       id: "1",
       name: "藏戏表演欣赏",
-      description: "观看西藏自治区传统戏曲艺术藏戏表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "观看西藏自治区传统戏曲艺术藏戏表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "西藏自治区拉萨市城关区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,18 +477,19 @@ export const xizangCustomsData = {
       location: "西藏自治区拉萨市城关区",
       duration: "1天",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "藏族格萨尔史诗传唱",
-      description: "聆听西藏自治区传统民间文学格萨尔史诗传唱，感受其宏大的篇幅和丰富的内容",
+      description:
+        "聆听西藏自治区传统民间文学格萨尔史诗传唱，感受其宏大的篇幅和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "西藏自治区拉萨市城关区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +500,7 @@ export const xizangCustomsData = {
       location: "西藏自治区拉萨市城关区",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +511,9 @@ export const xizangCustomsData = {
       location: "西藏自治区拉萨市八廓街",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 西藏民俗风情元素数据
@@ -481,32 +522,32 @@ export const xizangFolkCustomsElements = [
     name: "藏戏",
     description: "西藏自治区传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "藏族特色", "表演艺术", "文化遗产"]
+    tags: ["传统戏曲", "非遗文化", "藏族特色", "表演艺术", "文化遗产"],
   },
   {
     name: "藏族唐卡",
     description: "西藏自治区传统美术，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统美术", "非遗文化", "藏族特色", "宗教艺术", "文化遗产"]
+    tags: ["传统美术", "非遗文化", "藏族特色", "宗教艺术", "文化遗产"],
   },
   {
     name: "藏族格萨尔史诗",
     description: "西藏自治区传统民间文学，以其宏大的篇幅和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["民间文学", "非遗文化", "藏族特色", "史诗文化", "文化遗产"]
+    tags: ["民间文学", "非遗文化", "藏族特色", "史诗文化", "文化遗产"],
   },
   {
     name: "藏族金属锻造",
     description: "西藏自治区传统手工艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "非遗文化", "藏族特色", "金属工艺", "民间工艺"]
+    tags: ["传统技艺", "非遗文化", "藏族特色", "金属工艺", "民间工艺"],
   },
   {
     name: "藏族碉楼",
     description: "西藏自治区传统建筑技艺，以其独特的建筑风格和精湛的工艺著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统建筑", "非遗文化", "藏族特色", "建筑技艺", "文化遗产"]
-  }
+    tags: ["传统建筑", "非遗文化", "藏族特色", "建筑技艺", "文化遗产"],
+  },
 ];
 
 // 西藏自治区文化节庆数据
@@ -518,7 +559,7 @@ export const xizangFestivals = [
     month: "2月",
     day: "1日",
     location: "西藏自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +568,7 @@ export const xizangFestivals = [
     month: "8月",
     day: "1日",
     location: "西藏自治区拉萨市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +577,7 @@ export const xizangFestivals = [
     month: "9月",
     day: "1日",
     location: "西藏自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +586,7 @@ export const xizangFestivals = [
     month: "5月",
     day: "15日",
     location: "西藏自治区拉萨市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +595,7 @@ export const xizangFestivals = [
     month: "4月",
     day: "5日",
     location: "西藏自治区各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +604,8 @@ export const xizangFestivals = [
     month: "9月",
     day: "21日",
     location: "西藏自治区各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default xizangData;

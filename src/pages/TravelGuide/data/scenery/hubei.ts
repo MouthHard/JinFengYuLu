@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 湖北省自然风光数据
 const hubeiNatureSpots: ScenerySpot[] = [
   {
     id: "wudangMountain",
     name: "武当山",
-    description: "湖北省十堰市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
+    description:
+      "湖北省十堰市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "湖北省十堰市丹江口市",
     type: "nature",
@@ -14,12 +20,13 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "threeGorges",
     name: "三峡",
-    description: "湖北省宜昌市的著名峡谷，以其壮丽的自然风光和宏伟的水利工程而闻名",
+    description:
+      "湖北省宜昌市的著名峡谷，以其壮丽的自然风光和宏伟的水利工程而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "湖北省宜昌市夷陵区",
     type: "nature",
@@ -28,7 +35,7 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "yellowCraneTower",
@@ -42,12 +49,13 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "yichangThreeGorgesDam",
     name: "宜昌三峡大坝",
-    description: "湖北省宜昌市的著名水利工程，以其宏伟的建筑和丰富的历史文化而闻名",
+    description:
+      "湖北省宜昌市的著名水利工程，以其宏伟的建筑和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "湖北省宜昌市夷陵区",
     type: "nature",
@@ -56,12 +64,13 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "dam",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
+    landformTags: ["河流景观"],
   },
   {
     id: "enshiGrandCanyon",
     name: "恩施大峡谷",
-    description: "湖北省恩施土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的地质景观而闻名",
+    description:
+      "湖北省恩施土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的地质景观而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "湖北省恩施土家族苗族自治州恩施市",
     type: "nature",
@@ -70,12 +79,13 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "dongtingLake",
     name: "洞庭湖",
-    description: "湖北省荆州市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "湖北省荆州市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "湖北省荆州市江陵县",
     type: "nature",
@@ -84,12 +94,13 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "shennongjia",
     name: "神农架",
-    description: "湖北省神农架林区的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
+    description:
+      "湖北省神农架林区的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "湖北省神农架林区",
     type: "nature",
@@ -98,8 +109,8 @@ const hubeiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
-  }
+    landformTags: ["森林景观"],
+  },
 ];
 
 // 湖北省人文景观数据
@@ -116,12 +127,13 @@ const hubeiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "yichangQingjiangGallery",
     name: "宜昌清江画廊",
-    description: "湖北省宜昌市的著名景区，以其美丽的自然风光和丰富的民俗文化而闻名",
+    description:
+      "湖北省宜昌市的著名景区，以其美丽的自然风光和丰富的民俗文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "湖北省宜昌市长阳土家族自治县",
     type: "culture",
@@ -130,12 +142,13 @@ const hubeiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗景观"]
+    landformTags: ["民俗景观"],
   },
   {
     id: "wudangMountainTemples",
     name: "武当山道教建筑群",
-    description: "湖北省十堰市的著名道教建筑群，以其宏伟的建筑和丰富的道教文化而闻名",
+    description:
+      "湖北省十堰市的著名道教建筑群，以其宏伟的建筑和丰富的道教文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "湖北省十堰市丹江口市",
     type: "culture",
@@ -144,7 +157,7 @@ const hubeiCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "jingzhouAncientCity",
@@ -158,12 +171,13 @@ const hubeiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古城"]
+    landformTags: ["历史古城"],
   },
   {
     id: "huanggangEastLake",
     name: "黄冈东坡赤壁",
-    description: "湖北省黄冈市的著名历史遗址，以其丰富的历史文化和优美的自然风光而闻名",
+    description:
+      "湖北省黄冈市的著名历史遗址，以其丰富的历史文化和优美的自然风光而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "湖北省黄冈市黄州区",
     type: "culture",
@@ -172,8 +186,8 @@ const hubeiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
-  }
+    landformTags: ["历史遗址"],
+  },
 ];
 
 // 湖北省季节性数据
@@ -182,26 +196,27 @@ const hubeiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的湖北，万物复苏，是游览武当山、恩施大峡谷的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["武当山赏春", "恩施大峡谷踏青", "神农架春游", "武汉樱花观赏"]
+    activities: ["武当山赏春", "恩施大峡谷踏青", "神农架春游", "武汉樱花观赏"],
   },
   summer: {
     name: "夏季",
     description: "夏季的湖北，气温较高，是游览三峡、清江画廊的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["三峡游览", "清江画廊游船", "神农架避暑", "武汉东湖休闲"]
+    activities: ["三峡游览", "清江画廊游船", "神农架避暑", "武汉东湖休闲"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的湖北，天高气爽，是游览洞庭湖、神农架的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["洞庭湖观鸟", "神农架赏秋", "武当山秋游", "武汉黄鹤楼游览"]
+    activities: ["洞庭湖观鸟", "神农架赏秋", "武当山秋游", "武汉黄鹤楼游览"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的湖北，虽然寒冷，但神农架雪景令人惊叹，是参观武汉博物馆的好时节",
+    description:
+      "冬季的湖北，虽然寒冷，但神农架雪景令人惊叹，是参观武汉博物馆的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["神农架赏雪", "武汉博物馆参观", "荆州古城冬游", "武当山祈福"]
-  }
+    activities: ["神农架赏雪", "武汉博物馆参观", "荆州古城冬游", "武当山祈福"],
+  },
 };
 
 // 湖北省活动数据
@@ -215,7 +230,7 @@ const hubeiActivities: TravelActivity[] = [
     location: "湖北省十堰市丹江口市",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +241,7 @@ const hubeiActivities: TravelActivity[] = [
     location: "湖北省宜昌市夷陵区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +252,7 @@ const hubeiActivities: TravelActivity[] = [
     location: "湖北省武汉市武昌区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -248,7 +263,7 @@ const hubeiActivities: TravelActivity[] = [
     location: "湖北省恩施土家族苗族自治州恩施市",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +274,8 @@ const hubeiActivities: TravelActivity[] = [
     location: "湖北省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 湖北省路线数据
@@ -279,7 +294,7 @@ const hubeiRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +310,8 @@ const hubeiRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 湖北省非物质文化遗产数据
@@ -312,7 +327,7 @@ const hubeiIntangibleHeritage = [
     tags: ["传统体育", "国家级非遗", "民间艺术"],
     icon: "🥋",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["招式独特", "文化底蕴深厚", "历史悠久"]
+    features: ["招式独特", "文化底蕴深厚", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +340,7 @@ const hubeiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,12 +353,13 @@ const hubeiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
     name: "土家族摆手舞",
-    description: "湖北省恩施土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖北省恩施土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     level: "national",
     category: "传统舞蹈",
     heritageType: "传统表演艺术",
@@ -351,7 +367,7 @@ const hubeiIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "💃",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +380,8 @@ const hubeiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍜",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["风味独特", "工艺精湛", "历史悠久"]
-  }
+    features: ["风味独特", "工艺精湛", "历史悠久"],
+  },
 ];
 
 // 湖北省数据
@@ -378,40 +394,45 @@ export const hubeiData = {
       {
         name: "武当山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "湖北省十堰市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名"
+        description:
+          "湖北省十堰市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
       },
       {
         name: "三峡",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "湖北省宜昌市的著名峡谷，以其壮丽的自然风光和宏伟的水利工程而闻名"
+        description:
+          "湖北省宜昌市的著名峡谷，以其壮丽的自然风光和宏伟的水利工程而闻名",
       },
       {
         name: "黄鹤楼",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "湖北省武汉市的著名楼阁，以其宏伟的建筑和丰富的历史文化而闻名"
+        description:
+          "湖北省武汉市的著名楼阁，以其宏伟的建筑和丰富的历史文化而闻名",
       },
       {
         name: "恩施大峡谷",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "湖北省恩施土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的地质景观而闻名"
+        description:
+          "湖北省恩施土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的地质景观而闻名",
       },
       {
         name: "神农架",
         image: "https://picsum.photos/id/1040/600/400",
-        description: "湖北省神农架林区的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名"
-      }
-    ]
+        description:
+          "湖北省神农架林区的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
+      },
+    ],
   },
   spots: [...hubeiNatureSpots, ...hubeiCultureSpots],
   seasonal: [
     hubeiSeasonalData.spring,
     hubeiSeasonalData.summer,
     hubeiSeasonalData.autumn,
-    hubeiSeasonalData.winter
+    hubeiSeasonalData.winter,
   ],
   activities: hubeiActivities,
   routes: hubeiRoutes,
-  intangibleHeritage: hubeiIntangibleHeritage
+  intangibleHeritage: hubeiIntangibleHeritage,
 };
 
 // 湖北省风俗文化数据
@@ -426,29 +447,31 @@ export const hubeiCustomsData = {
       location: "湖北省十堰市武当山",
       duration: "1-2天",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "楚剧表演欣赏",
-      description: "欣赏湖北省传统戏曲艺术楚剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏湖北省传统戏曲艺术楚剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "湖北省武汉市楚剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "土家族摆手舞体验",
-      description: "学习湖北省恩施土家族苗族自治州传统舞蹈摆手舞，体验其独特的魅力",
+      description:
+        "学习湖北省恩施土家族苗族自治州传统舞蹈摆手舞，体验其独特的魅力",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "湖北省恩施土家族苗族自治州恩施市",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +482,7 @@ export const hubeiCustomsData = {
       location: "湖北省武汉市户部巷",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +493,9 @@ export const hubeiCustomsData = {
       location: "湖北省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 湖北民俗风情元素数据
@@ -481,32 +504,33 @@ export const hubeiFolkCustomsElements = [
     name: "武当武术",
     description: "湖北省十堰市传统武术，以其独特的招式和深厚的道教文化底蕴著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统武术", "非遗文化", "道教文化", "湖北特色", "文化遗产"]
+    tags: ["传统武术", "非遗文化", "道教文化", "湖北特色", "文化遗产"],
   },
   {
     name: "楚剧",
     description: "湖北省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖北特色", "地方剧种"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖北特色", "地方剧种"],
   },
   {
     name: "土家族摆手舞",
-    description: "湖北省恩施土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖北省恩施土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统舞蹈", "非遗文化", "土家族特色", "表演艺术", "民俗文化"]
+    tags: ["传统舞蹈", "非遗文化", "土家族特色", "表演艺术", "民俗文化"],
   },
   {
     name: "武汉热干面",
     description: "湖北省武汉市传统面食制作技艺，以其独特的风味和精湛的工艺著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "传统技艺", "饮食文化", "湖北特色", "非遗传承"]
+    tags: ["特色美食", "传统技艺", "饮食文化", "湖北特色", "非遗传承"],
   },
   {
     name: "汉剧",
     description: "湖北省武汉市传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖北特色", "京剧前身"]
-  }
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖北特色", "京剧前身"],
+  },
 ];
 
 // 湖北省文化节庆数据
@@ -518,7 +542,7 @@ export const hubeiFestivals = [
     month: "3月",
     day: "15日",
     location: "湖北省武汉市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +551,7 @@ export const hubeiFestivals = [
     month: "10月",
     day: "17日",
     location: "湖北省十堰市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +560,7 @@ export const hubeiFestivals = [
     month: "9月",
     day: "28日",
     location: "湖北省宜昌市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +569,7 @@ export const hubeiFestivals = [
     month: "7月",
     day: "12日",
     location: "湖北省恩施土家族苗族自治州",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +578,7 @@ export const hubeiFestivals = [
     month: "4月",
     day: "5日",
     location: "湖北省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +587,8 @@ export const hubeiFestivals = [
     month: "9月",
     day: "21日",
     location: "湖北省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default hubeiData;

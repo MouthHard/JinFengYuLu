@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 山东省自然风光数据
 const shandongNatureSpots: ScenerySpot[] = [
   {
     id: "taishanMountain",
     name: "泰山",
-    description: "山东省泰安市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "山东省泰安市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "山东省泰安市泰山区",
     type: "nature",
@@ -14,12 +20,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "laoshanMountain",
     name: "崂山",
-    description: "山东省青岛市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
+    description:
+      "山东省青岛市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "山东省青岛市崂山区",
     type: "nature",
@@ -28,12 +35,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "weihaiLiugongIsland",
     name: "威海刘公岛",
-    description: "山东省威海市的著名海岛，以其美丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "山东省威海市的著名海岛，以其美丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "山东省威海市环翠区",
     type: "nature",
@@ -42,12 +50,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岛景观"]
+    landformTags: ["海岛景观"],
   },
   {
     id: "qingdaoBeach",
     name: "青岛海滩",
-    description: "山东省青岛市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
+    description:
+      "山东省青岛市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "山东省青岛市市南区",
     type: "nature",
@@ -56,12 +65,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "beach",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "yantaiChangdao",
     name: "烟台长岛",
-    description: "山东省烟台市的著名海岛，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "山东省烟台市的著名海岛，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "山东省烟台市长岛县",
     type: "nature",
@@ -70,12 +80,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岛景观"]
+    landformTags: ["海岛景观"],
   },
   {
     id: "binzhouYellowRiverEstuary",
     name: "滨州黄河三角洲",
-    description: "山东省滨州市的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
+    description:
+      "山东省滨州市的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "山东省滨州市沾化区",
     type: "nature",
@@ -84,12 +95,13 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "wetland",
     landscapeCategory: ["生物景观"],
-    landformTags: ["湿地景观"]
+    landformTags: ["湿地景观"],
   },
   {
     id: "liaochengDongchangLake",
     name: "聊城东昌湖",
-    description: "山东省聊城市的著名湖泊，以其美丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "山东省聊城市的著名湖泊，以其美丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "山东省聊城市东昌府区",
     type: "nature",
@@ -98,8 +110,8 @@ const shandongNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 山东省人文景观数据
@@ -116,12 +128,13 @@ const shandongCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "jinanBaotuSpring",
     name: "济南趵突泉",
-    description: "山东省济南市的著名泉水，以其独特的泉水景观和丰富的历史文化而闻名",
+    description:
+      "山东省济南市的著名泉水，以其独特的泉水景观和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "山东省济南市历下区",
     type: "culture",
@@ -130,12 +143,13 @@ const shandongCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "qingdaoOldTown",
     name: "青岛老城区",
-    description: "山东省青岛市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "山东省青岛市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "山东省青岛市市南区",
     type: "culture",
@@ -144,7 +158,7 @@ const shandongCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "weifangKiteMuseum",
@@ -158,7 +172,7 @@ const shandongCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "taianDaiTemple",
@@ -172,8 +186,8 @@ const shandongCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 山东省季节性数据
@@ -182,26 +196,47 @@ const shandongSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的山东，万物复苏，是游览崂山、济南趵突泉的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["崂山赏春", "济南趵突泉春游", "曲阜孔庙参观", "青岛老城区漫步"]
+    activities: [
+      "崂山赏春",
+      "济南趵突泉春游",
+      "曲阜孔庙参观",
+      "青岛老城区漫步",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的山东，气温较高，是游览青岛海滩、威海刘公岛的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["青岛海滩消暑", "威海刘公岛游览", "烟台长岛休闲", "聊城东昌湖游船"]
+    activities: [
+      "青岛海滩消暑",
+      "威海刘公岛游览",
+      "烟台长岛休闲",
+      "聊城东昌湖游船",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的山东，天高气爽，是游览泰山、滨州黄河三角洲的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["泰山登山", "滨州黄河三角洲观鸟", "曲阜孔庙参观", "济南趵突泉赏秋"]
+    activities: [
+      "泰山登山",
+      "滨州黄河三角洲观鸟",
+      "曲阜孔庙参观",
+      "济南趵突泉赏秋",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的山东，虽然寒冷，但泰山雪景令人惊叹，是参观潍坊风筝博物馆的好时节",
+    description:
+      "冬季的山东，虽然寒冷，但泰山雪景令人惊叹，是参观潍坊风筝博物馆的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["泰山赏雪", "潍坊风筝博物馆参观", "青岛老城区游览", "曲阜孔庙祈福"]
-  }
+    activities: [
+      "泰山赏雪",
+      "潍坊风筝博物馆参观",
+      "青岛老城区游览",
+      "曲阜孔庙祈福",
+    ],
+  },
 };
 
 // 山东省活动数据
@@ -215,7 +250,7 @@ const shandongActivities: TravelActivity[] = [
     location: "山东省泰安市泰山区",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +261,7 @@ const shandongActivities: TravelActivity[] = [
     location: "山东省青岛市市南区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +272,7 @@ const shandongActivities: TravelActivity[] = [
     location: "山东省济宁市曲阜市",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +283,7 @@ const shandongActivities: TravelActivity[] = [
     location: "山东省潍坊市奎文区",
     duration: "3-4小时",
     difficulty: "中等",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +294,8 @@ const shandongActivities: TravelActivity[] = [
     location: "山东省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 山东省路线数据
@@ -279,7 +314,7 @@ const shandongRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +330,8 @@ const shandongRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 山东省非物质文化遗产数据
@@ -312,7 +347,7 @@ const shandongIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪁",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["工艺独特", "外观精美", "历史悠久"]
+    features: ["工艺独特", "外观精美", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +360,7 @@ const shandongIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍳",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["风味独特", "工艺精湛", "历史悠久"]
+    features: ["风味独特", "工艺精湛", "历史悠久"],
   },
   {
     id: "3",
@@ -338,12 +373,13 @@ const shandongIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
     name: "胶东大鼓",
-    description: "山东省胶东地区传统说唱艺术，以其独特的表演形式和丰富的内容著称",
+    description:
+      "山东省胶东地区传统说唱艺术，以其独特的表演形式和丰富的内容著称",
     level: "national",
     category: "传统音乐",
     heritageType: "传统表演艺术",
@@ -351,7 +387,7 @@ const shandongIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🥁",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +400,8 @@ const shandongIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🌺",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["工艺独特", "花朵精美", "历史悠久"]
-  }
+    features: ["工艺独特", "花朵精美", "历史悠久"],
+  },
 ];
 
 // 山东省数据
@@ -378,40 +414,45 @@ export const shandongData = {
       {
         name: "泰山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "山东省泰安市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名"
+        description:
+          "山东省泰安市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
       },
       {
         name: "曲阜孔庙",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "山东省曲阜市的著名孔庙，以其宏伟的建筑和丰富的历史文化而闻名"
+        description:
+          "山东省曲阜市的著名孔庙，以其宏伟的建筑和丰富的历史文化而闻名",
       },
       {
         name: "崂山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "山东省青岛市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名"
+        description:
+          "山东省青岛市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
       },
       {
         name: "青岛海滩",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "山东省青岛市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名"
+        description:
+          "山东省青岛市的著名海滩，以其美丽的自然风光和丰富的娱乐设施而闻名",
       },
       {
         name: "济南趵突泉",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "山东省济南市的著名泉水，以其独特的泉水景观和丰富的历史文化而闻名"
-      }
-    ]
+        description:
+          "山东省济南市的著名泉水，以其独特的泉水景观和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...shandongNatureSpots, ...shandongCultureSpots],
   seasonal: [
     shandongSeasonalData.spring,
     shandongSeasonalData.summer,
     shandongSeasonalData.autumn,
-    shandongSeasonalData.winter
+    shandongSeasonalData.winter,
   ],
   activities: shandongActivities,
   routes: shandongRoutes,
-  intangibleHeritage: shandongIntangibleHeritage
+  intangibleHeritage: shandongIntangibleHeritage,
 };
 
 // 山东省风俗文化数据
@@ -426,7 +467,7 @@ export const shandongCustomsData = {
       location: "山东省潍坊市风筝博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,29 +478,31 @@ export const shandongCustomsData = {
       location: "山东省济南市鲁菜博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "山东快书表演",
-      description: "欣赏山东省传统说唱艺术快书表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏山东省传统说唱艺术快书表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "山东省济南市曲艺团",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "胶东大鼓表演",
-      description: "欣赏山东省胶东地区传统说唱艺术大鼓表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏山东省胶东地区传统说唱艺术大鼓表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "山东省烟台市胶东大鼓艺术团",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +513,9 @@ export const shandongCustomsData = {
       location: "山东省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 山东民俗风情元素数据
@@ -481,32 +524,33 @@ export const shandongFolkCustomsElements = [
     name: "潍坊风筝",
     description: "山东省潍坊市传统风筝制作技艺，以其独特的工艺和精美的外观著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "非遗文化", "民间艺术", "山东特色", "风筝之都"]
+    tags: ["传统技艺", "非遗文化", "民间艺术", "山东特色", "风筝之都"],
   },
   {
     name: "鲁菜",
     description: "山东省传统烹饪技艺，以其独特的风味和精湛的工艺著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["饮食文化", "传统技艺", "非遗文化", "八大菜系", "山东特色"]
+    tags: ["饮食文化", "传统技艺", "非遗文化", "八大菜系", "山东特色"],
   },
   {
     name: "山东快书",
     description: "山东省传统说唱艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统曲艺", "非遗文化", "表演艺术", "山东特色", "民间艺术"]
+    tags: ["传统曲艺", "非遗文化", "表演艺术", "山东特色", "民间艺术"],
   },
   {
     name: "胶东大鼓",
-    description: "山东省胶东地区传统说唱艺术，以其独特的表演形式和丰富的内容著称",
+    description:
+      "山东省胶东地区传统说唱艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统曲艺", "非遗文化", "表演艺术", "胶东特色", "民间艺术"]
+    tags: ["传统曲艺", "非遗文化", "表演艺术", "胶东特色", "民间艺术"],
   },
   {
     name: "菏泽牡丹",
     description: "山东省菏泽市传统牡丹栽培技艺，以其独特的工艺和精美的花朵著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "花卉文化", "非遗文化", "山东特色", "牡丹之都"]
-  }
+    tags: ["传统技艺", "花卉文化", "非遗文化", "山东特色", "牡丹之都"],
+  },
 ];
 
 // 山东省文化节庆数据
@@ -518,7 +562,7 @@ export const shandongFestivals = [
     month: "4月",
     day: "20日",
     location: "山东省潍坊市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +571,7 @@ export const shandongFestivals = [
     month: "9月",
     day: "6日",
     location: "山东省泰安市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +580,7 @@ export const shandongFestivals = [
     month: "8月",
     day: "1日",
     location: "山东省青岛市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +589,7 @@ export const shandongFestivals = [
     month: "9月",
     day: "28日",
     location: "山东省济宁市曲阜市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +598,7 @@ export const shandongFestivals = [
     month: "4月",
     day: "5日",
     location: "山东省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +607,8 @@ export const shandongFestivals = [
     month: "9月",
     day: "21日",
     location: "山东省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default shandongData;

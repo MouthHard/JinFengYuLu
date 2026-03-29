@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 福建省自然风光数据
 const fujianNatureSpots: ScenerySpot[] = [
   {
     id: "wuyiMountain",
     name: "武夷山",
-    description: "福建省南平市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "福建省南平市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "福建省南平市武夷山市",
     type: "nature",
@@ -14,12 +20,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "taimuMountain",
     name: "太姥山",
-    description: "福建省宁德市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
+    description:
+      "福建省宁德市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "福建省宁德市福鼎市",
     type: "nature",
@@ -28,12 +35,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "meizhouIsland",
     name: "湄洲岛",
-    description: "福建省莆田市的著名海岛，以其美丽的自然风光和丰富的妈祖文化而闻名",
+    description:
+      "福建省莆田市的著名海岛，以其美丽的自然风光和丰富的妈祖文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "福建省莆田市秀屿区",
     type: "nature",
@@ -42,12 +50,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岛景观"]
+    landformTags: ["海岛景观"],
   },
   {
     id: "dongshanIsland",
     name: "东山岛",
-    description: "福建省漳州市的著名海岛，以其美丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "福建省漳州市的著名海岛，以其美丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "福建省漳州市东山县",
     type: "nature",
@@ -56,12 +65,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岛景观"]
+    landformTags: ["海岛景观"],
   },
   {
     id: "qingyuanMountain",
     name: "清源山",
-    description: "福建省泉州市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "福建省泉州市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "福建省泉州市丰泽区",
     type: "nature",
@@ -70,12 +80,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "yuanyangLake",
     name: "鸳鸯湖",
-    description: "福建省宁德市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "福建省宁德市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "福建省宁德市屏南县",
     type: "nature",
@@ -84,12 +95,13 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "wanluLake",
     name: "万绿湖",
-    description: "福建省龙岩市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "福建省龙岩市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "福建省龙岩市连城县",
     type: "nature",
@@ -98,8 +110,8 @@ const fujianNatureSpots: ScenerySpot[] = [
     rating: 4.2,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 福建省人文景观数据
@@ -107,7 +119,8 @@ const fujianCultureSpots: ScenerySpot[] = [
   {
     id: "gulangyuIsland",
     name: "鼓浪屿",
-    description: "福建省厦门市的著名海岛，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "福建省厦门市的著名海岛，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "福建省厦门市思明区",
     type: "culture",
@@ -116,12 +129,13 @@ const fujianCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "yongdingEarthBuildings",
     name: "永定土楼",
-    description: "福建省龙岩市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "福建省龙岩市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "福建省龙岩市永定区",
     type: "culture",
@@ -130,12 +144,13 @@ const fujianCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "nanjingEarthBuildings",
     name: "南靖土楼",
-    description: "福建省漳州市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "福建省漳州市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "福建省漳州市南靖县",
     type: "culture",
@@ -144,12 +159,13 @@ const fujianCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "sanfangqixiang",
     name: "三坊七巷",
-    description: "福建省福州市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "福建省福州市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "福建省福州市鼓楼区",
     type: "culture",
@@ -158,12 +174,13 @@ const fujianCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "kaiyuanTemple",
     name: "开元寺",
-    description: "福建省泉州市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "福建省泉州市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "福建省泉州市鲤城区",
     type: "culture",
@@ -172,8 +189,8 @@ const fujianCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "religious",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 福建省季节性数据
@@ -182,26 +199,26 @@ const fujianSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的福建，万物复苏，是游览武夷山、鼓浪屿的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["武夷山赏春", "鼓浪屿春游", "土楼春游", "太姥山踏青"]
+    activities: ["武夷山赏春", "鼓浪屿春游", "土楼春游", "太姥山踏青"],
   },
   summer: {
     name: "夏季",
     description: "夏季的福建，气温较高，是游览湄洲岛、东山岛的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["湄洲岛消暑", "东山岛海滩", "万绿湖游船", "武夷山漂流"]
+    activities: ["湄洲岛消暑", "东山岛海滩", "万绿湖游船", "武夷山漂流"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的福建，天高气爽，是游览武夷山、太姥山的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["武夷山赏秋", "太姥山赏红叶", "土楼赏秋", "鼓浪屿漫步"]
+    activities: ["武夷山赏秋", "太姥山赏红叶", "土楼赏秋", "鼓浪屿漫步"],
   },
   winter: {
     name: "冬季",
     description: "冬季的福建，气候温暖，是游览福州、泉州的好去处",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["福州三坊七巷", "泉州开元寺", "厦门鼓浪屿", "莆田湄洲岛"]
-  }
+    activities: ["福州三坊七巷", "泉州开元寺", "厦门鼓浪屿", "莆田湄洲岛"],
+  },
 };
 
 // 福建省活动数据
@@ -215,7 +232,7 @@ const fujianActivities: TravelActivity[] = [
     location: "福建省南平市武夷山市",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +243,7 @@ const fujianActivities: TravelActivity[] = [
     location: "福建省厦门市思明区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +254,7 @@ const fujianActivities: TravelActivity[] = [
     location: "福建省龙岩市永定区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +265,7 @@ const fujianActivities: TravelActivity[] = [
     location: "福建省莆田市秀屿区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +276,8 @@ const fujianActivities: TravelActivity[] = [
     location: "福建省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 福建省路线数据
@@ -279,7 +296,7 @@ const fujianRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +312,8 @@ const fujianRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 福建省非物质文化遗产数据
@@ -312,7 +329,7 @@ const fujianIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪵",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["工艺精湛", "风格独特", "历史悠久"]
+    features: ["工艺精湛", "风格独特", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +342,7 @@ const fujianIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["工艺独特", "外观精美", "历史悠久"]
+    features: ["工艺独特", "外观精美", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +355,7 @@ const fujianIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +368,7 @@ const fujianIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +381,8 @@ const fujianIntangibleHeritage = [
     tags: ["民俗", "国家级非遗", "民间文化"],
     icon: "🙏",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["内容丰富", "影响力广泛", "历史悠久"]
-  }
+    features: ["内容丰富", "影响力广泛", "历史悠久"],
+  },
 ];
 
 // 福建省数据
@@ -378,40 +395,45 @@ export const fujianData = {
       {
         name: "武夷山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "福建省南平市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名"
+        description:
+          "福建省南平市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
       },
       {
         name: "鼓浪屿",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "福建省厦门市的著名海岛，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "福建省厦门市的著名海岛，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "永定土楼",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "福建省龙岩市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "福建省龙岩市的著名土楼群，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "太姥山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "福建省宁德市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名"
+        description:
+          "福建省宁德市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
       },
       {
         name: "湄洲岛",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "福建省莆田市的著名海岛，以其美丽的自然风光和丰富的妈祖文化而闻名"
-      }
-    ]
+        description:
+          "福建省莆田市的著名海岛，以其美丽的自然风光和丰富的妈祖文化而闻名",
+      },
+    ],
   },
   spots: [...fujianNatureSpots, ...fujianCultureSpots],
   seasonal: [
     fujianSeasonalData.spring,
     fujianSeasonalData.summer,
     fujianSeasonalData.autumn,
-    fujianSeasonalData.winter
+    fujianSeasonalData.winter,
   ],
   activities: fujianActivities,
   routes: fujianRoutes,
-  intangibleHeritage: fujianIntangibleHeritage
+  intangibleHeritage: fujianIntangibleHeritage,
 };
 
 // 福建省风俗文化数据
@@ -426,7 +448,7 @@ export const fujianCustomsData = {
       location: "福建省莆田市木雕艺术园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,29 +459,31 @@ export const fujianCustomsData = {
       location: "福建省福州市脱胎漆器博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "泉州提线木偶戏表演",
-      description: "欣赏福建省泉州市传统木偶戏表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏福建省泉州市传统木偶戏表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "福建省泉州市提线木偶戏院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "福建南音表演",
-      description: "欣赏福建省传统音乐艺术南音表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏福建省传统音乐艺术南音表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "福建省泉州市南音馆",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +494,9 @@ export const fujianCustomsData = {
       location: "福建省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 福建民俗风情元素数据
@@ -481,32 +505,32 @@ export const fujianFolkCustomsElements = [
     name: "莆田木雕",
     description: "福建省莆田市传统木雕技艺，以其精美的工艺和独特的风格著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "雕刻艺术", "非遗文化", "工艺美术", "闽派文化"]
+    tags: ["传统技艺", "雕刻艺术", "非遗文化", "工艺美术", "闽派文化"],
   },
   {
     name: "福州脱胎漆器",
     description: "福建省福州市传统漆器制作技艺，以其独特的工艺和精美的外观著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统技艺", "漆器艺术", "非遗文化", "工艺美术", "民间工艺"]
+    tags: ["传统技艺", "漆器艺术", "非遗文化", "工艺美术", "民间工艺"],
   },
   {
     name: "泉州提线木偶戏",
     description: "福建省泉州市传统木偶戏，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统戏曲", "木偶艺术", "非遗文化", "表演艺术", "民俗文化"]
+    tags: ["传统戏曲", "木偶艺术", "非遗文化", "表演艺术", "民俗文化"],
   },
   {
     name: "福建南音",
     description: "福建省传统音乐艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统音乐", "非遗文化", "活化石", "民间艺术", "古乐文化"]
+    tags: ["传统音乐", "非遗文化", "活化石", "民间艺术", "古乐文化"],
   },
   {
     name: "妈祖信俗",
     description: "福建省莆田市传统民俗信仰，以其丰富的内容和广泛的影响力著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["民俗信仰", "非遗文化", "海洋文化", "民间信俗", "文化遗产"]
-  }
+    tags: ["民俗信仰", "非遗文化", "海洋文化", "民间信俗", "文化遗产"],
+  },
 ];
 
 // 福建省文化节庆数据
@@ -518,7 +542,7 @@ export const fujianFestivals = [
     month: "11月",
     day: "1日",
     location: "福建省南平市武夷山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +551,7 @@ export const fujianFestivals = [
     month: "7月",
     day: "1日",
     location: "福建省厦门市思明区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +560,7 @@ export const fujianFestivals = [
     month: "10月",
     day: "1日",
     location: "福建省莆田市秀屿区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +569,7 @@ export const fujianFestivals = [
     month: "12月",
     day: "1日",
     location: "福建省福州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +578,7 @@ export const fujianFestivals = [
     month: "4月",
     day: "5日",
     location: "福建省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +587,8 @@ export const fujianFestivals = [
     month: "9月",
     day: "21日",
     location: "福建省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default fujianData;

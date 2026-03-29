@@ -1,0 +1,531 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+
+  .modal-container {
+    background: linear-gradient(135deg, #fff, #f8f5f0);
+    border-radius: 24px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow:
+      0 40px 120px rgba(139, 115, 51, 0.4),
+      0 20px 60px rgba(139, 115, 51, 0.3),
+      0 10px 30px rgba(139, 115, 51, 0.2);
+    animation: slideUp 0.4s ease-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(184, 115, 51, 0.3);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    // 隐藏滚动条但保留滚动功能
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+
+    &::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari and Opera */
+    }
+
+    // 竹简纹理装饰
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTAgMCBMIDUwIDAgTCA1MCAxMDAgTCAwIDEwMCIgc3Ryb2tlPSIjZDRjOWE4IiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNjAgMCBMIDExMCAwIEwgMTEwIDEwMCBMIDYwIDEwMCIgc3Ryb2tlPSIjZDRjOWE4IiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTIwIDAgTCAxNzAgMCBMIDE3MCAxMDAgTCAxMjAgMTAwIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZT0iI2Q0YzlhOCIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIi8+PC9zdmc+");
+      background-repeat: repeat;
+      opacity: 0.05;
+      pointer-events: none;
+      border-radius: 24px;
+    }
+
+    // 装饰边框
+    &::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border: 1px solid rgba(184, 115, 51, 0.1);
+      border-radius: 20px;
+      pointer-events: none;
+      box-shadow: inset 0 1px 3px rgba(139, 115, 51, 0.1);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #f8f5f0, #fff);
+      padding: 24px 36px;
+      border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      flex-shrink: 0;
+
+      .header-actions {
+        display: flex;
+        gap: 12px;
+
+        .action-button {
+          width: 48px;
+          height: 48px;
+          border: 2px solid rgba(184, 115, 51, 0.3);
+          background: linear-gradient(135deg, #fff, #f8f5f0);
+          border-radius: 50%;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow:
+            0 4px 12px rgba(139, 115, 85, 0.15),
+            0 2px 6px rgba(139, 115, 85, 0.1);
+          transform-style: preserve-3d;
+          perspective: 1000px;
+
+          &:hover {
+            background: linear-gradient(135deg, #cd5c5c, #b22222);
+            color: white;
+            transform: scale(1.15) rotateY(5deg);
+            box-shadow:
+              0 10px 25px rgba(205, 92, 92, 0.4),
+              0 5px 15px rgba(205, 92, 92, 0.3);
+            border-color: #cd5c5c;
+          }
+        }
+      }
+
+      .close-button {
+        width: 48px;
+        height: 48px;
+        border: 2px solid rgba(184, 115, 51, 0.3);
+        background: linear-gradient(135deg, #fff, #f8f5f0);
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        color: #8b4513;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 4px 12px rgba(139, 115, 85, 0.15),
+          0 2px 6px rgba(139, 115, 85, 0.1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+
+        &:hover {
+          background: linear-gradient(135deg, #cd5c5c, #b22222);
+          color: white;
+          transform: scale(1.1) rotateY(5deg);
+          box-shadow:
+            0 8px 20px rgba(205, 92, 92, 0.4),
+            0 4px 12px rgba(205, 92, 92, 0.3);
+          border-color: #cd5c5c;
+        }
+      }
+    }
+
+    .modal-content {
+      padding: 0;
+      flex: 1;
+      overflow-y: auto;
+      // 隐藏滚动条但保留滚动功能
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
+
+      &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari and Opera */
+      }
+
+      .poem-image {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .image-decoration {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 120px;
+          background: linear-gradient(to top, #f8f5f0, transparent);
+        }
+      }
+
+      .poem-details {
+        padding: 36px;
+
+        .poem-meta {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 24px;
+          justify-content: center;
+
+          .dynasty-tag {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #cd5c5c, #b22222);
+            color: white;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(205, 92, 92, 0.3);
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+
+          .author-name {
+            font-size: 18px;
+            color: #4a4a4a;
+            font-weight: 600;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+
+          .form-tag {
+            padding: 10px 24px;
+            background: linear-gradient(
+              135deg,
+              rgba(184, 115, 51, 0.1),
+              rgba(184, 115, 51, 0.05)
+            );
+            color: #8b4513;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+
+        .poem-title {
+          font-size: 36px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin-bottom: 36px;
+          text-align: center;
+          font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          line-height: 1.3;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem-content {
+          text-align: center;
+          margin-bottom: 36px;
+
+          .poem-line {
+            font-size: 24px;
+            line-height: 2.4;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+
+        .poem-tags {
+          display: flex;
+          justify-content: center;
+          gap: 16px;
+          margin-bottom: 36px;
+          flex-wrap: wrap;
+
+          .tag {
+            padding: 10px 24px;
+            background: linear-gradient(
+              135deg,
+              rgba(184, 115, 51, 0.1),
+              rgba(184, 115, 51, 0.05)
+            );
+            color: #8b4513;
+            border-radius: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+            box-shadow: 0 3px 10px rgba(184, 115, 51, 0.15);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(184, 115, 51, 0.2),
+                transparent
+              );
+              transition: left 0.6s ease;
+            }
+
+            &:hover {
+              background: linear-gradient(135deg, #cd5c5c, #b22222);
+              color: white;
+              transform: translateY(-5px) rotateX(5deg) scale(1.05);
+              box-shadow: 0 8px 25px rgba(205, 92, 92, 0.4);
+              border-color: #cd5c5c;
+
+              &::before {
+                left: 100%;
+              }
+            }
+          }
+        }
+
+        .poem-annotation {
+          margin-bottom: 28px;
+          padding: 24px;
+          background: linear-gradient(
+            135deg,
+            rgba(184, 115, 51, 0.05),
+            rgba(184, 115, 51, 0.03)
+          );
+          border-radius: 16px;
+          border-left: 4px solid #cd5c5c;
+          box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+          border: 1px solid rgba(184, 115, 51, 0.2);
+
+          .annotation-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #8b4513;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+
+            .title-icon {
+              font-size: 20px;
+              color: #cd5c5c;
+            }
+          }
+
+          .annotation-text {
+            font-size: 16px;
+            line-height: 2;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+
+        .poem-background {
+          margin-bottom: 28px;
+          padding: 24px;
+          background: linear-gradient(
+            135deg,
+            rgba(184, 115, 51, 0.05),
+            rgba(184, 115, 51, 0.03)
+          );
+          border-radius: 16px;
+          border-left: 4px solid #cd5c5c;
+          box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+          border: 1px solid rgba(184, 115, 51, 0.2);
+
+          .background-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #8b4513;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+
+            .title-icon {
+              font-size: 20px;
+              color: #cd5c5c;
+            }
+          }
+
+          .background-text {
+            font-size: 16px;
+            line-height: 2;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+
+        .poem-appreciation {
+          margin-bottom: 28px;
+          padding: 24px;
+          background: linear-gradient(
+            135deg,
+            rgba(184, 115, 51, 0.08),
+            rgba(184, 115, 51, 0.05)
+          );
+          border-radius: 16px;
+          border-left: 4px solid #b87333;
+          box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+          border: 1px solid rgba(184, 115, 51, 0.2);
+
+          .appreciation-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #b87333;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+
+            .title-icon {
+              font-size: 20px;
+              color: #cd5c5c;
+            }
+          }
+
+          .appreciation-text {
+            font-size: 16px;
+            line-height: 2;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+
+        .poet-introduction {
+          margin-bottom: 28px;
+          padding: 24px;
+          background: linear-gradient(
+            135deg,
+            rgba(139, 69, 19, 0.08),
+            rgba(139, 69, 19, 0.05)
+          );
+          border-radius: 16px;
+          border-left: 4px solid #8b4513;
+          box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+          border: 1px solid rgba(184, 115, 51, 0.2);
+
+          .poet-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #8b4513;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+
+            .title-icon {
+              font-size: 20px;
+              color: #cd5c5c;
+            }
+          }
+
+          .poet-text {
+            font-size: 16px;
+            line-height: 2;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95) rotateX(5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+  }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    .modal-container {
+      max-height: 95vh;
+      border-radius: 20px;
+
+      .modal-content {
+        .poem-image {
+          height: 220px;
+        }
+
+        .poem-details {
+          padding: 24px;
+
+          .poem-title {
+            font-size: 28px;
+          }
+
+          .poem-content {
+            .poem-line {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

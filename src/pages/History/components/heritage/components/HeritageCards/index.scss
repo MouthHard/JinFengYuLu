@@ -1,0 +1,341 @@
+// 动画关键帧
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 中间遗产卡片区域 - 3D 透视轮播
+.heritage-cards {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  perspective: 1200px;
+
+  // 中国传统云纹装饰
+  .cloud-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,50 Q30,30 50,35 Q70,40 80,20 Q90,30 70,50 Q90,70 80,80 Q70,70 50,65 Q30,60 20,80 Q10,70 30,50 Z" fill="none" stroke="rgba(245,215,110,0.03)" stroke-width="1"/></svg>');
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 2;
+
+    // 左侧控制区 - 中国传统风格按钮
+    .carousel-controls {
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 20;
+
+      .control-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(
+          145deg,
+          rgba(40, 40, 45, 0.9) 0%,
+          rgba(25, 25, 30, 0.95) 100%
+        );
+        color: rgba(248, 249, 250, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+        svg {
+          width: 22px;
+          height: 22px;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          background: linear-gradient(
+            145deg,
+            rgba(245, 215, 110, 0.2) 0%,
+            rgba(245, 215, 110, 0.1) 100%
+          );
+          color: #f5d76e;
+          border-color: #f5d76e;
+          transform: scale(1.1);
+          box-shadow:
+            0 0 25px rgba(245, 215, 110, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+          svg {
+            transform: scale(1.1);
+          }
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+
+      .control-dots {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 8px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+          }
+
+          &.active {
+            background: #f5d76e;
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(245, 215, 110, 0.3);
+
+            &::before {
+              border-color: rgba(245, 215, 110, 0.3);
+            }
+          }
+
+          &:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    // 卡片包裹区 - 3D 透视容器
+    .cards-wrapper {
+      position: absolute;
+      left: 100px;
+      right: 80px;
+      top: 0;
+      bottom: 0;
+      max-width: 700px;
+      transform-style: preserve-3d;
+
+      .heritage-card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+        border-radius: 20px;
+
+        // 卡片底座光晕
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80%;
+          height: 40px;
+          background: radial-gradient(
+            ellipse,
+            rgba(0, 0, 0, 0.5) 0%,
+            transparent 70%
+          );
+          filter: blur(10px);
+          transition: all 0.5s ease;
+        }
+
+        &.active {
+          z-index: 10;
+
+          &::before {
+            background: radial-gradient(
+              ellipse,
+              rgba(245, 215, 110, 0.2) 0%,
+              transparent 70%
+            );
+          }
+
+          .heritage-image {
+            box-shadow:
+              0 25px 80px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(245, 215, 110, 0.15);
+            border-color: rgba(245, 215, 110, 0.3);
+          }
+
+          .card-info {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        &:hover:not(.active) {
+          .heritage-image {
+            box-shadow:
+              0 20px 60px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(245, 215, 110, 0.1);
+          }
+        }
+
+        .heritage-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        // 卡片信息浮层
+        .card-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 25px;
+          background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 30%,
+            rgba(0, 0, 0, 0.95) 100%
+          );
+          border-radius: 0 0 20px 20px;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.4s ease;
+          pointer-events: none;
+
+          .card-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f8f9fa;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+          }
+
+          .card-era {
+            font-size: 13px;
+            color: #f5d76e;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 1200px) {
+  .heritage-cards {
+    padding: 30px;
+    min-height: 500px;
+
+    .carousel-container {
+      .cards-wrapper {
+        left: 80px;
+        right: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .heritage-cards {
+    padding: 20px;
+    min-height: 420px;
+
+    .carousel-container {
+      .carousel-controls {
+        left: 15px;
+        gap: 15px;
+
+        .control-btn {
+          width: 40px;
+          height: 40px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        .control-dots {
+          gap: 10px;
+          padding: 12px 6px;
+
+          .dot {
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+
+      .cards-wrapper {
+        left: 70px;
+        right: 20px;
+
+        .heritage-card {
+          .card-info {
+            padding: 15px;
+
+            .card-name {
+              font-size: 16px;
+            }
+
+            .card-era {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

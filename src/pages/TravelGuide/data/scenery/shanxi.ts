@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 山西省自然风光数据
 const shanxiNatureSpots: ScenerySpot[] = [
   {
     id: "wutaiMountain",
     name: "五台山",
-    description: "中国佛教四大名山之一，以其众多的佛教寺庙和壮丽的自然风光而闻名",
+    description:
+      "中国佛教四大名山之一，以其众多的佛教寺庙和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "山西省忻州市五台县",
     type: "nature",
@@ -14,7 +20,7 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "hengMountain",
@@ -28,7 +34,7 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "hukouWaterfall",
@@ -42,7 +48,7 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "water",
     landscapeCategory: ["水景观"],
-    landformTags: ["瀑布景观"]
+    landformTags: ["瀑布景观"],
   },
   {
     id: "taihangMountainGrandCanyon",
@@ -56,7 +62,7 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "canyon",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "yellowRiverGorge",
@@ -70,7 +76,7 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "canyon",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "guandiMountain",
@@ -84,12 +90,13 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "nanzhongshanForestPark",
     name: "南中山森林公园",
-    description: "山西省著名的森林公园，以其丰富的森林资源和优美的自然风光而闻名",
+    description:
+      "山西省著名的森林公园，以其丰富的森林资源和优美的自然风光而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "山西省太原市娄烦县",
     type: "nature",
@@ -98,8 +105,8 @@ const shanxiNatureSpots: ScenerySpot[] = [
     rating: 4.2,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
-  }
+    landformTags: ["森林景观"],
+  },
 ];
 
 // 山西省人文景观数据
@@ -107,7 +114,8 @@ const shanxiCultureSpots: ScenerySpot[] = [
   {
     id: "pingyaoAncientCity",
     name: "平遥古城",
-    description: "中国保存最完好的明清古城之一，以其完整的古城墙和传统建筑而闻名",
+    description:
+      "中国保存最完好的明清古城之一，以其完整的古城墙和传统建筑而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "山西省晋中市平遥县",
     type: "culture",
@@ -116,7 +124,7 @@ const shanxiCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "yungangGrottoes",
@@ -130,7 +138,7 @@ const shanxiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "qiaojiaCourtyard",
@@ -144,7 +152,7 @@ const shanxiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "王家大院",
@@ -158,12 +166,13 @@ const shanxiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "tieniuCity",
     name: "铁牛城",
-    description: "中国古代著名的军事防御工程，以其独特的建筑结构和悠久的历史而闻名",
+    description:
+      "中国古代著名的军事防御工程，以其独特的建筑结构和悠久的历史而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "山西省运城市永济市",
     type: "culture",
@@ -172,8 +181,8 @@ const shanxiCultureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
-  }
+    landformTags: ["历史遗迹"],
+  },
 ];
 
 // 山西省季节性数据
@@ -182,26 +191,36 @@ const shanxiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的山西，万物复苏，是游览壶口瀑布、平遥古城的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["壶口瀑布观瀑", "平遥古城访古", "五台山朝佛", "太行山大峡谷踏青"]
+    activities: [
+      "壶口瀑布观瀑",
+      "平遥古城访古",
+      "五台山朝佛",
+      "太行山大峡谷踏青",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的山西，五台山、恒山是避暑的好去处，太行山大峡谷水流充沛",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["五台山避暑", "恒山登山", "太行山大峡谷漂流", "关帝山森林浴"]
+    activities: ["五台山避暑", "恒山登山", "太行山大峡谷漂流", "关帝山森林浴"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的山西，太行山脉红叶满山，黄河大峡谷景色壮丽",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["太行山脉赏红叶", "黄河大峡谷秋游", "平遥古城赏秋", "云冈石窟参观"]
+    activities: [
+      "太行山脉赏红叶",
+      "黄河大峡谷秋游",
+      "平遥古城赏秋",
+      "云冈石窟参观",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的山西，五台山雪景如画，平遥古城年味浓厚",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["五台山赏雪", "平遥古城春节庙会", "云冈石窟参观", "温泉度假"]
-  }
+    activities: ["五台山赏雪", "平遥古城春节庙会", "云冈石窟参观", "温泉度假"],
+  },
 };
 
 // 山西省活动数据
@@ -215,7 +234,7 @@ const shanxiActivities: TravelActivity[] = [
     location: "五台山景区",
     duration: "2-3天",
     difficulty: "中等",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +245,7 @@ const shanxiActivities: TravelActivity[] = [
     location: "平遥古城",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "3",
@@ -237,7 +256,7 @@ const shanxiActivities: TravelActivity[] = [
     location: "太行山大峡谷景区",
     duration: "3-4小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +267,7 @@ const shanxiActivities: TravelActivity[] = [
     location: "云冈石窟景区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +278,8 @@ const shanxiActivities: TravelActivity[] = [
     location: "山西省晋中市",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
-  }
+    type: "文化体验",
+  },
 ];
 
 // 山西省路线数据
@@ -279,7 +298,7 @@ const shanxiRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +314,8 @@ const shanxiRoutes: RouteInfo[] = [
     rating: 4.6,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "户外爱好者"
-  }
+    suitableFor: "户外爱好者",
+  },
 ];
 
 // 山西省非物质文化遗产数据
@@ -312,7 +331,7 @@ const shanxiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["唱腔独特", "表演精湛", "历史悠久"]
+    features: ["唱腔独特", "表演精湛", "历史悠久"],
   },
   {
     id: "2",
@@ -325,12 +344,13 @@ const shanxiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["工艺精湛", "图案精美", "历史悠久"]
+    features: ["工艺精湛", "图案精美", "历史悠久"],
   },
   {
     id: "3",
     name: "杏花村汾酒酿制技艺",
-    description: "山西杏花村传统汾酒酿制技艺，以其独特的酿造工艺和醇厚的口感著称",
+    description:
+      "山西杏花村传统汾酒酿制技艺，以其独特的酿造工艺和醇厚的口感著称",
     level: "national",
     category: "传统技艺",
     heritageType: "传统手工艺",
@@ -338,7 +358,7 @@ const shanxiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍶",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["工艺独特", "口感醇厚", "历史悠久"]
+    features: ["工艺独特", "口感醇厚", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +371,7 @@ const shanxiIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🥁",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["气势雄浑", "表现力丰富", "历史悠久"]
+    features: ["气势雄浑", "表现力丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +384,8 @@ const shanxiIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🎯",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["造型精美", "题材丰富", "历史悠久"]
-  }
+    features: ["造型精美", "题材丰富", "历史悠久"],
+  },
 ];
 
 // 山西省数据
@@ -378,40 +398,42 @@ export const shanxiData = {
       {
         name: "五台山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "中国佛教四大名山之一，以其众多的佛教寺庙和壮丽的自然风光而闻名"
+        description:
+          "中国佛教四大名山之一，以其众多的佛教寺庙和壮丽的自然风光而闻名",
       },
       {
         name: "平遥古城",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "中国保存最完好的明清古城之一，以其完整的古城墙和传统建筑而闻名"
+        description:
+          "中国保存最完好的明清古城之一，以其完整的古城墙和传统建筑而闻名",
       },
       {
         name: "云冈石窟",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "中国四大石窟之一，以其精美的佛教造像和悠久的历史而闻名"
+        description: "中国四大石窟之一，以其精美的佛教造像和悠久的历史而闻名",
       },
       {
         name: "壶口瀑布",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "中国第二大瀑布，以其壮观的瀑布景观和黄河文化而闻名"
+        description: "中国第二大瀑布，以其壮观的瀑布景观和黄河文化而闻名",
       },
       {
         name: "乔家大院",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "中国著名的晋商大院，以其宏伟的建筑和丰富的历史文化而闻名"
-      }
-    ]
+        description: "中国著名的晋商大院，以其宏伟的建筑和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...shanxiNatureSpots, ...shanxiCultureSpots],
   seasonal: [
     shanxiSeasonalData.spring,
     shanxiSeasonalData.summer,
     shanxiSeasonalData.autumn,
-    shanxiSeasonalData.winter
+    shanxiSeasonalData.winter,
   ],
   activities: shanxiActivities,
   routes: shanxiRoutes,
-  intangibleHeritage: shanxiIntangibleHeritage
+  intangibleHeritage: shanxiIntangibleHeritage,
 };
 
 // 山西省风俗文化数据
@@ -426,7 +448,7 @@ export const shanxiCustomsData = {
       location: "山西省太原市晋剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +459,7 @@ export const shanxiCustomsData = {
       location: "山西省平遥县推光漆器艺术园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +470,7 @@ export const shanxiCustomsData = {
       location: "山西省新绛县绛州鼓乐艺术团",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +481,7 @@ export const shanxiCustomsData = {
       location: "山西省各地",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +492,9 @@ export const shanxiCustomsData = {
       location: "山西省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 山西省民俗风情元素数据
@@ -481,32 +503,32 @@ export const shanxiFolkCustomsElements = [
     name: "山西庙会",
     description: "山西传统民俗活动，春节期间举行",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["民俗活动", "节庆文化", "非遗文化", "山西特色", "民俗体验"]
+    tags: ["民俗活动", "节庆文化", "非遗文化", "山西特色", "民俗体验"],
   },
   {
     name: "山西方言",
     description: "山西独特的方言，具有浓郁的地方特色",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["语言文化", "地方特色", "晋文化", "山西特色", "文化传承"]
+    tags: ["语言文化", "地方特色", "晋文化", "山西特色", "文化传承"],
   },
   {
     name: "山西传统婚礼",
     description: "山西传统婚礼仪式，具有独特的地方特色",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["民俗礼仪", "传统文化", "婚俗文化", "山西特色", "民俗传承"]
+    tags: ["民俗礼仪", "传统文化", "婚俗文化", "山西特色", "民俗传承"],
   },
   {
     name: "山西小吃",
     description: "山西传统特色小吃，品种丰富",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "饮食文化", "晋菜特色", "山西特色", "传统技艺"]
+    tags: ["特色美食", "饮食文化", "晋菜特色", "山西特色", "传统技艺"],
   },
   {
     name: "山西民间舞蹈",
     description: "山西传统民间舞蹈，如威风锣鼓、踢鼓子秧歌等",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统舞蹈", "非遗文化", "表演艺术", "山西特色", "民间艺术"]
-  }
+    tags: ["传统舞蹈", "非遗文化", "表演艺术", "山西特色", "民间艺术"],
+  },
 ];
 
 // 山西省文化节庆数据
@@ -518,7 +540,7 @@ export const shanxiFestivals = [
     month: "2月",
     day: "1日",
     location: "山西省各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +549,7 @@ export const shanxiFestivals = [
     month: "7月",
     day: "25日",
     location: "山西省忻州市五台县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +558,7 @@ export const shanxiFestivals = [
     month: "9月",
     day: "19日",
     location: "山西省晋中市平遥县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +567,7 @@ export const shanxiFestivals = [
     month: "8月",
     day: "1日",
     location: "山西省大同市云冈区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +576,7 @@ export const shanxiFestivals = [
     month: "4月",
     day: "5日",
     location: "山西省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +585,8 @@ export const shanxiFestivals = [
     month: "9月",
     day: "21日",
     location: "山西省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default shanxiData;

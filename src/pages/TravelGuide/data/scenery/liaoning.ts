@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 辽宁省自然风光数据
 const liaoningNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "cave",
     landscapeCategory: ["地理景观"],
-    landformTags: ["喀斯特景观"]
+    landformTags: ["喀斯特景观"],
   },
   {
     id: "yellowSeaCoast",
@@ -28,12 +33,13 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "coastal",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岸景观"]
+    landformTags: ["海岸景观"],
   },
   {
     id: "laotieMountain",
     name: "老铁山",
-    description: "辽宁省大连市的著名山峰，以其壮丽的自然风光和重要的地理位置而闻名",
+    description:
+      "辽宁省大连市的著名山峰，以其壮丽的自然风光和重要的地理位置而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "辽宁省大连市旅顺口区",
     type: "nature",
@@ -42,7 +48,7 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "dalianBeach",
@@ -56,12 +62,13 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "coastal",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岸景观"]
+    landformTags: ["海岸景观"],
   },
   {
     id: "anshanQianshan",
     name: "鞍山千山",
-    description: "辽宁省鞍山市的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名",
+    description:
+      "辽宁省鞍山市的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "辽宁省鞍山市千山区",
     type: "nature",
@@ -70,7 +77,7 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "huludaoBeach",
@@ -84,12 +91,13 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "coastal",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岸景观"]
+    landformTags: ["海岸景观"],
   },
   {
     id: "fushunHonghuahu",
     name: "抚顺红湖",
-    description: "辽宁省抚顺市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
+    description:
+      "辽宁省抚顺市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "辽宁省抚顺市新宾满族自治县",
     type: "nature",
@@ -98,8 +106,8 @@ const liaoningNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 辽宁省人文景观数据
@@ -107,7 +115,8 @@ const liaoningCultureSpots: ScenerySpot[] = [
   {
     id: "shenyangImperialPalace",
     name: "沈阳故宫",
-    description: "中国现存的两座古代宫殿建筑群之一，以其宏伟的建筑和丰富的历史文化而闻名",
+    description:
+      "中国现存的两座古代宫殿建筑群之一，以其宏伟的建筑和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "辽宁省沈阳市沈河区",
     type: "culture",
@@ -116,7 +125,7 @@ const liaoningCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "liaoningMuseum",
@@ -130,7 +139,7 @@ const liaoningCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "dalianModernMuseum",
@@ -144,7 +153,7 @@ const liaoningCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "anshanIronAndSteelMuseum",
@@ -158,7 +167,7 @@ const liaoningCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "jinzhouAncientCity",
@@ -172,8 +181,8 @@ const liaoningCultureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
-  }
+    landformTags: ["历史遗迹"],
+  },
 ];
 
 // 辽宁省季节性数据
@@ -182,26 +191,31 @@ const liaoningSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的辽宁，万物复苏，是游览沈阳故宫、鞍山千山的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["沈阳故宫访古", "鞍山千山踏青", "大连赏樱花", "本溪赏桃花"]
+    activities: ["沈阳故宫访古", "鞍山千山踏青", "大连赏樱花", "本溪赏桃花"],
   },
   summer: {
     name: "夏季",
     description: "夏季的辽宁，海滨浴场开放，是避暑休闲的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["大连海滩度假", "葫芦岛海滨休闲", "本溪水洞游览", "抚顺红湖游船"]
+    activities: [
+      "大连海滩度假",
+      "葫芦岛海滨休闲",
+      "本溪水洞游览",
+      "抚顺红湖游船",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的辽宁，千山红叶满山，老铁山景色壮丽",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["鞍山千山赏红叶", "老铁山秋游", "沈阳故宫赏秋", "大连赏秋"]
+    activities: ["鞍山千山赏红叶", "老铁山秋游", "沈阳故宫赏秋", "大连赏秋"],
   },
   winter: {
     name: "冬季",
     description: "冬季的辽宁，沈阳故宫雪景如画，大连温泉众多",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["沈阳故宫赏雪", "大连温泉度假", "鞍山千山赏雪", "本溪冰雪节"]
-  }
+    activities: ["沈阳故宫赏雪", "大连温泉度假", "鞍山千山赏雪", "本溪冰雪节"],
+  },
 };
 
 // 辽宁省活动数据
@@ -215,7 +229,7 @@ const liaoningActivities: TravelActivity[] = [
     location: "沈阳故宫",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +240,7 @@ const liaoningActivities: TravelActivity[] = [
     location: "大连金石滩",
     duration: "全天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +251,7 @@ const liaoningActivities: TravelActivity[] = [
     location: "本溪水洞景区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +262,7 @@ const liaoningActivities: TravelActivity[] = [
     location: "鞍山千山景区",
     duration: "4-6小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +273,8 @@ const liaoningActivities: TravelActivity[] = [
     location: "辽宁省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 辽宁省路线数据
@@ -279,7 +293,7 @@ const liaoningRoutes: RouteInfo[] = [
     rating: 4.6,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +309,8 @@ const liaoningRoutes: RouteInfo[] = [
     rating: 4.5,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 辽宁省非物质文化遗产数据
@@ -312,7 +326,7 @@ const liaoningIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["唱腔独特", "表演精湛", "历史悠久"]
+    features: ["唱腔独特", "表演精湛", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +339,7 @@ const liaoningIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎪",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["幽默风趣", "表演精湛", "历史悠久"]
+    features: ["幽默风趣", "表演精湛", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +352,7 @@ const liaoningIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["造型独特", "釉色精美", "工艺精湛"]
+    features: ["造型独特", "釉色精美", "工艺精湛"],
   },
   {
     id: "4",
@@ -351,7 +365,7 @@ const liaoningIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "5",
@@ -364,8 +378,8 @@ const liaoningIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🐚",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["图案精美", "材料独特", "工艺精湛"]
-  }
+    features: ["图案精美", "材料独特", "工艺精湛"],
+  },
 ];
 
 // 辽宁省数据
@@ -378,40 +392,44 @@ export const liaoningData = {
       {
         name: "沈阳故宫",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "中国现存的两座古代宫殿建筑群之一，以其宏伟的建筑和丰富的历史文化而闻名"
+        description:
+          "中国现存的两座古代宫殿建筑群之一，以其宏伟的建筑和丰富的历史文化而闻名",
       },
       {
         name: "本溪水洞",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "中国最大的地下充水溶洞，以其独特的喀斯特地貌和地下河而闻名"
+        description:
+          "中国最大的地下充水溶洞，以其独特的喀斯特地貌和地下河而闻名",
       },
       {
         name: "大连海滩",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "辽宁省大连市的著名海滩，以其美丽的沙滩和清澈的海水而闻名"
+        description: "辽宁省大连市的著名海滩，以其美丽的沙滩和清澈的海水而闻名",
       },
       {
         name: "鞍山千山",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "辽宁省鞍山市的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名"
+        description:
+          "辽宁省鞍山市的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名",
       },
       {
         name: "辽宁省博物馆",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "辽宁省最大的综合性博物馆，以其丰富的馆藏和精美的展览而闻名"
-      }
-    ]
+        description:
+          "辽宁省最大的综合性博物馆，以其丰富的馆藏和精美的展览而闻名",
+      },
+    ],
   },
   spots: [...liaoningNatureSpots, ...liaoningCultureSpots],
   seasonal: [
     liaoningSeasonalData.spring,
     liaoningSeasonalData.summer,
     liaoningSeasonalData.autumn,
-    liaoningSeasonalData.winter
+    liaoningSeasonalData.winter,
   ],
   activities: liaoningActivities,
   routes: liaoningRoutes,
-  intangibleHeritage: liaoningIntangibleHeritage
+  intangibleHeritage: liaoningIntangibleHeritage,
 };
 
 // 辽宁省风俗文化数据
@@ -426,18 +444,19 @@ export const liaoningCustomsData = {
       location: "辽宁省沈阳市评剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "东北二人转表演",
-      description: "欣赏辽宁传统民间艺术东北二人转表演，感受其幽默风趣的表演风格",
+      description:
+        "欣赏辽宁传统民间艺术东北二人转表演，感受其幽默风趣的表演风格",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "辽宁省沈阳市二人转剧场",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +467,7 @@ export const liaoningCustomsData = {
       location: "辽宁省辽瓷艺术园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +478,7 @@ export const liaoningCustomsData = {
       location: "辽宁省沈阳市剪纸艺术园",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +489,9 @@ export const liaoningCustomsData = {
       location: "辽宁省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 辽宁省民俗风情元素数据
@@ -481,32 +500,32 @@ export const liaoningFolkCustomsElements = [
     name: "辽宁庙会",
     description: "辽宁传统民俗活动，春节期间举行",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["民俗活动", "节庆文化", "非遗文化", "辽宁特色", "民俗体验"]
+    tags: ["民俗活动", "节庆文化", "非遗文化", "辽宁特色", "民俗体验"],
   },
   {
     name: "东北方言",
     description: "辽宁独特的东北方言，以其幽默风趣著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["语言文化", "地方特色", "民间文化", "东北特色", "文化传承"]
+    tags: ["语言文化", "地方特色", "民间文化", "东北特色", "文化传承"],
   },
   {
     name: "辽宁传统婚礼",
     description: "辽宁传统婚礼仪式，具有独特的地方特色",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["民俗礼仪", "传统文化", "婚俗文化", "辽宁特色", "民俗传承"]
+    tags: ["民俗礼仪", "传统文化", "婚俗文化", "辽宁特色", "民俗传承"],
   },
   {
     name: "辽宁小吃",
     description: "辽宁传统特色小吃，品种丰富",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "饮食文化", "传统技艺", "辽宁特色", "民间美食"]
+    tags: ["特色美食", "饮食文化", "传统技艺", "辽宁特色", "民间美食"],
   },
   {
     name: "辽宁民间舞蹈",
     description: "辽宁传统民间舞蹈，如东北大秧歌等",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统舞蹈", "非遗文化", "表演艺术", "东北特色", "民间艺术"]
-  }
+    tags: ["传统舞蹈", "非遗文化", "表演艺术", "东北特色", "民间艺术"],
+  },
 ];
 
 // 辽宁省文化节庆数据
@@ -518,7 +537,7 @@ export const liaoningFestivals = [
     month: "2月",
     day: "1日",
     location: "辽宁省各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +546,7 @@ export const liaoningFestivals = [
     month: "9月",
     day: "15日",
     location: "辽宁省大连市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +555,7 @@ export const liaoningFestivals = [
     month: "8月",
     day: "1日",
     location: "辽宁省沈阳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +564,7 @@ export const liaoningFestivals = [
     month: "6月",
     day: "1日",
     location: "辽宁省鞍山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +573,7 @@ export const liaoningFestivals = [
     month: "4月",
     day: "5日",
     location: "辽宁省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +582,8 @@ export const liaoningFestivals = [
     month: "9月",
     day: "21日",
     location: "辽宁省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default liaoningData;

@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 河南省自然风光数据
 const henanNatureSpots: ScenerySpot[] = [
   {
     id: "yuntaishanMountain",
     name: "云台山",
-    description: "河南省焦作市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
+    description:
+      "河南省焦作市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "河南省焦作市修武县",
     type: "nature",
@@ -14,12 +20,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "laojunshanMountain",
     name: "老君山",
-    description: "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
+    description:
+      "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "河南省洛阳市栾川县",
     type: "nature",
@@ -28,12 +35,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "longmenGrottoes",
     name: "龙门石窟",
-    description: "河南省洛阳市的著名石窟，以其精美的石刻艺术和丰富的历史文化而闻名",
+    description:
+      "河南省洛阳市的著名石窟，以其精美的石刻艺术和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "河南省洛阳市洛龙区",
     type: "nature",
@@ -42,12 +50,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "grotto",
     landscapeCategory: ["地理景观"],
-    landformTags: ["喀斯特景观"]
+    landformTags: ["喀斯特景观"],
   },
   {
     id: "jigongshanMountain",
     name: "鸡公山",
-    description: "河南省信阳市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "河南省信阳市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "河南省信阳市浉河区",
     type: "nature",
@@ -56,12 +65,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "redFlagCanal",
     name: "红旗渠",
-    description: "河南省安阳市的著名水利工程，以其宏伟的建筑和丰富的历史文化而闻名",
+    description:
+      "河南省安阳市的著名水利工程，以其宏伟的建筑和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "河南省安阳市林州市",
     type: "nature",
@@ -70,12 +80,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "canal",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
+    landformTags: ["河流景观"],
   },
   {
     id: "baiyunMountain",
     name: "白云山",
-    description: "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "河南省洛阳市嵩县",
     type: "nature",
@@ -84,12 +95,13 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "yellowRiverScenicArea",
     name: "黄河风景区",
-    description: "河南省郑州市的著名自然景区，以其壮丽的黄河景观和丰富的历史文化而闻名",
+    description:
+      "河南省郑州市的著名自然景区，以其壮丽的黄河景观和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "河南省郑州市惠济区",
     type: "nature",
@@ -98,8 +110,8 @@ const henanNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
-  }
+    landformTags: ["河流景观"],
+  },
 ];
 
 // 河南省人文景观数据
@@ -116,12 +128,13 @@ const henanCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "kaifengSongCity",
     name: "开封宋城",
-    description: "河南省开封市的著名历史街区，以其独特的宋代建筑风格和丰富的历史文化而闻名",
+    description:
+      "河南省开封市的著名历史街区，以其独特的宋代建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "河南省开封市龙亭区",
     type: "culture",
@@ -130,7 +143,7 @@ const henanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "anyangYinxu",
@@ -144,7 +157,7 @@ const henanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
+    landformTags: ["历史遗址"],
   },
   {
     id: "zhengzhouHenanMuseum",
@@ -158,7 +171,7 @@ const henanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "luoyangWhiteHorseTemple",
@@ -172,8 +185,8 @@ const henanCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 河南省季节性数据
@@ -182,26 +195,32 @@ const henanSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的河南，万物复苏，是游览云台山、白云山的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["云台山赏春", "白云山踏青", "洛阳牡丹观赏", "开封宋城游览"]
+    activities: ["云台山赏春", "白云山踏青", "洛阳牡丹观赏", "开封宋城游览"],
   },
   summer: {
     name: "夏季",
     description: "夏季的河南，气温较高，是游览鸡公山、红旗渠的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["鸡公山避暑", "红旗渠参观", "云台山消暑", "洛阳龙门石窟游览"]
+    activities: ["鸡公山避暑", "红旗渠参观", "云台山消暑", "洛阳龙门石窟游览"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的河南，天高气爽，是游览老君山、黄河风景区的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["老君山赏秋", "黄河风景区观光", "云台山赏红叶", "少林寺参观"]
+    activities: ["老君山赏秋", "黄河风景区观光", "云台山赏红叶", "少林寺参观"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的河南，虽然寒冷，但老君山雪景令人惊叹，是参观安阳殷墟的好时节",
+    description:
+      "冬季的河南，虽然寒冷，但老君山雪景令人惊叹，是参观安阳殷墟的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["老君山赏雪", "安阳殷墟参观", "郑州河南博物院游览", "开封宋城冬游"]
-  }
+    activities: [
+      "老君山赏雪",
+      "安阳殷墟参观",
+      "郑州河南博物院游览",
+      "开封宋城冬游",
+    ],
+  },
 };
 
 // 河南省活动数据
@@ -215,7 +234,7 @@ const henanActivities: TravelActivity[] = [
     location: "河南省焦作市修武县",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +245,7 @@ const henanActivities: TravelActivity[] = [
     location: "河南省郑州市登封市",
     duration: "1-2天",
     difficulty: "中等",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "3",
@@ -237,7 +256,7 @@ const henanActivities: TravelActivity[] = [
     location: "河南省洛阳市洛龙区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +267,7 @@ const henanActivities: TravelActivity[] = [
     location: "河南省洛阳市涧西区",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "5",
@@ -259,8 +278,8 @@ const henanActivities: TravelActivity[] = [
     location: "河南省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 河南省路线数据
@@ -279,7 +298,7 @@ const henanRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +314,8 @@ const henanRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 河南省非物质文化遗产数据
@@ -312,7 +331,7 @@ const henanIntangibleHeritage = [
     tags: ["传统体育", "国家级非遗", "民间艺术"],
     icon: "🥋",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["招式独特", "文化底蕴深厚", "历史悠久"]
+    features: ["招式独特", "文化底蕴深厚", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +344,7 @@ const henanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +357,7 @@ const henanIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🪡",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "4",
@@ -351,7 +370,7 @@ const henanIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["釉色精美", "造型独特", "工艺精湛"]
+    features: ["釉色精美", "造型独特", "工艺精湛"],
   },
   {
     id: "5",
@@ -364,8 +383,8 @@ const henanIntangibleHeritage = [
     tags: ["传统知识", "国家级非遗", "民间艺术"],
     icon: "📜",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["字形独特", "历史文化丰富", "意义重大"]
-  }
+    features: ["字形独特", "历史文化丰富", "意义重大"],
+  },
 ];
 
 // 河南省数据
@@ -378,40 +397,45 @@ export const henanData = {
       {
         name: "云台山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "河南省焦作市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名"
+        description:
+          "河南省焦作市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
       },
       {
         name: "少林寺",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "河南省登封市的著名寺庙，以其丰富的佛教文化和武术传统而闻名"
+        description:
+          "河南省登封市的著名寺庙，以其丰富的佛教文化和武术传统而闻名",
       },
       {
         name: "龙门石窟",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "河南省洛阳市的著名石窟，以其精美的石刻艺术和丰富的历史文化而闻名"
+        description:
+          "河南省洛阳市的著名石窟，以其精美的石刻艺术和丰富的历史文化而闻名",
       },
       {
         name: "老君山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名"
+        description:
+          "河南省洛阳市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
       },
       {
         name: "安阳殷墟",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "河南省安阳市的著名考古遗址，以其丰富的商代文化和历史而闻名"
-      }
-    ]
+        description:
+          "河南省安阳市的著名考古遗址，以其丰富的商代文化和历史而闻名",
+      },
+    ],
   },
   spots: [...henanNatureSpots, ...henanCultureSpots],
   seasonal: [
     henanSeasonalData.spring,
     henanSeasonalData.summer,
     henanSeasonalData.autumn,
-    henanSeasonalData.winter
+    henanSeasonalData.winter,
   ],
   activities: henanActivities,
   routes: henanRoutes,
-  intangibleHeritage: henanIntangibleHeritage
+  intangibleHeritage: henanIntangibleHeritage,
 };
 
 // 河南省风俗文化数据
@@ -426,18 +450,19 @@ export const henanCustomsData = {
       location: "河南省登封市少林寺",
       duration: "1-2天",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "豫剧表演欣赏",
-      description: "欣赏河南省传统戏曲艺术豫剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏河南省传统戏曲艺术豫剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "河南省郑州市豫剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +473,7 @@ export const henanCustomsData = {
       location: "河南省开封市汴绣艺术坊",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +484,7 @@ export const henanCustomsData = {
       location: "河南省洛阳市唐三彩文化园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +495,9 @@ export const henanCustomsData = {
       location: "河南省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 河南民俗风情元素数据
@@ -481,32 +506,32 @@ export const henanFolkCustomsElements = [
     name: "少林功夫",
     description: "河南省登封市传统武术，以其独特的招式和深厚的文化底蕴著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统武术", "非遗文化", "禅武文化", "河南特色", "世界遗产"]
+    tags: ["传统武术", "非遗文化", "禅武文化", "河南特色", "世界遗产"],
   },
   {
     name: "豫剧",
     description: "河南省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "河南特色", "地方剧种"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "河南特色", "地方剧种"],
   },
   {
     name: "开封汴绣",
     description: "河南省开封市传统刺绣技艺，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "刺绣艺术", "非遗文化", "河南特色", "工艺美术"]
+    tags: ["传统技艺", "刺绣艺术", "非遗文化", "河南特色", "工艺美术"],
   },
   {
     name: "洛阳唐三彩",
     description: "河南省洛阳市传统陶瓷烧制技艺，以其精美的釉色和独特的造型著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "河南特色", "工艺美术"]
+    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "河南特色", "工艺美术"],
   },
   {
     name: "安阳殷墟甲骨文",
     description: "河南省安阳市传统文字，以其独特的字形和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["文化遗产", "古文字", "世界遗产", "河南特色", "历史文化"]
-  }
+    tags: ["文化遗产", "古文字", "世界遗产", "河南特色", "历史文化"],
+  },
 ];
 
 // 河南省文化节庆数据
@@ -518,7 +543,7 @@ export const henanFestivals = [
     month: "4月",
     day: "1日",
     location: "河南省洛阳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +552,7 @@ export const henanFestivals = [
     month: "10月",
     day: "18日",
     location: "河南省开封市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +561,7 @@ export const henanFestivals = [
     month: "10月",
     day: "16日",
     location: "河南省郑州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +570,7 @@ export const henanFestivals = [
     month: "9月",
     day: "16日",
     location: "河南省安阳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +579,7 @@ export const henanFestivals = [
     month: "4月",
     day: "5日",
     location: "河南省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +588,8 @@ export const henanFestivals = [
     month: "9月",
     day: "21日",
     location: "河南省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default henanData;

@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 香港特别行政区自然风光数据
 const hongkongNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "ocean",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "victoriaPeak",
@@ -28,7 +33,7 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "lantauIsland",
@@ -42,7 +47,7 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["岛屿景观"]
+    landformTags: ["岛屿景观"],
   },
   {
     id: "rePulseBay",
@@ -56,12 +61,13 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "beach",
     landscapeCategory: ["水景观"],
-    landformTags: ["海滩景观"]
+    landformTags: ["海滩景观"],
   },
   {
     id: "saiKungCountryPark",
     name: "西贡郊野公园",
-    description: "香港特别行政区的著名郊野公园，以其壮丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "香港特别行政区的著名郊野公园，以其壮丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "香港特别行政区西贡区",
     type: "nature",
@@ -70,12 +76,13 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "hongKongZoologicalAndBotanicalGardens",
     name: "香港动植物公园",
-    description: "香港特别行政区的著名公园，以其丰富的动植物资源和美丽的环境而闻名",
+    description:
+      "香港特别行政区的著名公园，以其丰富的动植物资源和美丽的环境而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "香港特别行政区香港岛",
     type: "nature",
@@ -84,12 +91,13 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "tuenMunPark",
     name: "屯门公园",
-    description: "香港特别行政区的著名公园，以其美丽的环境和丰富的休闲设施而闻名",
+    description:
+      "香港特别行政区的著名公园，以其美丽的环境和丰富的休闲设施而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "香港特别行政区屯门区",
     type: "nature",
@@ -98,8 +106,8 @@ const hongkongNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["公园景观"]
-  }
+    landformTags: ["公园景观"],
+  },
 ];
 
 // 香港特别行政区人文景观数据
@@ -107,7 +115,8 @@ const hongkongCultureSpots: ScenerySpot[] = [
   {
     id: "hongKongDisneyland",
     name: "香港迪士尼乐园",
-    description: "香港特别行政区的著名主题公园，以其丰富的娱乐设施和迪士尼文化而闻名",
+    description:
+      "香港特别行政区的著名主题公园，以其丰富的娱乐设施和迪士尼文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "香港特别行政区大屿山",
     type: "culture",
@@ -116,12 +125,13 @@ const hongkongCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "entertainment",
     landscapeCategory: ["人文景观"],
-    landformTags: ["主题公园"]
+    landformTags: ["主题公园"],
   },
   {
     id: "oceanParkHongKong",
     name: "香港海洋公园",
-    description: "香港特别行政区的著名海洋主题公园，以其丰富的海洋动物和娱乐设施而闻名",
+    description:
+      "香港特别行政区的著名海洋主题公园，以其丰富的海洋动物和娱乐设施而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "香港特别行政区香港岛",
     type: "culture",
@@ -130,12 +140,13 @@ const hongkongCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "entertainment",
     landscapeCategory: ["人文景观"],
-    landformTags: ["主题公园"]
+    landformTags: ["主题公园"],
   },
   {
     id: "stanleyMarket",
     name: "赤柱市场",
-    description: "香港特别行政区的著名市场，以其独特的购物体验和美丽的环境而闻名",
+    description:
+      "香港特别行政区的著名市场，以其独特的购物体验和美丽的环境而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "香港特别行政区赤柱",
     type: "culture",
@@ -144,12 +155,13 @@ const hongkongCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "market",
     landscapeCategory: ["人文景观"],
-    landformTags: ["市场"]
+    landformTags: ["市场"],
   },
   {
     id: "wanChai",
     name: "湾仔",
-    description: "香港特别行政区的著名商业区，以其繁忙的商业活动和独特的文化氛围而闻名",
+    description:
+      "香港特别行政区的著名商业区，以其繁忙的商业活动和独特的文化氛围而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "香港特别行政区湾仔区",
     type: "culture",
@@ -158,7 +170,7 @@ const hongkongCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市景观"]
+    landformTags: ["城市景观"],
   },
   {
     id: "hongKongMuseumOfHistory",
@@ -172,8 +184,8 @@ const hongkongCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
-  }
+    landformTags: ["博物馆"],
+  },
 ];
 
 // 香港特别行政区季节性数据
@@ -182,26 +194,47 @@ const hongkongSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的香港，气候宜人，是游览大屿山、西贡郊野公园的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["大屿山游览", "西贡郊野公园徒步", "屯门公园赏春", "赤柱市场购物"]
+    activities: [
+      "大屿山游览",
+      "西贡郊野公园徒步",
+      "屯门公园赏春",
+      "赤柱市场购物",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的香港，虽然炎热，但也是游览浅水湾、香港海洋公园的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["浅水湾游泳", "香港海洋公园游玩", "维多利亚港游船", "香港迪士尼乐园游玩"]
+    activities: [
+      "浅水湾游泳",
+      "香港海洋公园游玩",
+      "维多利亚港游船",
+      "香港迪士尼乐园游玩",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的香港，天高气爽，是游览太平山顶、湾仔的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["太平山顶观景", "湾仔商业区游览", "香港历史博物馆参观", "香港动植物公园游览"]
+    activities: [
+      "太平山顶观景",
+      "湾仔商业区游览",
+      "香港历史博物馆参观",
+      "香港动植物公园游览",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的香港，气候凉爽，是游览维多利亚港、香港迪士尼乐园的好时节",
+    description:
+      "冬季的香港，气候凉爽，是游览维多利亚港、香港迪士尼乐园的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["维多利亚港赏夜景", "香港迪士尼乐园游玩", "尖沙咀购物", "香港海洋公园游玩"]
-  }
+    activities: [
+      "维多利亚港赏夜景",
+      "香港迪士尼乐园游玩",
+      "尖沙咀购物",
+      "香港海洋公园游玩",
+    ],
+  },
 };
 
 // 香港特别行政区活动数据
@@ -215,7 +248,7 @@ const hongkongActivities: TravelActivity[] = [
     location: "香港特别行政区维多利亚港",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +259,7 @@ const hongkongActivities: TravelActivity[] = [
     location: "香港特别行政区太平山顶",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +270,7 @@ const hongkongActivities: TravelActivity[] = [
     location: "香港特别行政区大屿山",
     duration: "全天",
     difficulty: "简单",
-    type: "娱乐体验"
+    type: "娱乐体验",
   },
   {
     id: "4",
@@ -248,7 +281,7 @@ const hongkongActivities: TravelActivity[] = [
     location: "香港特别行政区香港岛",
     duration: "全天",
     difficulty: "简单",
-    type: "娱乐体验"
+    type: "娱乐体验",
   },
   {
     id: "5",
@@ -259,8 +292,8 @@ const hongkongActivities: TravelActivity[] = [
     location: "香港特别行政区尖沙咀",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 香港特别行政区路线数据
@@ -279,7 +312,7 @@ const hongkongRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "四季皆宜",
     traffic: "地铁",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +328,8 @@ const hongkongRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "地铁+巴士",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 香港特别行政区非物质文化遗产数据
@@ -304,7 +337,8 @@ const hongkongIntangibleHeritage = [
   {
     id: "1",
     name: "粤剧",
-    description: "香港特别行政区传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
+    description:
+      "香港特别行政区传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     level: "national",
     category: "传统戏剧",
     heritageType: "传统表演艺术",
@@ -312,7 +346,7 @@ const hongkongIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "岭南文化"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,12 +359,13 @@ const hongkongIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "岭南文化"],
     icon: "🥤",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["工艺独特", "保健功效", "历史悠久"]
+    features: ["工艺独特", "保健功效", "历史悠久"],
   },
   {
     id: "3",
     name: "香港舞狮",
-    description: "香港特别行政区传统民间艺术，以其独特的表演形式和丰富的文化内涵著称",
+    description:
+      "香港特别行政区传统民间艺术，以其独特的表演形式和丰富的文化内涵著称",
     level: "national",
     category: "传统舞蹈",
     heritageType: "传统表演艺术",
@@ -338,7 +373,7 @@ const hongkongIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "岭南文化"],
     icon: "🦁",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "文化内涵丰富", "历史悠久"]
+    features: ["表演独特", "文化内涵丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +386,7 @@ const hongkongIntangibleHeritage = [
     tags: ["传统饮食", "国家级非遗", "岭南文化"],
     icon: "🥤",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["配方独特", "保健功效", "历史悠久"]
+    features: ["配方独特", "保健功效", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +399,8 @@ const hongkongIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "岭南文化"],
     icon: "🥧",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["工艺精湛", "风味独特", "历史悠久"]
-  }
+    features: ["工艺精湛", "风味独特", "历史悠久"],
+  },
 ];
 
 // 香港特别行政区数据
@@ -378,40 +413,44 @@ export const hongkongData = {
       {
         name: "维多利亚港",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "香港特别行政区的著名海港，以其美丽的夜景和繁忙的航运而闻名"
+        description:
+          "香港特别行政区的著名海港，以其美丽的夜景和繁忙的航运而闻名",
       },
       {
         name: "太平山顶",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "香港特别行政区的著名山峰，以其壮丽的城市景观和缆车而闻名"
+        description: "香港特别行政区的著名山峰，以其壮丽的城市景观和缆车而闻名",
       },
       {
         name: "香港迪士尼乐园",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "香港特别行政区的著名主题公园，以其丰富的娱乐设施和迪士尼文化而闻名"
+        description:
+          "香港特别行政区的著名主题公园，以其丰富的娱乐设施和迪士尼文化而闻名",
       },
       {
         name: "香港海洋公园",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "香港特别行政区的著名海洋主题公园，以其丰富的海洋动物和娱乐设施而闻名"
+        description:
+          "香港特别行政区的著名海洋主题公园，以其丰富的海洋动物和娱乐设施而闻名",
       },
       {
         name: "大屿山",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "香港特别行政区的著名岛屿，以其壮丽的自然风光和天坛大佛而闻名"
-      }
-    ]
+        description:
+          "香港特别行政区的著名岛屿，以其壮丽的自然风光和天坛大佛而闻名",
+      },
+    ],
   },
   spots: [...hongkongNatureSpots, ...hongkongCultureSpots],
   seasonal: [
     hongkongSeasonalData.spring,
     hongkongSeasonalData.summer,
     hongkongSeasonalData.autumn,
-    hongkongSeasonalData.winter
+    hongkongSeasonalData.winter,
   ],
   activities: hongkongActivities,
   routes: hongkongRoutes,
-  intangibleHeritage: hongkongIntangibleHeritage
+  intangibleHeritage: hongkongIntangibleHeritage,
 };
 
 // 香港特别行政区风俗文化数据
@@ -420,46 +459,50 @@ export const hongkongCustomsData = {
     {
       id: "1",
       name: "粤剧表演体验",
-      description: "欣赏香港特别行政区传统戏曲艺术粤剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏香港特别行政区传统戏曲艺术粤剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "香港特别行政区油麻地",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "凉茶制作体验",
-      description: "学习香港特别行政区传统手工艺凉茶制作，体验其独特的工艺和保健功效",
+      description:
+        "学习香港特别行政区传统手工艺凉茶制作，体验其独特的工艺和保健功效",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "香港特别行政区中环",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "香港舞狮表演体验",
-      description: "欣赏香港特别行政区传统民间艺术舞狮表演，感受其独特的表演形式和丰富的文化内涵",
+      description:
+        "欣赏香港特别行政区传统民间艺术舞狮表演，感受其独特的表演形式和丰富的文化内涵",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "香港特别行政区尖沙咀",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "香港传统糕点制作体验",
-      description: "学习香港特别行政区传统手工艺糕点制作，体验其独特的工艺和风味",
+      description:
+        "学习香港特别行政区传统手工艺糕点制作，体验其独特的工艺和风味",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "香港特别行政区湾仔",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,43 +513,45 @@ export const hongkongCustomsData = {
       location: "香港特别行政区尖沙咀",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 香港民俗风情元素数据
 export const hongkongFolkCustomsElements = [
   {
     name: "粤剧",
-    description: "香港特别行政区传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
+    description:
+      "香港特别行政区传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "粤派文化", "文化遗产"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "粤派文化", "文化遗产"],
   },
   {
     name: "凉茶",
     description: "香港特别行政区传统饮品，以其独特的配方和保健功效著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["特色饮品", "饮食文化", "非遗文化", "港式特色", "传统技艺"]
+    tags: ["特色饮品", "饮食文化", "非遗文化", "港式特色", "传统技艺"],
   },
   {
     name: "舞狮",
-    description: "香港特别行政区传统民间艺术，以其独特的表演形式和丰富的文化内涵著称",
+    description:
+      "香港特别行政区传统民间艺术，以其独特的表演形式和丰富的文化内涵著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统民俗", "表演艺术", "节庆活动", "非遗文化", "岭南文化"]
+    tags: ["传统民俗", "表演艺术", "节庆活动", "非遗文化", "岭南文化"],
   },
   {
     name: "传统糕点",
     description: "香港特别行政区传统手工艺，以其精美的制作工艺和独特的风味著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "传统技艺", "饮食文化", "港式特色", "民间工艺"]
+    tags: ["特色美食", "传统技艺", "饮食文化", "港式特色", "民间工艺"],
   },
   {
     name: "港式奶茶",
     description: "香港特别行政区特色饮品，以其独特的制作工艺和风味著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["特色饮品", "饮食文化", "港式特色", "非遗传承", "城市名片"]
-  }
+    tags: ["特色饮品", "饮食文化", "港式特色", "非遗传承", "城市名片"],
+  },
 ];
 
 // 香港特别行政区文化节庆数据
@@ -518,7 +563,7 @@ export const hongkongFestivals = [
     month: "12月",
     day: "31日",
     location: "香港特别行政区维多利亚港",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +572,7 @@ export const hongkongFestivals = [
     month: "5月",
     day: "5日",
     location: "香港特别行政区维多利亚港",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +581,7 @@ export const hongkongFestivals = [
     month: "9月",
     day: "1日",
     location: "香港特别行政区维多利亚港",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +590,7 @@ export const hongkongFestivals = [
     month: "10月",
     day: "1日",
     location: "香港特别行政区兰桂坊",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +599,7 @@ export const hongkongFestivals = [
     month: "4月",
     day: "5日",
     location: "香港特别行政区各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +608,8 @@ export const hongkongFestivals = [
     month: "9月",
     day: "21日",
     location: "香港特别行政区各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default hongkongData;

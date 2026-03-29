@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 贵州省自然风光数据
 const guizhouNatureSpots: ScenerySpot[] = [
@@ -14,12 +19,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "waterfall",
     landscapeCategory: ["水景观"],
-    landformTags: ["瀑布景观"]
+    landformTags: ["瀑布景观"],
   },
   {
     id: "zhenyuanAncientTown",
     name: "镇远古城",
-    description: "贵州省黔东南苗族侗族自治州的著名古城，以其独特的建筑风格和丰富的民俗文化而闻名",
+    description:
+      "贵州省黔东南苗族侗族自治州的著名古城，以其独特的建筑风格和丰富的民俗文化而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "贵州省黔东南苗族侗族自治州镇远县",
     type: "nature",
@@ -28,12 +34,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古镇"]
+    landformTags: ["历史古镇"],
   },
   {
     id: "liboZhangjiangScenicArea",
     name: "荔波樟江景区",
-    description: "贵州省黔南布依族苗族自治州的著名景区，以其美丽的喀斯特地貌和丰富的生态资源而闻名",
+    description:
+      "贵州省黔南布依族苗族自治州的著名景区，以其美丽的喀斯特地貌和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "贵州省黔南布依族苗族自治州荔波县",
     type: "nature",
@@ -42,12 +49,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "karst",
     landscapeCategory: ["地理景观"],
-    landformTags: ["喀斯特景观"]
+    landformTags: ["喀斯特景观"],
   },
   {
     id: "guiyangQingyanAncientTown",
     name: "贵阳青岩古镇",
-    description: "贵州省贵阳市的著名古镇，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "贵州省贵阳市的著名古镇，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "贵州省贵阳市花溪区青岩镇",
     type: "nature",
@@ -56,12 +64,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古镇"]
+    landformTags: ["历史古镇"],
   },
   {
     id: "maolanKarstForest",
     name: "茂兰喀斯特森林",
-    description: "贵州省黔南布依族苗族自治州的著名森林，以其独特的喀斯特地貌和丰富的生态资源而闻名",
+    description:
+      "贵州省黔南布依族苗族自治州的著名森林，以其独特的喀斯特地貌和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "贵州省黔南布依族苗族自治州荔波县",
     type: "nature",
@@ -70,12 +79,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
+    landformTags: ["森林景观"],
   },
   {
     id: "fanjingMountain",
     name: "梵净山",
-    description: "贵州省铜仁市的著名佛教名山，以其壮丽的自然风光和丰富的佛教文化而闻名",
+    description:
+      "贵州省铜仁市的著名佛教名山，以其壮丽的自然风光和丰富的佛教文化而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "贵州省铜仁市江口县",
     type: "nature",
@@ -84,12 +94,13 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "nanjiangGrandCanyon",
     name: "南江大峡谷",
-    description: "贵州省贵阳市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "贵州省贵阳市的著名峡谷，以其壮丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "贵州省贵阳市开阳县南江乡",
     type: "nature",
@@ -98,8 +109,8 @@ const guizhouNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
-  }
+    landformTags: ["峡谷景观"],
+  },
 ];
 
 // 贵州省人文景观数据
@@ -107,7 +118,8 @@ const guizhouCultureSpots: ScenerySpot[] = [
   {
     id: "guiyangHuaxiPark",
     name: "贵阳花溪公园",
-    description: "贵州省贵阳市的著名公园，以其美丽的自然风光和丰富的文化活动而闻名",
+    description:
+      "贵州省贵阳市的著名公园，以其美丽的自然风光和丰富的文化活动而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "贵州省贵阳市花溪区花溪大道",
     type: "culture",
@@ -116,12 +128,13 @@ const guizhouCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "park",
     landscapeCategory: ["人文景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "kailiMiaoEthnicVillage",
     name: "凯里苗寨",
-    description: "贵州省黔东南苗族侗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名",
+    description:
+      "贵州省黔东南苗族侗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "贵州省黔东南苗族侗族自治州凯里市",
     type: "culture",
@@ -130,12 +143,13 @@ const guizhouCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗村寨"]
+    landformTags: ["民俗村寨"],
   },
   {
     id: "congjiangZhaoxingDongVillage",
     name: "从江肇兴侗寨",
-    description: "贵州省黔东南苗族侗族自治州的著名侗寨，以其独特的民俗文化和建筑风格而闻名",
+    description:
+      "贵州省黔东南苗族侗族自治州的著名侗寨，以其独特的民俗文化和建筑风格而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "贵州省黔东南苗族侗族自治州从江县",
     type: "culture",
@@ -144,12 +158,13 @@ const guizhouCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗村寨"]
+    landformTags: ["民俗村寨"],
   },
   {
     id: "anlongTianzhuTower",
     name: "安龙天柱塔",
-    description: "贵州省黔西南布依族苗族自治州的著名古塔，以其独特的建筑风格和重要的历史意义而闻名",
+    description:
+      "贵州省黔西南布依族苗族自治州的著名古塔，以其独特的建筑风格和重要的历史意义而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "贵州省黔西南布依族苗族自治州安龙县",
     type: "culture",
@@ -158,7 +173,7 @@ const guizhouCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "guiyangProvincialMuseum",
@@ -172,36 +187,58 @@ const guizhouCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
-  }
+    landformTags: ["博物馆"],
+  },
 ];
 
 // 贵州省季节性数据
 const guizhouSeasonalData: Record<string, SeasonalScenery> = {
   spring: {
     name: "春季",
-    description: "春季的贵州，万物复苏，是游览荔波樟江景区、贵阳花溪公园的最佳时节",
+    description:
+      "春季的贵州，万物复苏，是游览荔波樟江景区、贵阳花溪公园的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["荔波樟江景区春游", "贵阳花溪公园赏花", "茂兰喀斯特森林徒步", "凯里苗寨民俗体验"]
+    activities: [
+      "荔波樟江景区春游",
+      "贵阳花溪公园赏花",
+      "茂兰喀斯特森林徒步",
+      "凯里苗寨民俗体验",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的贵州，气温适中，是游览黄果树瀑布、南江大峡谷的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["黄果树瀑布避暑", "南江大峡谷漂流", "镇远古城夜游", "荔波樟江景区戏水"]
+    activities: [
+      "黄果树瀑布避暑",
+      "南江大峡谷漂流",
+      "镇远古城夜游",
+      "荔波樟江景区戏水",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的贵州，天高气爽，是游览梵净山、镇远古城的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["梵净山赏秋", "镇远古城秋游", "黄果树瀑布参观", "贵阳青岩古镇游览"]
+    activities: [
+      "梵净山赏秋",
+      "镇远古城秋游",
+      "黄果树瀑布参观",
+      "贵阳青岩古镇游览",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的贵州，虽然寒冷，但温泉和民俗活动是不错的选择，是参观贵阳市区景点的好时节",
+    description:
+      "冬季的贵州，虽然寒冷，但温泉和民俗活动是不错的选择，是参观贵阳市区景点的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["温泉泡浴", "民俗活动体验", "贵州省博物馆参观", "贵阳花溪公园赏冬"]
-  }
+    activities: [
+      "温泉泡浴",
+      "民俗活动体验",
+      "贵州省博物馆参观",
+      "贵阳花溪公园赏冬",
+    ],
+  },
 };
 
 // 贵州省活动数据
@@ -215,7 +252,7 @@ const guizhouActivities: TravelActivity[] = [
     location: "贵州省安顺市镇宁布依族苗族自治县",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +263,7 @@ const guizhouActivities: TravelActivity[] = [
     location: "贵州省黔东南苗族侗族自治州凯里市",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "3",
@@ -237,7 +274,7 @@ const guizhouActivities: TravelActivity[] = [
     location: "贵州省黔南布依族苗族自治州荔波县",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +285,7 @@ const guizhouActivities: TravelActivity[] = [
     location: "贵州省黔东南苗族侗族自治州镇远县",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +296,8 @@ const guizhouActivities: TravelActivity[] = [
     location: "贵州省贵阳市青岩古镇",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 贵州省路线数据
@@ -279,7 +316,7 @@ const guizhouRoutes: RouteInfo[] = [
     rating: 4.9,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +332,8 @@ const guizhouRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 贵州省非物质文化遗产数据
@@ -312,7 +349,7 @@ const guizhouIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "⚒️",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "2",
@@ -325,7 +362,7 @@ const guizhouIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
+    features: ["演唱独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +375,7 @@ const guizhouIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "4",
@@ -351,7 +388,7 @@ const guizhouIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎶",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["音色独特", "技巧丰富", "历史悠久"]
+    features: ["音色独特", "技巧丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +401,8 @@ const guizhouIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
-  }
+    features: ["演唱独特", "内容丰富", "历史悠久"],
+  },
 ];
 
 // 贵州省数据
@@ -378,40 +415,45 @@ export const guizhouData = {
       {
         name: "黄果树瀑布",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "贵州省安顺市的著名瀑布，以其壮观的气势和美丽的自然风光而闻名"
+        description:
+          "贵州省安顺市的著名瀑布，以其壮观的气势和美丽的自然风光而闻名",
       },
       {
         name: "梵净山",
         image: "https://picsum.photos/id/1039/600/400",
-        description: "贵州省铜仁市的著名佛教名山，以其壮丽的自然风光和丰富的佛教文化而闻名"
+        description:
+          "贵州省铜仁市的著名佛教名山，以其壮丽的自然风光和丰富的佛教文化而闻名",
       },
       {
         name: "荔波樟江景区",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "贵州省黔南布依族苗族自治州的著名景区，以其美丽的喀斯特地貌和丰富的生态资源而闻名"
+        description:
+          "贵州省黔南布依族苗族自治州的著名景区，以其美丽的喀斯特地貌和丰富的生态资源而闻名",
       },
       {
         name: "镇远古城",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "贵州省黔东南苗族侗族自治州的著名古城，以其独特的建筑风格和丰富的民俗文化而闻名"
+        description:
+          "贵州省黔东南苗族侗族自治州的著名古城，以其独特的建筑风格和丰富的民俗文化而闻名",
       },
       {
         name: "凯里苗寨",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "贵州省黔东南苗族侗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名"
-      }
-    ]
+        description:
+          "贵州省黔东南苗族侗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名",
+      },
+    ],
   },
   spots: [...guizhouNatureSpots, ...guizhouCultureSpots],
   seasonal: [
     guizhouSeasonalData.spring,
     guizhouSeasonalData.summer,
     guizhouSeasonalData.autumn,
-    guizhouSeasonalData.winter
+    guizhouSeasonalData.winter,
   ],
   activities: guizhouActivities,
   routes: guizhouRoutes,
-  intangibleHeritage: guizhouIntangibleHeritage
+  intangibleHeritage: guizhouIntangibleHeritage,
 };
 
 // 贵州省风俗文化数据
@@ -426,18 +468,19 @@ export const guizhouCustomsData = {
       location: "贵州省黔东南苗族侗族自治州凯里市",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "侗族大歌表演",
-      description: "观看贵州省侗族传统音乐侗族大歌表演，感受其独特的演唱形式和丰富的内容",
+      description:
+        "观看贵州省侗族传统音乐侗族大歌表演，感受其独特的演唱形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "贵州省黔东南苗族侗族自治州从江县",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,18 +491,19 @@ export const guizhouCustomsData = {
       location: "贵州省黔东南苗族侗族自治州凯里市",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "布依族勒尤演奏体验",
-      description: "学习贵州省布依族传统乐器勒尤演奏，体验其独特的音色和演奏技巧",
+      description:
+        "学习贵州省布依族传统乐器勒尤演奏，体验其独特的音色和演奏技巧",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "贵州省黔南布依族苗族自治州",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +514,9 @@ export const guizhouCustomsData = {
       location: "贵州省贵阳市青岩古镇",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 贵州民俗风情元素数据
@@ -481,32 +525,32 @@ export const guizhouFolkCustomsElements = [
     name: "苗族银饰",
     description: "贵州省苗族传统手工艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "民族工艺", "非遗文化", "苗族特色", "工艺美术"]
+    tags: ["传统技艺", "民族工艺", "非遗文化", "苗族特色", "工艺美术"],
   },
   {
     name: "侗族大歌",
     description: "贵州省侗族传统音乐，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统音乐", "非遗文化", "侗族特色", "民间艺术", "活化石"]
+    tags: ["传统音乐", "非遗文化", "侗族特色", "民间艺术", "活化石"],
   },
   {
     name: "苗族蜡染",
     description: "贵州省苗族传统手工艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "印染艺术", "非遗文化", "苗族特色", "工艺美术"]
+    tags: ["传统技艺", "印染艺术", "非遗文化", "苗族特色", "工艺美术"],
   },
   {
     name: "布依族勒尤",
     description: "贵州省布依族传统乐器，以其独特的音色和丰富的演奏技巧著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统乐器", "非遗文化", "布依族特色", "民间艺术", "音乐文化"]
+    tags: ["传统乐器", "非遗文化", "布依族特色", "民间艺术", "音乐文化"],
   },
   {
     name: "仡佬族古歌",
     description: "贵州省仡佬族传统音乐，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统音乐", "非遗文化", "仡佬族特色", "口头文学", "文化传承"]
-  }
+    tags: ["传统音乐", "非遗文化", "仡佬族特色", "口头文学", "文化传承"],
+  },
 ];
 
 // 贵州省文化节庆数据
@@ -518,7 +562,7 @@ export const guizhouFestivals = [
     month: "9月",
     day: "1日",
     location: "贵州省贵阳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +571,7 @@ export const guizhouFestivals = [
     month: "4月",
     day: "15日",
     location: "贵州省黔东南苗族侗族自治州",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +580,7 @@ export const guizhouFestivals = [
     month: "2月",
     day: "1日",
     location: "贵州省黔东南苗族侗族自治州",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +589,7 @@ export const guizhouFestivals = [
     month: "6月",
     day: "21日",
     location: "贵州省黔南布依族苗族自治州",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +598,7 @@ export const guizhouFestivals = [
     month: "4月",
     day: "5日",
     location: "贵州省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +607,8 @@ export const guizhouFestivals = [
     month: "9月",
     day: "21日",
     location: "贵州省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default guizhouData;

@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 江西省自然风光数据
 const jiangxiNatureSpots: ScenerySpot[] = [
   {
     id: "lushanMountain",
     name: "庐山",
-    description: "江西省九江市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "江西省九江市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "江西省九江市庐山市",
     type: "nature",
@@ -14,12 +20,13 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "jinggangshanMountain",
     name: "井冈山",
-    description: "江西省吉安市的著名山脉，以其壮丽的自然风光和丰富的革命历史而闻名",
+    description:
+      "江西省吉安市的著名山脉，以其壮丽的自然风光和丰富的革命历史而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "江西省吉安市井冈山市",
     type: "nature",
@@ -28,12 +35,13 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "sanqingMountain",
     name: "三清山",
-    description: "江西省上饶市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
+    description:
+      "江西省上饶市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "江西省上饶市玉山县",
     type: "nature",
@@ -42,12 +50,13 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "poyangLake",
     name: "鄱阳湖",
-    description: "江西省九江市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "江西省九江市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "江西省九江市永修县",
     type: "nature",
@@ -56,12 +65,13 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "longhuMountain",
     name: "龙虎山",
-    description: "江西省鹰潭市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
+    description:
+      "江西省鹰潭市的著名山脉，以其壮丽的自然风光和丰富的道教文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "江西省鹰潭市贵溪市",
     type: "nature",
@@ -70,12 +80,13 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "wugongMountain",
     name: "武功山",
-    description: "江西省萍乡市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "江西省萍乡市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "江西省萍乡市芦溪县",
     type: "nature",
@@ -84,7 +95,7 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "ganjiangRiver",
@@ -98,8 +109,8 @@ const jiangxiNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
-  }
+    landformTags: ["河流景观"],
+  },
 ];
 
 // 江西省人文景观数据
@@ -116,12 +127,13 @@ const jiangxiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["纪念馆"]
+    landformTags: ["纪念馆"],
   },
   {
     id: "jiujiangGuling",
     name: "九江牯岭",
-    description: "江西省九江市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "江西省九江市的著名历史街区，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "江西省九江市庐山市",
     type: "culture",
@@ -130,12 +142,13 @@ const jiangxiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "shangraoWuyuan",
     name: "上饶婺源",
-    description: "江西省上饶市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "江西省上饶市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "江西省上饶市婺源县",
     type: "culture",
@@ -144,7 +157,7 @@ const jiangxiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史村落"]
+    landformTags: ["历史村落"],
   },
   {
     id: "jingdezhenCeramicMuseum",
@@ -158,7 +171,7 @@ const jiangxiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "nanchangTengwangPavilion",
@@ -172,8 +185,8 @@ const jiangxiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
-  }
+    landformTags: ["历史建筑"],
+  },
 ];
 
 // 江西省季节性数据
@@ -182,26 +195,32 @@ const jiangxiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的江西，万物复苏，是游览井冈山、婺源的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["井冈山赏春", "婺源油菜花", "三清山踏青", "龙虎山春游"]
+    activities: ["井冈山赏春", "婺源油菜花", "三清山踏青", "龙虎山春游"],
   },
   summer: {
     name: "夏季",
     description: "夏季的江西，气温较高，是游览庐山、鄱阳湖的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["庐山避暑", "鄱阳湖观鸟", "三清山消暑", "井冈山革命旧址参观"]
+    activities: ["庐山避暑", "鄱阳湖观鸟", "三清山消暑", "井冈山革命旧址参观"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的江西，天高气爽，是游览武功山、庐山的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["武功山赏草甸", "庐山赏红叶", "鄱阳湖观候鸟", "三清山赏秋"]
+    activities: ["武功山赏草甸", "庐山赏红叶", "鄱阳湖观候鸟", "三清山赏秋"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的江西，虽然寒冷，但庐山雪景令人惊叹，是参观南昌八一起义纪念馆的好时节",
+    description:
+      "冬季的江西，虽然寒冷，但庐山雪景令人惊叹，是参观南昌八一起义纪念馆的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["庐山赏雪", "南昌八一起义纪念馆", "景德镇陶瓷博物馆", "婺源冬景"]
-  }
+    activities: [
+      "庐山赏雪",
+      "南昌八一起义纪念馆",
+      "景德镇陶瓷博物馆",
+      "婺源冬景",
+    ],
+  },
 };
 
 // 江西省活动数据
@@ -215,7 +234,7 @@ const jiangxiActivities: TravelActivity[] = [
     location: "江西省九江市庐山市",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +245,7 @@ const jiangxiActivities: TravelActivity[] = [
     location: "江西省上饶市婺源县",
     duration: "1-2天",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +256,7 @@ const jiangxiActivities: TravelActivity[] = [
     location: "江西省景德镇市",
     duration: "3-4小时",
     difficulty: "中等",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +267,7 @@ const jiangxiActivities: TravelActivity[] = [
     location: "江西省吉安市井冈山市",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +278,8 @@ const jiangxiActivities: TravelActivity[] = [
     location: "江西省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 江西省路线数据
@@ -279,7 +298,7 @@ const jiangxiRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +314,8 @@ const jiangxiRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 江西省非物质文化遗产数据
@@ -304,7 +323,8 @@ const jiangxiIntangibleHeritage = [
   {
     id: "1",
     name: "景德镇陶瓷烧制技艺",
-    description: "江西省景德镇市传统陶瓷烧制技艺，以其独特的工艺和高质量的陶瓷著称",
+    description:
+      "江西省景德镇市传统陶瓷烧制技艺，以其独特的工艺和高质量的陶瓷著称",
     level: "national",
     category: "传统技艺",
     heritageType: "传统手工艺",
@@ -312,7 +332,7 @@ const jiangxiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["工艺独特", "陶瓷优质", "历史悠久"]
+    features: ["工艺独特", "陶瓷优质", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +345,7 @@ const jiangxiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +358,7 @@ const jiangxiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +371,7 @@ const jiangxiIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "5",
@@ -364,8 +384,8 @@ const jiangxiIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
-  }
+    features: ["图案精美", "风格独特", "工艺精湛"],
+  },
 ];
 
 // 江西省数据
@@ -378,40 +398,45 @@ export const jiangxiData = {
       {
         name: "庐山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "江西省九江市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名"
+        description:
+          "江西省九江市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
       },
       {
         name: "三清山",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "江西省上饶市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名"
+        description:
+          "江西省上饶市的著名山脉，以其壮丽的自然风光和独特的地质景观而闻名",
       },
       {
         name: "婺源",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "江西省上饶市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "江西省上饶市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "井冈山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "江西省吉安市的著名山脉，以其壮丽的自然风光和丰富的革命历史而闻名"
+        description:
+          "江西省吉安市的著名山脉，以其壮丽的自然风光和丰富的革命历史而闻名",
       },
       {
         name: "鄱阳湖",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "江西省九江市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名"
-      }
-    ]
+        description:
+          "江西省九江市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+      },
+    ],
   },
   spots: [...jiangxiNatureSpots, ...jiangxiCultureSpots],
   seasonal: [
     jiangxiSeasonalData.spring,
     jiangxiSeasonalData.summer,
     jiangxiSeasonalData.autumn,
-    jiangxiSeasonalData.winter
+    jiangxiSeasonalData.winter,
   ],
   activities: jiangxiActivities,
   routes: jiangxiRoutes,
-  intangibleHeritage: jiangxiIntangibleHeritage
+  intangibleHeritage: jiangxiIntangibleHeritage,
 };
 
 // 江西省风俗文化数据
@@ -426,18 +451,19 @@ export const jiangxiCustomsData = {
       location: "江西省景德镇市陶瓷文化创意园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "赣南采茶戏表演",
-      description: "欣赏江西省赣州市传统戏曲艺术采茶戏表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏江西省赣州市传统戏曲艺术采茶戏表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "江西省赣州市采茶戏院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,18 +474,19 @@ export const jiangxiCustomsData = {
       location: "江西省九江市瑞昌市剪纸艺术坊",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "弋阳腔表演",
-      description: "欣赏江西省弋阳县传统戏曲艺术弋阳腔表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏江西省弋阳县传统戏曲艺术弋阳腔表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "江西省上饶市弋阳县弋阳腔剧团",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,43 +497,44 @@ export const jiangxiCustomsData = {
       location: "江西省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 江西民俗风情元素数据
 export const jiangxiFolkCustomsElements = [
   {
     name: "景德镇陶瓷",
-    description: "江西省景德镇市传统陶瓷烧制技艺，以其独特的工艺和高质量的陶瓷著称",
+    description:
+      "江西省景德镇市传统陶瓷烧制技艺，以其独特的工艺和高质量的陶瓷著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "江西特色", "工艺美术"]
+    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "江西特色", "工艺美术"],
   },
   {
     name: "赣南采茶戏",
     description: "江西省赣州市传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "江西特色", "地方剧种"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "江西特色", "地方剧种"],
   },
   {
     name: "弋阳腔",
     description: "江西省弋阳县传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统戏曲", "非遗文化", "高腔鼻祖", "江西特色", "文化遗产"]
+    tags: ["传统戏曲", "非遗文化", "高腔鼻祖", "江西特色", "文化遗产"],
   },
   {
     name: "瑞昌剪纸",
     description: "江西省瑞昌市传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江西特色", "民间美术"]
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江西特色", "民间美术"],
   },
   {
     name: "丰城剪纸",
     description: "江西省丰城市传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江西特色", "民间美术"]
-  }
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江西特色", "民间美术"],
+  },
 ];
 
 // 江西省文化节庆数据
@@ -518,7 +546,7 @@ export const jiangxiFestivals = [
     month: "10月",
     day: "18日",
     location: "江西省景德镇市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +555,7 @@ export const jiangxiFestivals = [
     month: "9月",
     day: "1日",
     location: "江西省九江市庐山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +564,7 @@ export const jiangxiFestivals = [
     month: "3月",
     day: "1日",
     location: "江西省上饶市婺源县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +573,7 @@ export const jiangxiFestivals = [
     month: "7月",
     day: "1日",
     location: "江西省吉安市井冈山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +582,7 @@ export const jiangxiFestivals = [
     month: "4月",
     day: "5日",
     location: "江西省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +591,8 @@ export const jiangxiFestivals = [
     month: "9月",
     day: "21日",
     location: "江西省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default jiangxiData;

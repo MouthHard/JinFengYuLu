@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 安徽省自然风光数据
 const anhuiNatureSpots: ScenerySpot[] = [
   {
     id: "huangshanMountain",
     name: "黄山",
-    description: "安徽省黄山市的著名山脉，以其壮丽的自然风光和独特的云海景观而闻名",
+    description:
+      "安徽省黄山市的著名山脉，以其壮丽的自然风光和独特的云海景观而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "安徽省黄山市黄山区",
     type: "nature",
@@ -14,12 +20,13 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "jiuhuashanMountain",
     name: "九华山",
-    description: "安徽省池州市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
+    description:
+      "安徽省池州市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "安徽省池州市青阳县",
     type: "nature",
@@ -28,12 +35,13 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "tianzhushanMountain",
     name: "天柱山",
-    description: "安徽省安庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "安徽省安庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "安徽省安庆市潜山市",
     type: "nature",
@@ -42,12 +50,13 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "chaohuLake",
     name: "巢湖",
-    description: "安徽省合肥市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
+    description:
+      "安徽省合肥市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "安徽省合肥市巢湖市",
     type: "nature",
@@ -56,12 +65,13 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "taipingLake",
     name: "太平湖",
-    description: "安徽省黄山市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
+    description:
+      "安徽省黄山市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "安徽省黄山市黄山区",
     type: "nature",
@@ -70,12 +80,13 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "baishuijiangNationalPark",
     name: "白水江国家级自然保护区",
-    description: "安徽省池州市的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
+    description:
+      "安徽省池州市的著名自然保护区，以其丰富的生物多样性和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "安徽省池州市石台县",
     type: "nature",
@@ -84,7 +95,7 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
+    landformTags: ["森林景观"],
   },
   {
     id: "huangshanHotSpring",
@@ -98,8 +109,8 @@ const anhuiNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "hotspring",
     landscapeCategory: ["水景观"],
-    landformTags: ["泉水景观"]
-  }
+    landformTags: ["泉水景观"],
+  },
 ];
 
 // 安徽省人文景观数据
@@ -107,7 +118,8 @@ const anhuiCultureSpots: ScenerySpot[] = [
   {
     id: "hongcunAncientVillage",
     name: "宏村",
-    description: "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "安徽省黄山市黟县",
     type: "culture",
@@ -116,12 +128,13 @@ const anhuiCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史村落"]
+    landformTags: ["历史村落"],
   },
   {
     id: "xidiAncientVillage",
     name: "西递",
-    description: "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "安徽省黄山市黟县",
     type: "culture",
@@ -130,12 +143,13 @@ const anhuiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史村落"]
+    landformTags: ["历史村落"],
   },
   {
     id: "tunxiOldStreet",
     name: "屯溪老街",
-    description: "安徽省黄山市的著名历史街区，以其独特的建筑风格和丰富的商业文化而闻名",
+    description:
+      "安徽省黄山市的著名历史街区，以其独特的建筑风格和丰富的商业文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "安徽省黄山市屯溪区",
     type: "culture",
@@ -144,12 +158,13 @@ const anhuiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "ancientCityOfHuizhou",
     name: "徽州古城",
-    description: "安徽省黄山市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "安徽省黄山市的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "安徽省黄山市歙县",
     type: "culture",
@@ -158,7 +173,7 @@ const anhuiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "anhuiMuseum",
@@ -172,8 +187,8 @@ const anhuiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
-  }
+    landformTags: ["博物馆"],
+  },
 ];
 
 // 安徽省季节性数据
@@ -182,26 +197,26 @@ const anhuiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的安徽，万物复苏，是游览黄山、九华山的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["黄山赏春", "九华山踏青", "宏村春游", "西递春游"]
+    activities: ["黄山赏春", "九华山踏青", "宏村春游", "西递春游"],
   },
   summer: {
     name: "夏季",
     description: "夏季的安徽，气温较高，是游览巢湖、太平湖的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["巢湖游船", "太平湖消暑", "黄山避暑", "九华山祈福"]
+    activities: ["巢湖游船", "太平湖消暑", "黄山避暑", "九华山祈福"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的安徽，天高气爽，是游览黄山、天柱山的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["黄山赏红叶", "天柱山赏秋", "宏村赏秋", "西递赏秋"]
+    activities: ["黄山赏红叶", "天柱山赏秋", "宏村赏秋", "西递赏秋"],
   },
   winter: {
     name: "冬季",
     description: "冬季的安徽，虽然寒冷，但黄山雪景令人惊叹，是泡温泉的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["黄山赏雪", "黄山温泉", "九华山祈福", "宏村冬景"]
-  }
+    activities: ["黄山赏雪", "黄山温泉", "九华山祈福", "宏村冬景"],
+  },
 };
 
 // 安徽省活动数据
@@ -215,7 +230,7 @@ const anhuiActivities: TravelActivity[] = [
     location: "安徽省黄山市黄山区",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +241,7 @@ const anhuiActivities: TravelActivity[] = [
     location: "安徽省黄山市黟县",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "3",
@@ -237,7 +252,7 @@ const anhuiActivities: TravelActivity[] = [
     location: "安徽省池州市青阳县",
     duration: "1-2天",
     difficulty: "中等",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +263,7 @@ const anhuiActivities: TravelActivity[] = [
     location: "安徽省合肥市巢湖市",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "5",
@@ -259,8 +274,8 @@ const anhuiActivities: TravelActivity[] = [
     location: "安徽省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 安徽省路线数据
@@ -279,7 +294,7 @@ const anhuiRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +310,8 @@ const anhuiRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 安徽省非物质文化遗产数据
@@ -312,7 +327,7 @@ const anhuiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +340,7 @@ const anhuiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +353,7 @@ const anhuiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪵",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["工艺精湛", "风格独特", "历史悠久"]
+    features: ["工艺精湛", "风格独特", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +366,7 @@ const anhuiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "📜",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["工艺独特", "纸张优质", "历史悠久"]
+    features: ["工艺独特", "纸张优质", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +379,8 @@ const anhuiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🖋️",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["工艺独特", "墨质优良", "历史悠久"]
-  }
+    features: ["工艺独特", "墨质优良", "历史悠久"],
+  },
 ];
 
 // 安徽省数据
@@ -378,40 +393,45 @@ export const anhuiData = {
       {
         name: "黄山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "安徽省黄山市的著名山脉，以其壮丽的自然风光和独特的云海景观而闻名"
+        description:
+          "安徽省黄山市的著名山脉，以其壮丽的自然风光和独特的云海景观而闻名",
       },
       {
         name: "宏村",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "九华山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "安徽省池州市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名"
+        description:
+          "安徽省池州市的著名佛教名山，以其美丽的自然风光和丰富的宗教文化而闻名",
       },
       {
         name: "西递",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "安徽省黄山市的著名古村落，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "天柱山",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "安徽省安庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名"
-      }
-    ]
+        description:
+          "安徽省安庆市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...anhuiNatureSpots, ...anhuiCultureSpots],
   seasonal: [
     anhuiSeasonalData.spring,
     anhuiSeasonalData.summer,
     anhuiSeasonalData.autumn,
-    anhuiSeasonalData.winter
+    anhuiSeasonalData.winter,
   ],
   activities: anhuiActivities,
   routes: anhuiRoutes,
-  intangibleHeritage: anhuiIntangibleHeritage
+  intangibleHeritage: anhuiIntangibleHeritage,
 };
 
 // 安徽省风俗文化数据
@@ -420,13 +440,14 @@ export const anhuiCustomsData = {
     {
       id: "1",
       name: "黄梅戏表演",
-      description: "欣赏安徽省传统戏曲艺术黄梅戏表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏安徽省传统戏曲艺术黄梅戏表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "安徽省合肥市黄梅戏剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +458,7 @@ export const anhuiCustomsData = {
       location: "安徽省黄山市黟县宏村木雕艺术坊",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +469,7 @@ export const anhuiCustomsData = {
       location: "安徽省宣城市泾县宣纸博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +480,7 @@ export const anhuiCustomsData = {
       location: "安徽省黄山市歙县徽墨博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +491,9 @@ export const anhuiCustomsData = {
       location: "安徽省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 安徽民俗风情元素数据
@@ -481,32 +502,32 @@ export const anhuiFolkCustomsElements = [
     name: "黄梅戏",
     description: "安徽省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["戏曲艺术", "国家级非遗", "传统表演"]
+    tags: ["戏曲艺术", "国家级非遗", "传统表演"],
   },
   {
     name: "徽剧",
     description: "安徽省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["古老剧种", "京剧前身", "文化遗产"]
+    tags: ["古老剧种", "京剧前身", "文化遗产"],
   },
   {
     name: "徽州木雕",
     description: "安徽省传统木雕技艺，以其精美的工艺和独特的风格著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "雕刻艺术", "徽州三雕"]
+    tags: ["传统技艺", "雕刻艺术", "徽州三雕"],
   },
   {
     name: "宣纸",
     description: "安徽省传统造纸技艺，以其独特的工艺和高质量的纸张著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["文房四宝", "非遗技艺", "书画用纸"]
+    tags: ["文房四宝", "非遗技艺", "书画用纸"],
   },
   {
     name: "徽墨",
     description: "安徽省传统制墨技艺，以其独特的工艺和高质量的墨锭著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["文房四宝", "传统工艺", "文化用品"]
-  }
+    tags: ["文房四宝", "传统工艺", "文化用品"],
+  },
 ];
 
 // 安徽省文化节庆数据
@@ -518,7 +539,7 @@ export const anhuiFestivals = [
     month: "10月",
     day: "1日",
     location: "安徽省黄山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +548,7 @@ export const anhuiFestivals = [
     month: "11月",
     day: "1日",
     location: "安徽省黄山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +557,7 @@ export const anhuiFestivals = [
     month: "9月",
     day: "1日",
     location: "安徽省池州市青阳县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +566,7 @@ export const anhuiFestivals = [
     month: "10月",
     day: "1日",
     location: "安徽省合肥市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +575,7 @@ export const anhuiFestivals = [
     month: "4月",
     day: "5日",
     location: "安徽省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +584,8 @@ export const anhuiFestivals = [
     month: "9月",
     day: "21日",
     location: "安徽省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default anhuiData;

@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 上海市自然风光数据
 const shanghaiNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const shanghaiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
+    landformTags: ["河流景观"],
   },
   {
     id: "chongmingIsland",
@@ -28,7 +33,7 @@ const shanghaiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["岛屿景观"]
+    landformTags: ["岛屿景观"],
   },
   {
     id: "shanghaiBotanicalGarden",
@@ -42,12 +47,13 @@ const shanghaiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "garden",
     landscapeCategory: ["生物景观"],
-    landformTags: ["植物景观"]
+    landformTags: ["植物景观"],
   },
   {
     id: "centuryPark",
     name: "世纪公园",
-    description: "上海市浦东新区的著名公园，以其美丽的自然风光和丰富的娱乐设施而闻名",
+    description:
+      "上海市浦东新区的著名公园，以其美丽的自然风光和丰富的娱乐设施而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "上海市浦东新区",
     type: "nature",
@@ -56,12 +62,13 @@ const shanghaiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["植物景观"]
+    landformTags: ["植物景观"],
   },
   {
     id: "dianshanLake",
     name: "淀山湖",
-    description: "上海市青浦区的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
+    description:
+      "上海市青浦区的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "上海市青浦区",
     type: "nature",
@@ -70,8 +77,8 @@ const shanghaiNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 上海市人文景观数据
@@ -88,7 +95,7 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "orientalPearlTower",
@@ -102,12 +109,13 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "modern",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "yuGarden",
     name: "豫园",
-    description: "上海市黄浦区的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
+    description:
+      "上海市黄浦区的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "上海市黄浦区",
     type: "culture",
@@ -116,7 +124,7 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["古典园林"]
+    landformTags: ["古典园林"],
   },
   {
     id: "shanghaiMuseum",
@@ -130,7 +138,7 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "shanghaiTower",
@@ -144,12 +152,13 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "modern",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "frenchConcession",
     name: "法租界",
-    description: "上海市徐汇区的著名历史街区，以其独特的法式建筑和浪漫的氛围而闻名",
+    description:
+      "上海市徐汇区的著名历史街区，以其独特的法式建筑和浪漫的氛围而闻名",
     image: "https://picsum.photos/id/1049/600/400",
     location: "上海市徐汇区",
     type: "culture",
@@ -158,12 +167,13 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "jinganTemple",
     name: "静安寺",
-    description: "上海市静安区的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "上海市静安区的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1050/600/400",
     location: "上海市静安区",
     type: "culture",
@@ -172,8 +182,8 @@ const shanghaiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 上海市季节性数据
@@ -182,26 +192,27 @@ const shanghaiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的上海，万物复苏，是游览世纪公园、上海植物园的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["世纪公园赏樱", "上海植物园春游", "崇明岛踏青", "外滩散步"]
+    activities: ["世纪公园赏樱", "上海植物园春游", "崇明岛踏青", "外滩散步"],
   },
   summer: {
     name: "夏季",
     description: "夏季的上海，气温较高，是游览淀山湖、黄浦江的好去处",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["淀山湖游船", "黄浦江夜游", "世纪公园消暑", "崇明岛生态游"]
+    activities: ["淀山湖游船", "黄浦江夜游", "世纪公园消暑", "崇明岛生态游"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的上海，天高气爽，是游览外滩、豫园的最佳时节",
     image: "https://picsum.photos/id/1053/600/400",
-    activities: ["外滩赏景", "豫园秋游", "法租界漫步", "上海博物馆参观"]
+    activities: ["外滩赏景", "豫园秋游", "法租界漫步", "上海博物馆参观"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的上海，虽然寒冷，但节日氛围浓厚，是游览东方明珠、上海中心大厦的好去处",
+    description:
+      "冬季的上海，虽然寒冷，但节日氛围浓厚，是游览东方明珠、上海中心大厦的好去处",
     image: "https://picsum.photos/id/1054/600/400",
-    activities: ["东方明珠观光", "上海中心大厦俯瞰", "豫园灯会", "外滩夜景"]
-  }
+    activities: ["东方明珠观光", "上海中心大厦俯瞰", "豫园灯会", "外滩夜景"],
+  },
 };
 
 // 上海市活动数据
@@ -215,7 +226,7 @@ const shanghaiActivities: TravelActivity[] = [
     location: "上海市黄浦区外滩",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "2",
@@ -226,7 +237,7 @@ const shanghaiActivities: TravelActivity[] = [
     location: "上海市浦东新区东方明珠",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "观光体验"
+    type: "观光体验",
   },
   {
     id: "3",
@@ -237,7 +248,7 @@ const shanghaiActivities: TravelActivity[] = [
     location: "上海市黄浦区豫园",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +259,7 @@ const shanghaiActivities: TravelActivity[] = [
     location: "上海市崇明区崇明岛",
     duration: "1天",
     difficulty: "简单",
-    type: "生态体验"
+    type: "生态体验",
   },
   {
     id: "5",
@@ -259,8 +270,8 @@ const shanghaiActivities: TravelActivity[] = [
     location: "上海市各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 上海市路线数据
@@ -279,7 +290,7 @@ const shanghaiRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "四季皆宜",
     traffic: "地铁",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +306,8 @@ const shanghaiRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "四季皆宜",
     traffic: "地铁",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 上海市非物质文化遗产数据
@@ -312,7 +323,7 @@ const shanghaiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1062/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +336,7 @@ const shanghaiIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1063/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "3",
@@ -338,7 +349,7 @@ const shanghaiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🥟",
     image: "https://picsum.photos/id/1064/600/400",
-    features: ["工艺独特", "口感鲜美", "历史悠久"]
+    features: ["工艺独特", "口感鲜美", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +362,7 @@ const shanghaiIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +375,8 @@ const shanghaiIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "🐉",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "氛围热闹", "历史悠久"]
-  }
+    features: ["表演独特", "氛围热闹", "历史悠久"],
+  },
 ];
 
 // 上海市数据
@@ -378,40 +389,45 @@ export const shanghaiData = {
       {
         name: "外滩",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "上海市黄浦区的著名外滩，以其独特的欧式建筑和美丽的江景而闻名"
+        description:
+          "上海市黄浦区的著名外滩，以其独特的欧式建筑和美丽的江景而闻名",
       },
       {
         name: "东方明珠",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "上海市浦东新区的著名地标，以其独特的建筑造型和全景观光而闻名"
+        description:
+          "上海市浦东新区的著名地标，以其独特的建筑造型和全景观光而闻名",
       },
       {
         name: "豫园",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "上海市黄浦区的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名"
+        description:
+          "上海市黄浦区的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
       },
       {
         name: "上海中心大厦",
         image: "https://picsum.photos/id/1048/600/400",
-        description: "上海市浦东新区的著名摩天大楼，以其宏伟的建筑和全景观光而闻名"
+        description:
+          "上海市浦东新区的著名摩天大楼，以其宏伟的建筑和全景观光而闻名",
       },
       {
         name: "法租界",
         image: "https://picsum.photos/id/1049/600/400",
-        description: "上海市徐汇区的著名历史街区，以其独特的法式建筑和浪漫的氛围而闻名"
-      }
-    ]
+        description:
+          "上海市徐汇区的著名历史街区，以其独特的法式建筑和浪漫的氛围而闻名",
+      },
+    ],
   },
   spots: [...shanghaiNatureSpots, ...shanghaiCultureSpots],
   seasonal: [
     shanghaiSeasonalData.spring,
     shanghaiSeasonalData.summer,
     shanghaiSeasonalData.autumn,
-    shanghaiSeasonalData.winter
+    shanghaiSeasonalData.winter,
   ],
   activities: shanghaiActivities,
   routes: shanghaiRoutes,
-  intangibleHeritage: shanghaiIntangibleHeritage
+  intangibleHeritage: shanghaiIntangibleHeritage,
 };
 
 // 上海市风俗文化数据
@@ -420,13 +436,14 @@ export const shanghaiCustomsData = {
     {
       id: "1",
       name: "上海京剧表演",
-      description: "欣赏上海市传统戏曲艺术京剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏上海市传统戏曲艺术京剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1067/600/400",
       category: "culture",
       location: "上海市黄浦区天蟾逸夫舞台",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +454,7 @@ export const shanghaiCustomsData = {
       location: "上海市黄浦区豫园剪纸艺术坊",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,31 +465,33 @@ export const shanghaiCustomsData = {
       location: "上海市黄浦区豫园小笼包制作坊",
       duration: "2-3小时",
       difficulty: "中等",
-      type: "美食体验"
+      type: "美食体验",
     },
     {
       id: "4",
       name: "上海评弹表演",
-      description: "欣赏上海市传统说唱艺术评弹表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏上海市传统说唱艺术评弹表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1070/600/400",
       category: "culture",
       location: "上海市黄浦区豫园评弹茶馆",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
       name: "上海舞龙表演",
-      description: "欣赏上海市传统民间舞蹈舞龙表演，感受其独特的表演形式和热闹的氛围",
+      description:
+        "欣赏上海市传统民间舞蹈舞龙表演，感受其独特的表演形式和热闹的氛围",
       image: "https://picsum.photos/id/1071/600/400",
       category: "culture",
       location: "上海市黄浦区豫园",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
-    }
-  ]
+      type: "文化体验",
+    },
+  ],
 };
 
 // 上海市民俗风情元素数据
@@ -481,32 +500,32 @@ export const shanghaiFolkCustomsElements = [
     name: "上海京剧",
     description: "上海市传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "海派文化", "国粹艺术"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "海派文化", "国粹艺术"],
   },
   {
     name: "上海剪纸",
     description: "上海市传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "海派特色", "民间美术"]
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "海派特色", "民间美术"],
   },
   {
     name: "上海小笼包",
     description: "上海市传统美食，以其鲜美的口感和独特的制作工艺著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["特色美食", "饮食文化", "传统技艺", "上海特色", "点心文化"]
+    tags: ["特色美食", "饮食文化", "传统技艺", "上海特色", "点心文化"],
   },
   {
     name: "上海评弹",
     description: "上海市传统说唱艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1075/600/400",
-    tags: ["传统曲艺", "非遗文化", "表演艺术", "江南文化", "说唱艺术"]
+    tags: ["传统曲艺", "非遗文化", "表演艺术", "江南文化", "说唱艺术"],
   },
   {
     name: "上海舞龙",
     description: "上海市传统民间舞蹈，以其独特的表演形式和热闹的氛围著称",
     image: "https://picsum.photos/id/1076/600/400",
-    tags: ["传统舞蹈", "非遗文化", "民俗活动", "上海特色", "民间艺术"]
-  }
+    tags: ["传统舞蹈", "非遗文化", "民俗活动", "上海特色", "民间艺术"],
+  },
 ];
 
 // 上海市文化节庆数据
@@ -518,7 +537,7 @@ export const shanghaiFestivals = [
     month: "10月",
     day: "18日",
     location: "上海市各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +546,7 @@ export const shanghaiFestivals = [
     month: "6月",
     day: "15日",
     location: "上海市各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +555,7 @@ export const shanghaiFestivals = [
     month: "2月",
     day: "15日",
     location: "上海市黄浦区豫园",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +564,7 @@ export const shanghaiFestivals = [
     month: "3月",
     day: "20日",
     location: "上海市浦东新区南汇",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +573,7 @@ export const shanghaiFestivals = [
     month: "4月",
     day: "5日",
     location: "上海市各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +582,8 @@ export const shanghaiFestivals = [
     month: "9月",
     day: "21日",
     location: "上海市各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default shanghaiData;

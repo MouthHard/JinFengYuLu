@@ -1,0 +1,19 @@
+.museum-page {
+  height: 100vh;
+  background: linear-gradient(180deg, #f8f4e9 0%, #f5f0e1 50%, #f8f4e9 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .content-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    width: 100%;
+    height: 92%;
+    margin: 0;
+    padding: 0;
+  }
+}

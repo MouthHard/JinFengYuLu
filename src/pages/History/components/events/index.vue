@@ -1,113 +1,155 @@
 <template>
-  <div class="historical-events">
-    <div class="section-header">
-      <h2 class="section-title">历史事件</h2>
-      <p class="section-subtitle">影响中华文明进程的重要时刻</p>
-    </div>
-    
-    <!-- 事件分类筛选 -->
-    <div class="event-filters">
-      <button 
-        v-for="category in eventCategories" 
-        :key="category.id"
-        class="filter-btn"
-        :class="{ active: activeCategory === category.id }"
-        @click="activeCategory = category.id"
-      >
-        {{ category.name }}
-      </button>
-    </div>
-    
-    <!-- 事件网格 -->
-    <div class="events-grid">
-      <div 
-        v-for="event in filteredEvents" 
-        :key="event.id"
-        class="event-card"
-        @click="selectEvent(event)"
-      >
-        <div class="event-image">
-          <img :src="event.imageUrl" :alt="event.title" />
-          <div class="event-period">{{ event.period }}</div>
-        </div>
-        <div class="event-content">
-          <h3 class="event-title">{{ event.title }}</h3>
-          <p class="event-brief">{{ event.brief }}</p>
-          <div class="event-tags">
-            <span 
-              v-for="tag in event.tags" 
-              :key="tag"
-              class="event-tag"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- 事件详情模态框 -->
-    <div class="event-modal" v-if="selectedEvent" @click="closeModal">
-      <div class="modal-content" @click.stop>
-        <button class="close-btn" @click="closeModal">×</button>
-        <h3 class="modal-title">{{ selectedEvent.title }}</h3>
-        <p class="modal-period">{{ selectedEvent.period }}</p>
-        <div class="modal-image">
-          <img :src="selectedEvent.imageUrl" :alt="selectedEvent.title" />
-        </div>
-        <div class="modal-details">
-          <p>{{ selectedEvent.description }}</p>
-          <div class="event-impact" v-if="selectedEvent.impact">
-            <h4>历史影响：</h4>
-            <p>{{ selectedEvent.impact }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="book-container">
+    <!-- 分类标签 -->
+    <CategorySection
+      class="category-section"
+      :activeCategory="activeCategory"
+      @switch-category="switchCategory"
+    />
+
+    <!-- 左侧历史事件速览菜单 -->
+    <Sidebar
+      class="sidebar-section"
+      :activeCategory="activeCategory"
+      :currentEventIndex="currentEventIndex"
+      :isBookOpen="isBookOpen"
+      @go-to-event="goToEvent"
+    />
+
+    <!-- 书本部分 -->
+    <BookSection
+      class="book-section"
+      :activeCategory="activeCategory"
+      :currentEventIndex="currentEventIndex"
+      :isBookOpen="isBookOpen"
+      :isFlipping="isFlipping"
+      :flipDirection="flipDirection"
+      @toggle-book="toggleBook"
+    />
+
+    <!-- 控制按钮部分 -->
+    <ControlsSection
+      class="controls-section"
+      :activeCategory="activeCategory"
+      :currentEventIndex="currentEventIndex"
+      :isBookOpen="isBookOpen"
+      @prev-page="prevPage"
+      @next-page="nextPage"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { historicalEvents } from '../../data/events';
-import './index.scss';
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { historicalEvents } from "../../data/events";
+import CategorySection from "./components/CategorySection/index.vue";
+import Sidebar from "./components/Sidebar/index.vue";
+import BookSection from "./components/BookSection/index.vue";
+import ControlsSection from "./components/ControlsSection/index.vue";
+import "./index.scss";
 
-interface HistoricalEvent {
-  id: string;
-  title: string;
-  period: string;
-  category: string;
-  brief: string;
-  description: string;
-  impact: string;
-  imageUrl: string;
-  tags: string[];
-}
-
-
-const activeCategory = ref('all');
-const selectedEvent = ref<HistoricalEvent | null>(null);
-
-const eventCategories = [
-  { id: 'all', name: '全部事件' },
-  { id: 'political', name: '政治军事' },
-  { id: 'cultural', name: '文化科技' },
-  { id: 'economic', name: '经济社会' },
-  { id: 'diplomatic', name: '外交民族' }
-];
+const activeCategory = ref("all");
+const currentEventIndex = ref(0);
+const isBookOpen = ref(false);
 
 const filteredEvents = computed(() => {
-  if (activeCategory.value === 'all') {
+  if (activeCategory.value === "all") {
     return historicalEvents;
   }
-  return historicalEvents.filter((event: HistoricalEvent) => event.category === activeCategory.value);
+  return historicalEvents.filter(
+    (event) => event.category === activeCategory.value,
+  );
 });
 
-const selectEvent = (event: HistoricalEvent) => {
-  selectedEvent.value = event;
+const switchCategory = (categoryId: string) => {
+  activeCategory.value = categoryId;
+  currentEventIndex.value = 0;
+  isBookOpen.value = false;
 };
 
-const closeModal = () => {
-  selectedEvent.value = null;
+const toggleBook = () => {
+  isBookOpen.value = !isBookOpen.value;
 };
+
+const isFlipping = ref(false);
+const flipDirection = ref("");
+
+// 翻页动画控制函数 - 使用requestAnimationFrame优化性能
+const handlePageChange = (newIndex: number, direction: string) => {
+  if (isFlipping.value) return;
+
+  isFlipping.value = true;
+  flipDirection.value = direction;
+
+  // 使用requestAnimationFrame确保动画流畅
+  requestAnimationFrame(() => {
+    // 等待翻转动画开始（300ms）
+    setTimeout(() => {
+      // 更新索引
+      currentEventIndex.value = newIndex;
+      // 等待翻转动画结束（600ms）
+      setTimeout(() => {
+        // 重置状态
+        isFlipping.value = false;
+        flipDirection.value = "";
+      }, 600);
+    }, 300);
+  });
+};
+
+const prevPage = () => {
+  if (currentEventIndex.value > 0 && !isFlipping.value) {
+    handlePageChange(currentEventIndex.value - 1, "left");
+  }
+};
+
+const nextPage = () => {
+  if (
+    currentEventIndex.value < filteredEvents.value.length - 1 &&
+    !isFlipping.value
+  ) {
+    handlePageChange(currentEventIndex.value + 1, "right");
+  }
+};
+
+const goToEvent = (index: number) => {
+  if (index === currentEventIndex.value || isFlipping.value) return;
+
+  const direction = index > currentEventIndex.value ? "right" : "left";
+  handlePageChange(index, direction);
+};
+
+// 键盘导航支持 - 使用防抖优化
+const handleKeydown = (event: KeyboardEvent) => {
+  // 如果正在翻页，忽略键盘事件
+  if (isFlipping.value) return;
+
+  switch (event.key) {
+    case "ArrowLeft":
+      event.preventDefault();
+      prevPage();
+      break;
+    case "ArrowRight":
+      event.preventDefault();
+      nextPage();
+      break;
+    case "Enter":
+      toggleBook();
+      break;
+    case "Escape":
+      if (isBookOpen.value) {
+        isBookOpen.value = false;
+      }
+      break;
+  }
+};
+
+// 添加键盘事件监听器 - 使用passive选项优化性能
+onMounted(() => {
+  window.addEventListener("keydown", handleKeydown, { passive: false });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 </script>
