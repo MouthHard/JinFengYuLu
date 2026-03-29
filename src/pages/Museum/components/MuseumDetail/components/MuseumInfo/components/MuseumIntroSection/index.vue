@@ -56,11 +56,9 @@
             <p>
               <span class="visit-label">闭馆日</span>
               <template v-if="museumDetails?.visitInfo">
-                {{
-                  typeof museumDetails.visitInfo.closeDay === "string"
-                    ? museumDetails.visitInfo.closeDay
-                    : museumDetails.visitInfo.openTime?.closeDay ||
-                      "周一闭馆（法定节假日除外）"
+                {{  typeof museumDetails.visitInfo.openTime === 'string' 
+                    ? museumDetails.visitInfo.openTime 
+                    : (museumDetails.visitInfo.openTime?.closeDay || "周一闭馆（法定节假日除外）")
                 }}
               </template>
               <template v-else>周一闭馆（法定节假日除外）</template>
@@ -87,10 +85,8 @@
               <span class="visit-label">地址</span>
               <template v-if="museumDetails?.visitInfo">
                 {{
-                  typeof museumDetails.visitInfo.address === "string"
-                    ? museumDetails.visitInfo.address
-                    : museumDetails.visitInfo.transportation?.address ||
-                      "地址信息"
+                  museumDetails.visitInfo.transportation?.address ||
+                  "地址信息"
                 }}
               </template>
               <template v-else>地址信息</template>
@@ -100,15 +96,12 @@
             <p
               v-if="
                 museumDetails?.visitInfo &&
-                (typeof museumDetails.visitInfo.phone === 'string' ||
-                  museumDetails.visitInfo.contact?.phone)
+                museumDetails.visitInfo.contact?.phone
               "
             >
               <span class="visit-label">电话</span>
               {{
-                typeof museumDetails.visitInfo.phone === "string"
-                  ? museumDetails.visitInfo.phone
-                  : museumDetails.visitInfo.contact?.phone
+                museumDetails.visitInfo.contact?.phone
               }}
             </p>
 
@@ -116,15 +109,12 @@
             <p
               v-if="
                 museumDetails?.visitInfo &&
-                (typeof museumDetails.visitInfo.website === 'string' ||
-                  museumDetails.visitInfo.contact?.website)
+                museumDetails.visitInfo.contact?.website
               "
             >
               <span class="visit-label">网站</span>
               {{
-                typeof museumDetails.visitInfo.website === "string"
-                  ? museumDetails.visitInfo.website
-                  : museumDetails.visitInfo.contact?.website
+                museumDetails.visitInfo.contact?.website
               }}
             </p>
           </div>

@@ -45,19 +45,19 @@ export interface ServiceFacilities {
 // 联系方式
 export interface ContactInfo {
   phone: string; // 咨询电话
-  email: string; // 电子邮箱
+  email?: string; // 电子邮箱
   complaintPhone?: string; // 投诉建议电话
   website?: string; // 官方网站
 }
 
 // 参观信息（用于AboutSection）
 export interface MuseumVisitInfo {
-  openTime: OpenTimeInfo; // 开放时间
-  ticket: TicketInfo; // 票务信息
-  rules: VisitRules; // 参观须知
-  transportation: TransportationInfo; // 交通指南
-  services: ServiceFacilities; // 服务设施
-  contact: ContactInfo; // 联系方式
+  openTime: OpenTimeInfo | string; // 开放时间
+  ticket: TicketInfo | string; // 票务信息
+  rules?: VisitRules; // 参观须知
+  transportation?: TransportationInfo; // 交通指南
+  services?: ServiceFacilities; // 服务设施
+  contact?: ContactInfo; // 联系方式
 }
 
 export interface MuseumDetailInfo {
@@ -125,12 +125,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 2,
     visitInfo: {
-      openTime: "周二至周日 9:30-17:00（16:30停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "北京市朝阳区北辰东路5号",
-      phone: "010-59041000",
-      website: "https://www.cstm.org.cn",
+      openTime: {
+        regularTime: "周二至周日 9:30-17:00",
+        stopEntryTime: "16:30",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "北京市朝阳区北辰东路5号",
+      },
+      contact: {
+        phone: "010-59041000",
+        website: "https://www.cstm.org.cn",
+      },
     },
     history:
       "中国科学技术馆于1988年建成开放，是中国第一座国家级综合性科技馆。2009年新馆建成，占地面积约8万平方米，建筑面积约10万平方米，是目前中国规模最大、功能最完善的综合性科技场馆。新馆建筑呈'鲁班锁'造型，寓意科学的奥秘与探索精神。",
@@ -145,12 +156,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 3,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "上海市黄浦区人民大道201号",
-      phone: "021-63723500",
-      website: "https://www.shanghaimuseum.net",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "上海市黄浦区人民大道201号",
+      },
+      contact: {
+        phone: "021-63723500",
+        website: "https://www.shanghaimuseum.net",
+      },
     },
     history:
       "上海博物馆创建于1952年，原址在南京西路325号。1996年新馆建成开放，位于人民广场南侧。上海博物馆是一座大型的中国古代艺术博物馆，馆藏文物近百万件，其中精品文物12万件，尤以青铜器、陶瓷器、书法、绘画为特色。",
@@ -165,12 +187,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 4,
     visitInfo: {
-      openTime: "全年开放 8:30-18:00（17:00停止入场）",
-      closeDay: "全年开放",
-      ticket: "120元/人（旺季），60元/人（淡季）",
-      address: "陕西省西安市临潼区秦陵北路",
-      phone: "029-81399001",
-      website: "http://www.bmy.com.cn",
+      openTime: {
+        regularTime: "全年开放 8:30-18:00",
+        stopEntryTime: "17:00",
+        closeDay: "全年开放",
+      },
+      ticket: {
+        price: "120元/人（旺季），60元/人（淡季）",
+        isFree: false,
+        needReservation: false,
+      },
+      transportation: {
+        address: "陕西省西安市临潼区秦陵北路",
+      },
+      contact: {
+        phone: "029-81399001",
+        website: "http://www.bmy.com.cn",
+      },
     },
     history:
       "秦始皇兵马俑博物馆建于1974年，是在秦始皇兵马俑坑遗址上建立的遗址类博物馆。兵马俑坑是秦始皇陵的陪葬坑，1974年被当地农民发现。经过考古发掘，发现三个兵马俑坑，出土陶俑、陶马数千件，被誉为'世界第八大奇迹'。",
@@ -185,12 +218,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 5,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:30（16:30停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "陕西省西安市雁塔区小寨东路91号",
-      phone: "029-85257006",
-      website: "http://www.sxhm.com",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:30",
+        stopEntryTime: "16:30",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "陕西省西安市雁塔区小寨东路91号",
+      },
+      contact: {
+        phone: "029-85257006",
+        website: "http://www.sxhm.com",
+      },
     },
     history:
       "陕西历史博物馆是中国第一座大型现代化国家级博物馆，1991年建成开放。馆藏文物171万余件，上起远古人类初始阶段，下至近代社会，时间跨度长达一百多万年。陕西是中华文明的重要发祥地，历史上先后有14个王朝在陕西建都。",
@@ -205,12 +249,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 6,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "江苏省南京市玄武区中山东路321号",
-      phone: "025-84801111",
-      website: "http://www.njmuseum.com",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "江苏省南京市玄武区中山东路321号",
+      },
+      contact: {
+        phone: "025-84801111",
+        website: "http://www.njmuseum.com",
+      },
     },
     history:
       "南京博物院是中国三大博物馆之一，其前身是1933年蔡元培等倡建的国立中央博物院，是中国创建最早的博物馆。1950年更名为南京博物院。2009年新馆建成开放，占地面积13万平方米，建筑面积8万平方米，是中国最大的博物馆之一。",
@@ -225,12 +280,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 7,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:30（16:30停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "河南省郑州市金水区农业路8号",
-      phone: "0371-63511237",
-      website: "http://www.chnmus.net",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:30",
+        stopEntryTime: "16:30",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "河南省郑州市金水区农业路8号",
+      },
+      contact: {
+        phone: "0371-63511237",
+        website: "http://www.chnmus.net",
+      },
     },
     history:
       "河南博物院创建于1927年，是中国建立较早的博物馆之一。1997年新馆建成开放，占地面积10万平方米，建筑面积7.8万平方米。河南是中华文明的重要发祥地，历史上先后有20多个朝代在河南建都，地下文物居全国首位。",
@@ -245,12 +311,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 8,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:30停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "浙江省杭州市西湖区孤山路25号",
-      phone: "0571-87971117",
-      website: "http://www.zhejiangmuseum.com",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:30",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "浙江省杭州市西湖区孤山路25号",
+      },
+      contact: {
+        phone: "0571-87971117",
+        website: "http://www.zhejiangmuseum.com",
+      },
     },
     history:
       "浙江省博物馆始建于1929年，原名'浙江省西湖博物馆'，1973年更名为浙江省博物馆。2009年武林馆区建成开放，形成孤山馆区和武林馆区两馆并立的格局。浙江省博物馆是浙江省内最大的集收藏、陈列、研究于一体的综合性人文科学博物馆。",
@@ -265,12 +342,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 9,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "湖北省武汉市武昌区东湖路160号",
-      phone: "027-86794127",
-      website: "http://www.hbww.org",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "湖北省武汉市武昌区东湖路160号",
+      },
+      contact: {
+        phone: "027-86794127",
+        website: "http://www.hbww.org",
+      },
     },
     history:
       "湖北省博物馆始建于1953年，是国家一级博物馆。2007年新馆建成开放，占地面积8万平方米，建筑面积5万平方米。湖北是楚文化的发祥地，湖北省博物馆以收藏、研究、展示楚文化为特色，是了解楚文化的重要窗口。",
@@ -285,12 +373,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 10,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "湖南省长沙市开福区东风路50号",
-      phone: "0731-82215821",
-      website: "http://www.hnmuseum.com",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "湖南省长沙市开福区东风路50号",
+      },
+      contact: {
+        phone: "0731-82215821",
+        website: "http://www.hnmuseum.com",
+      },
     },
     history:
       "湖南省博物馆始建于1951年，是国家一级博物馆。2017年新馆建成开放，占地面积5万平方米，建筑面积9万平方米。湖南是楚文化的重要分布区，湖南省博物馆以收藏、研究、展示马王堆汉墓文物为特色，是了解汉代文化的重要窗口。",
@@ -305,12 +404,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 11,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "四川省成都市青羊区浣花南路251号",
-      phone: "028-65521555",
-      website: "http://www.scmuseum.cn",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "四川省成都市青羊区浣花南路251号",
+      },
+      contact: {
+        phone: "028-65521555",
+        website: "http://www.scmuseum.cn",
+      },
     },
     history:
       "四川博物院始建于1941年，原名'四川博物馆'，1952年更名为四川博物院。2009年新馆建成开放，占地面积3万平方米，建筑面积3.2万平方米。四川博物院是西南地区最大的综合性博物馆，馆藏文物26万余件，以巴蜀文化为特色。",
@@ -325,12 +435,23 @@ export const museumDetailsData: MuseumDetailInfo[] = [
   {
     museumId: 12,
     visitInfo: {
-      openTime: "周二至周日 9:00-17:00（16:00停止入场）",
-      closeDay: "周一闭馆（法定节假日除外）",
-      ticket: "免费（需提前预约）",
-      address: "广东省广州市天河区珠江东路2号",
-      phone: "020-84640909",
-      website: "http://www.gdmuseum.com",
+      openTime: {
+        regularTime: "周二至周日 9:00-17:00",
+        stopEntryTime: "16:00",
+        closeDay: "周一闭馆（法定节假日除外）",
+      },
+      ticket: {
+        price: "免费",
+        isFree: true,
+        needReservation: true,
+      },
+      transportation: {
+        address: "广东省广州市天河区珠江东路2号",
+      },
+      contact: {
+        phone: "020-84640909",
+        website: "http://www.gdmuseum.com",
+      },
     },
     history:
       "广东省博物馆始建于1959年，原名'广东省博物馆'，2010年新馆建成开放。新馆位于广州市天河区珠江新城，占地面积5万平方米，建筑面积6.6万平方米。广东省博物馆是广东省唯一的省级综合博物馆，以岭南文化为特色。",
@@ -409,55 +530,7 @@ export const allMuseumDetails: MuseumDetailInfo[] = [
 export const getMuseumDetailsById = (
   museumId: number,
 ): MuseumDetailInfo | undefined => {
-  const detail = allMuseumDetails.find(
+  return allMuseumDetails.find(
     (detail) => detail.museumId === museumId,
   );
-
-  // 如果找到的数据是旧格式，转换为新格式
-  if (detail && typeof detail.visitInfo.openTime === "string") {
-    const oldInfo = detail.visitInfo as any;
-    return {
-      ...detail,
-      visitInfo: {
-        openTime: {
-          regularTime: oldInfo.openTime || "周二至周日 9:00-17:00",
-          stopEntryTime: "16:00",
-          closeDay: oldInfo.closeDay || "周一（法定节假日除外）",
-          holidayNotice: "节假日开放时间请关注公告",
-        },
-        ticket: {
-          price: oldInfo.ticket || "免费",
-          isFree: oldInfo.ticket?.includes("免费") || true,
-          needReservation: oldInfo.ticket?.includes("预约") || true,
-          idRequired: "凭身份证入馆",
-          discountPolicy: ["未成年人、学生、老年人优先", "残疾人凭残疾证免费"],
-        },
-        rules: {
-          allowed: ["拍照时请关闭闪光灯", "可携带饮用水入馆"],
-          forbidden: ["禁止携带宠物入馆", "禁止触摸展品", "禁止大声喧哗"],
-        },
-        transportation: {
-          address: oldInfo.address || "博物馆地址",
-          metro: "地铁线路信息",
-          bus: "公交线路信息",
-        },
-        services: {
-          hasGuide: true,
-          hasStorage: true,
-          hasRestaurant: true,
-          hasAccessibility: true,
-          hasRestArea: true,
-          hasWiFi: true,
-        },
-        contact: {
-          phone: oldInfo.phone || "咨询电话",
-          email: "museum@example.com",
-          complaintPhone: "投诉建议电话",
-          website: oldInfo.website || "官方网站",
-        },
-      },
-    };
-  }
-
-  return detail;
 };

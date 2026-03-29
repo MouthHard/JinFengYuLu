@@ -1,4 +1,4 @@
-import type { Province } from "@/pages/TravelGuide/data/provinces";
+
 
 export interface WeatherInfo {
   icon: string;

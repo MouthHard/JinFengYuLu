@@ -921,28 +921,8 @@ const noteArr: NoteItem[] = [
     noteTitle: `父组件和子组件的类名，id名，变量名等等尽量不要出现重名重复，解析的时候会把子组件的内容给渲染到父组件进行整体整合，这时候就会出现命名冲突，从而出现样式冲突、变量冲突、逻辑冲突等等`,
     reason: ``,
     solution: ``,
-  },
+  }
 ];
-const flagArr = new Map([
-  ["fanRen", false],
-  ["spiritFarer", false],
-  ["witcher3", false],
-  ["DNF", false],
-  ["DeathStranding", false],
-  ["MetroEx", false],
-  ["Ori", false],
-  ["Journey", false],
-  ["Gris", false],
-  ["DyingLight", false],
-  ["Battlefield1", false],
-  ["GTA5", false],
-  ["Minecraft", false],
-  ["ABZÛ", false],
-  ["Prototype", false],
-  ["Fallout4", false],
-  ["RimWorld", false],
-  ["Assassin", false],
-]);
 
 const flagArr = new Map<string, boolean>([
   ["fanRen", false],

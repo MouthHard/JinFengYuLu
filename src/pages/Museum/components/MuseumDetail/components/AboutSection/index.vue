@@ -26,22 +26,22 @@
           <div class="time-item">
             <span class="label">常规时间</span>
             <span class="value">{{
-              visitInfo?.openTime.regularTime || "周二至周日 9:00-17:00"
+              typeof visitInfo?.openTime === 'string' ? visitInfo.openTime : (visitInfo?.openTime?.regularTime || "周二至周日 9:00-17:00")
             }}</span>
           </div>
-          <div class="time-item highlight">
+          <div class="time-item highlight" v-if="typeof visitInfo?.openTime !== 'string'">
             <span class="label">停止入馆</span>
             <span class="value">{{
-              visitInfo?.openTime.stopEntryTime || "16:00"
+              visitInfo?.openTime?.stopEntryTime || "16:00"
             }}</span>
           </div>
-          <div class="time-item">
+          <div class="time-item" v-if="typeof visitInfo?.openTime !== 'string'">
             <span class="label">闭馆日</span>
             <span class="value">{{
-              visitInfo?.openTime.closeDay || "周一（法定节假日除外）"
+              visitInfo?.openTime?.closeDay || "周一（法定节假日除外）"
             }}</span>
           </div>
-          <div v-if="visitInfo?.openTime.holidayNotice" class="notice-badge">
+          <div v-if="typeof visitInfo?.openTime !== 'string' && visitInfo?.openTime?.holidayNotice" class="notice-badge">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -80,11 +80,11 @@
             <span class="price-label">门票价格</span>
             <span
               class="price-value"
-              :class="{ free: visitInfo?.ticket.isFree }"
-              >{{ visitInfo?.ticket.price || "免费" }}</span
+              :class="{ free: typeof visitInfo?.ticket !== 'string' && visitInfo?.ticket.isFree }"
+              >{{ typeof visitInfo?.ticket === 'string' ? visitInfo.ticket : (visitInfo?.ticket?.price || "免费") }}</span
             >
           </div>
-          <div class="booking-info">
+          <div class="booking-info" v-if="typeof visitInfo?.ticket !== 'string'">
             <div v-if="visitInfo?.ticket.needReservation" class="booking-item">
               <svg
                 viewBox="0 0 24 24"
@@ -112,6 +112,7 @@
           </div>
           <div
             v-if="
+              typeof visitInfo?.ticket !== 'string' &&
               visitInfo?.ticket.discountPolicy &&
               visitInfo.ticket.discountPolicy.length > 0
             "
@@ -149,9 +150,9 @@
           <h3>参观须知</h3>
         </div>
         <div class="card-body">
-          <div class="rule-list">
+          <div class="rule-list" v-if="visitInfo?.rules">
             <div
-              v-for="(rule, index) in visitInfo?.rules.allowed"
+              v-for="(rule, index) in visitInfo.rules.allowed"
               :key="`allow-${index}`"
               class="rule-item"
             >
@@ -159,7 +160,7 @@
               <span>{{ rule }}</span>
             </div>
             <div
-              v-for="(rule, index) in visitInfo?.rules.forbidden"
+              v-for="(rule, index) in visitInfo.rules.forbidden"
               :key="`forbid-${index}`"
               class="rule-item"
             >
@@ -187,7 +188,7 @@
           <h3>交通指南</h3>
         </div>
         <div class="card-body">
-          <div class="transport-item">
+          <div class="transport-item" v-if="visitInfo?.transportation">
             <div class="transport-icon">
               <svg
                 viewBox="0 0 24 24"
@@ -204,11 +205,11 @@
             <div class="transport-content">
               <span class="transport-label">地址</span>
               <span class="transport-value">{{
-                visitInfo?.transportation.address || "博物馆详细地址信息"
+                visitInfo.transportation.address || "博物馆详细地址信息"
               }}</span>
             </div>
           </div>
-          <div v-if="visitInfo?.transportation.metro" class="transport-item">
+          <div v-if="visitInfo?.transportation?.metro" class="transport-item">
             <div class="transport-icon metro">
               <span>M</span>
             </div>
@@ -219,7 +220,7 @@
               }}</span>
             </div>
           </div>
-          <div v-if="visitInfo?.transportation.bus" class="transport-item">
+          <div v-if="visitInfo?.transportation?.bus" class="transport-item">
             <div class="transport-icon bus">
               <svg
                 viewBox="0 0 24 24"
@@ -239,7 +240,7 @@
               }}</span>
             </div>
           </div>
-          <div v-if="visitInfo?.transportation.parking" class="transport-item">
+          <div v-if="visitInfo?.transportation?.parking" class="transport-item">
             <div class="transport-icon">
               <svg
                 viewBox="0 0 24 24"
@@ -278,8 +279,8 @@
           <h3>服务设施</h3>
         </div>
         <div class="card-body">
-          <div class="service-grid">
-            <div v-if="visitInfo?.services.hasGuide" class="service-item">
+          <div class="service-grid" v-if="visitInfo?.services">
+            <div v-if="visitInfo.services.hasGuide" class="service-item">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -291,7 +292,7 @@
               </svg>
               <span>讲解服务</span>
             </div>
-            <div v-if="visitInfo?.services.hasStorage" class="service-item">
+            <div v-if="visitInfo.services.hasStorage" class="service-item">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -303,7 +304,7 @@
               </svg>
               <span>物品寄存</span>
             </div>
-            <div v-if="visitInfo?.services.hasRestaurant" class="service-item">
+            <div v-if="visitInfo.services.hasRestaurant" class="service-item">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -319,7 +320,7 @@
               <span>餐饮服务</span>
             </div>
             <div
-              v-if="visitInfo?.services.hasAccessibility"
+              v-if="visitInfo.services.hasAccessibility"
               class="service-item"
             >
               <svg
@@ -335,7 +336,7 @@
               </svg>
               <span>无障碍设施</span>
             </div>
-            <div v-if="visitInfo?.services.hasRestArea" class="service-item">
+            <div v-if="visitInfo.services.hasRestArea" class="service-item">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -349,7 +350,7 @@
               </svg>
               <span>休息区</span>
             </div>
-            <div v-if="visitInfo?.services.hasWiFi" class="service-item">
+            <div v-if="visitInfo.services.hasWiFi" class="service-item">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -383,7 +384,7 @@
           <h3>联系我们</h3>
         </div>
         <div class="card-body">
-          <div class="contact-item">
+          <div class="contact-item" v-if="visitInfo?.contact">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -397,11 +398,11 @@
             <div class="contact-content">
               <span class="contact-label">咨询电话</span>
               <span class="contact-value">{{
-                visitInfo?.contact.phone || "咨询电话"
+                visitInfo.contact.phone || "咨询电话"
               }}</span>
             </div>
           </div>
-          <div class="contact-item">
+          <div class="contact-item" v-if="visitInfo?.contact">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -416,11 +417,11 @@
             <div class="contact-content">
               <span class="contact-label">电子邮箱</span>
               <span class="contact-value">{{
-                visitInfo?.contact.email || "museum@example.com"
+                visitInfo.contact.email || "museum@example.com"
               }}</span>
             </div>
           </div>
-          <div v-if="visitInfo?.contact.complaintPhone" class="contact-item">
+          <div v-if="visitInfo?.contact?.complaintPhone" class="contact-item">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -472,7 +473,7 @@
             <div class="info-content">
               <span class="info-label">地址</span>
               <span class="info-value">{{
-                visitInfo?.transportation.address || "博物馆地址"
+                visitInfo?.transportation?.address || "博物馆地址"
               }}</span>
             </div>
           </div>
@@ -492,7 +493,7 @@
             <div class="info-content">
               <span class="info-label">电话</span>
               <span class="info-value">{{
-                visitInfo?.contact.phone || "咨询电话"
+                visitInfo?.contact?.phone || "咨询电话"
               }}</span>
             </div>
           </div>
@@ -511,7 +512,7 @@
             <div class="info-content">
               <span class="info-label">开放时间</span>
               <span class="info-value">{{
-                visitInfo?.openTime.regularTime || "周二至周日 9:00-17:00"
+                typeof visitInfo?.openTime === 'string' ? visitInfo.openTime : (visitInfo?.openTime?.regularTime || "周二至周日 9:00-17:00")
               }}</span>
             </div>
           </div>

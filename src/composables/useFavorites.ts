@@ -12,12 +12,13 @@ export function useFavorites<T extends { id: string }>(
 
   const favorites = ref(new Set<string>());
 
-  const isFavorite = (id: string): boolean => {
-    return favorites.value.has(id);
+  const isFavorite = (item: T): boolean => {
+    return favorites.value.has(item.id);
   };
 
-  const toggleFavorite = (id: string): void => {
-    if (isFavorite(id)) {
+  const toggleFavorite = (item: T): void => {
+    const id = item.id;
+    if (isFavorite(item)) {
       favorites.value.delete(id);
     } else {
       favorites.value.add(id);

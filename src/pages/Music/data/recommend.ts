@@ -6,6 +6,9 @@ export interface ChoiceItem {
   bgColor: string;
   src: string;
   _isHovered?: boolean;
+  // 排行榜相关属性
+  rankName?: string;
+  rankUpdate?: string;
 }
 
 export interface FifthItem {

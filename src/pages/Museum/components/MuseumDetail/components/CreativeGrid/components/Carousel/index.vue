@@ -174,7 +174,7 @@
       <!-- 精美指示器 -->
       <div v-if="featuredProducts.length > 1" class="carousel-indicators">
         <button
-          v-for="(product, index) in featuredProducts"
+          v-for="(_, index) in featuredProducts"
           :key="`indicator-${index}`"
           class="indicator"
           :class="{ active: index === currentSlide }"

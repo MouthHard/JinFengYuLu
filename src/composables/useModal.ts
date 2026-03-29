@@ -63,7 +63,7 @@ export function useModal<T>(options: UseModalOptions = {}) {
     }
   };
 
-  const handleClickOutside = (event: MouseEvent): void => {
+  const handleClickOutside = (_event: MouseEvent): void => {
     if (closeOnClickOutside && isOpen.value) {
       close();
     }

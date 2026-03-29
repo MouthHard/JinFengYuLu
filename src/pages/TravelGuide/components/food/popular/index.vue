@@ -83,8 +83,8 @@
               <button class="action-btn">了解详情</button>
               <button
                 class="favorite-btn"
-                :class="{ active: isFavorite(food.id) }"
-                @click.stop="toggleFavorite(food.id)"
+                :class="{ active: isFavorite(food) }"
+                @click.stop="toggleFavorite(food)"
               >
                 <svg
                   class="heart-icon"
