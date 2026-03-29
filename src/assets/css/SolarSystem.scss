@@ -1,361 +1,363 @@
- #mainPage {
-   position: absolute;
-   width: 100%;
-   height: 100%;
+#mainPage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
-   .trajectory {
-     z-index: 0;
-     position: absolute;
-     overflow: hidden;
-     margin: 0;
-     padding: 0;
-     width: 100%;
-     height: 100%;
-     left: 0%;
-     top: 0%;
+  .trajectory {
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
 
-     p {
-       position: absolute;
-       border-radius: 50%;
-       left: 50%;
-       top: 50%;
-       line-height: 0;
-       /* 消除文本行高影响 */
-       font-size: 0;
-       /* 消除字体大小影响 */
-       transform: translate(-50%, -50%);
-       border: 1px dotted rgba(255, 255, 255, 0.2);
+    p {
+      position: absolute;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      line-height: 0;
+      /* 消除文本行高影响 */
+      font-size: 0;
+      /* 消除字体大小影响 */
+      transform: translate(-50%, -50%);
+      border: 1px dotted rgba(255, 255, 255, 0.2);
 
-       &::before {
-         position: absolute;
-         left: 20%;
-         bottom: 0%;
-         color: #fff;
-         font-weight: bolder;
-         opacity: 0;
-         transition: 0.5s;
-       }
+      &::before {
+        position: absolute;
+        left: 20%;
+        bottom: 0%;
+        color: #fff;
+        font-weight: bolder;
+        opacity: 0;
+        transition: 0.5s;
+      }
 
-       &:hover::before {
-         opacity: 1;
-       }
+      &:hover::before {
+        opacity: 1;
+      }
 
-       a {
-         border-radius: 50%;
-         position: absolute;
-         background-size: cover;
-         display: inline-block;
-         opacity: 1;
-       }
+      a {
+        border-radius: 50%;
+        position: absolute;
+        background-size: cover;
+        display: inline-block;
+        opacity: 1;
+      }
 
-       &:hover a {
-         box-shadow: inset 0 -2px 0.1rem 1px rgb(0, 0, 0),
-           0 0 1.5rem 10px rgb(66, 229, 248);
-       }
+      &:hover a {
+        box-shadow:
+          inset 0 -2px 0.1rem 1px rgb(0, 0, 0),
+          0 0 1.5rem 10px rgb(66, 229, 248);
+      }
 
-       //水星公转圈
-       &:nth-of-type(1) {
-         z-index: 1;
-         width: 14vmin;
-         height: 14vmin;
-         animation: rotate 3s linear infinite;
+      //水星公转圈
+      &:nth-of-type(1) {
+        z-index: 1;
+        width: 14vmin;
+        height: 14vmin;
+        animation: rotate 3s linear infinite;
 
-         //水星
-         a {
-           left: 2vmin;
-           top: 2vmin;
-           width: 1.5vmin;
-           height: 1.5vmin;
-           background-position: center;
-           animation: rotate 586s linear infinite;
-         }
-       }
+        //水星
+        a {
+          left: 2vmin;
+          top: 2vmin;
+          width: 1.5vmin;
+          height: 1.5vmin;
+          background-position: center;
+          animation: rotate 586s linear infinite;
+        }
+      }
 
-       //金星公转
-       &:nth-of-type(2) {
-         z-index: 0;
-         width: 20vmin;
-         height: 20vmin;
-         animation: rotate 7.2s linear infinite;
+      //金星公转
+      &:nth-of-type(2) {
+        z-index: 0;
+        width: 20vmin;
+        height: 20vmin;
+        animation: rotate 7.2s linear infinite;
 
-         //金星
-         a {
-           left: 3vmin;
-           top: 3vmin;
-           width: 2vmin;
-           height: 2vmin;
-           animation: rotate 2430s linear infinite;
-           background-position: center;
-         }
-       }
+        //金星
+        a {
+          left: 3vmin;
+          top: 3vmin;
+          width: 2vmin;
+          height: 2vmin;
+          animation: rotate 2430s linear infinite;
+          background-position: center;
+        }
+      }
 
-       //地球公转
-       &:nth-of-type(3) {
-         z-index: -1;
-         width: 26vmin;
-         height: 26vmin;
-         animation: rotate 12s linear infinite;
+      //地球公转
+      &:nth-of-type(3) {
+        z-index: -1;
+        width: 26vmin;
+        height: 26vmin;
+        animation: rotate 12s linear infinite;
 
-         a {
-           left: 3.5vmin;
-           top: 3.5vmin;
-           width: 3vmin;
-           height: 3vmin;
-           animation: rotate 10s linear infinite;
-           background-position: center;
-         }
-       }
+        a {
+          left: 3.5vmin;
+          top: 3.5vmin;
+          width: 3vmin;
+          height: 3vmin;
+          animation: rotate 10s linear infinite;
+          background-position: center;
+        }
+      }
 
-       //火星公转
-       &:nth-of-type(4) {
-         z-index: -2;
-         width: 33vmin;
-         height: 33vmin;
-         animation: rotate 24s linear infinite;
+      //火星公转
+      &:nth-of-type(4) {
+        z-index: -2;
+        width: 33vmin;
+        height: 33vmin;
+        animation: rotate 24s linear infinite;
 
-         a {
-           left: 4.5vmin;
-           top: 4.5vmin;
-           width: 2.5vmin;
-           height: 2.5vmin;
-           animation: rotate 10s linear infinite;
-           background-position: center;
-         }
-       }
+        a {
+          left: 4.5vmin;
+          top: 4.5vmin;
+          width: 2.5vmin;
+          height: 2.5vmin;
+          animation: rotate 10s linear infinite;
+          background-position: center;
+        }
+      }
 
-       //木星公转
-       &:nth-of-type(5) {
-         z-index: -3;
-         width: 40vmin;
-         height: 40vmin;
-         animation: rotate 144s linear infinite;
+      //木星公转
+      &:nth-of-type(5) {
+        z-index: -3;
+        width: 40vmin;
+        height: 40vmin;
+        animation: rotate 144s linear infinite;
 
-         a {
-           left: 6vmin;
-           top: 6vmin;
-           width: 4.5vmin;
-           height: 4.5vmin;
-           animation: rotate 4s linear infinite;
-           background-position: center;
-         }
-       }
+        a {
+          left: 6vmin;
+          top: 6vmin;
+          width: 4.5vmin;
+          height: 4.5vmin;
+          animation: rotate 4s linear infinite;
+          background-position: center;
+        }
+      }
 
-       //土星公转
-       &:nth-of-type(6) {
-         z-index: -4;
-         width: 47vmin;
-         height: 47vmin;
-         animation: rotate 360s linear infinite;
+      //土星公转
+      &:nth-of-type(6) {
+        z-index: -4;
+        width: 47vmin;
+        height: 47vmin;
+        animation: rotate 360s linear infinite;
 
-         a {
-           left: 6.5vmin;
-           top: 6.5vmin;
-           width: 4vmin;
-           height: 4vmin;
-           animation: rotate 4s linear infinite;
-           background-position: center;
-         }
-       }
+        a {
+          left: 6.5vmin;
+          top: 6.5vmin;
+          width: 4vmin;
+          height: 4vmin;
+          animation: rotate 4s linear infinite;
+          background-position: center;
+        }
+      }
 
-       //天王星
-       &:nth-of-type(7) {
-         z-index: -5;
-         width: 55vmin;
-         height: 55vmin;
-         animation: rotate 1008s linear infinite;
+      //天王星
+      &:nth-of-type(7) {
+        z-index: -5;
+        width: 55vmin;
+        height: 55vmin;
+        animation: rotate 1008s linear infinite;
 
-         a {
-           left: 7.5vmin;
-           top: 7.5vmin;
-           width: 3.5vmin;
-           height: 3.5vmin;
-           transform: rotate(-30deg);
-           image-orientation: 30deg;
-           animation: rotate 7s linear infinite;
-           background-position: center;
-         }
-       }
+        a {
+          left: 7.5vmin;
+          top: 7.5vmin;
+          width: 3.5vmin;
+          height: 3.5vmin;
+          transform: rotate(-30deg);
+          image-orientation: 30deg;
+          animation: rotate 7s linear infinite;
+          background-position: center;
+        }
+      }
 
-       &:hover {
-         cursor: pointer;
-         box-shadow: inset 0 0 2rem 5px rgb(255, 255, 255),
-           0 0 1.5rem 3px rgb(160, 207, 252);
-         animation-play-state: paused;
-       }
-     }
-   }
+      &:hover {
+        cursor: pointer;
+        box-shadow:
+          inset 0 0 2rem 5px rgb(255, 255, 255),
+          0 0 1.5rem 3px rgb(160, 207, 252);
+        animation-play-state: paused;
+      }
+    }
+  }
 
-   #sun {
-     position: absolute;
-     z-index: -4;
-     left: 50%;
-     top: 50%;
-     width: 5vmin;
-     height: 5vmin;
-     border-radius: 50%;
-     border: transparent;
-     color: #ffffff;
-     background: #000000;
-     transform: translate(-50%, -50%);
-     background-image: url("https://images-pc.oss-cn-hongkong.aliyuncs.com/app/sun.png");
-     background-size: 100% 100%;
-     background-position: center;
-     animation: rotateSun 30s ease-in-out infinite both;
+  #sun {
+    position: absolute;
+    z-index: -4;
+    left: 50%;
+    top: 50%;
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50%;
+    border: transparent;
+    color: #ffffff;
+    background: #000000;
+    transform: translate(-50%, -50%);
+    background-image: url("https://images-pc.oss-cn-hongkong.aliyuncs.com/app/sun.png");
+    background-size: 100% 100%;
+    background-position: center;
+    animation: rotateSun 30s ease-in-out infinite both;
 
-     @keyframes rotateSun {
-       100% {
-         transform: translate(-50%, -50%) rotate(360deg);
-       }
-     }
+    @keyframes rotateSun {
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
 
-     &::before {
-       content: "";
-       position: absolute;
-       left: -460%;
-       top: -460%;
-       width: 1000%;
-       height: 1000%;
-       border-radius: 50%;
-       background: #000000;
-       animation: ping 5s ease-in-out infinite both;
-     }
+    &::before {
+      content: "";
+      position: absolute;
+      left: -460%;
+      top: -460%;
+      width: 1000%;
+      height: 1000%;
+      border-radius: 50%;
+      background: #000000;
+      animation: ping 5s ease-in-out infinite both;
+    }
 
-     @keyframes ping {
-       0% {
-         -webkit-transform: scale(0.3);
-         transform: scale(0.3);
-         opacity: 0.7;
-         background: #fffefe;
-       }
+    @keyframes ping {
+      0% {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        opacity: 0.7;
+        background: #fffefe;
+      }
 
-       70% {
-         -webkit-transform: scale(1.4);
-         transform: scale(1.4);
-         opacity: 0.3;
-         background: #152454;
-       }
+      70% {
+        -webkit-transform: scale(1.4);
+        transform: scale(1.4);
+        opacity: 0.3;
+        background: #152454;
+      }
 
-       100% {
-         -webkit-transform: scale(2.5);
-         transform: scale(2.5);
-         opacity: 0.1;
-         background: #671711;
-       }
-     }
-   }
- }
+      100% {
+        -webkit-transform: scale(2.5);
+        transform: scale(2.5);
+        opacity: 0.1;
+        background: #671711;
+      }
+    }
+  }
+}
 
- // 时钟
- .clock-container {
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   color: #ffffff;
+// 时钟
+.clock-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
 
-   .needle {
-     background-image: linear-gradient(to bottom, #519bdc, #ffffff);
-     box-shadow: 0 0 1rem 5px rgb(42, 187, 244);
-     position: absolute;
-     z-index: -5;
-     top: 50%;
-     left: 50%;
-     width: 1px;
-     transform-origin: bottom center;
-     transition: all 0.5s ease-in;
-   }
+  .needle {
+    background-image: linear-gradient(to bottom, #519bdc, #ffffff);
+    box-shadow: 0 0 1rem 5px rgb(42, 187, 244);
+    position: absolute;
+    z-index: -5;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    transform-origin: bottom center;
+    transition: all 0.5s ease-in;
+  }
 
-   .needle.hour {
-     transform: translate(-50%, -100%) rotate(0deg);
-     height: 60px;
-   }
+  .needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 60px;
+  }
 
-   .needle.minute {
-     transform: translate(-50%, -100%) rotate(0deg);
-     height: 90px;
-     background-image: linear-gradient(to top, #0084ff, #ffffff, #ff0303);
-     box-shadow: 0 0 1rem 5px rgb(255, 0, 0);
-   }
+  .needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 90px;
+    background-image: linear-gradient(to top, #0084ff, #ffffff, #ff0303);
+    box-shadow: 0 0 1rem 5px rgb(255, 0, 0);
+  }
 
-   .needle.second {
-     transform: translate(-50%, -100%) rotate(0deg);
-     height: 120px;
-     background-image: linear-gradient(to top, #000000, #ffffff);
-     box-shadow: 0 0 1rem 5px rgba(255, 255, 255, 1);
-   }
+  .needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 120px;
+    background-image: linear-gradient(to top, #000000, #ffffff);
+    box-shadow: 0 0 1rem 5px rgba(255, 255, 255, 1);
+  }
 
-   .time {
-     font-size: 3.5rem;
-     font-weight: bolder;
-     position: absolute;
-     color: #000;
-     top: 0%;
-     left: 40%;
-     animation: changeColor 5s linear infinite;
-   }
+  .time {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    position: absolute;
+    color: #000;
+    top: 0%;
+    left: 40%;
+    animation: changeColor 5s linear infinite;
+  }
 
-   .date {
-     position: absolute;
-     top: 10%;
-     left: 40%;
-     color: #000;
-     font-size: 1.5rem;
-     font-weight: bolder;
-     letter-spacing: 0.3px;
-     animation: changeColor 5s linear infinite;
-   }
+  .date {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    letter-spacing: 0.3px;
+    animation: changeColor 5s linear infinite;
+  }
 
-   @keyframes changeColor {
-     0% {
-       color: #000000;
-     }
+  @keyframes changeColor {
+    0% {
+      color: #000000;
+    }
 
-     40% {
-       color: #191919;
-     }
+    40% {
+      color: #191919;
+    }
 
-     50% {
-       color: #fff;
-     }
-   }
- }
+    50% {
+      color: #fff;
+    }
+  }
+}
 
- #curPageName {
-   position: absolute;
-   width: 98%;
-   height: 98%;
-   display: flex;
-   flex-direction: column;
-   top: 5%;
-   left: 5%;
-   width: 5rem;
-   color: #fff;
-   font-size: 5rem;
-   white-space: pre-wrap;
-   font-weight: bolder;
-   font-family: "LiSu";
-   transition: 0.5s;
- }
+#curPageName {
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  top: 5%;
+  left: 5%;
+  width: 5rem;
+  color: #fff;
+  font-size: 5rem;
+  white-space: pre-wrap;
+  font-weight: bolder;
+  font-family: "LiSu";
+  transition: 0.5s;
+}
 
- @keyframes rotate {
-   0% {
-     transform: translate(-50%, -50%) rotate(0);
-   }
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
 
-   100% {
-     transform: translate(-50%, -50%) rotate(360deg);
-   }
- }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
- #tabContainer {
-   position: absolute;
-   z-index: 2;
-   left: 0;
-   top: 0;
-   background: #000000;
-   width: 100%;
-   height: 100%;
-   color: #ffffff;
- }
+#tabContainer {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}

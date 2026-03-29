@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 江苏省自然风光数据
 const jiangsuNatureSpots: ScenerySpot[] = [
   {
     id: "taihuLake",
     name: "太湖",
-    description: "江苏省无锡市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
+    description:
+      "江苏省无锡市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "江苏省无锡市",
     type: "nature",
@@ -14,7 +20,7 @@ const jiangsuNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "yangchengLake",
@@ -28,12 +34,13 @@ const jiangsuNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "shouxiLake",
     name: "瘦西湖",
-    description: "江苏省扬州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
+    description:
+      "江苏省扬州市的著名湖泊，以其美丽的湖光山色和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "江苏省扬州市邗江区",
     type: "nature",
@@ -42,12 +49,13 @@ const jiangsuNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "yunlongLake",
     name: "云龙湖",
-    description: "江苏省徐州市的著名湖泊，以其美丽的湖光山色和丰富的娱乐设施而闻名",
+    description:
+      "江苏省徐州市的著名湖泊，以其美丽的湖光山色和丰富的娱乐设施而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "江苏省徐州市泉山区",
     type: "nature",
@@ -56,7 +64,7 @@ const jiangsuNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "changjiangRiverJiangsu",
@@ -70,8 +78,8 @@ const jiangsuNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
-  }
+    landformTags: ["河流景观"],
+  },
 ];
 
 // 江苏省人文景观数据
@@ -79,7 +87,8 @@ const jiangsuCultureSpots: ScenerySpot[] = [
   {
     id: "suzhouClassicalGardens",
     name: "苏州古典园林",
-    description: "江苏省苏州市的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
+    description:
+      "江苏省苏州市的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1044/600/400",
     location: "江苏省苏州市姑苏区",
     type: "culture",
@@ -88,7 +97,7 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["古典园林"]
+    landformTags: ["古典园林"],
   },
   {
     id: "nanjingConfuciusTemple",
@@ -102,12 +111,13 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "yangzhouSlenderWestLake",
     name: "扬州瘦西湖",
-    description: "江苏省扬州市的著名园林，以其美丽的湖光山色和丰富的历史文化而闻名",
+    description:
+      "江苏省扬州市的著名园林，以其美丽的湖光山色和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1046/600/400",
     location: "江苏省扬州市邗江区",
     type: "culture",
@@ -116,7 +126,7 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["古典园林"]
+    landformTags: ["古典园林"],
   },
   {
     id: "nanjingCityWall",
@@ -130,12 +140,13 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城防建筑"]
+    landformTags: ["城防建筑"],
   },
   {
     id: "wuxiLingshanBuddha",
     name: "无锡灵山大佛",
-    description: "江苏省无锡市的著名佛教景点，以其宏伟的佛像和丰富的宗教文化而闻名",
+    description:
+      "江苏省无锡市的著名佛教景点，以其宏伟的佛像和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "江苏省无锡市滨湖区",
     type: "culture",
@@ -144,12 +155,13 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "religious",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "zhenjiangJinshanTemple",
     name: "镇江金山寺",
-    description: "江苏省镇江市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "江苏省镇江市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1049/600/400",
     location: "江苏省镇江市润州区",
     type: "culture",
@@ -158,12 +170,13 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "religious",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "yangzhouDamingTemple",
     name: "扬州大明寺",
-    description: "江苏省扬州市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "江苏省扬州市的著名佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1050/600/400",
     location: "江苏省扬州市邗江区",
     type: "culture",
@@ -172,8 +185,8 @@ const jiangsuCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "religious",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 江苏省季节性数据
@@ -182,26 +195,42 @@ const jiangsuSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的江苏，万物复苏，是游览苏州园林、扬州瘦西湖的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["苏州园林赏春", "扬州瘦西湖踏青", "南京梅花山赏梅", "无锡鼋头渚赏樱"]
+    activities: [
+      "苏州园林赏春",
+      "扬州瘦西湖踏青",
+      "南京梅花山赏梅",
+      "无锡鼋头渚赏樱",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的江苏，气温较高，是游览太湖、云龙湖的好去处",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["太湖游船", "云龙湖消暑", "南京玄武湖赏荷", "苏州拙政园赏夏"]
+    activities: ["太湖游船", "云龙湖消暑", "南京玄武湖赏荷", "苏州拙政园赏夏"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的江苏，天高气爽，是游览阳澄湖、南京栖霞山的最佳时节",
     image: "https://picsum.photos/id/1053/600/400",
-    activities: ["阳澄湖品蟹", "南京栖霞山赏枫", "苏州天平山赏红枫", "扬州个园赏秋"]
+    activities: [
+      "阳澄湖品蟹",
+      "南京栖霞山赏枫",
+      "苏州天平山赏红枫",
+      "扬州个园赏秋",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的江苏，虽然寒冷，但节日氛围浓厚，是游览南京夫子庙、苏州观前街的好去处",
+    description:
+      "冬季的江苏，虽然寒冷，但节日氛围浓厚，是游览南京夫子庙、苏州观前街的好去处",
     image: "https://picsum.photos/id/1054/600/400",
-    activities: ["南京夫子庙逛灯会", "苏州观前街购物", "扬州瘦西湖赏雪", "无锡灵山祈福"]
-  }
+    activities: [
+      "南京夫子庙逛灯会",
+      "苏州观前街购物",
+      "扬州瘦西湖赏雪",
+      "无锡灵山祈福",
+    ],
+  },
 };
 
 // 江苏省活动数据
@@ -215,7 +244,7 @@ const jiangsuActivities: TravelActivity[] = [
     location: "江苏省苏州市姑苏区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +255,7 @@ const jiangsuActivities: TravelActivity[] = [
     location: "江苏省无锡市太湖景区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +266,7 @@ const jiangsuActivities: TravelActivity[] = [
     location: "江苏省南京市秦淮区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -248,7 +277,7 @@ const jiangsuActivities: TravelActivity[] = [
     location: "江苏省扬州市邗江区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +288,8 @@ const jiangsuActivities: TravelActivity[] = [
     location: "江苏省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 江苏省路线数据
@@ -279,7 +308,7 @@ const jiangsuRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +324,8 @@ const jiangsuRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "四季皆宜",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 江苏省非物质文化遗产数据
@@ -312,7 +341,7 @@ const jiangsuIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1062/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +354,7 @@ const jiangsuIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🧵",
     image: "https://picsum.photos/id/1063/600/400",
-    features: ["图案精美", "工艺独特", "历史悠久"]
+    features: ["图案精美", "工艺独特", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +367,7 @@ const jiangsuIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1064/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "4",
@@ -351,7 +380,7 @@ const jiangsuIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪡",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["图案精美", "工艺独特", "历史悠久"]
+    features: ["图案精美", "工艺独特", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +393,8 @@ const jiangsuIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
-  }
+    features: ["表演独特", "内容丰富", "历史悠久"],
+  },
 ];
 
 // 江苏省数据
@@ -378,40 +407,45 @@ export const jiangsuData = {
       {
         name: "苏州古典园林",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "江苏省苏州市的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名"
+        description:
+          "江苏省苏州市的著名古典园林，以其精美的园林景观和丰富的历史文化而闻名",
       },
       {
         name: "南京夫子庙",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "江苏省南京市的著名孔庙，以其宏伟的建筑和丰富的历史文化而闻名"
+        description:
+          "江苏省南京市的著名孔庙，以其宏伟的建筑和丰富的历史文化而闻名",
       },
       {
         name: "扬州瘦西湖",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "江苏省扬州市的著名园林，以其美丽的湖光山色和丰富的历史文化而闻名"
+        description:
+          "江苏省扬州市的著名园林，以其美丽的湖光山色和丰富的历史文化而闻名",
       },
       {
         name: "太湖",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "江苏省无锡市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名"
+        description:
+          "江苏省无锡市的著名湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
       },
       {
         name: "无锡灵山大佛",
         image: "https://picsum.photos/id/1048/600/400",
-        description: "江苏省无锡市的著名佛教景点，以其宏伟的佛像和丰富的宗教文化而闻名"
-      }
-    ]
+        description:
+          "江苏省无锡市的著名佛教景点，以其宏伟的佛像和丰富的宗教文化而闻名",
+      },
+    ],
   },
   spots: [...jiangsuNatureSpots, ...jiangsuCultureSpots],
   seasonal: [
     jiangsuSeasonalData.spring,
     jiangsuSeasonalData.summer,
     jiangsuSeasonalData.autumn,
-    jiangsuSeasonalData.winter
+    jiangsuSeasonalData.winter,
   ],
   activities: jiangsuActivities,
   routes: jiangsuRoutes,
-  intangibleHeritage: jiangsuIntangibleHeritage
+  intangibleHeritage: jiangsuIntangibleHeritage,
 };
 
 // 江苏省风俗文化数据
@@ -420,13 +454,14 @@ export const jiangsuCustomsData = {
     {
       id: "1",
       name: "苏州评弹表演",
-      description: "欣赏江苏省苏州市传统说唱艺术评弹表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏江苏省苏州市传统说唱艺术评弹表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1067/600/400",
       category: "culture",
       location: "江苏省苏州市平江路评弹茶馆",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +472,7 @@ export const jiangsuCustomsData = {
       location: "江苏省南京市云锦博物馆",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +483,7 @@ export const jiangsuCustomsData = {
       location: "江苏省扬州市瘦西湖剪纸艺术坊",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,20 +494,21 @@ export const jiangsuCustomsData = {
       location: "江苏省苏州市刺绣研究所",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
       name: "江苏昆曲表演",
-      description: "欣赏江苏省传统戏曲艺术昆曲表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏江苏省传统戏曲艺术昆曲表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1071/600/400",
       category: "culture",
       location: "江苏省苏州市昆剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
-    }
-  ]
+      type: "文化体验",
+    },
+  ],
 };
 
 // 江苏民俗风情元素数据
@@ -481,32 +517,32 @@ export const jiangsuFolkCustomsElements = [
     name: "苏州评弹",
     description: "江苏省苏州市传统说唱艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统曲艺", "非遗文化", "吴文化", "江苏特色", "表演艺术"]
+    tags: ["传统曲艺", "非遗文化", "吴文化", "江苏特色", "表演艺术"],
   },
   {
     name: "南京云锦",
     description: "江苏省南京市传统丝织技艺，以其精美的图案和独特的工艺著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "丝织艺术", "非遗文化", "江苏特色", "工艺美术"]
+    tags: ["传统技艺", "丝织艺术", "非遗文化", "江苏特色", "工艺美术"],
   },
   {
     name: "扬州剪纸",
     description: "江苏省扬州市传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江苏特色", "民间美术"]
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "江苏特色", "民间美术"],
   },
   {
     name: "苏州刺绣",
     description: "江苏省苏州市传统刺绣技艺，以其精美的图案和独特的工艺著称",
     image: "https://picsum.photos/id/1075/600/400",
-    tags: ["传统技艺", "刺绣艺术", "非遗文化", "苏绣特色", "工艺美术"]
+    tags: ["传统技艺", "刺绣艺术", "非遗文化", "苏绣特色", "工艺美术"],
   },
   {
     name: "江苏昆曲",
     description: "江苏省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1076/600/400",
-    tags: ["传统戏曲", "非遗文化", "百戏之祖", "世界遗产", "表演艺术"]
-  }
+    tags: ["传统戏曲", "非遗文化", "百戏之祖", "世界遗产", "表演艺术"],
+  },
 ];
 
 // 江苏省文化节庆数据
@@ -518,7 +554,7 @@ export const jiangsuFestivals = [
     month: "4月",
     day: "1日",
     location: "江苏省苏州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +563,7 @@ export const jiangsuFestivals = [
     month: "2月",
     day: "15日",
     location: "江苏省南京市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +572,7 @@ export const jiangsuFestivals = [
     month: "4月",
     day: "18日",
     location: "江苏省扬州市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +581,7 @@ export const jiangsuFestivals = [
     month: "9月",
     day: "1日",
     location: "江苏省无锡市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +590,7 @@ export const jiangsuFestivals = [
     month: "4月",
     day: "5日",
     location: "江苏省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +599,8 @@ export const jiangsuFestivals = [
     month: "9月",
     day: "21日",
     location: "江苏省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default jiangsuData;

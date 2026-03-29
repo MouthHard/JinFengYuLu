@@ -1,0 +1,866 @@
+.special-exhibition-module {
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #000000 100%);
+  min-height: 100vh;
+
+  // 页面标题
+  .page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+
+      .title-icon {
+        font-size: 2rem;
+      }
+
+      .title-decoration {
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #2c5aa0, #e8913a);
+        border-radius: 2px;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  // 专馆导航标签
+  .special-tabs-container {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+
+    .special-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+
+      .special-tab-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: #f1f5f9;
+        border: 2px solid transparent;
+        color: #64748b;
+
+        .tab-icon {
+          font-size: 1.1rem;
+        }
+
+        &:hover {
+          background: #f8fafc;
+          color: #2c5aa0;
+          transform: translateY(-2px);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        &.active {
+          background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+          color: white;
+          border-color: #1a3a6e;
+          box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  // 专馆内容区
+  .special-content {
+    .hall-content {
+      animation: fadeIn 0.5s ease;
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  // 1. 专馆概览区
+  .hall-overview {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+
+    .overview-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+
+      @media (max-width: 968px) {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-image {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+        img {
+          width: 100%;
+          height: 350px;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .image-overlay {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+
+          .hall-badge {
+            background: linear-gradient(135deg, #e8913a, #f0a85c);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+
+      .overview-info {
+        .hall-name {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 1rem;
+          position: relative;
+          padding-bottom: 0.75rem;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2c5aa0, #e8913a);
+            border-radius: 2px;
+          }
+        }
+
+        .hall-intro {
+          font-size: 1rem;
+          color: #64748b;
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
+        }
+
+        .hall-stats {
+          display: flex;
+          gap: 2rem;
+          margin-bottom: 1.5rem;
+
+          .stat-item {
+            text-align: center;
+
+            .stat-number {
+              display: block;
+              font-size: 2rem;
+              font-weight: 700;
+              color: #2c5aa0;
+              line-height: 1;
+            }
+
+            .stat-label {
+              font-size: 0.875rem;
+              color: #94a3b8;
+              margin-top: 0.25rem;
+            }
+          }
+        }
+
+        .hall-actions {
+          display: flex;
+          gap: 1rem;
+
+          .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+
+            &.primary {
+              background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+              color: white;
+              box-shadow: 0 4px 14px rgba(#2c5aa0, 0.4);
+
+              &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(#2c5aa0, 0.5);
+              }
+            }
+
+            &.secondary {
+              background: #f1f5f9;
+              color: #64748b;
+              border: 2px solid #e2e8f0;
+
+              &:hover {
+                background: #f8fafc;
+                border-color: #2c5aa0;
+                color: #2c5aa0;
+              }
+            }
+          }
+        }
+
+        // 参观信息（合并到概览区）
+        .visit-info-inline {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0.75rem;
+          margin-top: 1.5rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid #e2e8f0;
+
+          @media (max-width: 968px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+          }
+
+          .info-item-inline {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: #f1f5f9;
+              transform: translateY(-1px);
+            }
+
+            .info-icon {
+              font-size: 1.25rem;
+              width: 36px;
+              height: 36px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+              border-radius: 8px;
+              flex-shrink: 0;
+            }
+
+            .info-content {
+              flex: 1;
+              min-width: 0;
+
+              .info-label {
+                display: block;
+                font-size: 0.75rem;
+                color: #94a3b8;
+                margin-bottom: 0.25rem;
+                font-weight: 500;
+              }
+
+              .info-value {
+                display: block;
+                font-size: 0.85rem;
+                color: #1e293b;
+                font-weight: 600;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 2. 参观信息区
+  .visit-info-section {
+    margin-bottom: 2rem;
+
+    .info-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e2e8f0;
+
+      @media (max-width: 968px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #f1f5f9;
+          transform: translateY(-2px);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .info-icon {
+          font-size: 1.5rem;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+          border-radius: 12px;
+        }
+
+        .info-content {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .info-label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+
+          .info-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1e293b;
+          }
+        }
+      }
+    }
+  }
+
+  // 区块标题通用样式
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .title-icon {
+        font-size: 1.25rem;
+      }
+    }
+
+    .more-link {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: #2c5aa0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: all 0.3s ease;
+
+      .arrow {
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: #1a3a6e;
+
+        .arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  // 3. 精选文物区
+  .artifacts-section {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+
+    .artifacts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 968px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .artifact-image {
+          position: relative;
+          height: 200px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
+
+          .artifact-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(#1a3a6e, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            &.active {
+              opacity: 1;
+            }
+
+            .view-btn {
+              padding: 0.75rem 1.5rem;
+              background: white;
+              color: #2c5aa0;
+              border: none;
+              border-radius: 12px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background: #2c5aa0;
+                color: white;
+              }
+            }
+          }
+        }
+
+        .artifact-info {
+          padding: 1.25rem;
+
+          .artifact-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+          }
+
+          .artifact-period {
+            font-size: 0.85rem;
+            color: #e8913a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          .artifact-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.6;
+            display: -webkit-box;
+
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  // 4. 主题展览区
+  .exhibitions-section {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+
+    .exhibitions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .exhibition-item {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 1.5rem;
+        background: #f8fafc;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+
+        &:hover {
+          box-shadow:
+            0 10px 15px -3px rgba(0, 0, 0, 0.1),
+            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          transform: translateX(5px);
+        }
+
+        .exhibition-image {
+          position: relative;
+          height: 180px;
+
+          @media (max-width: 768px) {
+            height: 200px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .exhibition-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            &.ongoing {
+              background: #10b981;
+              color: white;
+            }
+
+            &.upcoming {
+              background: #e8913a;
+              color: white;
+            }
+
+            &.ended {
+              background: #94a3b8;
+              color: white;
+            }
+          }
+        }
+
+        .exhibition-info {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .exhibition-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+          }
+
+          .exhibition-date {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+          }
+
+          .exhibition-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+          }
+
+          .exhibition-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+
+            .tag {
+              padding: 0.375rem 0.75rem;
+              background: rgba(#2c5aa0, 0.1);
+              color: #2c5aa0;
+              border-radius: 8px;
+              font-size: 0.8rem;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 5. 数字体验区
+  .digital-section {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+
+    .digital-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .digital-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #2c5aa0, #e8913a);
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+          &::before {
+            transform: scaleX(1);
+          }
+        }
+
+        .digital-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        h5 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: #64748b;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+
+        .digital-btn {
+          padding: 0.75rem 1.5rem;
+          background: transparent;
+          color: #2c5aa0;
+          border: 2px solid #2c5aa0;
+          border-radius: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #2c5aa0;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  // 6. 相关推荐区
+  .recommend-section {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+
+      @media (max-width: 968px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .recommend-card {
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+        position: relative;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          border-color: #2c5aa0;
+        }
+
+        .recommend-icon {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        h5 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: #64748b;
+          line-height: 1.5;
+          margin-bottom: 1rem;
+        }
+
+        .recommend-type {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          background: rgba(#e8913a, 0.15);
+          color: #e8913a;
+          border-radius: 8px;
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

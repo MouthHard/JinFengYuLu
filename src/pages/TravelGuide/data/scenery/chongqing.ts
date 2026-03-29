@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 重庆市自然风光数据
 const chongqingNatureSpots: ScenerySpot[] = [
   {
     id: "wulongTianShengSanQiao",
     name: "武隆天生三桥",
-    description: "重庆市武隆区的著名喀斯特地貌景观，以其独特的天生桥群和壮丽的自然风光而闻名",
+    description:
+      "重庆市武隆区的著名喀斯特地貌景观，以其独特的天生桥群和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "重庆市武隆区仙女山镇",
     type: "nature",
@@ -14,12 +20,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "karst",
     landscapeCategory: ["地理景观"],
-    landformTags: ["喀斯特景观"]
+    landformTags: ["喀斯特景观"],
   },
   {
     id: "chongqingHongYaDong",
     name: "重庆洪崖洞",
-    description: "重庆市渝中区的著名景点，以其独特的吊脚楼建筑风格和美丽的夜景而闻名",
+    description:
+      "重庆市渝中区的著名景点，以其独特的吊脚楼建筑风格和美丽的夜景而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "重庆市渝中区解放碑沧白路",
     type: "nature",
@@ -28,12 +35,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "chongqingJieFangBei",
     name: "重庆解放碑",
-    description: "重庆市渝中区的著名地标，以其重要的历史意义和繁华的商业氛围而闻名",
+    description:
+      "重庆市渝中区的著名地标，以其重要的历史意义和繁华的商业氛围而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "重庆市渝中区解放碑步行街",
     type: "nature",
@@ -42,12 +50,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "ciQiKouAncientTown",
     name: "磁器口古镇",
-    description: "重庆市沙坪坝区的著名古镇，以其独特的建筑风格和丰富的民俗文化而闻名",
+    description:
+      "重庆市沙坪坝区的著名古镇，以其独特的建筑风格和丰富的民俗文化而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "重庆市沙坪坝区磁器口古镇",
     type: "nature",
@@ -56,12 +65,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古镇"]
+    landformTags: ["历史古镇"],
   },
   {
     id: "dazuRockCarvings",
     name: "大足石刻",
-    description: "重庆市大足区的著名石刻艺术，以其精美的雕刻和丰富的历史文化而闻名",
+    description:
+      "重庆市大足区的著名石刻艺术，以其精美的雕刻和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "重庆市大足区宝顶镇",
     type: "nature",
@@ -70,12 +80,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "grotto",
     landscapeCategory: ["人文景观"],
-    landformTags: ["石刻景观"]
+    landformTags: ["石刻景观"],
   },
   {
     id: "yangtzeRiverThreeGorges",
     name: "长江三峡",
-    description: "重庆市的著名峡谷景观，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "重庆市的著名峡谷景观，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "重庆市奉节县",
     type: "nature",
@@ -84,12 +95,13 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "chongqingCiqikou",
     name: "重庆南山",
-    description: "重庆市南岸区的著名山脉，以其壮丽的自然风光和美丽的城市夜景而闻名",
+    description:
+      "重庆市南岸区的著名山脉，以其壮丽的自然风光和美丽的城市夜景而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "重庆市南岸区南山街道",
     type: "nature",
@@ -98,8 +110,8 @@ const chongqingNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
-  }
+    landformTags: ["山地景观"],
+  },
 ];
 
 // 重庆市人文景观数据
@@ -116,7 +128,7 @@ const chongqingCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "building",
     landscapeCategory: ["人文景观"],
-    landformTags: ["现代建筑"]
+    landformTags: ["现代建筑"],
   },
   {
     id: "chongqingMuseum",
@@ -130,7 +142,7 @@ const chongqingCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "chongqingScienceandTechnologyMuseum",
@@ -144,7 +156,7 @@ const chongqingCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["科技馆"]
+    landformTags: ["科技馆"],
   },
   {
     id: "chongqingHotPotMuseum",
@@ -158,12 +170,13 @@ const chongqingCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "chongqingYangtzeRiverCableway",
     name: "重庆长江索道",
-    description: "重庆市渝中区的著名交通设施，以其独特的过江方式和美丽的城市景观而闻名",
+    description:
+      "重庆市渝中区的著名交通设施，以其独特的过江方式和美丽的城市景观而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "重庆市渝中区新华路",
     type: "culture",
@@ -172,36 +185,43 @@ const chongqingCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "transport",
     landscapeCategory: ["人文景观"],
-    landformTags: ["交通设施"]
-  }
+    landformTags: ["交通设施"],
+  },
 ];
 
 // 重庆市季节性数据
 const chongqingSeasonalData: Record<string, SeasonalScenery> = {
   spring: {
     name: "春季",
-    description: "春季的重庆，万物复苏，是游览武隆天生三桥、磁器口古镇的最佳时节",
+    description:
+      "春季的重庆，万物复苏，是游览武隆天生三桥、磁器口古镇的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["武隆天生三桥游览", "磁器口古镇春游", "大足石刻参观", "南山踏青"]
+    activities: [
+      "武隆天生三桥游览",
+      "磁器口古镇春游",
+      "大足石刻参观",
+      "南山踏青",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的重庆，气温较高，是游览长江三峡、享受火锅的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["长江三峡游船", "火锅体验", "洪崖洞夜游", "科技馆参观"]
+    activities: ["长江三峡游船", "火锅体验", "洪崖洞夜游", "科技馆参观"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的重庆，天高气爽，是游览大足石刻、人民大礼堂的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["大足石刻赏秋", "人民大礼堂参观", "解放碑购物", "南山观景"]
+    activities: ["大足石刻赏秋", "人民大礼堂参观", "解放碑购物", "南山观景"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的重庆，虽然寒冷，但火锅和温泉是不错的选择，是参观博物馆的好时节",
+    description:
+      "冬季的重庆，虽然寒冷，但火锅和温泉是不错的选择，是参观博物馆的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["火锅暖身", "温泉泡浴", "博物馆参观", "洪崖洞赏冬"]
-  }
+    activities: ["火锅暖身", "温泉泡浴", "博物馆参观", "洪崖洞赏冬"],
+  },
 };
 
 // 重庆市活动数据
@@ -215,7 +235,7 @@ const chongqingActivities: TravelActivity[] = [
     location: "重庆市武隆区仙女山镇",
     duration: "1天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +246,7 @@ const chongqingActivities: TravelActivity[] = [
     location: "重庆市渝中区较场口",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "美食体验"
+    type: "美食体验",
   },
   {
     id: "3",
@@ -237,7 +257,7 @@ const chongqingActivities: TravelActivity[] = [
     location: "重庆市渝中区解放碑沧白路",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +268,7 @@ const chongqingActivities: TravelActivity[] = [
     location: "重庆市大足区宝顶镇",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +279,8 @@ const chongqingActivities: TravelActivity[] = [
     location: "重庆市渝中区新华路",
     duration: "1-2小时",
     difficulty: "简单",
-    type: "文化体验"
-  }
+    type: "文化体验",
+  },
 ];
 
 // 重庆市路线数据
@@ -279,7 +299,7 @@ const chongqingRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +315,8 @@ const chongqingRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 重庆市非物质文化遗产数据
@@ -312,7 +332,7 @@ const chongqingIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "技巧精湛", "历史悠久"]
+    features: ["表演独特", "技巧精湛", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +345,7 @@ const chongqingIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "🐉",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +358,7 @@ const chongqingIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍲",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["风味独特", "工艺精湛", "历史悠久"]
+    features: ["风味独特", "工艺精湛", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +371,7 @@ const chongqingIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "5",
@@ -364,8 +384,8 @@ const chongqingIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["风格独特", "内容丰富", "艺术价值高"]
-  }
+    features: ["风格独特", "内容丰富", "艺术价值高"],
+  },
 ];
 
 // 重庆市数据
@@ -378,40 +398,45 @@ export const chongqingData = {
       {
         name: "武隆天生三桥",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "重庆市武隆区的著名喀斯特地貌景观，以其独特的天生桥群和壮丽的自然风光而闻名"
+        description:
+          "重庆市武隆区的著名喀斯特地貌景观，以其独特的天生桥群和壮丽的自然风光而闻名",
       },
       {
         name: "重庆洪崖洞",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "重庆市渝中区的著名景点，以其独特的吊脚楼建筑风格和美丽的夜景而闻名"
+        description:
+          "重庆市渝中区的著名景点，以其独特的吊脚楼建筑风格和美丽的夜景而闻名",
       },
       {
         name: "大足石刻",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "重庆市大足区的著名石刻艺术，以其精美的雕刻和丰富的历史文化而闻名"
+        description:
+          "重庆市大足区的著名石刻艺术，以其精美的雕刻和丰富的历史文化而闻名",
       },
       {
         name: "磁器口古镇",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "重庆市沙坪坝区的著名古镇，以其独特的建筑风格和丰富的民俗文化而闻名"
+        description:
+          "重庆市沙坪坝区的著名古镇，以其独特的建筑风格和丰富的民俗文化而闻名",
       },
       {
         name: "重庆解放碑",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "重庆市渝中区的著名地标，以其重要的历史意义和繁华的商业氛围而闻名"
-      }
-    ]
+        description:
+          "重庆市渝中区的著名地标，以其重要的历史意义和繁华的商业氛围而闻名",
+      },
+    ],
   },
   spots: [...chongqingNatureSpots, ...chongqingCultureSpots],
   seasonal: [
     chongqingSeasonalData.spring,
     chongqingSeasonalData.summer,
     chongqingSeasonalData.autumn,
-    chongqingSeasonalData.winter
+    chongqingSeasonalData.winter,
   ],
   activities: chongqingActivities,
   routes: chongqingRoutes,
-  intangibleHeritage: chongqingIntangibleHeritage
+  intangibleHeritage: chongqingIntangibleHeritage,
 };
 
 // 重庆市风俗文化数据
@@ -420,35 +445,38 @@ export const chongqingCustomsData = {
     {
       id: "1",
       name: "川剧变脸体验",
-      description: "观看重庆市传统戏曲艺术川剧变脸表演，感受其独特的表演形式和精湛的技巧",
+      description:
+        "观看重庆市传统戏曲艺术川剧变脸表演，感受其独特的表演形式和精湛的技巧",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "重庆市渝中区川剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "铜梁龙舞表演",
-      description: "观看重庆市铜梁区传统舞蹈龙舞表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "观看重庆市铜梁区传统舞蹈龙舞表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "重庆市铜梁区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "重庆火锅制作体验",
-      description: "学习重庆市传统烹饪技艺火锅制作，体验其独特的风味和精湛的工艺",
+      description:
+        "学习重庆市传统烹饪技艺火锅制作，体验其独特的风味和精湛的工艺",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "重庆市渝中区较场口",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +487,7 @@ export const chongqingCustomsData = {
       location: "重庆市荣昌区陶瓷文化园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +498,9 @@ export const chongqingCustomsData = {
       location: "重庆市各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 重庆民俗风情元素数据
@@ -481,32 +509,32 @@ export const chongqingFolkCustomsElements = [
     name: "川剧变脸",
     description: "重庆市传统戏曲艺术，以其独特的变脸技巧和丰富的表演内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["戏曲艺术", "非遗文化", "表演艺术", "川渝文化", "传统技艺"]
+    tags: ["戏曲艺术", "非遗文化", "表演艺术", "川渝文化", "传统技艺"],
   },
   {
     name: "铜梁龙舞",
     description: "重庆市铜梁区传统舞蹈，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统舞蹈", "非遗文化", "节庆活动", "民间艺术", "民俗表演"]
+    tags: ["传统舞蹈", "非遗文化", "节庆活动", "民间艺术", "民俗表演"],
   },
   {
     name: "重庆火锅",
     description: "重庆市传统烹饪技艺，以其独特的风味和精湛的工艺著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["特色美食", "饮食文化", "传统技艺", "川渝文化", "非遗传承"]
+    tags: ["特色美食", "饮食文化", "传统技艺", "川渝文化", "非遗传承"],
   },
   {
     name: "荣昌陶器",
     description: "重庆市荣昌区传统陶瓷制作技艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "工艺美术", "民间工艺"]
+    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "工艺美术", "民间工艺"],
   },
   {
     name: "綦江农民版画",
     description: "重庆市綦江区传统美术，以其独特的风格和丰富的内容著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["民间美术", "非遗文化", "传统艺术", "农民艺术", "工艺美术"]
-  }
+    tags: ["民间美术", "非遗文化", "传统艺术", "农民艺术", "工艺美术"],
+  },
 ];
 
 // 重庆市文化节庆数据
@@ -518,7 +546,7 @@ export const chongqingFestivals = [
     month: "10月",
     day: "18日",
     location: "重庆市渝中区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +555,7 @@ export const chongqingFestivals = [
     month: "2月",
     day: "15日",
     location: "重庆市铜梁区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +564,7 @@ export const chongqingFestivals = [
     month: "9月",
     day: "1日",
     location: "重庆市各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +573,7 @@ export const chongqingFestivals = [
     month: "8月",
     day: "1日",
     location: "重庆市武隆区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +582,7 @@ export const chongqingFestivals = [
     month: "4月",
     day: "5日",
     location: "重庆市各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +591,8 @@ export const chongqingFestivals = [
     month: "9月",
     day: "21日",
     location: "重庆市各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default chongqingData;

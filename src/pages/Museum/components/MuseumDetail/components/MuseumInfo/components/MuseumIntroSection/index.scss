@@ -1,0 +1,488 @@
+.museum-intro-section {
+  padding: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(62, 45, 30, 0.95) 0%,
+      rgba(42, 31, 20, 0.98) 50%,
+      rgba(35, 25, 15, 0.95) 100%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(212, 165, 116, 0.1) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(212, 165, 116, 0.1) 0%,
+      transparent 20%
+    );
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E")
+      repeat;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(139, 90, 43, 0.15) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(62, 45, 30, 0.2) 100%
+    );
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(62, 45, 30, 0.7) 0%,
+        rgba(42, 31, 20, 0.9) 100%
+      ),
+      radial-gradient(
+        circle at 50% 10%,
+        rgba(212, 165, 116, 0.15) 0%,
+        transparent 30%
+      );
+    border-right: 1px solid rgba(139, 105, 20, 0.3);
+    box-shadow:
+      inset -4px 0 12px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(212, 165, 116, 0.1);
+
+    .museum-image {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: rgba(255, 250, 240, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(
+            135deg,
+            #8b6914,
+            #d4a574,
+            #8b6914,
+            #6b4f12
+          )
+          1;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border: 1px solid rgba(212, 165, 116, 0.3);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      img {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        box-shadow:
+          0 0 0 4px rgba(139, 105, 20, 0.6),
+          0 8px 32px rgba(0, 0, 0, 0.6),
+          inset 0 0 60px rgba(0, 0, 0, 0.3);
+        border: none;
+        filter: sepia(15%) contrast(1.05) brightness(0.95);
+        transition: all 0.5s ease;
+        position: relative;
+
+        &:hover {
+          filter: sepia(5%) contrast(1.1) brightness(1);
+          transform: scale(1.02);
+          box-shadow:
+            0 0 0 4px rgba(212, 165, 116, 0.8),
+            0 12px 40px rgba(0, 0, 0, 0.7),
+            inset 0 0 60px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    .museum-basic-info {
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        color: #f5e6d3;
+        font-family: "FangSong", "STFangsong", serif;
+        text-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(212, 165, 116, 0.3);
+        border-bottom: 2px solid transparent;
+        border-image: linear-gradient(90deg, #8b6914, #d4a574, transparent) 1;
+        padding-bottom: 0.75rem;
+        position: relative;
+        letter-spacing: 0.05em;
+
+        &::after {
+          content: "◆";
+          position: absolute;
+          bottom: -0.6rem;
+          left: 25%;
+          transform: translateX(-50%);
+          color: #d4a574;
+          font-size: 0.7rem;
+          text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+      }
+
+      .museum-meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+
+        .meta-item {
+          background: linear-gradient(
+            145deg,
+            rgba(62, 45, 30, 0.9) 0%,
+            rgba(42, 31, 20, 0.95) 50%,
+            rgba(35, 25, 15, 0.9) 100%
+          );
+          padding: 0.75rem 0.875rem;
+          border: 1px solid rgba(139, 105, 20, 0.4);
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.4),
+            0 3px 8px rgba(0, 0, 0, 0.3),
+            0 1px 4px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(212, 165, 116, 0.15),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+          position: relative;
+          transition: all 0.3s ease;
+          transform-style: preserve-3d;
+          transform: perspective(500px) rotateX(2deg);
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8b6914, #d4a574, #8b6914);
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow:
+              inset 0 1px 0 rgba(212, 165, 116, 0.2),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+              0 8px 20px rgba(0, 0, 0, 0.5),
+              0 0 15px rgba(139, 105, 20, 0.2);
+            border-color: rgba(212, 165, 116, 0.5);
+          }
+
+          .meta-label {
+            color: #a08060;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+          }
+
+          .meta-value {
+            color: #f5e6d3;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+
+    .museum-visit {
+      background: linear-gradient(
+        145deg,
+        rgba(62, 45, 30, 0.8) 0%,
+        rgba(42, 31, 20, 0.9) 100%
+      );
+      padding: 1.25rem;
+      border: 1px solid rgba(139, 105, 20, 0.4);
+      box-shadow:
+        inset 0 1px 0 rgba(212, 165, 116, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+
+      .visit-title {
+        font-size: 1.1rem;
+        color: #f5e6d3;
+        margin-bottom: 1rem;
+        font-family: "KaiTi", "STKaiti", serif;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        position: relative;
+        padding-left: 0.75rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 70%;
+          background: linear-gradient(180deg, #8b6914, #d4a574);
+        }
+      }
+
+      .visit-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        p {
+          color: #c9b896;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          .visit-label {
+            color: #a08060;
+            font-size: 0.8rem;
+            min-width: 4.5rem;
+            flex-shrink: 0;
+            background: rgba(139, 105, 20, 0.2);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+
+    .museum-features {
+      background: linear-gradient(
+        145deg,
+        rgba(62, 45, 30, 0.8) 0%,
+        rgba(42, 31, 20, 0.9) 100%
+      );
+      padding: 1.25rem;
+      border: 1px solid rgba(139, 105, 20, 0.4);
+      box-shadow:
+        inset 0 1px 0 rgba(212, 165, 116, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+
+      .features-title {
+        font-size: 1.1rem;
+        color: #f5e6d3;
+        margin-bottom: 0.875rem;
+        font-family: "KaiTi", "STKaiti", serif;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        position: relative;
+        padding-left: 0.75rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 70%;
+          background: linear-gradient(180deg, #8b6914, #d4a574);
+        }
+      }
+
+      .features-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .feature-tag {
+          background: linear-gradient(
+            145deg,
+            rgba(139, 105, 20, 0.5) 0%,
+            rgba(107, 79, 18, 0.6) 100%
+          );
+          color: #f5e6d3;
+          padding: 0.4rem 0.75rem;
+          border: 1px solid rgba(212, 165, 116, 0.3);
+          font-size: 0.8rem;
+          box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 2px 6px rgba(0, 0, 0, 0.2),
+            0 1px 3px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          transition: all 0.3s ease;
+          position: relative;
+          transform-style: preserve-3d;
+          transform: perspective(500px) rotateX(2deg);
+
+          &::before {
+            content: "◇";
+            margin-right: 0.3rem;
+            color: #d4a574;
+            font-size: 0.7rem;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.4),
+              0 0 10px rgba(212, 165, 116, 0.2);
+            background: linear-gradient(
+              145deg,
+              rgba(212, 165, 116, 0.4) 0%,
+              rgba(139, 105, 20, 0.5) 100%
+            );
+          }
+        }
+      }
+    }
+  }
+
+  .right-column {
+    padding: 2.5rem 3rem;
+    position: relative;
+    background:
+      linear-gradient(135deg, rgba(255, 250, 240, 0.03) 0%, transparent 50%),
+      radial-gradient(
+        circle at 50% 10%,
+        rgba(212, 165, 116, 0.1) 0%,
+        transparent 30%
+      );
+    box-shadow:
+      inset 4px 0 12px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(212, 165, 116, 0.05);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2rem;
+      bottom: 2rem;
+      width: 4px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        #8b6914 20%,
+        #d4a574 50%,
+        #8b6914 80%,
+        transparent 100%
+      );
+      box-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+    }
+
+    .museum-description,
+    .museum-history,
+    .museum-architecture,
+    .museum-highlights,
+    .museum-activities {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 250, 240, 0.05) 0%,
+          rgba(255, 250, 240, 0.02) 100%
+        ),
+        radial-gradient(
+          circle at 50% 10%,
+          rgba(212, 165, 116, 0.1) 0%,
+          transparent 30%
+        );
+      border-left: 3px solid #8b6914;
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(212, 165, 116, 0.1);
+      position: relative;
+      transform-style: preserve-3d;
+      transform: perspective(800px) rotateY(1deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23d4a574' opacity='0.1'/%3E%3C/svg%3E")
+          repeat;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        color: #f5e6d3;
+        margin-bottom: 1rem;
+        font-family: "KaiTi", "STKaiti", serif;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        position: relative;
+        display: inline-block;
+        padding-right: 1rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -0.25rem;
+          left: 0;
+          width: 60%;
+          height: 2px;
+          background: linear-gradient(90deg, #d4a574, transparent);
+        }
+      }
+
+      p {
+        color: #c9b896;
+        line-height: 1.9;
+        font-size: 1.05rem;
+        text-align: justify;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

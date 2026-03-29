@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 天津自然风光数据
 const tianjinNatureSpots: ScenerySpot[] = [
   {
     id: "panshanMountain",
     name: "盘山",
-    description: "天津著名的风景区，以奇峰怪石、古刹名寺著称，有'京东第一山'之美誉",
+    description:
+      "天津著名的风景区，以奇峰怪石、古刹名寺著称，有'京东第一山'之美誉",
     image: "https://picsum.photos/id/1019/600/400",
     location: "天津市蓟州区官庄镇",
     type: "nature",
@@ -14,7 +20,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "duliujianRiver",
@@ -28,7 +34,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "water",
     landscapeCategory: ["水景观"],
-    landformTags: ["湿地景观"]
+    landformTags: ["湿地景观"],
   },
   {
     id: "beidaihe",
@@ -42,12 +48,13 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "water",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "huangyaguanGreatWall",
     name: "黄崖关长城",
-    description: "天津境内保存最完好的长城段落，以险峻的山势和独特的建筑风格著称",
+    description:
+      "天津境内保存最完好的长城段落，以险峻的山势和独特的建筑风格著称",
     image: "https://picsum.photos/id/1011/600/400",
     location: "天津市蓟州区下营镇",
     type: "nature",
@@ -56,7 +63,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "daguFort",
@@ -70,7 +77,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "coastal",
     landscapeCategory: ["地理景观"],
-    landformTags: ["海岸景观"]
+    landformTags: ["海岸景观"],
   },
   {
     id: "tianjinEye",
@@ -84,7 +91,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市景观"]
+    landformTags: ["城市景观"],
   },
   {
     id: "ancientCultureStreet",
@@ -98,7 +105,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市景观"]
+    landformTags: ["城市景观"],
   },
   {
     id: "wudadao",
@@ -112,7 +119,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市景观"]
+    landformTags: ["城市景观"],
   },
   {
     id: "tianjinMuseum",
@@ -126,7 +133,7 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市景观"]
+    landformTags: ["城市景观"],
   },
   {
     id: "waterPark",
@@ -140,8 +147,8 @@ const tianjinNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "water",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
-  }
+    landformTags: ["湖泊景观"],
+  },
 ];
 
 // 天津人文景观数据
@@ -158,7 +165,7 @@ const tianjinCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "guwenhuaStreet",
@@ -172,7 +179,7 @@ const tianjinCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "xiaozhanAncientBattlefield",
@@ -186,7 +193,7 @@ const tianjinCultureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "jiefangBridge",
@@ -200,7 +207,7 @@ const tianjinCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["桥梁建筑"]
+    landformTags: ["桥梁建筑"],
   },
   {
     id: "italianStyleStreet",
@@ -214,8 +221,8 @@ const tianjinCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
-  }
+    landformTags: ["历史街区"],
+  },
 ];
 
 // 天津季节性数据
@@ -224,26 +231,36 @@ const tianjinSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的天津，气候宜人，是游览五大道、古文化街的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["五大道赏花", "古文化街逛庙会", "盘山踏青", "水上公园春游"]
+    activities: ["五大道赏花", "古文化街逛庙会", "盘山踏青", "水上公园春游"],
   },
   summer: {
     name: "夏季",
     description: "夏季的天津，海滨浴场开放，是避暑休闲的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["北戴河海滨度假", "水上公园划船", "海河夜游", "塘沽赶海"]
+    activities: ["北戴河海滨度假", "水上公园划船", "海河夜游", "塘沽赶海"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的天津，盘山红叶满山，是赏秋的绝佳地点",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["盘山赏红叶", "七里海观鸟", "黄崖关长城秋游", "品尝天津秋季美食"]
+    activities: [
+      "盘山赏红叶",
+      "七里海观鸟",
+      "黄崖关长城秋游",
+      "品尝天津秋季美食",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的天津，虽然寒冷，但有独特的冰雪景观和年俗活动",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["古文化街春节庙会", "天津之眼夜景", "品尝天津暖冬美食", "温泉度假"]
-  }
+    activities: [
+      "古文化街春节庙会",
+      "天津之眼夜景",
+      "品尝天津暖冬美食",
+      "温泉度假",
+    ],
+  },
 };
 
 // 天津活动数据
@@ -257,7 +274,7 @@ const tianjinActivities: TravelActivity[] = [
     location: "天津名流茶馆",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -268,7 +285,7 @@ const tianjinActivities: TravelActivity[] = [
     location: "南市食品街",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "美食体验"
+    type: "美食体验",
   },
   {
     id: "3",
@@ -279,7 +296,7 @@ const tianjinActivities: TravelActivity[] = [
     location: "天津站码头",
     duration: "1-2小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -290,7 +307,7 @@ const tianjinActivities: TravelActivity[] = [
     location: "盘山风景区",
     duration: "4-6小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -301,8 +318,8 @@ const tianjinActivities: TravelActivity[] = [
     location: "天津之眼",
     duration: "30分钟",
     difficulty: "简单",
-    type: "休闲体验"
-  }
+    type: "休闲体验",
+  },
 ];
 
 // 天津路线数据
@@ -321,7 +338,7 @@ const tianjinRoutes: RouteInfo[] = [
     rating: 4.6,
     bestTime: "春季",
     traffic: "地铁/公交",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -337,8 +354,8 @@ const tianjinRoutes: RouteInfo[] = [
     rating: 4.5,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "户外爱好者"
-  }
+    suitableFor: "户外爱好者",
+  },
 ];
 
 // 天津非物质文化遗产数据
@@ -354,7 +371,7 @@ const tianjinIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["造型生动", "色彩艳丽", "工艺精湛"]
+    features: ["造型生动", "色彩艳丽", "工艺精湛"],
   },
   {
     id: "2",
@@ -367,7 +384,7 @@ const tianjinIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🖼️",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["色彩鲜艳", "构图饱满", "寓意吉祥"]
+    features: ["色彩鲜艳", "构图饱满", "寓意吉祥"],
   },
   {
     id: "3",
@@ -380,7 +397,7 @@ const tianjinIntangibleHeritage = [
     tags: ["传统曲艺", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["幽默风趣", "语言生动", "表演精彩"]
+    features: ["幽默风趣", "语言生动", "表演精彩"],
   },
   {
     id: "4",
@@ -393,7 +410,7 @@ const tianjinIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "美食文化"],
     icon: "🥟",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["皮薄馅大", "口感鲜美", "历史悠久"]
+    features: ["皮薄馅大", "口感鲜美", "历史悠久"],
   },
   {
     id: "5",
@@ -406,8 +423,8 @@ const tianjinIntangibleHeritage = [
     tags: ["传统技艺", "省级非遗", "美食文化"],
     icon: "🥨",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["酥脆香甜", "造型美观", "工艺独特"]
-  }
+    features: ["酥脆香甜", "造型美观", "工艺独特"],
+  },
 ];
 
 // 天津数据
@@ -420,40 +437,42 @@ export const tianjinData = {
       {
         name: "盘山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "天津著名的风景区，以奇峰怪石、古刹名寺著称，有'京东第一山'之美誉"
+        description:
+          "天津著名的风景区，以奇峰怪石、古刹名寺著称，有'京东第一山'之美誉",
       },
       {
         name: "天津之眼",
         image: "https://picsum.photos/id/1039/600/400",
-        description: "世界上唯一建在桥上的摩天轮，是天津的标志性建筑"
+        description: "世界上唯一建在桥上的摩天轮，是天津的标志性建筑",
       },
       {
         name: "古文化街",
         image: "https://picsum.photos/id/1040/600/400",
-        description: "天津著名的文化商业街，以传统建筑和民俗文化为特色"
+        description: "天津著名的文化商业街，以传统建筑和民俗文化为特色",
       },
       {
         name: "五大道",
         image: "https://picsum.photos/id/1041/600/400",
-        description: "天津著名的历史风貌区，拥有众多欧式建筑和名人故居"
+        description: "天津著名的历史风貌区，拥有众多欧式建筑和名人故居",
       },
       {
         name: "黄崖关长城",
         image: "https://picsum.photos/id/1011/600/400",
-        description: "天津境内保存最完好的长城段落，以险峻的山势和独特的建筑风格著称"
-      }
-    ]
+        description:
+          "天津境内保存最完好的长城段落，以险峻的山势和独特的建筑风格著称",
+      },
+    ],
   },
   spots: [...tianjinNatureSpots, ...tianjinCultureSpots],
   seasonal: [
     tianjinSeasonalData.spring,
     tianjinSeasonalData.summer,
     tianjinSeasonalData.autumn,
-    tianjinSeasonalData.winter
+    tianjinSeasonalData.winter,
   ],
   activities: tianjinActivities,
   routes: tianjinRoutes,
-  intangibleHeritage: tianjinIntangibleHeritage
+  intangibleHeritage: tianjinIntangibleHeritage,
 };
 
 // 天津风俗文化数据
@@ -468,7 +487,7 @@ export const tianjinCustomsData = {
       location: "天津名流茶馆",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -479,7 +498,7 @@ export const tianjinCustomsData = {
       location: "南市食品街",
       duration: "3-4小时",
       difficulty: "简单",
-      type: "美食体验"
+      type: "美食体验",
     },
     {
       id: "3",
@@ -490,7 +509,7 @@ export const tianjinCustomsData = {
       location: "古文化街",
       duration: "2-3小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -501,7 +520,7 @@ export const tianjinCustomsData = {
       location: "天津站码头",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "休闲体验"
+      type: "休闲体验",
     },
     {
       id: "5",
@@ -512,9 +531,9 @@ export const tianjinCustomsData = {
       location: "天津大剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
-    }
-  ]
+      type: "文化体验",
+    },
+  ],
 };
 
 // 天津民俗风情元素数据
@@ -523,32 +542,32 @@ export const tianjinFolkCustomsElements = [
     name: "天津庙会",
     description: "天津传统民俗活动，春节期间举行",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["民俗活动", "节庆文化", "非遗文化", "天津特色", "民俗体验"]
+    tags: ["民俗活动", "节庆文化", "非遗文化", "天津特色", "民俗体验"],
   },
   {
     name: "天津方言",
     description: "天津独特的方言，以幽默风趣著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["语言文化", "地方特色", "津味文化", "天津特色", "文化传承"]
+    tags: ["语言文化", "地方特色", "津味文化", "天津特色", "文化传承"],
   },
   {
     name: "天津传统婚礼",
     description: "天津传统婚礼仪式，具有独特的地方特色",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["民俗礼仪", "传统文化", "婚俗文化", "天津特色", "民俗传承"]
+    tags: ["民俗礼仪", "传统文化", "婚俗文化", "天津特色", "民俗传承"],
   },
   {
     name: "天津小吃",
     description: "天津传统特色小吃，品种丰富",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "饮食文化", "津菜特色", "天津特色", "传统技艺"]
+    tags: ["特色美食", "饮食文化", "津菜特色", "天津特色", "传统技艺"],
   },
   {
     name: "天津评剧",
     description: "天津传统戏曲形式，深受当地群众喜爱",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "天津特色", "地方剧种"]
-  }
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "天津特色", "地方剧种"],
+  },
 ];
 
 // 天津文化节庆数据
@@ -560,7 +579,7 @@ export const tianjinFestivals = [
     month: "2月",
     day: "1日",
     location: "古文化街",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -569,7 +588,7 @@ export const tianjinFestivals = [
     month: "4月",
     day: "23日",
     location: "天后宫",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -578,7 +597,7 @@ export const tianjinFestivals = [
     month: "7月",
     day: "15日",
     location: "滨海新区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -587,7 +606,7 @@ export const tianjinFestivals = [
     month: "9月",
     day: "28日",
     location: "盘山风景区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -596,7 +615,7 @@ export const tianjinFestivals = [
     month: "4月",
     day: "5日",
     location: "天津烈士陵园",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -605,8 +624,8 @@ export const tianjinFestivals = [
     month: "9月",
     day: "21日",
     location: "海河岸边",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default tianjinData;

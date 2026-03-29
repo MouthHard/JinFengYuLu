@@ -1,0 +1,38 @@
+.museum-detail {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #2a1f17 0%, #1a1410 100%);
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMzBjMCA0LjQxOCAzLjU4MiA4IDggOHM4LTMuNTgyIDgtOHMtMy41ODItOC04LTgtOC4wOTcgMy41ODItOCA4IDMuOTAzIDggOCA4eiIgc3Ryb2tlPSIjZTBkNmMyMTAiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==")
+      repeat;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .museum-content {
+    flex: 1;
+    width: 100%;
+    height: 400px;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

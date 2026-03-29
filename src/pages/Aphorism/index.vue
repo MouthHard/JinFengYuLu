@@ -1,122 +1,253 @@
 <template>
-	<div id="land-con">
-		<!-- 主页面加载页 -->
-		<!-- <PageChange></PageChange> -->
-		<div class="slider-container">
-			<div id="left-slide">
-				<span v-for="value in imgLeftArr" :key="value.imgId">
-					<div class="flip-card">
-						<section>
-							<h3>创作背景</h3>
-							<h4> </h4>
-							<h4>{{ noteRightArr[value.imgId]?.background }}</h4>
-							<h3 v-if="noteRightArr[value.imgId]?.product!==''">作者 （ {{ noteRightArr[value.imgId]?.product }}）</h3>
-							<h4>{{ noteRightArr[value.imgId]?.author }}</h4>
-						</section>
-						<img :src="value.imgSrc" />
-					</div>
-				</span>
-			</div>
+  <div class="poetry-page">
+    <!-- 固定头部区域 -->
+    <div class="sticky-header">
+      <!-- 头部 -->
+      <header class="page-header">
+        <div class="header-content">
+          <div class="header-decoration left">
+            <span class="decoration-line"></span>
+            <span class="decoration-dot"></span>
+          </div>
 
-			<div id="right-slide">
-				<p v-for="note in noteRightArr" :key="note.id" @mouseover="rotateLeftSlide()" @mouseout="rotateLeftSlideBack()" @click="openNewWindow(note.link)"> {{ note.poem }} </p>
-			</div>
+          <div class="header-center">
+            <h1 class="page-title">
+              <span class="title-char" data-char="诗">诗</span>
+              <span class="title-divider">·</span>
+              <span class="title-char" data-char="词">词</span>
+              <span class="title-divider">·</span>
+              <span class="title-char" data-char="雅">雅</span>
+              <span class="title-divider">·</span>
+              <span class="title-char" data-char="韵">韵</span>
+            </h1>
+            <p class="page-subtitle">传承千年文化，品味诗词之美</p>
+          </div>
 
-			<div id="action-buttons">
-				<button class="down-button">▽</button>
-				<button class="return-button" @click="router.push('/')">☾</button>
-				<button class="up-button">▲</button>
-			</div>
-		</div>
-	</div>
+          <div class="header-decoration right">
+            <span class="decoration-dot"></span>
+            <span class="decoration-line"></span>
+          </div>
+        </div>
+
+        <button class="back-button" @click="goBack">
+          <span class="back-icon">←</span>
+          <span class="back-text">返回首页</span>
+        </button>
+      </header>
+
+      <!-- 模式切换 + 内容区域 -->
+      <div class="mode-content-wrapper">
+        <!-- 左侧竖排模式切换Tab -->
+        <aside class="mode-tabs-vertical">
+          <div
+            class="mode-tab-vertical"
+            :class="{ active: !isSearchMode }"
+            @click="switchMode(false)"
+          >
+            <span class="tab-icon">📚</span>
+            <span class="tab-text">分类浏览</span>
+          </div>
+          <div
+            class="mode-tab-vertical"
+            :class="{ active: isSearchMode }"
+            @click="switchMode(true)"
+          >
+            <span class="tab-icon">🔍</span>
+            <span class="tab-text">搜索模式</span>
+          </div>
+        </aside>
+
+        <!-- 右侧内容区域 -->
+        <div class="content-area">
+          <!-- 搜索模式 -->
+          <template v-if="isSearchMode">
+            <section class="search-section">
+              <SearchBar v-model="searchQuery" @search="handleSearch" />
+            </section>
+            <!-- 搜索结果统计 -->
+            <section v-if="searchQuery" class="search-results-header">
+              <div class="search-results-bar">
+                <div class="search-results-info">
+                  <span class="search-keyword">搜索: "{{ searchQuery }}"</span>
+                  <span class="search-count"
+                    >共找到 {{ filteredPoems.length }} 首诗词</span
+                  >
+                </div>
+              </div>
+            </section>
+          </template>
+
+          <!-- 分类浏览模式 -->
+          <template v-else>
+            <section class="category-section">
+              <CategoryNav @category-change="handleCategoryChange" />
+            </section>
+          </template>
+        </div>
+      </div>
+    </div>
+
+    <!-- 可滚动内容区域 -->
+    <main class="page-main">
+      <!-- 诗词列表 -->
+
+      <div v-if="loading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>正在加载诗词...</p>
+      </div>
+
+      <div v-else-if="filteredPoems.length === 0" class="empty-state">
+        <div class="empty-icon">📜</div>
+        <h3>暂无相关诗词</h3>
+        <p>换个关键词试试吧</p>
+      </div>
+
+      <div v-else class="poems-grid">
+        <PoemCard
+          v-for="poem in displayedPoems"
+          :key="poem.id"
+          :poem="poem"
+          @click="handlePoemClick"
+          @tag-click="handleTagClick"
+          @favorite-toggle="handleFavoriteToggle"
+        />
+      </div>
+
+      <!-- 分页 -->
+      <Pagination
+        v-if="totalPages > 1 && !loading"
+        :current-page="currentPage"
+        :total-pages="totalPages"
+        :total-items="filteredPoems.length"
+        @page-change="handlePageChange"
+      />
+    </main>
+
+    <!-- 诗词详情弹窗 -->
+    <PoemModal
+      v-if="selectedPoem"
+      :visible="showModal"
+      :poem="selectedPoem"
+      :backgroundImage="selectedPoemBackground"
+      @close="showModal = false"
+      @tag-click="handleTagClick"
+      @favorite-toggle="handleFavoriteToggle"
+    />
+  </div>
 </template>
 
-<script setup>
-	import { onMounted, ref, reactive, nextTick } from "vue";
-	import router from "@/router";
-	import axios from "axios";
-	const imgLeftArr = [];
-	const noteRightArr = ref([]);
-	for (let i = 0; i <= 39; i++) {
-		imgLeftArr.push({
-			imgId: i,
-			imgSrc: `https://images-pc.oss-cn-hongkong.aliyuncs.com/aphorism/${i}.webp`,
-		});
-	}
+<script setup lang="ts">
+import { ref, computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import SearchBar from "./components/SearchBar/index.vue";
+import CategoryNav from "./components/CategoryNav/index.vue";
+import PoemCard from "./components/PoemCard/index.vue";
+import PoemModal from "./components/PoemModal/index.vue";
+import Pagination from "./components/Pagination/index.vue";
 
-	const openNewWindow = (link) => {
-		window.open(link, "_blank");
-	};
+// 从公共模块导入
+import { poems } from "./data/poems-refactored";
+import {
+  filterPoemsByCategory,
+  searchPoems as searchPoemsUtil,
+} from "../../utils/poetry";
+import type { Poem } from "../../types/poetry/poem";
+import type { CategoryFilterParams } from "../../types/poetry/category";
 
-	//读取阿里云oss里面的json文件
-	async function fetchPublicJsonWithAxios(url) {
-		try {
-			const response = await axios.get(url);
-			return response.data;
-		} catch (error) {
-			console.error("读取json文件失败:", error);
-			throw error;
-		}
-	}
-	const publicJsonUrl = "https://images-pc.oss-cn-hongkong.aliyuncs.com/aphorism/poem/aphorismList.json";
-	fetchPublicJsonWithAxios(publicJsonUrl)
-		.then((data) => {
-			noteRightArr.value = data;
-		})
-		.catch((error) => {
-			console.error("axios读取json文件失败:", error);
-		});
+const router = useRouter();
 
-	const rotateLeftSlide = () => {
-		document.querySelectorAll(" .flip-card").forEach((item) => {
-			item.style.transform = "rotateY(180deg)";
-			item.style.transition = "transform 1s";
-		});
-	};
-	const rotateLeftSlideBack = () => {
-		document.querySelectorAll(".flip-card").forEach((item) => {
-			item.style.transform = "rotateY(0deg)";
-			item.style.transition = "transform 1s";
-		});
-	};
-	onMounted(() => {
-		//滑动图片和诗句
-		const initSlider = () => {
-			const sliderContainer = document.querySelector(".slider-container");
-			const slideRight = document.getElementById("right-slide");
-			const slideLeft = document.getElementById("left-slide");
-			const upButton = document.querySelector(".up-button");
-			const downButton = document.querySelector(".down-button");
-			const slidesLength = slideLeft.querySelectorAll("img").length;
-			let activeSlideIndex = 0;
+// 状态
+const loading = ref(false);
+const searchQuery = ref("");
+const currentPage = ref(1);
+const selectedPoem = ref<Poem | null>(null);
+const selectedPoemBackground = ref<string>("");
+const showModal = ref(false);
+const isSearchMode = ref(false);
+const pageSize = 12;
 
-			upButton.addEventListener("click", () => changeSlide("up"));
-			downButton.addEventListener("click", () => changeSlide("down"));
-			const changeSlide = (direction) => {
-				downButton.classList.add("down-active");
-				upButton.classList.add("up-active");
-				setTimeout(() => {
-					upButton.classList.remove("up-active");
-					downButton.classList.remove("down-active");
-				}, 1000);
-				const sliderHeight = sliderContainer.clientHeight;
-				if (direction === "up") {
-					activeSlideIndex++;
-					if (activeSlideIndex > slidesLength - 1) {
-						activeSlideIndex = 0;
-					}
-				} else if (direction === "down") {
-					activeSlideIndex--;
-					if (activeSlideIndex < 0) {
-						activeSlideIndex = slidesLength - 1;
-					}
-				}
-				slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
-				slideLeft.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
-			};
-		};
-		initSlider();
-	});
+// 分类筛选状态
+const filterParams = ref<CategoryFilterParams>({
+  categoryId: "",
+  subCategoryId: "",
+});
+
+// 模式切换
+const switchMode = (searchMode: boolean) => {
+  isSearchMode.value = searchMode;
+  searchQuery.value = "";
+  if (!searchMode) {
+    filterParams.value = { categoryId: "", subCategoryId: "" };
+  }
+  currentPage.value = 1;
+};
+
+// 筛选后的诗词
+const filteredPoems = computed(() => {
+  if (isSearchMode.value && searchQuery.value) {
+    return searchPoemsUtil(poems, searchQuery.value);
+  }
+  if (!isSearchMode.value && filterParams.value.categoryId) {
+    return filterPoemsByCategory(poems, filterParams.value);
+  }
+  return poems;
+});
+
+// 分页数据
+const totalPages = computed(() =>
+  Math.ceil(filteredPoems.value.length / pageSize),
+);
+const displayedPoems = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  return filteredPoems.value.slice(start, start + pageSize);
+});
+
+// 方法
+const goBack = () => router.push("/");
+
+const handleSearch = (query: string) => {
+  searchQuery.value = query;
+  currentPage.value = 1;
+};
+
+const handleCategoryChange = (categoryId: string, subCategoryId?: string) => {
+  filterParams.value = {
+    categoryId,
+    subCategoryId: subCategoryId || "",
+  };
+  currentPage.value = 1;
+};
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const handlePoemClick = (poem: Poem, backgroundImage: string) => {
+  selectedPoem.value = poem;
+  selectedPoemBackground.value = backgroundImage;
+  showModal.value = true;
+};
+
+const handleTagClick = (tag: string) => {
+  searchQuery.value = tag;
+  isSearchMode.value = true;
+  currentPage.value = 1;
+};
+
+const handleFavoriteToggle = (poemId: string) => {
+  console.log("Toggle favorite:", poemId);
+};
+
+// 生命周期
+onMounted(() => {
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 500);
+});
 </script>
 
-<style scoped lang="scss"  src="./index.scss"/>
+<style scoped lang="scss">
+@use "./index.scss";
+</style>

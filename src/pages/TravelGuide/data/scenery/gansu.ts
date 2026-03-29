@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 甘肃省自然风光数据
 const gansuNatureSpots: ScenerySpot[] = [
@@ -14,12 +19,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "grotto",
     landscapeCategory: ["人文景观"],
-    landformTags: ["石窟景观"]
+    landformTags: ["石窟景观"],
   },
   {
     id: "crescentLake",
     name: "月牙泉",
-    description: "甘肃省敦煌市的著名湖泊，以其独特的月牙形状和沙漠中的奇观而闻名",
+    description:
+      "甘肃省敦煌市的著名湖泊，以其独特的月牙形状和沙漠中的奇观而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "甘肃省敦煌市鸣沙山月牙泉景区",
     type: "nature",
@@ -28,12 +34,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "mingShaShan",
     name: "鸣沙山",
-    description: "甘肃省敦煌市的著名沙漠，以其独特的沙鸣现象和壮丽的自然风光而闻名",
+    description:
+      "甘肃省敦煌市的著名沙漠，以其独特的沙鸣现象和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "甘肃省敦煌市鸣沙山月牙泉景区",
     type: "nature",
@@ -42,12 +49,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "desert",
     landscapeCategory: ["地理景观"],
-    landformTags: ["沙漠景观"]
+    landformTags: ["沙漠景观"],
   },
   {
     id: "jiayuguanPass",
     name: "嘉峪关",
-    description: "甘肃省嘉峪关市的著名关隘，以其重要的历史意义和壮丽的建筑而闻名",
+    description:
+      "甘肃省嘉峪关市的著名关隘，以其重要的历史意义和壮丽的建筑而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "甘肃省嘉峪关市嘉峪关长城景区",
     type: "nature",
@@ -56,12 +64,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "zhangyeDanxiaLandform",
     name: "张掖丹霞地貌",
-    description: "甘肃省张掖市的著名丹霞地貌，以其绚丽的色彩和独特的地质景观而闻名",
+    description:
+      "甘肃省张掖市的著名丹霞地貌，以其绚丽的色彩和独特的地质景观而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "甘肃省张掖市临泽县",
     type: "nature",
@@ -70,12 +79,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "karst",
     landscapeCategory: ["地理景观"],
-    landformTags: ["丹霞景观"]
+    landformTags: ["丹霞景观"],
   },
   {
     id: "labrangMonastery",
     name: "拉卜楞寺",
-    description: "甘肃省甘南藏族自治州的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
+    description:
+      "甘肃省甘南藏族自治州的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "甘肃省甘南藏族自治州夏河县",
     type: "nature",
@@ -84,12 +94,13 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "wuweiLeitaiHanDynastyTombs",
     name: "武威雷台汉墓",
-    description: "甘肃省武威市的著名考古遗址，以其精美的铜奔马等文物和重要的历史意义而闻名",
+    description:
+      "甘肃省武威市的著名考古遗址，以其精美的铜奔马等文物和重要的历史意义而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "甘肃省武威市凉州区",
     type: "nature",
@@ -98,8 +109,8 @@ const gansuNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
-  }
+    landformTags: ["历史遗址"],
+  },
 ];
 
 // 甘肃省人文景观数据
@@ -116,12 +127,13 @@ const gansuCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "lanzhouYellowRiverIronBridge",
     name: "兰州黄河铁桥",
-    description: "甘肃省兰州市的著名桥梁，以其重要的历史意义和独特的建筑风格而闻名",
+    description:
+      "甘肃省兰州市的著名桥梁，以其重要的历史意义和独特的建筑风格而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "甘肃省兰州市城关区",
     type: "culture",
@@ -130,7 +142,7 @@ const gansuCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "dunhuangMuseum",
@@ -144,7 +156,7 @@ const gansuCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "zhangyeGreatBuddhaTemple",
@@ -158,7 +170,7 @@ const gansuCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "tianshuiMaijishanGrottoes",
@@ -172,36 +184,58 @@ const gansuCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "grotto",
     landscapeCategory: ["人文景观"],
-    landformTags: ["石窟景观"]
-  }
+    landformTags: ["石窟景观"],
+  },
 ];
 
 // 甘肃省季节性数据
 const gansuSeasonalData: Record<string, SeasonalScenery> = {
   spring: {
     name: "春季",
-    description: "春季的甘肃，万物复苏，是游览拉卜楞寺、天水麦积山石窟的最佳时节",
+    description:
+      "春季的甘肃，万物复苏，是游览拉卜楞寺、天水麦积山石窟的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["拉卜楞寺朝圣", "天水麦积山石窟参观", "张掖大佛寺游览", "兰州黄河铁桥漫步"]
+    activities: [
+      "拉卜楞寺朝圣",
+      "天水麦积山石窟参观",
+      "张掖大佛寺游览",
+      "兰州黄河铁桥漫步",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的甘肃，气候宜人，是游览莫高窟、月牙泉的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["莫高窟参观", "月牙泉游览", "鸣沙山沙漠探险", "嘉峪关长城游览"]
+    activities: [
+      "莫高窟参观",
+      "月牙泉游览",
+      "鸣沙山沙漠探险",
+      "嘉峪关长城游览",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的甘肃，天高气爽，是游览张掖丹霞地貌、莫高窟的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["张掖丹霞地貌赏秋", "莫高窟深度游", "月牙泉赏秋", "嘉峪关长城秋游"]
+    activities: [
+      "张掖丹霞地貌赏秋",
+      "莫高窟深度游",
+      "月牙泉赏秋",
+      "嘉峪关长城秋游",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的甘肃，虽然寒冷，但雪景美丽，是参观甘肃博物馆、敦煌博物馆的好时节",
+    description:
+      "冬季的甘肃，虽然寒冷，但雪景美丽，是参观甘肃博物馆、敦煌博物馆的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["甘肃博物馆参观", "敦煌博物馆深度游", "兰州黄河铁桥赏冬", "张掖大佛寺朝圣"]
-  }
+    activities: [
+      "甘肃博物馆参观",
+      "敦煌博物馆深度游",
+      "兰州黄河铁桥赏冬",
+      "张掖大佛寺朝圣",
+    ],
+  },
 };
 
 // 甘肃省活动数据
@@ -215,7 +249,7 @@ const gansuActivities: TravelActivity[] = [
     location: "甘肃省敦煌市莫高镇",
     duration: "半天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +260,7 @@ const gansuActivities: TravelActivity[] = [
     location: "甘肃省敦煌市鸣沙山月牙泉景区",
     duration: "半天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +271,7 @@ const gansuActivities: TravelActivity[] = [
     location: "甘肃省张掖市临泽县",
     duration: "半天",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +282,7 @@ const gansuActivities: TravelActivity[] = [
     location: "甘肃省嘉峪关市嘉峪关长城景区",
     duration: "半天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +293,8 @@ const gansuActivities: TravelActivity[] = [
     location: "甘肃省兰州市城关区",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 甘肃省路线数据
@@ -279,7 +313,7 @@ const gansuRoutes: RouteInfo[] = [
     rating: 4.9,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +322,21 @@ const gansuRoutes: RouteInfo[] = [
     description: "探索甘肃的壮丽自然风光",
     duration: "6天",
     difficulty: "中等",
-    highlights: ["张掖丹霞地貌", "鸣沙山", "月牙泉", "拉卜楞寺", "天水麦积山石窟"],
+    highlights: [
+      "张掖丹霞地貌",
+      "鸣沙山",
+      "月牙泉",
+      "拉卜楞寺",
+      "天水麦积山石窟",
+    ],
     spots: ["张掖丹霞地貌", "鸣沙山", "月牙泉", "拉卜楞寺", "天水麦积山石窟"],
     tags: ["自然", "风景", "宗教"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.8,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 甘肃省非物质文化遗产数据
@@ -312,7 +352,7 @@ const gansuIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
+    features: ["演唱独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +365,7 @@ const gansuIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +378,7 @@ const gansuIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🎨",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "4",
@@ -351,12 +391,13 @@ const gansuIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🍜",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["风味独特", "工艺精湛", "历史悠久"]
+    features: ["风味独特", "工艺精湛", "历史悠久"],
   },
   {
     id: "5",
     name: "裕固族民歌",
-    description: "甘肃省肃南裕固族自治县传统民间音乐，以其独特的演唱形式和丰富的内容著称",
+    description:
+      "甘肃省肃南裕固族自治县传统民间音乐，以其独特的演唱形式和丰富的内容著称",
     level: "national",
     category: "传统音乐",
     heritageType: "传统表演艺术",
@@ -364,8 +405,8 @@ const gansuIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
-  }
+    features: ["演唱独特", "内容丰富", "历史悠久"],
+  },
 ];
 
 // 甘肃省数据
@@ -378,40 +419,45 @@ export const gansuData = {
       {
         name: "莫高窟",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "甘肃省敦煌市的著名石窟，以其精美的壁画和重要的历史意义而闻名"
+        description:
+          "甘肃省敦煌市的著名石窟，以其精美的壁画和重要的历史意义而闻名",
       },
       {
         name: "张掖丹霞地貌",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "甘肃省张掖市的著名丹霞地貌，以其绚丽的色彩和独特的地质景观而闻名"
+        description:
+          "甘肃省张掖市的著名丹霞地貌，以其绚丽的色彩和独特的地质景观而闻名",
       },
       {
         name: "月牙泉",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "甘肃省敦煌市的著名湖泊，以其独特的月牙形状和沙漠中的奇观而闻名"
+        description:
+          "甘肃省敦煌市的著名湖泊，以其独特的月牙形状和沙漠中的奇观而闻名",
       },
       {
         name: "嘉峪关",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "甘肃省嘉峪关市的著名关隘，以其重要的历史意义和壮丽的建筑而闻名"
+        description:
+          "甘肃省嘉峪关市的著名关隘，以其重要的历史意义和壮丽的建筑而闻名",
       },
       {
         name: "拉卜楞寺",
         image: "https://picsum.photos/id/1039/600/400",
-        description: "甘肃省甘南藏族自治州的著名寺庙，以其重要的宗教地位和精美的建筑而闻名"
-      }
-    ]
+        description:
+          "甘肃省甘南藏族自治州的著名寺庙，以其重要的宗教地位和精美的建筑而闻名",
+      },
+    ],
   },
   spots: [...gansuNatureSpots, ...gansuCultureSpots],
   seasonal: [
     gansuSeasonalData.spring,
     gansuSeasonalData.summer,
     gansuSeasonalData.autumn,
-    gansuSeasonalData.winter
+    gansuSeasonalData.winter,
   ],
   activities: gansuActivities,
   routes: gansuRoutes,
-  intangibleHeritage: gansuIntangibleHeritage
+  intangibleHeritage: gansuIntangibleHeritage,
 };
 
 // 甘肃省风俗文化数据
@@ -420,24 +466,26 @@ export const gansuCustomsData = {
     {
       id: "1",
       name: "花儿演唱体验",
-      description: "聆听甘肃省传统民间音乐花儿演唱，感受其独特的演唱形式和丰富的内容",
+      description:
+        "聆听甘肃省传统民间音乐花儿演唱，感受其独特的演唱形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "甘肃省兰州市城关区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "陇剧表演欣赏",
-      description: "观看甘肃省传统戏曲艺术陇剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "观看甘肃省传统戏曲艺术陇剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "甘肃省兰州市城关区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,18 +496,19 @@ export const gansuCustomsData = {
       location: "甘肃省敦煌市莫高镇",
       duration: "1天",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "兰州牛肉拉面制作体验",
-      description: "学习甘肃省兰州市传统烹饪技艺牛肉拉面制作，体验其独特的工艺和风味",
+      description:
+        "学习甘肃省兰州市传统烹饪技艺牛肉拉面制作，体验其独特的工艺和风味",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "甘肃省兰州市城关区",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +519,9 @@ export const gansuCustomsData = {
       location: "甘肃省兰州市城关区",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 甘肃民俗风情元素数据
@@ -481,32 +530,33 @@ export const gansuFolkCustomsElements = [
     name: "花儿",
     description: "甘肃省传统民间音乐，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统音乐", "非遗文化", "民间艺术", "西北特色", "活化石"]
+    tags: ["传统音乐", "非遗文化", "民间艺术", "西北特色", "活化石"],
   },
   {
     name: "陇剧",
     description: "甘肃省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "地方剧种", "文化遗产"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "地方剧种", "文化遗产"],
   },
   {
     name: "敦煌彩塑",
     description: "甘肃省敦煌市传统手工艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "雕塑艺术", "世界遗产", "敦煌文化", "工艺美术"]
+    tags: ["传统技艺", "雕塑艺术", "世界遗产", "敦煌文化", "工艺美术"],
   },
   {
     name: "兰州牛肉拉面",
     description: "甘肃省兰州市传统烹饪技艺，以其独特的风味和精湛的工艺著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色美食", "传统技艺", "饮食文化", "西北风味", "非遗传承"]
+    tags: ["特色美食", "传统技艺", "饮食文化", "西北风味", "非遗传承"],
   },
   {
     name: "裕固族民歌",
-    description: "甘肃省肃南裕固族自治县传统民间音乐，以其独特的演唱形式和丰富的内容著称",
+    description:
+      "甘肃省肃南裕固族自治县传统民间音乐，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["民族音乐", "非遗文化", "民间艺术", "裕固族特色", "文化传承"]
-  }
+    tags: ["民族音乐", "非遗文化", "民间艺术", "裕固族特色", "文化传承"],
+  },
 ];
 
 // 甘肃省文化节庆数据
@@ -518,7 +568,7 @@ export const gansuFestivals = [
     month: "8月",
     day: "1日",
     location: "甘肃省敦煌市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +577,7 @@ export const gansuFestivals = [
     month: "9月",
     day: "1日",
     location: "甘肃省张掖市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +586,7 @@ export const gansuFestivals = [
     month: "7月",
     day: "1日",
     location: "甘肃省嘉峪关市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +595,7 @@ export const gansuFestivals = [
     month: "8月",
     day: "15日",
     location: "甘肃省甘南藏族自治州",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +604,7 @@ export const gansuFestivals = [
     month: "4月",
     day: "5日",
     location: "甘肃省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +613,8 @@ export const gansuFestivals = [
     month: "9月",
     day: "21日",
     location: "甘肃省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default gansuData;

@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 台湾省自然风光数据
 const taiwanNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "aliMountain",
@@ -28,7 +33,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "tarokoGorge",
@@ -42,7 +47,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "canyon",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "kentingNationalPark",
@@ -56,7 +61,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "yangmingshanNationalPark",
@@ -70,7 +75,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "park",
     landscapeCategory: ["生物景观"],
-    landformTags: ["公园景观"]
+    landformTags: ["公园景观"],
   },
   {
     id: "eastCoastScenicArea",
@@ -84,7 +89,7 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "ocean",
     landscapeCategory: ["水景观"],
-    landformTags: ["海洋景观"]
+    landformTags: ["海洋景观"],
   },
   {
     id: "greenIsland",
@@ -98,8 +103,8 @@ const taiwanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["岛屿景观"]
-  }
+    landformTags: ["岛屿景观"],
+  },
 ];
 
 // 台湾省人文景观数据
@@ -116,7 +121,7 @@ const taiwanCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "urban",
     landscapeCategory: ["人文景观"],
-    landformTags: ["城市地标"]
+    landformTags: ["城市地标"],
   },
   {
     id: "nationalPalaceMuseum",
@@ -130,7 +135,7 @@ const taiwanCultureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "longshanTemple",
@@ -144,7 +149,7 @@ const taiwanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "chiangKaiShekMemorialHall",
@@ -158,7 +163,7 @@ const taiwanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["纪念建筑"]
+    landformTags: ["纪念建筑"],
   },
   {
     id: "tainanAnpingOldStreet",
@@ -172,8 +177,8 @@ const taiwanCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
-  }
+    landformTags: ["历史街区"],
+  },
 ];
 
 // 台湾省季节性数据
@@ -182,26 +187,41 @@ const taiwanSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的台湾，万物复苏，是游览阿里山、日月潭的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["阿里山赏樱", "日月潭游船", "阳明山公园赏花", "台北101参观"]
+    activities: ["阿里山赏樱", "日月潭游船", "阳明山公园赏花", "台北101参观"],
   },
   summer: {
     name: "夏季",
     description: "夏季的台湾，虽然炎热，但也是游览垦丁国家公园、绿岛的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["垦丁海滩游泳", "绿岛潜水", "太鲁阁峡谷徒步", "东部海岸风景区游览"]
+    activities: [
+      "垦丁海滩游泳",
+      "绿岛潜水",
+      "太鲁阁峡谷徒步",
+      "东部海岸风景区游览",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的台湾，天高气爽，是游览太鲁阁峡谷、中正纪念堂的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["太鲁阁峡谷徒步", "中正纪念堂参观", "故宫博物院游览", "龙山寺参拜"]
+    activities: [
+      "太鲁阁峡谷徒步",
+      "中正纪念堂参观",
+      "故宫博物院游览",
+      "龙山寺参拜",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的台湾，气候温暖，是游览台北101、故宫博物院的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["台北101观景", "故宫博物院深度游", "龙山寺参拜", "台南安平老街漫步"]
-  }
+    activities: [
+      "台北101观景",
+      "故宫博物院深度游",
+      "龙山寺参拜",
+      "台南安平老街漫步",
+    ],
+  },
 };
 
 // 台湾省活动数据
@@ -215,7 +235,7 @@ const taiwanActivities: TravelActivity[] = [
     location: "台湾省嘉义县阿里山乡",
     duration: "全天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +246,7 @@ const taiwanActivities: TravelActivity[] = [
     location: "台湾省屏东县恒春镇",
     duration: "半天",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +257,7 @@ const taiwanActivities: TravelActivity[] = [
     location: "台湾省台北市士林区",
     duration: "全天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +268,7 @@ const taiwanActivities: TravelActivity[] = [
     location: "台湾省花莲县秀林乡",
     duration: "全天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +279,8 @@ const taiwanActivities: TravelActivity[] = [
     location: "台湾省台北市中正区",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 台湾省路线数据
@@ -272,14 +292,28 @@ const taiwanRoutes: RouteInfo[] = [
     description: "环绕台湾岛游览，探索台湾的自然风光和人文景观",
     duration: "10天",
     difficulty: "中等",
-    highlights: ["台北101", "故宫博物院", "阿里山", "日月潭", "太鲁阁峡谷", "垦丁国家公园"],
-    spots: ["台北101", "故宫博物院", "阿里山", "日月潭", "太鲁阁峡谷", "垦丁国家公园"],
+    highlights: [
+      "台北101",
+      "故宫博物院",
+      "阿里山",
+      "日月潭",
+      "太鲁阁峡谷",
+      "垦丁国家公园",
+    ],
+    spots: [
+      "台北101",
+      "故宫博物院",
+      "阿里山",
+      "日月潭",
+      "太鲁阁峡谷",
+      "垦丁国家公园",
+    ],
     tags: ["自然", "文化", "环岛"],
     image: "https://picsum.photos/id/1058/600/400",
     rating: 4.9,
     bestTime: "春季",
     traffic: "自驾+公共交通",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +322,21 @@ const taiwanRoutes: RouteInfo[] = [
     description: "探索台湾北部的历史文化和现代都市",
     duration: "5天",
     difficulty: "简单",
-    highlights: ["台北101", "故宫博物院", "龙山寺", "中正纪念堂", "阳明山国家公园"],
+    highlights: [
+      "台北101",
+      "故宫博物院",
+      "龙山寺",
+      "中正纪念堂",
+      "阳明山国家公园",
+    ],
     spots: ["台北101", "故宫博物院", "龙山寺", "中正纪念堂", "阳明山国家公园"],
     tags: ["历史", "文化", "都市"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.8,
     bestTime: "四季皆宜",
     traffic: "地铁+公交",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 台湾省非物质文化遗产数据
@@ -312,7 +352,7 @@ const taiwanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "台湾文化"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +365,7 @@ const taiwanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "台湾文化"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "木偶精美", "历史悠久"]
+    features: ["表演独特", "木偶精美", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +378,7 @@ const taiwanIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "台湾文化"],
     icon: "🍵",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["茶艺独特", "茶道精深", "历史悠久"]
+    features: ["茶艺独特", "茶道精深", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +391,7 @@ const taiwanIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "台湾文化"],
     icon: "🏠",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["工艺精湛", "风格独特", "历史悠久"]
+    features: ["工艺精湛", "风格独特", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +404,8 @@ const taiwanIntangibleHeritage = [
     tags: ["民俗", "国家级非遗", "台湾文化"],
     icon: "🎉",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["仪式独特", "文化内涵丰富", "历史悠久"]
-  }
+    features: ["仪式独特", "文化内涵丰富", "历史悠久"],
+  },
 ];
 
 // 台湾省数据
@@ -378,40 +418,41 @@ export const taiwanData = {
       {
         name: "阿里山",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "台湾省的著名山脉，以其壮丽的自然风光、云海和铁路而闻名"
+        description: "台湾省的著名山脉，以其壮丽的自然风光、云海和铁路而闻名",
       },
       {
         name: "日月潭",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "台湾省的著名湖泊，以其美丽的湖光山色和独特的日月形状而闻名"
+        description:
+          "台湾省的著名湖泊，以其美丽的湖光山色和独特的日月形状而闻名",
       },
       {
         name: "台北101",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "台湾省的著名地标建筑，以其高耸的建筑和观景台而闻名"
+        description: "台湾省的著名地标建筑，以其高耸的建筑和观景台而闻名",
       },
       {
         name: "故宫博物院",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "台湾省的著名博物馆，以其丰富的中国文物和艺术品而闻名"
+        description: "台湾省的著名博物馆，以其丰富的中国文物和艺术品而闻名",
       },
       {
         name: "太鲁阁峡谷",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "台湾省的著名峡谷，以其壮丽的峡谷风光和大理石岩层而闻名"
-      }
-    ]
+        description: "台湾省的著名峡谷，以其壮丽的峡谷风光和大理石岩层而闻名",
+      },
+    ],
   },
   spots: [...taiwanNatureSpots, ...taiwanCultureSpots],
   seasonal: [
     taiwanSeasonalData.spring,
     taiwanSeasonalData.summer,
     taiwanSeasonalData.autumn,
-    taiwanSeasonalData.winter
+    taiwanSeasonalData.winter,
   ],
   activities: taiwanActivities,
   routes: taiwanRoutes,
-  intangibleHeritage: taiwanIntangibleHeritage
+  intangibleHeritage: taiwanIntangibleHeritage,
 };
 
 // 台湾省风俗文化数据
@@ -420,24 +461,26 @@ export const taiwanCustomsData = {
     {
       id: "1",
       name: "台湾歌仔戏表演体验",
-      description: "欣赏台湾省传统戏曲艺术歌仔戏表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏台湾省传统戏曲艺术歌仔戏表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "台湾省台北市万华区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "台湾传统木偶戏表演体验",
-      description: "欣赏台湾省传统民间艺术木偶戏表演，感受其精美的木偶制作和独特的表演形式",
+      description:
+        "欣赏台湾省传统民间艺术木偶戏表演，感受其精美的木偶制作和独特的表演形式",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "台湾省台南市安平区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +491,7 @@ export const taiwanCustomsData = {
       location: "台湾省台北市中正区",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +502,7 @@ export const taiwanCustomsData = {
       location: "台湾省台南市安平区",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +513,9 @@ export const taiwanCustomsData = {
       location: "台湾省台北市中正区",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 台湾民俗风情元素数据
@@ -481,32 +524,32 @@ export const taiwanFolkCustomsElements = [
     name: "台湾歌仔戏",
     description: "台湾省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "闽南文化", "台湾特色", "表演艺术"]
+    tags: ["传统戏曲", "非遗文化", "闽南文化", "台湾特色", "表演艺术"],
   },
   {
     name: "台湾传统木偶戏",
     description: "台湾省传统民间艺术，以其精美的木偶制作和独特的表演形式著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "民间艺术", "台湾特色", "雕刻工艺"]
+    tags: ["传统戏曲", "非遗文化", "民间艺术", "台湾特色", "雕刻工艺"],
   },
   {
     name: "台湾传统茶文化",
     description: "台湾省传统饮食文化，以其独特的茶艺和茶道著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["饮食文化", "非遗文化", "茶艺文化", "台湾特色", "高山茶特色"]
+    tags: ["饮食文化", "非遗文化", "茶艺文化", "台湾特色", "高山茶特色"],
   },
   {
     name: "台湾传统建筑工艺",
     description: "台湾省传统手工艺，以其精美的建筑工艺和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统建筑", "非遗文化", "闽南建筑", "台湾特色", "建筑技艺"]
+    tags: ["传统建筑", "非遗文化", "闽南建筑", "台湾特色", "建筑技艺"],
   },
   {
     name: "台湾传统节庆习俗",
     description: "台湾省传统民俗活动，以其独特的节庆仪式和丰富的文化内涵著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["民俗活动", "非遗文化", "节庆文化", "台湾特色", "文化传承"]
-  }
+    tags: ["民俗活动", "非遗文化", "节庆文化", "台湾特色", "文化传承"],
+  },
 ];
 
 // 台湾省文化节庆数据
@@ -518,7 +561,7 @@ export const taiwanFestivals = [
     month: "2月",
     day: "1日",
     location: "台湾省台北市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +570,7 @@ export const taiwanFestivals = [
     month: "6月",
     day: "1日",
     location: "台湾省台东县鹿野乡",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +579,7 @@ export const taiwanFestivals = [
     month: "3月",
     day: "1日",
     location: "台湾省嘉义县阿里山乡",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +588,7 @@ export const taiwanFestivals = [
     month: "4月",
     day: "1日",
     location: "台湾省屏东县恒春镇",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +597,7 @@ export const taiwanFestivals = [
     month: "4月",
     day: "5日",
     location: "台湾省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +606,8 @@ export const taiwanFestivals = [
     month: "9月",
     day: "21日",
     location: "台湾省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default taiwanData;

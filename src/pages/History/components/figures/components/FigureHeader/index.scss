@@ -1,0 +1,35 @@
+.section-header {
+  margin-bottom: 24px;
+  padding: 0 40px;
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f4e4c1;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(218, 165, 32, 0.15);
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #daa520, transparent);
+      border-radius: 2px;
+    }
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: rgba(232, 224, 213, 0.7);
+    margin-top: 16px;
+    letter-spacing: 0.3px;
+  }
+}

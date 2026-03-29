@@ -1,0 +1,331 @@
+.exhibition-scrollable {
+  flex: 1;
+  background: transparent;
+  overflow-y: scroll;
+  padding: 1rem 1.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-exhibitions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    .exhibition-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      height: 100%;
+      box-shadow:
+        0 6px 12px rgba(0, 0, 0, 1),
+        0 4px 8px rgba(0, 0, 0, 1),
+        inset 0 1px 0 rgba(100, 149, 237, 0.1);
+      transform-origin: center;
+
+      &:hover {
+        transform: scale(1.02) rotateX(10deg) rotateY(10deg);
+
+        .exhibition-details {
+          &::after {
+            left: 100%;
+          }
+        }
+      }
+
+      &.active {
+        transform: translateY(10px) rotate(5deg) scale(0.8);
+        box-shadow:
+          0 10px 20px rgba(0, 0, 0, 1),
+          0 15px 25px rgba(0, 0, 0, 1);
+      }
+
+      .exhibition-image {
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+        border-bottom: 2px solid rgba(74, 0, 224, 0.3);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+
+        .status-badge {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          padding: 4px 10px;
+          border-radius: 16px;
+          font-size: 0.7rem;
+          font-weight: bold;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.9),
+            0 1px 2px rgba(0, 0, 0, 0.7),
+            inset 0 2px 4px rgba(255, 255, 255, 0.2),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+          border: 2px solid rgba(255, 255, 255, 0.8);
+          transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+          color: #fff;
+        }
+
+        .exhibition-actions {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+          z-index: 10;
+
+          .action-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fafafa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.75rem;
+            box-shadow:
+              0 2px 4px rgba(0, 0, 0, 0.8),
+              0 1px 2px rgba(0, 0, 0, 0.6),
+              inset 0 2px 4px rgba(255, 255, 255, 0.1),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
+
+            &:hover {
+              transform: translateX(5px);
+            }
+
+            &.favorite-btn {
+              background: rgb(121, 15, 15);
+              box-shadow:
+                0 3px 6px rgba(0, 0, 0, 0.9),
+                0 1px 3px rgba(0, 0, 0, 0.7),
+                inset 0 2px 4px rgba(255, 255, 255, 0.15),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+            }
+
+            &.share-btn {
+              background: rgba(7, 115, 22, 1);
+              box-shadow:
+                0 3px 6px rgba(0, 0, 0, 0.9),
+                0 1px 3px rgba(0, 0, 0, 0.7),
+                inset 0 2px 4px rgba(255, 255, 255, 0.15),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+            }
+          }
+        }
+      }
+
+      .exhibition-details {
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        position: relative;
+        background: var(
+            --bg-image,
+            url("@/assets/image/Museum/ExhibitionCardBg/card1.png")
+          )
+          center/cover no-repeat;
+        border: none;
+        box-shadow:
+          0 3px 6px rgba(0, 0, 0, 0.9),
+          0 1px 3px rgba(0, 0, 0, 0.7),
+          inset 0 2px 4px rgba(255, 255, 255, 0.1),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+          inset 0 4px 8px rgba(200, 150, 255, 0.1),
+          inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 8%;
+          left: 15%;
+          width: 70%;
+          height: 35%;
+          background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            transparent 100%
+          );
+          border-radius: 50%;
+          filter: blur(2px);
+          pointer-events: none;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            transparent 100%
+          );
+          transition: left 0.5s ease;
+          pointer-events: none;
+        }
+
+        .exhibition-title {
+          font-size: 1rem;
+          color: #fff;
+          margin: 0;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+          position: relative;
+          padding: 0.6rem 0.8rem;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 6px 6px 0 0;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-bottom: none;
+          box-shadow: 0 -10px 15px rgba(0, 0, 0, 1);
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0.8rem;
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 0.8),
+              transparent
+            );
+          }
+        }
+
+        .exhibition-date {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 0.75rem;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          padding: 0.4rem 0.8rem;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-top: none;
+          border-bottom: none;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 1px 2px rgba(0, 0, 0, 0.6),
+            inset 0 2px 4px rgba(255, 255, 255, 0.1),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+          transition: all 0.3s ease;
+
+          &::before {
+            content: "•";
+            margin-right: 6px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow:
+              0 3px 6px rgba(0, 0, 0, 0.9),
+              0 1px 3px rgba(0, 0, 0, 0.7),
+              inset 0 2px 4px rgba(255, 255, 255, 0.15),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+          }
+        }
+
+        .exhibition-location {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 0.75rem;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          padding: 0.4rem 0.8rem;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-top: none;
+          border-bottom: none;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 1px 2px rgba(0, 0, 0, 0.6),
+            inset 0 2px 4px rgba(255, 255, 255, 0.1),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+          transition: all 0.3s ease;
+
+          &::before {
+            content: "•";
+            margin-right: 6px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+          }
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow:
+              0 3px 6px rgba(0, 0, 0, 0.9),
+              0 1px 3px rgba(0, 0, 0, 0.7),
+              inset 0 2px 4px rgba(255, 255, 255, 0.15),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+          }
+        }
+
+        .exhibition-description {
+          color: rgba(255, 255, 255, 0.85);
+          font-size: 0.75rem;
+          line-height: 1.5;
+          margin: 0;
+          position: relative;
+          z-index: 1;
+          flex-grow: 1;
+          padding: 0.8rem;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-radius: 0 0 6px 6px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-top: none;
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 1px 2px rgba(0, 0, 0, 0.6),
+            inset 0 2px 4px rgba(255, 255, 255, 0.1),
+            inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+          margin-bottom: 0.8rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow:
+              0 3px 6px rgba(0, 0, 0, 0.9),
+              0 1px 3px rgba(0, 0, 0, 0.7),
+              inset 0 2px 4px rgba(255, 255, 255, 0.15),
+              inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+}

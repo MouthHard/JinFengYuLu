@@ -1,5 +1,5 @@
-import { SceneryData } from '../scenery';
-import { defaultIntangibleHeritage } from '../scenery';
+import { SceneryData } from "../scenery";
+import { defaultIntangibleHeritage } from "../scenery";
 
 export const beijingData: SceneryData = {
   overview: {
@@ -10,106 +10,108 @@ export const beijingData: SceneryData = {
       {
         name: "故宫",
         image: "https://picsum.photos/id/1076/600/400",
-        description: "中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一"
+        description:
+          "中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一",
       },
       {
         name: "长城",
         image: "https://picsum.photos/id/1077/600/400",
-        description: "中国古代伟大的防御工程，是中华民族的象征"
+        description: "中国古代伟大的防御工程，是中华民族的象征",
       },
       {
         name: "颐和园",
         image: "https://picsum.photos/id/1080/600/400",
-        description: "中国现存规模最大、保存最完整的皇家园林"
+        description: "中国现存规模最大、保存最完整的皇家园林",
       },
       {
         name: "天坛",
         image: "https://picsum.photos/id/1081/600/400",
-        description: "明清两代皇帝祭天、祈求五谷丰登的场所"
+        description: "明清两代皇帝祭天、祈求五谷丰登的场所",
       },
       {
         name: "天安门",
         image: "https://picsum.photos/id/1082/600/400",
-        description: "北京的象征，中国的标志性建筑"
+        description: "北京的象征，中国的标志性建筑",
       },
       {
         name: "八达岭长城",
         image: "https://picsum.photos/id/1083/600/400",
-        description: "最具代表性的长城段落，以其宏伟的气势和完善的设施而闻名"
+        description: "最具代表性的长城段落，以其宏伟的气势和完善的设施而闻名",
       },
       {
         name: "圆明园",
         image: "https://picsum.photos/id/1084/600/400",
-        description: "曾经的万园之园，现为爱国主义教育基地"
+        description: "曾经的万园之园，现为爱国主义教育基地",
       },
       {
         name: "什刹海",
         image: "https://picsum.photos/id/1085/600/400",
-        description: "北京最具特色的历史文化街区，拥有众多胡同和四合院"
+        description: "北京最具特色的历史文化街区，拥有众多胡同和四合院",
       },
       {
         name: "恭王府",
         image: "https://picsum.photos/id/1086/600/400",
-        description: "清代王府建筑群，被誉为'小故宫'"
+        description: "清代王府建筑群，被誉为'小故宫'",
       },
       {
         name: "北京奥林匹克公园",
         image: "https://picsum.photos/id/1087/600/400",
-        description: "2008年奥运会主会场，包含鸟巢、水立方等标志性建筑"
+        description: "2008年奥运会主会场，包含鸟巢、水立方等标志性建筑",
       },
       {
         name: "香山公园",
         image: "https://picsum.photos/id/1088/600/400",
-        description: "以秋季红叶闻名的皇家园林，是北京著名的旅游胜地"
+        description: "以秋季红叶闻名的皇家园林，是北京著名的旅游胜地",
       },
       {
         name: "雍和宫",
         image: "https://picsum.photos/id/1089/600/400",
-        description: "北京最大的藏传佛教寺院，具有重要的宗教和文化价值"
+        description: "北京最大的藏传佛教寺院，具有重要的宗教和文化价值",
       },
       {
         name: "南锣鼓巷",
         image: "https://picsum.photos/id/1090/600/400",
-        description: "北京最古老的胡同之一，现在是著名的文化创意街区"
+        description: "北京最古老的胡同之一，现在是著名的文化创意街区",
       },
       {
         name: "798艺术区",
         image: "https://picsum.photos/id/1091/600/400",
-        description: "北京最具代表性的艺术区，汇集了众多艺术画廊和工作室"
+        description: "北京最具代表性的艺术区，汇集了众多艺术画廊和工作室",
       },
       {
         name: "国家博物馆",
         image: "https://picsum.photos/id/1092/600/400",
-        description: "中国历史文化艺术的综合性博物馆，收藏了大量珍贵文物"
+        description: "中国历史文化艺术的综合性博物馆，收藏了大量珍贵文物",
       },
       {
         name: "景山公园",
         image: "https://picsum.photos/id/1093/600/400",
-        description: "位于故宫北面，是俯瞰故宫全景的最佳地点"
+        description: "位于故宫北面，是俯瞰故宫全景的最佳地点",
       },
       {
         name: "北海公园",
         image: "https://picsum.photos/id/1094/600/400",
-        description: "北京最古老的皇家园林之一，具有悠久的历史和丰富的文化内涵"
+        description: "北京最古老的皇家园林之一，具有悠久的历史和丰富的文化内涵",
       },
       {
         name: "慕田峪长城",
         image: "https://picsum.photos/id/1095/600/400",
-        description: "以其壮丽的景色和完善的设施而闻名，是长城的精华段落之一"
-      }
-    ]
+        description: "以其壮丽的景色和完善的设施而闻名，是长城的精华段落之一",
+      },
+    ],
   },
   spots: [
     {
       id: "forbiddenCity",
       name: "故宫",
-      description: "中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一",
+      description:
+        "中国明清两代的皇家宫殿，是世界上现存规模最大、保存最为完整的木质结构古建筑之一",
       image: "https://picsum.photos/id/1076/600/400",
       location: "北京市东城区景山前街4号",
       type: "culture",
       bestTime: "春季",
       tags: ["历史", "文化", "建筑", "皇家"],
-      rating: 4.9
+      rating: 4.9,
     },
     {
       id: "greatWall",
@@ -123,7 +125,7 @@ export const beijingData: SceneryData = {
       rating: 4.8,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "summerPalace",
@@ -134,7 +136,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "春季",
       tags: ["园林", "历史", "皇家", "建筑"],
-      rating: 4.7
+      rating: 4.7,
     },
     {
       id: "templeOfHeaven",
@@ -145,7 +147,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "春季",
       tags: ["历史", "文化", "建筑", "祭祀"],
-      rating: 4.6
+      rating: 4.6,
     },
     {
       id: "tiananmen",
@@ -156,7 +158,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "春季",
       tags: ["历史", "文化", "建筑", "地标"],
-      rating: 4.9
+      rating: 4.9,
     },
     {
       id: "yuanmingyuan",
@@ -167,7 +169,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "春季",
       tags: ["历史", "文化", "园林", "教育"],
-      rating: 4.5
+      rating: 4.5,
     },
     {
       id: "princeGongMansion",
@@ -178,7 +180,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "秋季",
       tags: ["历史", "文化", "建筑", "王府"],
-      rating: 4.7
+      rating: 4.7,
     },
     {
       id: "olympicPark",
@@ -189,7 +191,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "夏季",
       tags: ["现代", "建筑", "体育", "地标"],
-      rating: 4.6
+      rating: 4.6,
     },
     {
       id: "yongheTemple",
@@ -200,7 +202,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "秋季",
       tags: ["宗教", "文化", "建筑", "佛教"],
-      rating: 4.7
+      rating: 4.7,
     },
     {
       id: "nanluoguXiang",
@@ -211,7 +213,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "秋季",
       tags: ["历史", "文化", "胡同", "创意"],
-      rating: 4.4
+      rating: 4.4,
     },
     {
       id: "798ArtDistrict",
@@ -222,7 +224,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "秋季",
       tags: ["艺术", "文化", "创意", "现代"],
-      rating: 4.5
+      rating: 4.5,
     },
     {
       id: "nationalMuseum",
@@ -233,7 +235,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "春季",
       tags: ["文化", "历史", "博物馆", "艺术"],
-      rating: 4.8
+      rating: 4.8,
     },
     {
       id: "jingshanPark",
@@ -244,7 +246,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "秋季",
       tags: ["历史", "文化", "公园", "观景"],
-      rating: 4.6
+      rating: 4.6,
     },
     {
       id: "hutongTour",
@@ -255,7 +257,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "夏季",
       tags: ["民俗", "传统", "胡同", "文化"],
-      rating: 4.4
+      rating: 4.4,
     },
     {
       id: "beijingOpera",
@@ -266,7 +268,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "冬季",
       tags: ["民俗", "传统", "艺术", "文化"],
-      rating: 4.5
+      rating: 4.5,
     },
     {
       id: "winterPalace",
@@ -277,7 +279,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "冬季",
       tags: ["历史", "文化", "建筑", "雪景"],
-      rating: 4.8
+      rating: 4.8,
     },
     {
       id: "summerPalaceSummer",
@@ -288,7 +290,7 @@ export const beijingData: SceneryData = {
       type: "culture",
       bestTime: "夏季",
       tags: ["历史", "文化", "园林", "避暑"],
-      rating: 4.7
+      rating: 4.7,
     },
     // 自然景观数据
     {
@@ -303,7 +305,7 @@ export const beijingData: SceneryData = {
       rating: 4.8,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "mutianyuGreatWall",
@@ -317,7 +319,7 @@ export const beijingData: SceneryData = {
       rating: 4.7,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "xiangshanPark",
@@ -331,7 +333,7 @@ export const beijingData: SceneryData = {
       rating: 4.6,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "beihaiPark",
@@ -345,7 +347,7 @@ export const beijingData: SceneryData = {
       rating: 4.5,
       landscapeType: "lake",
       landscapeCategory: ["水景观"],
-      landformTags: ["湖泊景观"]
+      landformTags: ["湖泊景观"],
     },
     {
       id: "shichahai",
@@ -359,12 +361,13 @@ export const beijingData: SceneryData = {
       rating: 4.5,
       landscapeType: "lake",
       landscapeCategory: ["水景观"],
-      landformTags: ["湖泊景观"]
+      landformTags: ["湖泊景观"],
     },
     {
       id: "baiyangdian",
       name: "白洋淀",
-      description: "华北地区最大的淡水湖泊，以其独特的湿地景观和丰富的生物多样性而闻名",
+      description:
+        "华北地区最大的淡水湖泊，以其独特的湿地景观和丰富的生物多样性而闻名",
       image: "https://picsum.photos/id/1078/600/400",
       location: "北京市周边（河北安新）",
       type: "nature",
@@ -373,12 +376,13 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "wetland",
       landscapeCategory: ["水景观"],
-      landformTags: ["湿地景观"]
+      landformTags: ["湿地景观"],
     },
     {
       id: "yanshanMountains",
       name: "燕山山脉",
-      description: "北京北部的重要山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
+      description:
+        "北京北部的重要山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
       image: "https://picsum.photos/id/1079/600/400",
       location: "北京市北部燕山山脉",
       type: "nature",
@@ -387,7 +391,7 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "junduMountains",
@@ -401,7 +405,7 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "wanquanRiver",
@@ -415,7 +419,7 @@ export const beijingData: SceneryData = {
       rating: 4.2,
       landscapeType: "river",
       landscapeCategory: ["水景观"],
-      landformTags: ["河流景观"]
+      landformTags: ["河流景观"],
     },
     {
       id: "huairouReservoir",
@@ -429,12 +433,13 @@ export const beijingData: SceneryData = {
       rating: 4.2,
       landscapeType: "lake",
       landscapeCategory: ["水景观"],
-      landformTags: ["湖泊景观"]
+      landformTags: ["湖泊景观"],
     },
     {
       id: "miaofengMountain",
       name: "妙峰山",
-      description: "北京西部的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名",
+      description:
+        "北京西部的著名山峰，以其秀丽的自然风光和丰富的宗教文化而闻名",
       image: "https://picsum.photos/id/1087/600/400",
       location: "北京市门头沟区妙峰山路",
       type: "nature",
@@ -443,12 +448,13 @@ export const beijingData: SceneryData = {
       rating: 4.1,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "baiwangMountain",
       name: "百望山",
-      description: "北京海淀区的著名山峰，以其优美的自然风光和丰富的历史文化而闻名",
+      description:
+        "北京海淀区的著名山峰，以其优美的自然风光和丰富的历史文化而闻名",
       image: "https://picsum.photos/id/1089/600/400",
       location: "北京市海淀区黑山扈路",
       type: "nature",
@@ -457,12 +463,13 @@ export const beijingData: SceneryData = {
       rating: 4.0,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "longqingGorge",
       name: "龙庆峡",
-      description: "北京延庆区的著名峡谷景区，以其壮丽的峡谷风光和清澈的河水而闻名",
+      description:
+        "北京延庆区的著名峡谷景区，以其壮丽的峡谷风光和清澈的河水而闻名",
       image: "https://picsum.photos/id/1096/600/400",
       location: "北京市延庆区龙庆峡景区",
       type: "nature",
@@ -471,7 +478,7 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "canyon",
       landscapeCategory: ["地理景观"],
-      landformTags: ["峡谷景观"]
+      landformTags: ["峡谷景观"],
     },
     {
       id: "yuduMountain",
@@ -485,12 +492,13 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "gubeiWaterTown",
       name: "古北水镇",
-      description: "北京密云区的著名水乡古镇，以其独特的水乡风光和丰富的历史文化而闻名",
+      description:
+        "北京密云区的著名水乡古镇，以其独特的水乡风光和丰富的历史文化而闻名",
       image: "https://picsum.photos/id/1098/600/400",
       location: "北京市密云区古北水镇",
       type: "nature",
@@ -499,12 +507,13 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "wetland",
       landscapeCategory: ["水景观"],
-      landformTags: ["湿地景观"]
+      landformTags: ["湿地景观"],
     },
     {
       id: "jinhaiLake",
       name: "金海湖",
-      description: "北京平谷区的大型人工湖，以其清澈的水质和优美的湖光山色而闻名",
+      description:
+        "北京平谷区的大型人工湖，以其清澈的水质和优美的湖光山色而闻名",
       image: "https://picsum.photos/id/1099/600/400",
       location: "北京市平谷区金海湖风景区",
       type: "nature",
@@ -513,12 +522,13 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "lake",
       landscapeCategory: ["水景观"],
-      landformTags: ["湖泊景观"]
+      landformTags: ["湖泊景观"],
     },
     {
       id: "qinglongGorge",
       name: "青龙峡",
-      description: "北京怀柔区的著名峡谷景区，以其壮丽的峡谷风光和丰富的水上活动而闻名",
+      description:
+        "北京怀柔区的著名峡谷景区，以其壮丽的峡谷风光和丰富的水上活动而闻名",
       image: "https://picsum.photos/id/1100/600/400",
       location: "北京市怀柔区青龙峡景区",
       type: "nature",
@@ -527,12 +537,13 @@ export const beijingData: SceneryData = {
       rating: 4.2,
       landscapeType: "canyon",
       landscapeCategory: ["地理景观"],
-      landformTags: ["峡谷景观"]
+      landformTags: ["峡谷景观"],
     },
     {
       id: "hongluoTemple",
       name: "红螺寺",
-      description: "北京怀柔区的著名佛教寺庙，以其悠久的历史和优美的自然风光而闻名",
+      description:
+        "北京怀柔区的著名佛教寺庙，以其悠久的历史和优美的自然风光而闻名",
       image: "https://picsum.photos/id/1101/600/400",
       location: "北京市怀柔区红螺寺",
       type: "nature",
@@ -541,12 +552,13 @@ export const beijingData: SceneryData = {
       rating: 4.1,
       landscapeType: "plant",
       landscapeCategory: ["生物景观"],
-      landformTags: ["森林景观"]
+      landformTags: ["森林景观"],
     },
     {
       id: "yanqiLake",
       name: "雁栖湖",
-      description: "北京怀柔区的大型人工湖，以其清澈的水质和优美的湖光山色而闻名",
+      description:
+        "北京怀柔区的大型人工湖，以其清澈的水质和优美的湖光山色而闻名",
       image: "https://picsum.photos/id/1102/600/400",
       location: "北京市怀柔区雁栖湖风景区",
       type: "nature",
@@ -555,12 +567,13 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "lake",
       landscapeCategory: ["水景观"],
-      landformTags: ["湖泊景观"]
+      landformTags: ["湖泊景观"],
     },
     {
       id: "shentangyu",
       name: "神堂峪",
-      description: "北京怀柔区的著名峡谷景区，以其壮丽的峡谷风光和丰富的自然景观而闻名",
+      description:
+        "北京怀柔区的著名峡谷景区，以其壮丽的峡谷风光和丰富的自然景观而闻名",
       image: "https://picsum.photos/id/1103/600/400",
       location: "北京市怀柔区神堂峪风景区",
       type: "nature",
@@ -569,12 +582,13 @@ export const beijingData: SceneryData = {
       rating: 4.1,
       landscapeType: "canyon",
       landscapeCategory: ["地理景观"],
-      landformTags: ["峡谷", "河流"]
+      landformTags: ["峡谷", "河流"],
     },
     {
       id: "baihuashan",
       name: "百花山",
-      description: "北京门头沟区的著名山峰，以其丰富的植被和秀丽的自然风光而闻名",
+      description:
+        "北京门头沟区的著名山峰，以其丰富的植被和秀丽的自然风光而闻名",
       image: "https://picsum.photos/id/1104/600/400",
       location: "北京市门头沟区百花山风景区",
       type: "nature",
@@ -583,12 +597,13 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "lingMountain",
       name: "灵山",
-      description: "北京门头沟区的著名山峰，是北京的最高峰，以其壮丽的自然风光而闻名",
+      description:
+        "北京门头沟区的著名山峰，是北京的最高峰，以其壮丽的自然风光而闻名",
       image: "https://picsum.photos/id/1105/600/400",
       location: "北京市门头沟区灵山风景区",
       type: "nature",
@@ -597,12 +612,13 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "yongdingRiver",
       name: "永定河",
-      description: "北京的母亲河，流经北京多个区县，以其悠久的历史和丰富的文化而闻名",
+      description:
+        "北京的母亲河，流经北京多个区县，以其悠久的历史和丰富的文化而闻名",
       image: "https://picsum.photos/id/1106/600/400",
       location: "北京市门头沟区永定河",
       type: "nature",
@@ -611,12 +627,13 @@ export const beijingData: SceneryData = {
       rating: 4.2,
       landscapeType: "river",
       landscapeCategory: ["水景观"],
-      landformTags: ["河流景观"]
+      landformTags: ["河流景观"],
     },
     {
       id: "baiheCanyon",
       name: "白河峡谷",
-      description: "北京密云区的著名峡谷景区，以其壮丽的峡谷风光和清澈的河水而闻名",
+      description:
+        "北京密云区的著名峡谷景区，以其壮丽的峡谷风光和清澈的河水而闻名",
       image: "https://picsum.photos/id/1107/600/400",
       location: "北京市密云区白河峡谷",
       type: "nature",
@@ -625,12 +642,13 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "canyon",
       landscapeCategory: ["地理景观"],
-      landformTags: ["峡谷景观"]
+      landformTags: ["峡谷景观"],
     },
     {
       id: "taoyuanxiangu",
       name: "桃源仙谷",
-      description: "北京密云区的著名峡谷景区，以其秀丽的自然风光和丰富的植被而闻名",
+      description:
+        "北京密云区的著名峡谷景区，以其秀丽的自然风光和丰富的植被而闻名",
       image: "https://picsum.photos/id/1108/600/400",
       location: "北京市密云区桃源仙谷风景区",
       type: "nature",
@@ -639,7 +657,7 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "canyon",
       landscapeCategory: ["地理景观"],
-      landformTags: ["峡谷景观"]
+      landformTags: ["峡谷景观"],
     },
     {
       id: "yunmengMountainResort",
@@ -653,7 +671,7 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "wulingMountain",
@@ -667,7 +685,7 @@ export const beijingData: SceneryData = {
       rating: 4.2,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地", "森林"]
+      landformTags: ["山地", "森林"],
     },
     {
       id: "haihuForestPark",
@@ -681,12 +699,13 @@ export const beijingData: SceneryData = {
       rating: 4.4,
       landscapeType: "mountain",
       landscapeCategory: ["地理景观"],
-      landformTags: ["山地景观"]
+      landformTags: ["山地景观"],
     },
     {
       id: "songshanReserve",
       name: "松山自然保护区",
-      description: "北京延庆区的自然保护区，以其丰富的生物多样性和优美的自然风光而闻名",
+      description:
+        "北京延庆区的自然保护区，以其丰富的生物多样性和优美的自然风光而闻名",
       image: "https://picsum.photos/id/1112/600/400",
       location: "北京市延庆区松山自然保护区",
       type: "nature",
@@ -695,12 +714,13 @@ export const beijingData: SceneryData = {
       rating: 4.1,
       landscapeType: "plant",
       landscapeCategory: ["生物景观"],
-      landformTags: ["森林景观"]
+      landformTags: ["森林景观"],
     },
     {
       id: "beijingWildAnimalPark",
       name: "北京野生动物园",
-      description: "北京大兴区的大型野生动物园，以其丰富的动物种类和优美的自然环境而闻名",
+      description:
+        "北京大兴区的大型野生动物园，以其丰富的动物种类和优美的自然环境而闻名",
       image: "https://picsum.photos/id/1113/600/400",
       location: "北京市大兴区北京野生动物园",
       type: "nature",
@@ -709,12 +729,13 @@ export const beijingData: SceneryData = {
       rating: 4.3,
       landscapeType: "animal",
       landscapeCategory: ["生物景观"],
-      landformTags: ["哺乳动物景观"]
+      landformTags: ["哺乳动物景观"],
     },
     {
       id: "beijingSafariPark",
       name: "北京猛禽救助中心",
-      description: "北京昌平区的猛禽救助中心，以其丰富的猛禽种类和专业的救助工作而闻名",
+      description:
+        "北京昌平区的猛禽救助中心，以其丰富的猛禽种类和专业的救助工作而闻名",
       image: "https://picsum.photos/id/1114/600/400",
       location: "北京市昌平区北京猛禽救助中心",
       type: "nature",
@@ -723,34 +744,35 @@ export const beijingData: SceneryData = {
       rating: 4.0,
       landscapeType: "animal",
       landscapeCategory: ["生物景观"],
-      landformTags: ["鸟类景观"]
-    }
+      landformTags: ["鸟类景观"],
+    },
   ],
   seasonal: [
     {
       name: "春季",
       description: "春暖花开，故宫、颐和园百花齐放，是游览皇家园林的最佳时节",
       image: "https://picsum.photos/id/1090/600/400",
-      activities: ["赏花", "踏青", "故宫游", "颐和园赏花"]
+      activities: ["赏花", "踏青", "故宫游", "颐和园赏花"],
     },
     {
       name: "夏季",
       description: "绿树成荫，长城、香山避暑胜地，适合户外活动和登山",
       image: "https://picsum.photos/id/1091/600/400",
-      activities: ["长城徒步", "香山避暑", "天坛纳凉", "北海公园游船"]
+      activities: ["长城徒步", "香山避暑", "天坛纳凉", "北海公园游船"],
     },
     {
       name: "秋季",
-      description: "秋高气爽，香山红叶满山，八达岭长城红叶漫天，是观赏红叶的最佳季节",
+      description:
+        "秋高气爽，香山红叶满山，八达岭长城红叶漫天，是观赏红叶的最佳季节",
       image: "https://picsum.photos/id/1092/600/400",
-      activities: ["香山赏红叶", "长城赏秋", "颐和园秋游", "天坛秋游"]
+      activities: ["香山赏红叶", "长城赏秋", "颐和园秋游", "天坛秋游"],
     },
     {
       name: "冬季",
       description: "银装素裹，故宫雪景如画，什刹海冰场开放，体验北国风光",
       image: "https://picsum.photos/id/1093/600/400",
-      activities: ["故宫赏雪", "什刹海滑冰", "颐和园雪景", "庙会体验"]
-    }
+      activities: ["故宫赏雪", "什刹海滑冰", "颐和园雪景", "庙会体验"],
+    },
   ],
   activities: [
     {
@@ -762,7 +784,7 @@ export const beijingData: SceneryData = {
       location: "故宫博物院",
       duration: "3-4小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -773,8 +795,8 @@ export const beijingData: SceneryData = {
       location: "八达岭长城",
       duration: "4-6小时",
       difficulty: "中等",
-      type: "户外活动"
-    }
+      type: "户外活动",
+    },
   ],
   routes: [
     {
@@ -791,7 +813,7 @@ export const beijingData: SceneryData = {
       rating: 4.8,
       bestTime: "春季",
       traffic: "地铁/公交",
-      suitableFor: "所有游客"
+      suitableFor: "所有游客",
     },
     {
       id: "2",
@@ -807,10 +829,10 @@ export const beijingData: SceneryData = {
       rating: 4.7,
       bestTime: "秋季",
       traffic: "旅游大巴",
-      suitableFor: "户外爱好者"
-    }
+      suitableFor: "户外爱好者",
+    },
   ],
-  intangibleHeritage: defaultIntangibleHeritage.beijing
+  intangibleHeritage: defaultIntangibleHeritage.beijing,
 };
 
 // 北京风俗文化数据
@@ -825,7 +847,7 @@ export const beijingCustomsData = {
       location: "长安大戏院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -836,7 +858,7 @@ export const beijingCustomsData = {
       location: "全聚德烤鸭店",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "美食体验"
+      type: "美食体验",
     },
     {
       id: "3",
@@ -847,7 +869,7 @@ export const beijingCustomsData = {
       location: "南锣鼓巷",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -858,7 +880,7 @@ export const beijingCustomsData = {
       location: "琉璃厂文化街",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -869,9 +891,9 @@ export const beijingCustomsData = {
       location: "天坛公园",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "体育体验"
-    }
-  ]
+      type: "体育体验",
+    },
+  ],
 };
 
 // 北京非物质文化遗产数据
@@ -885,7 +907,7 @@ export const beijingIntangibleHeritage = [
     protectionUnit: "北京京剧院",
     features: ["传统戏剧", "国家级非遗", "国粹艺术"],
     icon: "🎭",
-    image: "https://picsum.photos/id/1094/600/400"
+    image: "https://picsum.photos/id/1094/600/400",
   },
   {
     id: "2",
@@ -896,7 +918,7 @@ export const beijingIntangibleHeritage = [
     protectionUnit: "全聚德烤鸭店",
     features: ["传统技艺", "国家级非遗", "美食文化"],
     icon: "🍗",
-    image: "https://picsum.photos/id/1080/600/400"
+    image: "https://picsum.photos/id/1080/600/400",
   },
   {
     id: "3",
@@ -907,7 +929,7 @@ export const beijingIntangibleHeritage = [
     protectionUnit: "北京市珐琅厂",
     features: ["传统技艺", "国家级非遗", "工艺美术"],
     icon: "🏺",
-    image: "https://picsum.photos/id/1082/600/400"
+    image: "https://picsum.photos/id/1082/600/400",
   },
   {
     id: "4",
@@ -918,7 +940,7 @@ export const beijingIntangibleHeritage = [
     protectionUnit: "北京市朝阳区文化馆",
     features: ["传统美术", "省级非遗", "民间艺术"],
     icon: "✂️",
-    image: "https://picsum.photos/id/1086/600/400"
+    image: "https://picsum.photos/id/1086/600/400",
   },
   {
     id: "5",
@@ -929,8 +951,8 @@ export const beijingIntangibleHeritage = [
     protectionUnit: "北京市武术协会",
     features: ["传统体育", "国家级非遗", "养生健身"],
     icon: "🥋",
-    image: "https://picsum.photos/id/1084/600/400"
-  }
+    image: "https://picsum.photos/id/1084/600/400",
+  },
 ];
 
 // 北京民俗风情元素数据
@@ -939,32 +961,32 @@ export const beijingFolkCustomsElements = [
     name: "老北京庙会",
     description: "传统民俗活动，集祭祀、娱乐、购物于一体",
     image: "https://picsum.photos/id/1079/600/400",
-    tags: ["传统民俗", "节庆活动", "非遗文化", "京味文化", "民俗体验"]
+    tags: ["传统民俗", "节庆活动", "非遗文化", "京味文化", "民俗体验"],
   },
   {
     name: "北京胡同",
     description: "北京传统民居形式，承载着丰富的历史文化",
     image: "https://picsum.photos/id/1078/600/400",
-    tags: ["历史街区", "传统民居", "京味文化", "城市记忆", "文化遗产"]
+    tags: ["历史街区", "传统民居", "京味文化", "城市记忆", "文化遗产"],
   },
   {
     name: "北京四合院",
     description: "北京传统住宅建筑形式，体现中国传统家庭观念",
     image: "https://picsum.photos/id/1081/600/400",
-    tags: ["传统建筑", "民居文化", "京味文化", "文化遗产", "古建艺术"]
+    tags: ["传统建筑", "民居文化", "京味文化", "文化遗产", "古建艺术"],
   },
   {
     name: "老北京小吃",
     description: "北京传统特色小吃，品种丰富，风味独特",
     image: "https://picsum.photos/id/1080/600/400",
-    tags: ["特色美食", "京味文化", "传统技艺", "饮食文化", "非遗传承"]
+    tags: ["特色美食", "京味文化", "传统技艺", "饮食文化", "非遗传承"],
   },
   {
     name: "北京评书",
     description: "传统民间艺术，以口头讲述历史故事为主要形式",
     image: "https://picsum.photos/id/1083/600/400",
-    tags: ["传统曲艺", "民间艺术", "非遗文化", "口头文学", "表演艺术"]
-  }
+    tags: ["传统曲艺", "民间艺术", "非遗文化", "口头文学", "表演艺术"],
+  },
 ];
 
 // 北京文化节庆数据
@@ -976,7 +998,7 @@ export const beijingFestivals = [
     month: "2月",
     day: "1日",
     location: "地坛公园",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -985,7 +1007,7 @@ export const beijingFestivals = [
     month: "2月",
     day: "15日",
     location: "故宫",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -994,7 +1016,7 @@ export const beijingFestivals = [
     month: "4月",
     day: "5日",
     location: "八宝山革命公墓",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "4",
@@ -1003,7 +1025,7 @@ export const beijingFestivals = [
     month: "6月",
     day: "14日",
     location: "什刹海",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "5",
@@ -1012,7 +1034,7 @@ export const beijingFestivals = [
     month: "9月",
     day: "21日",
     location: "颐和园",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -1021,8 +1043,8 @@ export const beijingFestivals = [
     month: "10月",
     day: "1日",
     location: "天安门广场",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default beijingData;

@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 内蒙古自治区自然风光数据
 const neimengguNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "grassland",
     landscapeCategory: ["生物景观"],
-    landformTags: ["草原景观"]
+    landformTags: ["草原景观"],
   },
   {
     id: "chengdeMountainResort",
@@ -28,12 +33,13 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "grassland",
     landscapeCategory: ["生物景观"],
-    landformTags: ["草原景观"]
+    landformTags: ["草原景观"],
   },
   {
     id: "daqingMountain",
     name: "大兴安岭",
-    description: "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名",
+    description:
+      "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "内蒙古自治区大兴安岭地区",
     type: "nature",
@@ -42,7 +48,7 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
+    landformTags: ["森林景观"],
   },
   {
     id: "hulunLake",
@@ -56,7 +62,7 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "water",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "baiyinObo",
@@ -70,7 +76,7 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "geological",
     landscapeCategory: ["地理景观"],
-    landformTags: ["地质景观"]
+    landformTags: ["地质景观"],
   },
   {
     id: "wulanButongGrassland",
@@ -84,12 +90,13 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "grassland",
     landscapeCategory: ["生物景观"],
-    landformTags: ["草原景观"]
+    landformTags: ["草原景观"],
   },
   {
     id: "alshanDesert",
     name: "阿拉善沙漠",
-    description: "内蒙古著名的沙漠，以其广阔的沙漠风光和独特的沙漠生态系统而闻名",
+    description:
+      "内蒙古著名的沙漠，以其广阔的沙漠风光和独特的沙漠生态系统而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "内蒙古自治区阿拉善盟",
     type: "nature",
@@ -98,8 +105,8 @@ const neimengguNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "desert",
     landscapeCategory: ["地理景观"],
-    landformTags: ["沙漠景观"]
-  }
+    landformTags: ["沙漠景观"],
+  },
 ];
 
 // 内蒙古自治区人文景观数据
@@ -116,12 +123,13 @@ const neimengguCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "wudangzhao",
     name: "五当召",
-    description: "内蒙古最大的藏传佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+    description:
+      "内蒙古最大的藏传佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "内蒙古自治区包头市石拐区",
     type: "culture",
@@ -130,7 +138,7 @@ const neimengguCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "manzhouliBorder",
@@ -144,7 +152,7 @@ const neimengguCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗迹"]
+    landformTags: ["历史遗迹"],
   },
   {
     id: "InnerMongoliaMuseum",
@@ -158,7 +166,7 @@ const neimengguCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "mongolianYurt",
@@ -172,8 +180,8 @@ const neimengguCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗建筑"]
-  }
+    landformTags: ["民俗建筑"],
+  },
 ];
 
 // 内蒙古自治区季节性数据
@@ -182,26 +190,39 @@ const neimengguSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的内蒙古，草原开始返青，是欣赏草原复苏景象的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["草原踏青", "蒙古族民俗体验", "大兴安岭春游", "呼伦湖观鸟"]
+    activities: ["草原踏青", "蒙古族民俗体验", "大兴安岭春游", "呼伦湖观鸟"],
   },
   summer: {
     name: "夏季",
-    description: "夏季的内蒙古，草原绿草如茵，是游览草原、体验蒙古族风情的最佳时节",
+    description:
+      "夏季的内蒙古，草原绿草如茵，是游览草原、体验蒙古族风情的最佳时节",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["草原骑马", "蒙古族那达慕大会", "呼伦湖游船", "大兴安岭森林浴"]
+    activities: [
+      "草原骑马",
+      "蒙古族那达慕大会",
+      "呼伦湖游船",
+      "大兴安岭森林浴",
+    ],
   },
   autumn: {
     name: "秋季",
-    description: "秋季的内蒙古，草原金黄一片，大兴安岭红叶满山，是赏秋的绝佳时节",
+    description:
+      "秋季的内蒙古，草原金黄一片，大兴安岭红叶满山，是赏秋的绝佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["草原赏秋", "大兴安岭赏红叶", "呼伦湖观日落", "蒙古族美食体验"]
+    activities: [
+      "草原赏秋",
+      "大兴安岭赏红叶",
+      "呼伦湖观日落",
+      "蒙古族美食体验",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的内蒙古，草原银装素裹，是体验蒙古族冬季风情和冰雪活动的最佳时节",
+    description:
+      "冬季的内蒙古，草原银装素裹，是体验蒙古族冬季风情和冰雪活动的最佳时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["草原滑雪", "蒙古族冬季节庆", "满洲里看冰灯", "温泉度假"]
-  }
+    activities: ["草原滑雪", "蒙古族冬季节庆", "满洲里看冰灯", "温泉度假"],
+  },
 };
 
 // 内蒙古自治区活动数据
@@ -215,18 +236,19 @@ const neimengguActivities: TravelActivity[] = [
     location: "呼伦贝尔草原",
     duration: "2-3小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
     name: "蒙古族那达慕大会",
-    description: "参加蒙古族传统的那达慕大会，观看赛马、摔跤、射箭等传统体育活动",
+    description:
+      "参加蒙古族传统的那达慕大会，观看赛马、摔跤、射箭等传统体育活动",
     image: "https://picsum.photos/id/1054/600/400",
     category: "culture",
     location: "内蒙古自治区各地",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "3",
@@ -237,7 +259,7 @@ const neimengguActivities: TravelActivity[] = [
     location: "大兴安岭地区",
     duration: "4-6小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +270,7 @@ const neimengguActivities: TravelActivity[] = [
     location: "呼伦湖景区",
     duration: "1-2小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "5",
@@ -259,8 +281,8 @@ const neimengguActivities: TravelActivity[] = [
     location: "内蒙古自治区各地",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 内蒙古自治区路线数据
@@ -272,14 +294,19 @@ const neimengguRoutes: RouteInfo[] = [
     description: "游览内蒙古最著名的草原景点",
     duration: "5天",
     difficulty: "中等",
-    highlights: ["呼伦贝尔草原", "锡林郭勒草原", "乌兰布统草原", "蒙古族民俗体验"],
+    highlights: [
+      "呼伦贝尔草原",
+      "锡林郭勒草原",
+      "乌兰布统草原",
+      "蒙古族民俗体验",
+    ],
     spots: ["呼伦贝尔草原", "锡林郭勒草原", "乌兰布统草原", "蒙古族民俗体验"],
     tags: ["草原", "文化", "户外"],
     image: "https://picsum.photos/id/1058/600/400",
     rating: 4.7,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +322,8 @@ const neimengguRoutes: RouteInfo[] = [
     rating: 4.6,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "户外爱好者"
-  }
+    suitableFor: "户外爱好者",
+  },
 ];
 
 // 内蒙古自治区非物质文化遗产数据
@@ -312,7 +339,7 @@ const neimengguIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["旋律悠扬", "表现力丰富", "历史悠久"]
+    features: ["旋律悠扬", "表现力丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,12 +352,13 @@ const neimengguIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["发声独特", "表现力丰富", "历史悠久"]
+    features: ["发声独特", "表现力丰富", "历史悠久"],
   },
   {
     id: "3",
     name: "蒙古族马头琴艺术",
-    description: "蒙古族传统乐器马头琴的演奏艺术，以其独特的音色和丰富的表现力著称",
+    description:
+      "蒙古族传统乐器马头琴的演奏艺术，以其独特的音色和丰富的表现力著称",
     level: "national",
     category: "传统音乐",
     heritageType: "传统表演艺术",
@@ -338,7 +366,7 @@ const neimengguIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎻",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["音色独特", "表现力丰富", "历史悠久"]
+    features: ["音色独特", "表现力丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,7 +379,7 @@ const neimengguIntangibleHeritage = [
     tags: ["传统体育", "国家级非遗", "民间艺术"],
     icon: "🤼",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["规则独特", "文化内涵丰富", "历史悠久"]
+    features: ["规则独特", "文化内涵丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +392,8 @@ const neimengguIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "🪡",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["图案精美", "文化内涵丰富", "历史悠久"]
-  }
+    features: ["图案精美", "文化内涵丰富", "历史悠久"],
+  },
 ];
 
 // 内蒙古自治区数据
@@ -378,40 +406,44 @@ export const neimengguData = {
       {
         name: "呼伦贝尔草原",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "世界四大草原之一，以其广阔的草原风光和丰富的蒙古族文化而闻名"
+        description:
+          "世界四大草原之一，以其广阔的草原风光和丰富的蒙古族文化而闻名",
       },
       {
         name: "锡林郭勒草原",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "内蒙古著名的草原，以其广阔的草原风光和丰富的蒙古族文化而闻名"
+        description:
+          "内蒙古著名的草原，以其广阔的草原风光和丰富的蒙古族文化而闻名",
       },
       {
         name: "大兴安岭",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名"
+        description:
+          "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名",
       },
       {
         name: "呼伦湖",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "内蒙古最大的淡水湖，以其广阔的湖面和丰富的水产资源而闻名"
+        description: "内蒙古最大的淡水湖，以其广阔的湖面和丰富的水产资源而闻名",
       },
       {
         name: "五当召",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "内蒙古最大的藏传佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名"
-      }
-    ]
+        description:
+          "内蒙古最大的藏传佛教寺庙，以其宏伟的建筑和丰富的宗教文化而闻名",
+      },
+    ],
   },
   spots: [...neimengguNatureSpots, ...neimengguCultureSpots],
   seasonal: [
     neimengguSeasonalData.spring,
     neimengguSeasonalData.summer,
     neimengguSeasonalData.autumn,
-    neimengguSeasonalData.winter
+    neimengguSeasonalData.winter,
   ],
   activities: neimengguActivities,
   routes: neimengguRoutes,
-  intangibleHeritage: neimengguIntangibleHeritage
+  intangibleHeritage: neimengguIntangibleHeritage,
 };
 
 // 内蒙古自治区风俗文化数据
@@ -426,7 +458,7 @@ export const neimengguCustomsData = {
       location: "内蒙古自治区各地",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,7 +469,7 @@ export const neimengguCustomsData = {
       location: "内蒙古自治区各地",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
@@ -448,7 +480,7 @@ export const neimengguCustomsData = {
       location: "内蒙古自治区各地",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +491,7 @@ export const neimengguCustomsData = {
       location: "内蒙古自治区各地",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +502,9 @@ export const neimengguCustomsData = {
       location: "内蒙古自治区各地",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 内蒙古自治区民俗风情元素数据
@@ -481,32 +513,32 @@ export const neimengguFolkCustomsElements = [
     name: "蒙古族那达慕大会",
     description: "蒙古族传统节日，以赛马、摔跤、射箭等传统体育活动为主要内容",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["民俗节日", "非遗文化", "蒙古族特色", "民俗活动", "体育竞技"]
+    tags: ["民俗节日", "非遗文化", "蒙古族特色", "民俗活动", "体育竞技"],
   },
   {
     name: "蒙古族婚礼",
     description: "蒙古族传统婚礼仪式，具有独特的民族特色",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["民俗礼仪", "传统文化", "婚俗文化", "蒙古族特色", "民俗传承"]
+    tags: ["民俗礼仪", "传统文化", "婚俗文化", "蒙古族特色", "民俗传承"],
   },
   {
     name: "蒙古族服饰",
     description: "蒙古族传统服饰，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统服饰", "非遗文化", "民族特色", "民间工艺", "文化遗产"]
+    tags: ["传统服饰", "非遗文化", "民族特色", "民间工艺", "文化遗产"],
   },
   {
     name: "蒙古包",
     description: "蒙古族传统民居，以其独特的建筑形式和适应游牧生活的特点著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统建筑", "民居文化", "游牧文化", "蒙古族特色", "文化遗产"]
+    tags: ["传统建筑", "民居文化", "游牧文化", "蒙古族特色", "文化遗产"],
   },
   {
     name: "蒙古族饮食",
     description: "蒙古族传统饮食，以牛羊肉、奶制品为主要特色",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["特色美食", "饮食文化", "蒙古族特色", "传统技艺", "非遗传承"]
-  }
+    tags: ["特色美食", "饮食文化", "蒙古族特色", "传统技艺", "非遗传承"],
+  },
 ];
 
 // 内蒙古自治区文化节庆数据
@@ -518,7 +550,7 @@ export const neimengguFestivals = [
     month: "7月",
     day: "15日",
     location: "内蒙古自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +559,7 @@ export const neimengguFestivals = [
     month: "5月",
     day: "13日",
     location: "内蒙古自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +568,7 @@ export const neimengguFestivals = [
     month: "10月",
     day: "25日",
     location: "内蒙古自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +577,7 @@ export const neimengguFestivals = [
     month: "2月",
     day: "1日",
     location: "内蒙古自治区各地",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +586,7 @@ export const neimengguFestivals = [
     month: "4月",
     day: "5日",
     location: "内蒙古自治区各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +595,8 @@ export const neimengguFestivals = [
     month: "9月",
     day: "21日",
     location: "内蒙古自治区各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default neimengguData;

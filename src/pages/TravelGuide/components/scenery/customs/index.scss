@@ -1,35 +1,33 @@
 .customs-culture {
-	background: linear-gradient(
-		135deg,
-		rgba(15, 15, 30, 0.95) 0%,
-		rgba(10, 10, 25, 0.95) 100%
-	);
-	padding: 40px;
-	box-sizing: border-box;
-	.customs-header {
-		margin-bottom: 40px;
-		position: relative;
-		text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 30, 0.95) 0%,
+    rgba(10, 10, 25, 0.95) 100%
+  );
+  padding: 40px;
+  box-sizing: border-box;
+  .customs-header {
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
 
-		.customs-title {
-			font-size: 32px;
-			font-weight: 800;
-			color: #ffffff;
-			margin: 0;
-			letter-spacing: 1px;
-		}
+    .customs-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: 1px;
+    }
 
-		.title-glow {
-			position: absolute;
-			bottom: -8px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 150px;
-			height: 3px;
-			background: linear-gradient(90deg, transparent, #ffd700, transparent);
-			box-shadow: 0 0 15px #ffd700;
-		}
-	}
- 
+    .title-glow {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffd700, transparent);
+      box-shadow: 0 0 15px #ffd700;
+    }
+  }
 }
- 

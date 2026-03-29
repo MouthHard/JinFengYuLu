@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 湖南省自然风光数据
 const hunanNatureSpots: ScenerySpot[] = [
   {
     id: "zhangjiajie",
     name: "张家界",
-    description: "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名",
+    description:
+      "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "湖南省张家界市武陵源区",
     type: "nature",
@@ -14,12 +20,13 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "fenghuangAncientTown",
     name: "凤凰古城",
-    description: "湖南省湘西土家族苗族自治州的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
+    description:
+      "湖南省湘西土家族苗族自治州的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1035/600/400",
     location: "湖南省湘西土家族苗族自治州凤凰县",
     type: "nature",
@@ -28,7 +35,7 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史古城"]
+    landformTags: ["历史古城"],
   },
   {
     id: "yueyangTower",
@@ -42,12 +49,13 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "dongtingLake",
     name: "洞庭湖",
-    description: "湖南省岳阳市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "湖南省岳阳市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "湖南省岳阳市岳阳楼区",
     type: "nature",
@@ -56,12 +64,13 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "wulingyuan",
     name: "武陵源",
-    description: "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名",
+    description:
+      "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "湖南省张家界市武陵源区",
     type: "nature",
@@ -70,12 +79,13 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "dehangCanyon",
     name: "德夯大峡谷",
-    description: "湖南省湘西土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的民俗文化而闻名",
+    description:
+      "湖南省湘西土家族苗族自治州的著名峡谷，以其壮丽的自然风光和独特的民俗文化而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "湖南省湘西土家族苗族自治州吉首市",
     type: "nature",
@@ -84,12 +94,13 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "gorge",
     landscapeCategory: ["地理景观"],
-    landformTags: ["峡谷景观"]
+    landformTags: ["峡谷景观"],
   },
   {
     id: "changshaYueluMountain",
     name: "长沙岳麓山",
-    description: "湖南省长沙市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "湖南省长沙市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "湖南省长沙市岳麓区",
     type: "nature",
@@ -98,8 +109,8 @@ const hunanNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
-  }
+    landformTags: ["山地景观"],
+  },
 ];
 
 // 湖南省人文景观数据
@@ -116,12 +127,13 @@ const hunanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "jishouMiaoNationalityVillage",
     name: "吉首苗寨",
-    description: "湖南省湘西土家族苗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名",
+    description:
+      "湖南省湘西土家族苗族自治州的著名苗寨，以其独特的民俗文化和建筑风格而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "湖南省湘西土家族苗族自治州吉首市",
     type: "culture",
@@ -130,7 +142,7 @@ const hunanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗景观"]
+    landformTags: ["民俗景观"],
   },
   {
     id: "shaoshan",
@@ -144,12 +156,13 @@ const hunanCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["革命圣地"]
+    landformTags: ["革命圣地"],
   },
   {
     id: "changshaOrangeIsland",
     name: "长沙橘子洲",
-    description: "湖南省长沙市的著名景点，以其美丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "湖南省长沙市的著名景点，以其美丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "湖南省长沙市岳麓区",
     type: "culture",
@@ -158,7 +171,7 @@ const hunanCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史景点"]
+    landformTags: ["历史景点"],
   },
   {
     id: "xiangtanMaoZedongFormerResidence",
@@ -172,8 +185,8 @@ const hunanCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["革命纪念地"]
-  }
+    landformTags: ["革命纪念地"],
+  },
 ];
 
 // 湖南省季节性数据
@@ -182,26 +195,27 @@ const hunanSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的湖南，万物复苏，是游览张家界、武陵源的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["张家界赏春", "武陵源踏青", "凤凰古城春游", "长沙橘子洲游览"]
+    activities: ["张家界赏春", "武陵源踏青", "凤凰古城春游", "长沙橘子洲游览"],
   },
   summer: {
     name: "夏季",
     description: "夏季的湖南，气温较高，是游览德夯大峡谷、洞庭湖的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["德夯大峡谷探险", "洞庭湖游船", "张家界消暑", "凤凰古城夜游"]
+    activities: ["德夯大峡谷探险", "洞庭湖游船", "张家界消暑", "凤凰古城夜游"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的湖南，天高气爽，是游览岳麓山、橘子洲的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["岳麓山赏秋", "橘子洲观景", "洞庭湖观鸟", "张家界秋游"]
+    activities: ["岳麓山赏秋", "橘子洲观景", "洞庭湖观鸟", "张家界秋游"],
   },
   winter: {
     name: "冬季",
-    description: "冬季的湖南，虽然寒冷，但张家界雪景令人惊叹，是参观韶山的好时节",
+    description:
+      "冬季的湖南，虽然寒冷，但张家界雪景令人惊叹，是参观韶山的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["张家界赏雪", "韶山参观", "凤凰古城冬游", "长沙博物馆游览"]
-  }
+    activities: ["张家界赏雪", "韶山参观", "凤凰古城冬游", "长沙博物馆游览"],
+  },
 };
 
 // 湖南省活动数据
@@ -215,7 +229,7 @@ const hunanActivities: TravelActivity[] = [
     location: "湖南省张家界市武陵源区",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +240,7 @@ const hunanActivities: TravelActivity[] = [
     location: "湖南省湘西土家族苗族自治州凤凰县",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +251,7 @@ const hunanActivities: TravelActivity[] = [
     location: "湖南省湘潭市韶山市",
     duration: "1-2天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "4",
@@ -248,7 +262,7 @@ const hunanActivities: TravelActivity[] = [
     location: "湖南省湘西土家族苗族自治州吉首市",
     duration: "1-2天",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +273,8 @@ const hunanActivities: TravelActivity[] = [
     location: "湖南省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 湖南省路线数据
@@ -279,7 +293,7 @@ const hunanRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +309,8 @@ const hunanRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 湖南省非物质文化遗产数据
@@ -312,7 +326,7 @@ const hunanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,12 +339,13 @@ const hunanIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "3",
     name: "苗族鼓舞",
-    description: "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     level: "national",
     category: "传统舞蹈",
     heritageType: "传统表演艺术",
@@ -338,12 +353,13 @@ const hunanIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "💃",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
     name: "土家族摆手舞",
-    description: "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     level: "national",
     category: "传统舞蹈",
     heritageType: "传统表演艺术",
@@ -351,7 +367,7 @@ const hunanIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "💃",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +380,8 @@ const hunanIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🎆",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["工艺独特", "产品精美", "历史悠久"]
-  }
+    features: ["工艺独特", "产品精美", "历史悠久"],
+  },
 ];
 
 // 湖南省数据
@@ -378,40 +394,44 @@ export const hunanData = {
       {
         name: "张家界",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名"
+        description:
+          "湖南省张家界市的著名景区，以其独特的石英砂岩峰林地貌和壮丽的自然风光而闻名",
       },
       {
         name: "凤凰古城",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "湖南省湘西土家族苗族自治州的著名古城，以其独特的建筑风格和丰富的历史文化而闻名"
+        description:
+          "湖南省湘西土家族苗族自治州的著名古城，以其独特的建筑风格和丰富的历史文化而闻名",
       },
       {
         name: "韶山",
         image: "https://picsum.photos/id/1046/600/400",
-        description: "湖南省湘潭市的著名景区，以其丰富的革命历史和文化而闻名"
+        description: "湖南省湘潭市的著名景区，以其丰富的革命历史和文化而闻名",
       },
       {
         name: "岳阳楼",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "湖南省岳阳市的著名楼阁，以其宏伟的建筑和丰富的历史文化而闻名"
+        description:
+          "湖南省岳阳市的著名楼阁，以其宏伟的建筑和丰富的历史文化而闻名",
       },
       {
         name: "洞庭湖",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "湖南省岳阳市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名"
-      }
-    ]
+        description:
+          "湖南省岳阳市的著名湖泊，以其美丽的自然风光和丰富的生态资源而闻名",
+      },
+    ],
   },
   spots: [...hunanNatureSpots, ...hunanCultureSpots],
   seasonal: [
     hunanSeasonalData.spring,
     hunanSeasonalData.summer,
     hunanSeasonalData.autumn,
-    hunanSeasonalData.winter
+    hunanSeasonalData.winter,
   ],
   activities: hunanActivities,
   routes: hunanRoutes,
-  intangibleHeritage: hunanIntangibleHeritage
+  intangibleHeritage: hunanIntangibleHeritage,
 };
 
 // 湖南省风俗文化数据
@@ -420,35 +440,38 @@ export const hunanCustomsData = {
     {
       id: "1",
       name: "湘剧表演欣赏",
-      description: "欣赏湖南省传统戏曲艺术湘剧表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "欣赏湖南省传统戏曲艺术湘剧表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "湖南省长沙市湘剧院",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "苗族鼓舞体验",
-      description: "学习湖南省湘西土家族苗族自治州传统舞蹈苗族鼓舞，体验其独特的魅力",
+      description:
+        "学习湖南省湘西土家族苗族自治州传统舞蹈苗族鼓舞，体验其独特的魅力",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "湖南省湘西土家族苗族自治州吉首市",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "土家族摆手舞体验",
-      description: "学习湖南省湘西土家族苗族自治州传统舞蹈土家族摆手舞，体验其独特的魅力",
+      description:
+        "学习湖南省湘西土家族苗族自治州传统舞蹈土家族摆手舞，体验其独特的魅力",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "湖南省湘西土家族苗族自治州凤凰县",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +482,7 @@ export const hunanCustomsData = {
       location: "湖南省浏阳市花炮文化园",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +493,9 @@ export const hunanCustomsData = {
       location: "湖南省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 湖南民俗风情元素数据
@@ -481,32 +504,34 @@ export const hunanFolkCustomsElements = [
     name: "湘剧",
     description: "湖南省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖南特色", "地方剧种"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖南特色", "地方剧种"],
   },
   {
     name: "花鼓戏",
     description: "湖南省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖南特色", "民间艺术"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "湖南特色", "民间艺术"],
   },
   {
     name: "苗族鼓舞",
-    description: "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统舞蹈", "非遗文化", "苗族特色", "表演艺术", "民俗文化"]
+    tags: ["传统舞蹈", "非遗文化", "苗族特色", "表演艺术", "民俗文化"],
   },
   {
     name: "土家族摆手舞",
-    description: "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
+    description:
+      "湖南省湘西土家族苗族自治州传统舞蹈，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统舞蹈", "非遗文化", "土家族特色", "表演艺术", "民俗文化"]
+    tags: ["传统舞蹈", "非遗文化", "土家族特色", "表演艺术", "民俗文化"],
   },
   {
     name: "浏阳花炮",
     description: "湖南省浏阳市传统花炮制作技艺，以其独特的工艺和精美的产品著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统技艺", "非遗文化", "工艺美术", "湖南特色", "文化遗产"]
-  }
+    tags: ["传统技艺", "非遗文化", "工艺美术", "湖南特色", "文化遗产"],
+  },
 ];
 
 // 湖南省文化节庆数据
@@ -518,7 +543,7 @@ export const hunanFestivals = [
     month: "3月",
     day: "21日",
     location: "湖南省张家界市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +552,7 @@ export const hunanFestivals = [
     month: "4月",
     day: "10日",
     location: "湖南省湘西土家族苗族自治州凤凰县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +561,7 @@ export const hunanFestivals = [
     month: "12月",
     day: "26日",
     location: "湖南省湘潭市韶山市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +570,7 @@ export const hunanFestivals = [
     month: "11月",
     day: "1日",
     location: "湖南省岳阳市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +579,7 @@ export const hunanFestivals = [
     month: "4月",
     day: "5日",
     location: "湖南省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +588,8 @@ export const hunanFestivals = [
     month: "9月",
     day: "21日",
     location: "湖南省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default hunanData;

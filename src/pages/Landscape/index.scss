@@ -1,70 +1,70 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .flipbook {
-	margin: auto;
-	width: 80vw;
-	height: 80vh;
-	overflow: hidden;
+  margin: auto;
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
 }
 
 #landMain {
-	height: 100vh;
-	background: url("@/assets/image/LandscapePic/Cameraframe.jpg");
-	background-size: auto 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	#container {
-		display: flex;
-		width: 100%;
-		height: 100%;
-		perspective: 150rem;
-	}
-	button {
-		margin-left: 17%;
-		border: 2px solid white;
-		background: transparent;
-		font-size: 18px;
-		font-weight: bolder;
-		width: 25%;
-		height: 4rem;
-		position: relative;
-		transition: 1s;
-		opacity: 0.7;
-		color: #ffffff;
-		&:hover {
-			opacity: 1;
-			cursor: pointer;
-			box-shadow: 0 0 10px 5px rgb(255, 255, 255);
-		}
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			transition: all 0.5s;
-		}
-		&:hover::before {
-			border: 4px double rgb(253, 1, 1);
-			animation: clippath 1s infinite;
-		}
-		@keyframes clippath {
-			0%,
-			100% {
-				clip-path: inset(0 0 95% 0);
-			}
-			25% {
-				clip-path: inset(0 95% 0 0);
-			}
-			50% {
-				clip-path: inset(95% 0 0 0);
-			}
-			75% {
-				clip-path: inset(0 0 0 95%);
-			}
-		}
-	}
+  height: 100vh;
+  background: url("@/assets/image/LandscapePic/Cameraframe.jpg");
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  #container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    perspective: 150rem;
+  }
+  button {
+    margin-left: 17%;
+    border: 2px solid white;
+    background: transparent;
+    font-size: 18px;
+    font-weight: bolder;
+    width: 25%;
+    height: 4rem;
+    position: relative;
+    transition: 1s;
+    opacity: 0.7;
+    color: #ffffff;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      box-shadow: 0 0 10px 5px rgb(255, 255, 255);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 0.5s;
+    }
+    &:hover::before {
+      border: 4px double rgb(253, 1, 1);
+      animation: clippath 1s infinite;
+    }
+    @keyframes clippath {
+      0%,
+      100% {
+        clip-path: inset(0 0 95% 0);
+      }
+      25% {
+        clip-path: inset(0 95% 0 0);
+      }
+      50% {
+        clip-path: inset(95% 0 0 0);
+      }
+      75% {
+        clip-path: inset(0 0 0 95%);
+      }
+    }
+  }
 }

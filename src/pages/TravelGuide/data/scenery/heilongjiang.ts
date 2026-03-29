@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 黑龙江省自然风光数据
 const heilongjiangNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "jiangnanResort",
@@ -28,12 +33,13 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "sunIsland",
     name: "太阳岛",
-    description: "黑龙江省哈尔滨市的著名岛屿，以其美丽的自然风光和丰富的娱乐设施而闻名",
+    description:
+      "黑龙江省哈尔滨市的著名岛屿，以其美丽的自然风光和丰富的娱乐设施而闻名",
     image: "https://picsum.photos/id/1036/600/400",
     location: "黑龙江省哈尔滨市松北区",
     type: "nature",
@@ -42,7 +48,7 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "island",
     landscapeCategory: ["地理景观"],
-    landformTags: ["岛屿景观"]
+    landformTags: ["岛屿景观"],
   },
   {
     id: "heilongjiangRiver",
@@ -56,12 +62,13 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "river",
     landscapeCategory: ["水景观"],
-    landformTags: ["河流景观"]
+    landformTags: ["河流景观"],
   },
   {
     id: "wudalianchi",
     name: "五大连池",
-    description: "黑龙江省著名的火山地貌景区，以其独特的火山地貌和丰富的矿泉资源而闻名",
+    description:
+      "黑龙江省著名的火山地貌景区，以其独特的火山地貌和丰富的矿泉资源而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "黑龙江省黑河市五大连池市",
     type: "nature",
@@ -70,12 +77,13 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "volcanic",
     landscapeCategory: ["地理景观"],
-    landformTags: ["火山景观"]
+    landformTags: ["火山景观"],
   },
   {
     id: "daxinganlingHeilongjiang",
     name: "大兴安岭黑龙江段",
-    description: "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名",
+    description:
+      "中国最大的原始森林区，以其丰富的森林资源和壮丽的自然风光而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "黑龙江省大兴安岭地区",
     type: "nature",
@@ -84,7 +92,7 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "forest",
     landscapeCategory: ["生物景观"],
-    landformTags: ["森林景观"]
+    landformTags: ["森林景观"],
   },
   {
     id: "sanjiangPlain",
@@ -98,8 +106,8 @@ const heilongjiangNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "plain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["平原景观"]
-  }
+    landformTags: ["平原景观"],
+  },
 ];
 
 // 黑龙江省人文景观数据
@@ -116,12 +124,13 @@ const heilongjiangCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "cultural",
     landscapeCategory: ["人文景观"],
-    landformTags: ["文化设施"]
+    landformTags: ["文化设施"],
   },
   {
     id: "harbinSophiaChurch",
     name: "哈尔滨圣索菲亚教堂",
-    description: "黑龙江省哈尔滨市的著名东正教堂，以其宏伟的建筑和丰富的历史文化而闻名",
+    description:
+      "黑龙江省哈尔滨市的著名东正教堂，以其宏伟的建筑和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "黑龙江省哈尔滨市道里区",
     type: "culture",
@@ -130,7 +139,7 @@ const heilongjiangCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "heilongjiangMuseum",
@@ -144,12 +153,13 @@ const heilongjiangCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "harbinCentralStreet",
     name: "哈尔滨中央大街",
-    description: "黑龙江省哈尔滨市的著名商业街，以其独特的欧式建筑和丰富的商业活动而闻名",
+    description:
+      "黑龙江省哈尔滨市的著名商业街，以其独特的欧式建筑和丰富的商业活动而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "黑龙江省哈尔滨市道里区",
     type: "culture",
@@ -158,12 +168,13 @@ const heilongjiangCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "nenjiangBridge",
     name: "嫩江大桥",
-    description: "黑龙江省齐齐哈尔市的著名桥梁，以其宏伟的建筑和重要的交通地位而闻名",
+    description:
+      "黑龙江省齐齐哈尔市的著名桥梁，以其宏伟的建筑和重要的交通地位而闻名",
     image: "https://picsum.photos/id/1048/600/400",
     location: "黑龙江省齐齐哈尔市",
     type: "culture",
@@ -172,8 +183,8 @@ const heilongjiangCultureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["桥梁建筑"]
-  }
+    landformTags: ["桥梁建筑"],
+  },
 ];
 
 // 黑龙江省季节性数据
@@ -182,26 +193,36 @@ const heilongjiangSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的黑龙江，万物复苏，是游览太阳岛、镜泊湖的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["太阳岛春游", "镜泊湖踏青", "五大连池赏春", "黑龙江畔散步"]
+    activities: ["太阳岛春游", "镜泊湖踏青", "五大连池赏春", "黑龙江畔散步"],
   },
   summer: {
     name: "夏季",
     description: "夏季的黑龙江，长白山、镜泊湖是避暑的好去处，大兴安岭森林茂密",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["长白山避暑", "镜泊湖游船", "大兴安岭森林浴", "黑龙江漂流"]
+    activities: ["长白山避暑", "镜泊湖游船", "大兴安岭森林浴", "黑龙江漂流"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的黑龙江，大兴安岭红叶满山，三江平原丰收景象",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["大兴安岭赏红叶", "三江平原赏秋", "镜泊湖赏秋", "五大连池赏秋"]
+    activities: [
+      "大兴安岭赏红叶",
+      "三江平原赏秋",
+      "镜泊湖赏秋",
+      "五大连池赏秋",
+    ],
   },
   winter: {
     name: "冬季",
     description: "冬季的黑龙江，哈尔滨冰雪大世界令人惊叹，滑雪场众多",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["哈尔滨冰雪大世界游览", "滑雪场滑雪", "松花江冬泳", "雪乡之旅"]
-  }
+    activities: [
+      "哈尔滨冰雪大世界游览",
+      "滑雪场滑雪",
+      "松花江冬泳",
+      "雪乡之旅",
+    ],
+  },
 };
 
 // 黑龙江省活动数据
@@ -215,7 +236,7 @@ const heilongjiangActivities: TravelActivity[] = [
     location: "哈尔滨冰雪大世界",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +247,7 @@ const heilongjiangActivities: TravelActivity[] = [
     location: "镜泊湖景区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +258,7 @@ const heilongjiangActivities: TravelActivity[] = [
     location: "五大连池景区",
     duration: "3-4小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -248,7 +269,7 @@ const heilongjiangActivities: TravelActivity[] = [
     location: "大兴安岭地区",
     duration: "4-6小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +280,8 @@ const heilongjiangActivities: TravelActivity[] = [
     location: "黑龙江省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 黑龙江省路线数据
@@ -279,7 +300,7 @@ const heilongjiangRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +309,20 @@ const heilongjiangRoutes: RouteInfo[] = [
     description: "探索黑龙江的冰雪文化",
     duration: "4天",
     difficulty: "简单",
-    highlights: ["哈尔滨冰雪大世界", "太阳岛", "哈尔滨中央大街", "圣索菲亚教堂"],
+    highlights: [
+      "哈尔滨冰雪大世界",
+      "太阳岛",
+      "哈尔滨中央大街",
+      "圣索菲亚教堂",
+    ],
     spots: ["哈尔滨冰雪大世界", "太阳岛", "哈尔滨中央大街", "圣索菲亚教堂"],
     tags: ["冰雪", "文化", "历史"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.8,
     bestTime: "冬季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 黑龙江省非物质文化遗产数据
@@ -304,7 +330,8 @@ const heilongjiangIntangibleHeritage = [
   {
     id: "1",
     name: "赫哲族伊玛堪",
-    description: "黑龙江省赫哲族传统说唱艺术，以其独特的说唱形式和丰富的内容著称",
+    description:
+      "黑龙江省赫哲族传统说唱艺术，以其独特的说唱形式和丰富的内容著称",
     level: "national",
     category: "传统音乐",
     heritageType: "传统表演艺术",
@@ -312,7 +339,7 @@ const heilongjiangIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎤",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["说唱独特", "内容丰富", "历史悠久"]
+    features: ["说唱独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,12 +352,13 @@ const heilongjiangIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "💃",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "宗教内涵丰富", "历史悠久"]
+    features: ["表演独特", "宗教内涵丰富", "历史悠久"],
   },
   {
     id: "3",
     name: "鄂伦春族桦树皮制作技艺",
-    description: "黑龙江省鄂伦春族传统桦树皮制作技艺，以其独特的工艺和精美的图案著称",
+    description:
+      "黑龙江省鄂伦春族传统桦树皮制作技艺，以其独特的工艺和精美的图案著称",
     level: "national",
     category: "传统技艺",
     heritageType: "传统手工艺",
@@ -338,12 +366,13 @@ const heilongjiangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🪓",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["工艺独特", "图案精美", "历史悠久"]
+    features: ["工艺独特", "图案精美", "历史悠久"],
   },
   {
     id: "4",
     name: "哈尔滨冰灯制作技艺",
-    description: "黑龙江省哈尔滨传统冰灯制作技艺，以其独特的工艺和精美的造型著称",
+    description:
+      "黑龙江省哈尔滨传统冰灯制作技艺，以其独特的工艺和精美的造型著称",
     level: "national",
     category: "传统技艺",
     heritageType: "传统手工艺",
@@ -351,7 +380,7 @@ const heilongjiangIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "❄️",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["工艺独特", "造型精美", "历史悠久"]
+    features: ["工艺独特", "造型精美", "历史悠久"],
   },
   {
     id: "5",
@@ -364,8 +393,8 @@ const heilongjiangIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["幽默风趣", "表演精湛", "历史悠久"]
-  }
+    features: ["幽默风趣", "表演精湛", "历史悠久"],
+  },
 ];
 
 // 黑龙江省数据
@@ -378,40 +407,45 @@ export const heilongjiangData = {
       {
         name: "哈尔滨冰雪大世界",
         image: "https://picsum.photos/id/1044/600/400",
-        description: "黑龙江省哈尔滨市的著名冰雪主题公园，以其精美的冰雪雕塑而闻名"
+        description:
+          "黑龙江省哈尔滨市的著名冰雪主题公园，以其精美的冰雪雕塑而闻名",
       },
       {
         name: "镜泊湖",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "黑龙江省著名的湖泊，以其美丽的湖光山色和丰富的水产资源而闻名"
+        description:
+          "黑龙江省著名的湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
       },
       {
         name: "五大连池",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "黑龙江省著名的火山地貌景区，以其独特的火山地貌和丰富的矿泉资源而闻名"
+        description:
+          "黑龙江省著名的火山地貌景区，以其独特的火山地貌和丰富的矿泉资源而闻名",
       },
       {
         name: "太阳岛",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "黑龙江省哈尔滨市的著名岛屿，以其美丽的自然风光和丰富的娱乐设施而闻名"
+        description:
+          "黑龙江省哈尔滨市的著名岛屿，以其美丽的自然风光和丰富的娱乐设施而闻名",
       },
       {
         name: "哈尔滨圣索菲亚教堂",
         image: "https://picsum.photos/id/1045/600/400",
-        description: "黑龙江省哈尔滨市的著名东正教堂，以其宏伟的建筑和丰富的历史文化而闻名"
-      }
-    ]
+        description:
+          "黑龙江省哈尔滨市的著名东正教堂，以其宏伟的建筑和丰富的历史文化而闻名",
+      },
+    ],
   },
   spots: [...heilongjiangNatureSpots, ...heilongjiangCultureSpots],
   seasonal: [
     heilongjiangSeasonalData.spring,
     heilongjiangSeasonalData.summer,
     heilongjiangSeasonalData.autumn,
-    heilongjiangSeasonalData.winter
+    heilongjiangSeasonalData.winter,
   ],
   activities: heilongjiangActivities,
   routes: heilongjiangRoutes,
-  intangibleHeritage: heilongjiangIntangibleHeritage
+  intangibleHeritage: heilongjiangIntangibleHeritage,
 };
 
 // 黑龙江省风俗文化数据
@@ -420,35 +454,38 @@ export const heilongjiangCustomsData = {
     {
       id: "1",
       name: "赫哲族伊玛堪表演",
-      description: "欣赏黑龙江省赫哲族传统说唱艺术伊玛堪表演，感受其独特的说唱形式和丰富的内容",
+      description:
+        "欣赏黑龙江省赫哲族传统说唱艺术伊玛堪表演，感受其独特的说唱形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "黑龙江省佳木斯市同江市",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "满族萨满舞表演",
-      description: "欣赏黑龙江省满族传统舞蹈萨满舞表演，感受其独特的表演形式和丰富的宗教内涵",
+      description:
+        "欣赏黑龙江省满族传统舞蹈萨满舞表演，感受其独特的表演形式和丰富的宗教内涵",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "黑龙江省哈尔滨市阿城区",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "鄂伦春族桦树皮制作体验",
-      description: "学习黑龙江省鄂伦春族传统桦树皮制作技艺，体验桦树皮制品的魅力",
+      description:
+        "学习黑龙江省鄂伦春族传统桦树皮制作技艺，体验桦树皮制品的魅力",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "黑龙江省大兴安岭地区鄂伦春自治旗",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
@@ -459,7 +496,7 @@ export const heilongjiangCustomsData = {
       location: "黑龙江省哈尔滨市冰雪大世界",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +507,9 @@ export const heilongjiangCustomsData = {
       location: "黑龙江省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 黑龙江省民俗风情元素数据
@@ -481,32 +518,32 @@ export const heilongjiangFolkCustomsElements = [
     name: "赫哲族渔猎文化",
     description: "赫哲族传统渔猎文化，以其独特的渔猎方式和生活方式著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统技艺", "民族文化", "非遗文化", "赫哲族特色", "渔猎文化"]
+    tags: ["传统技艺", "民族文化", "非遗文化", "赫哲族特色", "渔猎文化"],
   },
   {
     name: "满族萨满文化",
     description: "满族传统萨满文化，以其独特的宗教信仰和仪式著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["民俗信仰", "非遗文化", "满族特色", "宗教文化", "文化传承"]
+    tags: ["民俗信仰", "非遗文化", "满族特色", "宗教文化", "文化传承"],
   },
   {
     name: "鄂伦春族狩猎文化",
     description: "鄂伦春族传统狩猎文化，以其独特的狩猎方式和生活方式著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统技艺", "民族文化", "非遗文化", "鄂伦春族特色", "狩猎文化"]
+    tags: ["传统技艺", "民族文化", "非遗文化", "鄂伦春族特色", "狩猎文化"],
   },
   {
     name: "哈尔滨冰雪文化",
     description: "哈尔滨传统冰雪文化，以其独特的冰雪艺术和活动著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["特色文化", "冰雪艺术", "城市名片", "东北特色", "文旅资源"]
+    tags: ["特色文化", "冰雪艺术", "城市名片", "东北特色", "文旅资源"],
   },
   {
     name: "东北二人转",
     description: "东北传统民间艺术形式，以其幽默风趣的表演风格著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统曲艺", "非遗文化", "表演艺术", "东北特色", "民间艺术"]
-  }
+    tags: ["传统曲艺", "非遗文化", "表演艺术", "东北特色", "民间艺术"],
+  },
 ];
 
 // 黑龙江省文化节庆数据
@@ -518,7 +555,7 @@ export const heilongjiangFestivals = [
     month: "1月",
     day: "5日",
     location: "黑龙江省哈尔滨市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +564,7 @@ export const heilongjiangFestivals = [
     month: "8月",
     day: "1日",
     location: "黑龙江省牡丹江市宁安市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +573,7 @@ export const heilongjiangFestivals = [
     month: "6月",
     day: "22日",
     location: "黑龙江省黑河市五大连池市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +582,7 @@ export const heilongjiangFestivals = [
     month: "7月",
     day: "15日",
     location: "黑龙江省大兴安岭地区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +591,7 @@ export const heilongjiangFestivals = [
     month: "4月",
     day: "5日",
     location: "黑龙江省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +600,8 @@ export const heilongjiangFestivals = [
     month: "9月",
     day: "21日",
     location: "黑龙江省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default heilongjiangData;

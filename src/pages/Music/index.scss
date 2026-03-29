@@ -1,205 +1,205 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 #buttonGroup {
-	position: fixed;
-	display: flex;
-	flex-direction: column;
-	bottom: 20%;
-	right: 0%;
-	height: 20%;
-	justify-content: space-around;
-	button {
-		width: 3rem;
-		height: 3rem;
-		font-size: 0.8rem;
-		padding: 10px;
-		border: none;
-		transition: 0.5s;
-		border-radius: 50%;
-		&:hover {
-			cursor: pointer;
-			background: #000;
-			color: #fff;
-			border: 1px solid #fff;
-		}
-	}
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 20%;
+  right: 0%;
+  height: 20%;
+  justify-content: space-around;
+  button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.8rem;
+    padding: 10px;
+    border: none;
+    transition: 0.5s;
+    border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+  }
 }
 //   PC端
 #pcMusic {
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
-	position: relative;
-	background: linear-gradient(to bottom, #000000, #000000);
-	display: grid;
-	grid-template-columns: 16% 83%;
-	grid-template-rows: 85% 15%;
-	#pcLeft {
-		width: 99%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		color: #ffffff;
-		grid-column: 1 / span 1;
-		grid-row: 1 / span 2;
-		background: linear-gradient(45deg, #083476, #000000);
-		h4:hover {
-			transition: 0.5s;
-			color: #ff0101;
-		}
-		a {
-			width: 90%;
-			text-align: left;
-			font-size: 1rem;
-			padding: 0.5rem 0.5rem 0.5rem 20%;
-			color: white;
-			text-decoration: none;
-			transition: 1s;
-			&.router-link-active {
-				box-shadow: inset -2rem 0 10px -4px #fff;
-				text-align: center;
-			}
-			&:hover {
-				cursor: pointer;
-				background: linear-gradient(45deg, #1f75b3, #8a1515);
-			}
-		}
-		#leftList {
-			width: 100%;
-			margin-top: 1rem;
-			overflow: auto;
-			display: flex;
-			justify-content: flex-start;
-			flex-direction: column;
-			align-items: center;
-			scrollbar-width: none; /* Firefox */
-			-ms-overflow-style: none; /* IE 10+ */
-			&::-webkit-scrollbar {
-				display: none; /* Chrome Safari */
-			}
-			#listCreated,
-			#listCollected {
-				width: 100%;
-				margin-top: 2rem;
-				font-size: 1rem;
-				display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(to bottom, #000000, #000000);
+  display: grid;
+  grid-template-columns: 16% 83%;
+  grid-template-rows: 85% 15%;
+  #pcLeft {
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    background: linear-gradient(45deg, #083476, #000000);
+    h4:hover {
+      transition: 0.5s;
+      color: #ff0101;
+    }
+    a {
+      width: 90%;
+      text-align: left;
+      font-size: 1rem;
+      padding: 0.5rem 0.5rem 0.5rem 20%;
+      color: white;
+      text-decoration: none;
+      transition: 1s;
+      &.router-link-active {
+        box-shadow: inset -2rem 0 10px -4px #fff;
+        text-align: center;
+      }
+      &:hover {
+        cursor: pointer;
+        background: linear-gradient(45deg, #1f75b3, #8a1515);
+      }
+    }
+    #leftList {
+      width: 100%;
+      margin-top: 1rem;
+      overflow: auto;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+      &::-webkit-scrollbar {
+        display: none; /* Chrome Safari */
+      }
+      #listCreated,
+      #listCollected {
+        width: 100%;
+        margin-top: 2rem;
+        font-size: 1rem;
+        display: flex;
 
-				flex-direction: column;
-				button {
-					font-weight: bolder;
-					padding: 0.5rem;
-					width: 100%;
-					color: #ffc8c8;
-					background: transparent;
+        flex-direction: column;
+        button {
+          font-weight: bolder;
+          padding: 0.5rem;
+          width: 100%;
+          color: #ffc8c8;
+          background: transparent;
 
-					&:hover {
-						cursor: pointer;
-					}
-				}
-				span {
-					width: 100%;
-					display: flex;
-					justify-content: flex-end;
-					align-items: center;
-					img {
-						width: 15%;
-						height: 80%;
-						border-radius: 10px;
-					}
-					a {
-						padding: 10px 0 10px 5px;
-						width: 75%;
-					}
-					&:hover {
-						cursor: pointer;
-						background: linear-gradient(45deg, #1f75b3, #8a1515);
-					}
-					&.router-link-active {
-						box-shadow: inset 0 0 10px -4px #fff;
-						text-align: center;
-					}
-				}
-			}
-		}
-		h4 {
-			position: relative;
-			top: 2%;
-			width: 100%;
-			text-align: center;
-			padding-bottom: 1rem;
-			height: 1.5rem;
-			line-height: 1.5rem;
-			&:hover {
-				cursor: pointer;
-			}
-		}
-	}
-	#pcBottom {
-		grid-column: 2 / span 1;
-		grid-row: 2 / span 1;
-		background: linear-gradient(45deg, #083476, #000000);
-	}
-	#pcCenter {
-		grid-column: 2 / span 1;
-		grid-row: 1 / span 1;
-		background: linear-gradient(to right, #052049, #000000);
-		box-shadow: 5px 0 15px -2px #000000;
-		transform: translateZ(-3px);
-		overflow: scroll;
-		scrollbar-width: none; /* Firefox */
-		-ms-overflow-style: none; /* IE 10+ */
-		&::-webkit-scrollbar {
-			display: none; /* Chrome Safari */
-		}
-		div:nth-of-type(1) {
-			display: flex;
-			flex-wrap: nowrap;
-			background: linear-gradient(to right, #052049, #000000);
-			justify-content: space-around;
-			align-items: center;
-			position: sticky;
-			z-index: 15;
-			top: 0;
-			box-shadow: -15px 0 15px 3px #000000;
-			img{
-				width: 2em;
-				height: 2em;
-				border-radius: 50%;
-			}
-			input {
-				display: inline-block;
-				width: 30%;
-				height: 2rem;
-				padding-left: 10px;
-				border: none;
-				outline-style: none;
-				&:focus {
-					box-shadow: inset 0 0 10px 2px #22adfe;
-				}
-			}
-			svg,
-			p,
-			button {
-				padding: 10px 1rem;
-				&:hover {
-					cursor: pointer;
-					color: rgb(255, 2, 2);
-				}
-			}
-			button {
-				font-weight: bolder;
-				border: none;
-				background: transparent;
-				color: white;
-				transition: 1s;
-				border: 1px solid transparent;
-				&:hover {
-					box-shadow: inset 0 0 10px 1px #ff0000;
-					border: 1px solid #ff0000;
-				}
-			}
-		}
-	}
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        span {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          img {
+            width: 15%;
+            height: 80%;
+            border-radius: 10px;
+          }
+          a {
+            padding: 10px 0 10px 5px;
+            width: 75%;
+          }
+          &:hover {
+            cursor: pointer;
+            background: linear-gradient(45deg, #1f75b3, #8a1515);
+          }
+          &.router-link-active {
+            box-shadow: inset 0 0 10px -4px #fff;
+            text-align: center;
+          }
+        }
+      }
+    }
+    h4 {
+      position: relative;
+      top: 2%;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 1rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  #pcBottom {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    background: linear-gradient(45deg, #083476, #000000);
+  }
+  #pcCenter {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    background: linear-gradient(to right, #052049, #000000);
+    box-shadow: 5px 0 15px -2px #000000;
+    transform: translateZ(-3px);
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+    }
+    div:nth-of-type(1) {
+      display: flex;
+      flex-wrap: nowrap;
+      background: linear-gradient(to right, #052049, #000000);
+      justify-content: space-around;
+      align-items: center;
+      position: sticky;
+      z-index: 15;
+      top: 0;
+      box-shadow: -15px 0 15px 3px #000000;
+      img {
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+      }
+      input {
+        display: inline-block;
+        width: 30%;
+        height: 2rem;
+        padding-left: 10px;
+        border: none;
+        outline-style: none;
+        &:focus {
+          box-shadow: inset 0 0 10px 2px #22adfe;
+        }
+      }
+      svg,
+      p,
+      button {
+        padding: 10px 1rem;
+        &:hover {
+          cursor: pointer;
+          color: rgb(255, 2, 2);
+        }
+      }
+      button {
+        font-weight: bolder;
+        border: none;
+        background: transparent;
+        color: white;
+        transition: 1s;
+        border: 1px solid transparent;
+        &:hover {
+          box-shadow: inset 0 0 10px 1px #ff0000;
+          border: 1px solid #ff0000;
+        }
+      }
+    }
+  }
 }

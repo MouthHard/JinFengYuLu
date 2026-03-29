@@ -1,11 +1,17 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 陕西省自然风光数据
 const shaanxiNatureSpots: ScenerySpot[] = [
   {
     id: "terracottaArmy",
     name: "秦始皇兵马俑",
-    description: "陕西省西安市的著名考古遗址，以其壮观的兵马俑阵列和重要的历史意义而闻名",
+    description:
+      "陕西省西安市的著名考古遗址，以其壮观的兵马俑阵列和重要的历史意义而闻名",
     image: "https://picsum.photos/id/1019/600/400",
     location: "陕西省西安市临潼区",
     type: "nature",
@@ -14,7 +20,7 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.9,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
+    landformTags: ["历史遗址"],
   },
   {
     id: "bigWildGoosePagoda",
@@ -28,7 +34,7 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "huashanMountain",
@@ -42,12 +48,13 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "xianCityWall",
     name: "西安城墙",
-    description: "陕西省西安市的著名古城墙，以其完整的保存状态和重要的历史意义而闻名",
+    description:
+      "陕西省西安市的著名古城墙，以其完整的保存状态和重要的历史意义而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "陕西省西安市碑林区",
     type: "nature",
@@ -56,7 +63,7 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "yellowRiverHukouWaterfall",
@@ -70,7 +77,7 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "waterfall",
     landscapeCategory: ["水景观"],
-    landformTags: ["瀑布景观"]
+    landformTags: ["瀑布景观"],
   },
   {
     id: "famenTemple",
@@ -84,12 +91,13 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "temple",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
+    landformTags: ["宗教建筑"],
   },
   {
     id: "yanglingMausoleum",
     name: "汉阳陵",
-    description: "陕西省咸阳市的著名考古遗址，以其精美的陶俑和重要的历史意义而闻名",
+    description:
+      "陕西省咸阳市的著名考古遗址，以其精美的陶俑和重要的历史意义而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "陕西省咸阳市渭城区",
     type: "nature",
@@ -98,8 +106,8 @@ const shaanxiNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史遗址"]
-  }
+    landformTags: ["历史遗址"],
+  },
 ];
 
 // 陕西省人文景观数据
@@ -116,12 +124,13 @@ const shaanxiCultureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "xianMuslimQuarter",
     name: "西安回民街",
-    description: "陕西省西安市的著名商业街，以其独特的伊斯兰文化和丰富的美食而闻名",
+    description:
+      "陕西省西安市的著名商业街，以其独特的伊斯兰文化和丰富的美食而闻名",
     image: "https://picsum.photos/id/1045/600/400",
     location: "陕西省西安市莲湖区",
     type: "culture",
@@ -130,7 +139,7 @@ const shaanxiCultureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史街区"]
+    landformTags: ["历史街区"],
   },
   {
     id: "xianBellTower",
@@ -144,7 +153,7 @@ const shaanxiCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "xianDrumTower",
@@ -158,7 +167,7 @@ const shaanxiCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["历史建筑"]
+    landformTags: ["历史建筑"],
   },
   {
     id: "xianForestOfStelesMuseum",
@@ -172,8 +181,8 @@ const shaanxiCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "museum",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
-  }
+    landformTags: ["博物馆"],
+  },
 ];
 
 // 陕西省季节性数据
@@ -182,26 +191,42 @@ const shaanxiSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的陕西，万物复苏，是游览西安城墙、大雁塔的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["西安城墙春游", "大雁塔赏花", "陕西历史博物馆参观", "回民街美食体验"]
+    activities: [
+      "西安城墙春游",
+      "大雁塔赏花",
+      "陕西历史博物馆参观",
+      "回民街美食体验",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的陕西，气温较高，是游览黄河壶口瀑布、华山的好去处",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["黄河壶口瀑布观瀑", "华山登山", "法门寺朝圣", "汉阳陵参观"]
+    activities: ["黄河壶口瀑布观瀑", "华山登山", "法门寺朝圣", "汉阳陵参观"],
   },
   autumn: {
     name: "秋季",
     description: "秋季的陕西，天高气爽，是游览华山、西安城墙的最佳时节",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["华山赏秋", "西安城墙秋游", "秦始皇兵马俑参观", "陕西历史博物馆深度游"]
+    activities: [
+      "华山赏秋",
+      "西安城墙秋游",
+      "秦始皇兵马俑参观",
+      "陕西历史博物馆深度游",
+    ],
   },
   winter: {
     name: "冬季",
-    description: "冬季的陕西，虽然寒冷，但雪景美丽，是参观秦始皇兵马俑、法门寺的好时节",
+    description:
+      "冬季的陕西，虽然寒冷，但雪景美丽，是参观秦始皇兵马俑、法门寺的好时节",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["秦始皇兵马俑参观", "法门寺朝圣", "西安钟楼鼓楼游览", "回民街美食暖身"]
-  }
+    activities: [
+      "秦始皇兵马俑参观",
+      "法门寺朝圣",
+      "西安钟楼鼓楼游览",
+      "回民街美食暖身",
+    ],
+  },
 };
 
 // 陕西省活动数据
@@ -215,7 +240,7 @@ const shaanxiActivities: TravelActivity[] = [
     location: "陕西省西安市临潼区",
     duration: "半天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "2",
@@ -226,7 +251,7 @@ const shaanxiActivities: TravelActivity[] = [
     location: "陕西省渭南市华阴市",
     duration: "1天",
     difficulty: "困难",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "3",
@@ -237,7 +262,7 @@ const shaanxiActivities: TravelActivity[] = [
     location: "陕西省西安市碑林区",
     duration: "2-3小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "4",
@@ -248,7 +273,7 @@ const shaanxiActivities: TravelActivity[] = [
     location: "陕西省延安市宜川县",
     duration: "半天",
     difficulty: "简单",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "5",
@@ -259,8 +284,8 @@ const shaanxiActivities: TravelActivity[] = [
     location: "陕西省西安市回民街",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 陕西省路线数据
@@ -279,7 +304,7 @@ const shaanxiRoutes: RouteInfo[] = [
     rating: 4.9,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -295,8 +320,8 @@ const shaanxiRoutes: RouteInfo[] = [
     rating: 4.8,
     bestTime: "秋季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 陕西省非物质文化遗产数据
@@ -312,7 +337,7 @@ const shaanxiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["表演独特", "内容丰富", "历史悠久"]
+    features: ["表演独特", "内容丰富", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +350,7 @@ const shaanxiIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎪",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["表演独特", "影人精美", "历史悠久"]
+    features: ["表演独特", "影人精美", "历史悠久"],
   },
   {
     id: "3",
@@ -338,7 +363,7 @@ const shaanxiIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🥁",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["演奏独特", "内容丰富", "历史悠久"]
+    features: ["演奏独特", "内容丰富", "历史悠久"],
   },
   {
     id: "4",
@@ -351,12 +376,13 @@ const shaanxiIntangibleHeritage = [
     tags: ["传统技艺", "国家级非遗", "民间艺术"],
     icon: "🏺",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["作品精美", "风格独特", "工艺精湛"]
+    features: ["作品精美", "风格独特", "工艺精湛"],
   },
   {
     id: "5",
     name: "陕北民歌",
-    description: "陕西省陕北地区传统民间音乐，以其独特的演唱形式和丰富的内容著称",
+    description:
+      "陕西省陕北地区传统民间音乐，以其独特的演唱形式和丰富的内容著称",
     level: "national",
     category: "传统音乐",
     heritageType: "传统表演艺术",
@@ -364,8 +390,8 @@ const shaanxiIntangibleHeritage = [
     tags: ["传统音乐", "国家级非遗", "民间艺术"],
     icon: "🎵",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["演唱独特", "内容丰富", "历史悠久"]
-  }
+    features: ["演唱独特", "内容丰富", "历史悠久"],
+  },
 ];
 
 // 陕西省数据
@@ -378,40 +404,45 @@ export const shaanxiData = {
       {
         name: "秦始皇兵马俑",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "陕西省西安市的著名考古遗址，以其壮观的兵马俑阵列和重要的历史意义而闻名"
+        description:
+          "陕西省西安市的著名考古遗址，以其壮观的兵马俑阵列和重要的历史意义而闻名",
       },
       {
         name: "华山",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "陕西省渭南市的著名山岳，以其险峻的山势和壮丽的自然风光而闻名"
+        description:
+          "陕西省渭南市的著名山岳，以其险峻的山势和壮丽的自然风光而闻名",
       },
       {
         name: "大雁塔",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "陕西省西安市的著名佛塔，以其精美的建筑和重要的佛教意义而闻名"
+        description:
+          "陕西省西安市的著名佛塔，以其精美的建筑和重要的佛教意义而闻名",
       },
       {
         name: "西安城墙",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "陕西省西安市的著名古城墙，以其完整的保存状态和重要的历史意义而闻名"
+        description:
+          "陕西省西安市的著名古城墙，以其完整的保存状态和重要的历史意义而闻名",
       },
       {
         name: "黄河壶口瀑布",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "陕西省延安市的著名瀑布，以其壮观的气势和独特的地理位置而闻名"
-      }
-    ]
+        description:
+          "陕西省延安市的著名瀑布，以其壮观的气势和独特的地理位置而闻名",
+      },
+    ],
   },
   spots: [...shaanxiNatureSpots, ...shaanxiCultureSpots],
   seasonal: [
     shaanxiSeasonalData.spring,
     shaanxiSeasonalData.summer,
     shaanxiSeasonalData.autumn,
-    shaanxiSeasonalData.winter
+    shaanxiSeasonalData.winter,
   ],
   activities: shaanxiActivities,
   routes: shaanxiRoutes,
-  intangibleHeritage: shaanxiIntangibleHeritage
+  intangibleHeritage: shaanxiIntangibleHeritage,
 };
 
 // 陕西省风俗文化数据
@@ -420,46 +451,50 @@ export const shaanxiCustomsData = {
     {
       id: "1",
       name: "秦腔表演欣赏",
-      description: "观看陕西省传统戏曲艺术秦腔表演，感受其独特的表演形式和丰富的内容",
+      description:
+        "观看陕西省传统戏曲艺术秦腔表演，感受其独特的表演形式和丰富的内容",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "陕西省西安市莲湖区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
       name: "华县皮影戏体验",
-      description: "观看陕西省华县传统民间艺术皮影戏表演，感受其独特的表演形式和精美的影人",
+      description:
+        "观看陕西省华县传统民间艺术皮影戏表演，感受其独特的表演形式和精美的影人",
       image: "https://picsum.photos/id/1061/600/400",
       category: "culture",
       location: "陕西省渭南市华州区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "西安鼓乐表演",
-      description: "聆听陕西省西安市传统音乐西安鼓乐表演，感受其独特的演奏形式和丰富的内容",
+      description:
+        "聆听陕西省西安市传统音乐西安鼓乐表演，感受其独特的演奏形式和丰富的内容",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "陕西省西安市雁塔区",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "耀州窑陶瓷烧制体验",
-      description: "学习陕西省铜川市传统手工艺耀州窑陶瓷烧制，体验其独特的工艺和风格",
+      description:
+        "学习陕西省铜川市传统手工艺耀州窑陶瓷烧制，体验其独特的工艺和风格",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "陕西省铜川市耀州区",
       duration: "3-4小时",
       difficulty: "中等",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +505,9 @@ export const shaanxiCustomsData = {
       location: "陕西省西安市回民街",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 陕西民俗风情元素数据
@@ -481,32 +516,33 @@ export const shaanxiFolkCustomsElements = [
     name: "秦腔",
     description: "陕西省传统戏曲艺术，以其独特的表演形式和丰富的内容著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统戏曲", "非遗文化", "表演艺术", "陕西特色", "梆子腔鼻祖"]
+    tags: ["传统戏曲", "非遗文化", "表演艺术", "陕西特色", "梆子腔鼻祖"],
   },
   {
     name: "华县皮影戏",
     description: "陕西省华县传统民间艺术，以其独特的表演形式和精美的影人著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统戏曲", "非遗文化", "民间艺术", "陕西特色", "光影艺术"]
+    tags: ["传统戏曲", "非遗文化", "民间艺术", "陕西特色", "光影艺术"],
   },
   {
     name: "西安鼓乐",
     description: "陕西省西安市传统音乐，以其独特的演奏形式和丰富的内容著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统音乐", "非遗文化", "表演艺术", "陕西特色", "古代音乐活化石"]
+    tags: ["传统音乐", "非遗文化", "表演艺术", "陕西特色", "古代音乐活化石"],
   },
   {
     name: "耀州窑陶瓷",
     description: "陕西省铜川市传统手工艺，以其精美的作品和独特的风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "陕西特色", "工艺美术"]
+    tags: ["传统技艺", "陶瓷艺术", "非遗文化", "陕西特色", "工艺美术"],
   },
   {
     name: "陕北民歌",
-    description: "陕西省陕北地区传统民间音乐，以其独特的演唱形式和丰富的内容著称",
+    description:
+      "陕西省陕北地区传统民间音乐，以其独特的演唱形式和丰富的内容著称",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["传统音乐", "非遗文化", "民间艺术", "陕西特色", "黄土文化"]
-  }
+    tags: ["传统音乐", "非遗文化", "民间艺术", "陕西特色", "黄土文化"],
+  },
 ];
 
 // 陕西省文化节庆数据
@@ -518,7 +554,7 @@ export const shaanxiFestivals = [
     month: "10月",
     day: "1日",
     location: "陕西省西安市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +563,7 @@ export const shaanxiFestivals = [
     month: "9月",
     day: "1日",
     location: "陕西省渭南市华阴市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +572,7 @@ export const shaanxiFestivals = [
     month: "7月",
     day: "1日",
     location: "陕西省西安市临潼区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +581,7 @@ export const shaanxiFestivals = [
     month: "1月",
     day: "1日",
     location: "陕西省延安市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +590,7 @@ export const shaanxiFestivals = [
     month: "4月",
     day: "5日",
     location: "陕西省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +599,8 @@ export const shaanxiFestivals = [
     month: "9月",
     day: "21日",
     location: "陕西省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default shaanxiData;

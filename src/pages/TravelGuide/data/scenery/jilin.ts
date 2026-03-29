@@ -1,4 +1,9 @@
-import { ScenerySpot, TravelActivity, RouteInfo, SeasonalScenery } from "../scenery.ts";
+import {
+  ScenerySpot,
+  TravelActivity,
+  RouteInfo,
+  SeasonalScenery,
+} from "../scenery.ts";
 
 // 吉林省自然风光数据
 const jilinNatureSpots: ScenerySpot[] = [
@@ -14,7 +19,7 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.8,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "songhuaLake",
@@ -28,7 +33,7 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "jilinRime",
@@ -42,12 +47,13 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.7,
     landscapeType: "atmospheric",
     landscapeCategory: ["大气景观"],
-    landformTags: ["雾凇景观"]
+    landformTags: ["雾凇景观"],
   },
   {
     id: "dianchiLake",
     name: "净月潭",
-    description: "吉林省长春市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
+    description:
+      "吉林省长春市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1037/600/400",
     location: "吉林省长春市南关区",
     type: "nature",
@@ -56,12 +62,13 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "lake",
     landscapeCategory: ["水景观"],
-    landformTags: ["湖泊景观"]
+    landformTags: ["湖泊景观"],
   },
   {
     id: "yanbianKoreanAutonomousPrefecture",
     name: "延边朝鲜族自治州",
-    description: "吉林省东部的朝鲜族自治州，以其独特的民族风情和美丽的自然风光而闻名",
+    description:
+      "吉林省东部的朝鲜族自治州，以其独特的民族风情和美丽的自然风光而闻名",
     image: "https://picsum.photos/id/1038/600/400",
     location: "吉林省延边朝鲜族自治州",
     type: "nature",
@@ -70,12 +77,13 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "cultural",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民族景观"]
+    landformTags: ["民族景观"],
   },
   {
     id: "baishanMountain",
     name: "白山",
-    description: "吉林省白山市的著名山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
+    description:
+      "吉林省白山市的著名山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
     image: "https://picsum.photos/id/1039/600/400",
     location: "吉林省白山市",
     type: "nature",
@@ -84,12 +92,13 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
+    landformTags: ["山地景观"],
   },
   {
     id: "tonghuaMountain",
     name: "通化",
-    description: "吉林省通化市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
+    description:
+      "吉林省通化市的著名山脉，以其壮丽的自然风光和丰富的历史文化而闻名",
     image: "https://picsum.photos/id/1040/600/400",
     location: "吉林省通化市",
     type: "nature",
@@ -98,8 +107,8 @@ const jilinNatureSpots: ScenerySpot[] = [
     rating: 4.3,
     landscapeType: "mountain",
     landscapeCategory: ["地理景观"],
-    landformTags: ["山地景观"]
-  }
+    landformTags: ["山地景观"],
+  },
 ];
 
 // 吉林省人文景观数据
@@ -116,7 +125,7 @@ const jilinCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "cultural",
     landscapeCategory: ["人文景观"],
-    landformTags: ["文化设施"]
+    landformTags: ["文化设施"],
   },
   {
     id: "jilinMuseum",
@@ -130,7 +139,7 @@ const jilinCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["博物馆"]
+    landformTags: ["博物馆"],
   },
   {
     id: "changchunFilmStudio",
@@ -144,12 +153,13 @@ const jilinCultureSpots: ScenerySpot[] = [
     rating: 4.5,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["文化设施"]
+    landformTags: ["文化设施"],
   },
   {
     id: "koreanEthnicVillage",
     name: "朝鲜族民俗村",
-    description: "吉林省延边朝鲜族自治州的朝鲜族民俗村，以其独特的民族风情和文化而闻名",
+    description:
+      "吉林省延边朝鲜族自治州的朝鲜族民俗村，以其独特的民族风情和文化而闻名",
     image: "https://picsum.photos/id/1047/600/400",
     location: "吉林省延边朝鲜族自治州延吉市",
     type: "culture",
@@ -158,7 +168,7 @@ const jilinCultureSpots: ScenerySpot[] = [
     rating: 4.6,
     landscapeType: "cultural",
     landscapeCategory: ["人文景观"],
-    landformTags: ["民俗村"]
+    landformTags: ["民俗村"],
   },
   {
     id: "jilinConfuciusTemple",
@@ -172,8 +182,8 @@ const jilinCultureSpots: ScenerySpot[] = [
     rating: 4.4,
     landscapeType: "historical",
     landscapeCategory: ["人文景观"],
-    landformTags: ["宗教建筑"]
-  }
+    landformTags: ["宗教建筑"],
+  },
 ];
 
 // 吉林省季节性数据
@@ -182,26 +192,41 @@ const jilinSeasonalData: Record<string, SeasonalScenery> = {
     name: "春季",
     description: "春季的吉林，万物复苏，是游览松花湖、净月潭的最佳时节",
     image: "https://picsum.photos/id/1049/600/400",
-    activities: ["松花湖春游", "净月潭踏青", "长白山赏花", "延边朝鲜族民俗体验"]
+    activities: [
+      "松花湖春游",
+      "净月潭踏青",
+      "长白山赏花",
+      "延边朝鲜族民俗体验",
+    ],
   },
   summer: {
     name: "夏季",
     description: "夏季的吉林，长白山、松花湖是避暑的好去处，净月潭森林茂密",
     image: "https://picsum.photos/id/1050/600/400",
-    activities: ["长白山避暑", "松花湖游船", "净月潭森林浴", "延边朝鲜族美食体验"]
+    activities: [
+      "长白山避暑",
+      "松花湖游船",
+      "净月潭森林浴",
+      "延边朝鲜族美食体验",
+    ],
   },
   autumn: {
     name: "秋季",
     description: "秋季的吉林，长白山红叶满山，通化山色壮丽",
     image: "https://picsum.photos/id/1051/600/400",
-    activities: ["长白山赏红叶", "通化秋游", "松花湖赏秋", "净月潭赏秋"]
+    activities: ["长白山赏红叶", "通化秋游", "松花湖赏秋", "净月潭赏秋"],
   },
   winter: {
     name: "冬季",
     description: "冬季的吉林，雾凇奇观令人惊叹，长白山滑雪场众多",
     image: "https://picsum.photos/id/1052/600/400",
-    activities: ["吉林雾凇观赏", "长白山滑雪", "净月潭冰雪节", "延边朝鲜族冬季民俗体验"]
-  }
+    activities: [
+      "吉林雾凇观赏",
+      "长白山滑雪",
+      "净月潭冰雪节",
+      "延边朝鲜族冬季民俗体验",
+    ],
+  },
 };
 
 // 吉林省活动数据
@@ -215,7 +240,7 @@ const jilinActivities: TravelActivity[] = [
     location: "长白山景区",
     duration: "4-6小时",
     difficulty: "中等",
-    type: "户外活动"
+    type: "户外活动",
   },
   {
     id: "2",
@@ -226,7 +251,7 @@ const jilinActivities: TravelActivity[] = [
     location: "松花湖景区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "3",
@@ -237,7 +262,7 @@ const jilinActivities: TravelActivity[] = [
     location: "吉林市龙潭区",
     duration: "2-3小时",
     difficulty: "简单",
-    type: "休闲体验"
+    type: "休闲体验",
   },
   {
     id: "4",
@@ -248,7 +273,7 @@ const jilinActivities: TravelActivity[] = [
     location: "延边朝鲜族自治州",
     duration: "1天",
     difficulty: "简单",
-    type: "文化体验"
+    type: "文化体验",
   },
   {
     id: "5",
@@ -259,8 +284,8 @@ const jilinActivities: TravelActivity[] = [
     location: "吉林省各地",
     duration: "全天",
     difficulty: "简单",
-    type: "美食体验"
-  }
+    type: "美食体验",
+  },
 ];
 
 // 吉林省路线数据
@@ -279,7 +304,7 @@ const jilinRoutes: RouteInfo[] = [
     rating: 4.7,
     bestTime: "夏季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
+    suitableFor: "所有游客",
   },
   {
     id: "2",
@@ -288,15 +313,20 @@ const jilinRoutes: RouteInfo[] = [
     description: "探索吉林的民族文化",
     duration: "4天",
     difficulty: "简单",
-    highlights: ["延边朝鲜族自治州", "朝鲜族民俗村", "吉林文庙", "长春电影制片厂"],
+    highlights: [
+      "延边朝鲜族自治州",
+      "朝鲜族民俗村",
+      "吉林文庙",
+      "长春电影制片厂",
+    ],
     spots: ["延边朝鲜族自治州", "朝鲜族民俗村", "吉林文庙", "长春电影制片厂"],
     tags: ["民族", "文化", "历史"],
     image: "https://picsum.photos/id/1059/600/400",
     rating: 4.6,
     bestTime: "春季",
     traffic: "旅游大巴",
-    suitableFor: "所有游客"
-  }
+    suitableFor: "所有游客",
+  },
 ];
 
 // 吉林省非物质文化遗产数据
@@ -312,7 +342,7 @@ const jilinIntangibleHeritage = [
     tags: ["传统舞蹈", "国家级非遗", "民间艺术"],
     icon: "💃",
     image: "https://picsum.photos/id/1065/600/400",
-    features: ["节奏欢快", "表演独特", "历史悠久"]
+    features: ["节奏欢快", "表演独特", "历史悠久"],
   },
   {
     id: "2",
@@ -325,7 +355,7 @@ const jilinIntangibleHeritage = [
     tags: ["传统美术", "国家级非遗", "民间艺术"],
     icon: "✂️",
     image: "https://picsum.photos/id/1066/600/400",
-    features: ["图案精美", "风格独特", "工艺精湛"]
+    features: ["图案精美", "风格独特", "工艺精湛"],
   },
   {
     id: "3",
@@ -338,7 +368,7 @@ const jilinIntangibleHeritage = [
     tags: ["传统体育", "国家级非遗", "民间艺术"],
     icon: "🏃",
     image: "https://picsum.photos/id/1067/600/400",
-    features: ["表演独特", "竞技性强", "历史悠久"]
+    features: ["表演独特", "竞技性强", "历史悠久"],
   },
   {
     id: "4",
@@ -351,12 +381,13 @@ const jilinIntangibleHeritage = [
     tags: ["传统戏剧", "国家级非遗", "民间艺术"],
     icon: "🎭",
     image: "https://picsum.photos/id/1068/600/400",
-    features: ["幽默风趣", "表演精湛", "历史悠久"]
+    features: ["幽默风趣", "表演精湛", "历史悠久"],
   },
   {
     id: "5",
     name: "长白山满族文化",
-    description: "吉林省长白山地区的满族传统文化，以其丰富的内容和独特的风格著称",
+    description:
+      "吉林省长白山地区的满族传统文化，以其丰富的内容和独特的风格著称",
     level: "national",
     category: "民俗",
     heritageType: "民俗",
@@ -364,8 +395,8 @@ const jilinIntangibleHeritage = [
     tags: ["民俗", "国家级非遗", "民间文化"],
     icon: "🏮",
     image: "https://picsum.photos/id/1069/600/400",
-    features: ["内容丰富", "风格独特", "历史悠久"]
-  }
+    features: ["内容丰富", "风格独特", "历史悠久"],
+  },
 ];
 
 // 吉林省数据
@@ -378,40 +409,44 @@ export const jilinData = {
       {
         name: "长白山",
         image: "https://picsum.photos/id/1019/600/400",
-        description: "中国东北著名的山脉，以其壮丽的自然风光和丰富的生态资源而闻名"
+        description:
+          "中国东北著名的山脉，以其壮丽的自然风光和丰富的生态资源而闻名",
       },
       {
         name: "松花湖",
         image: "https://picsum.photos/id/1035/600/400",
-        description: "吉林省著名的湖泊，以其美丽的湖光山色和丰富的水产资源而闻名"
+        description:
+          "吉林省著名的湖泊，以其美丽的湖光山色和丰富的水产资源而闻名",
       },
       {
         name: "吉林雾凇",
         image: "https://picsum.photos/id/1036/600/400",
-        description: "吉林省吉林市的著名自然景观，以其独特的雾凇景观而闻名"
+        description: "吉林省吉林市的著名自然景观，以其独特的雾凇景观而闻名",
       },
       {
         name: "净月潭",
         image: "https://picsum.photos/id/1037/600/400",
-        description: "吉林省长春市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名"
+        description:
+          "吉林省长春市的著名湖泊，以其美丽的湖光山色和丰富的生态资源而闻名",
       },
       {
         name: "延边朝鲜族自治州",
         image: "https://picsum.photos/id/1038/600/400",
-        description: "吉林省东部的朝鲜族自治州，以其独特的民族风情和美丽的自然风光而闻名"
-      }
-    ]
+        description:
+          "吉林省东部的朝鲜族自治州，以其独特的民族风情和美丽的自然风光而闻名",
+      },
+    ],
   },
   spots: [...jilinNatureSpots, ...jilinCultureSpots],
   seasonal: [
     jilinSeasonalData.spring,
     jilinSeasonalData.summer,
     jilinSeasonalData.autumn,
-    jilinSeasonalData.winter
+    jilinSeasonalData.winter,
   ],
   activities: jilinActivities,
   routes: jilinRoutes,
-  intangibleHeritage: jilinIntangibleHeritage
+  intangibleHeritage: jilinIntangibleHeritage,
 };
 
 // 吉林省风俗文化数据
@@ -420,13 +455,14 @@ export const jilinCustomsData = {
     {
       id: "1",
       name: "朝鲜族农乐舞表演",
-      description: "欣赏吉林省朝鲜族传统舞蹈农乐舞表演，感受其欢快的节奏和独特的表演风格",
+      description:
+        "欣赏吉林省朝鲜族传统舞蹈农乐舞表演，感受其欢快的节奏和独特的表演风格",
       image: "https://picsum.photos/id/1060/600/400",
       category: "culture",
       location: "吉林省延边朝鲜族自治州",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "2",
@@ -437,29 +473,31 @@ export const jilinCustomsData = {
       location: "吉林省长春市满族剪纸艺术园",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "3",
       name: "朝鲜族跳板表演",
-      description: "观看吉林省朝鲜族传统体育项目跳板表演，感受其独特的表演形式和竞技性",
+      description:
+        "观看吉林省朝鲜族传统体育项目跳板表演，感受其独特的表演形式和竞技性",
       image: "https://picsum.photos/id/1062/600/400",
       category: "culture",
       location: "吉林省延边朝鲜族自治州",
       duration: "1-2小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "4",
       name: "东北二人转表演",
-      description: "欣赏吉林省传统民间艺术东北二人转表演，感受其幽默风趣的表演风格",
+      description:
+        "欣赏吉林省传统民间艺术东北二人转表演，感受其幽默风趣的表演风格",
       image: "https://picsum.photos/id/1063/600/400",
       category: "culture",
       location: "吉林省长春市二人转剧场",
       duration: "2-3小时",
       difficulty: "简单",
-      type: "文化体验"
+      type: "文化体验",
     },
     {
       id: "5",
@@ -470,9 +508,9 @@ export const jilinCustomsData = {
       location: "吉林省各地",
       duration: "全天",
       difficulty: "简单",
-      type: "美食体验"
-    }
-  ]
+      type: "美食体验",
+    },
+  ],
 };
 
 // 吉林省民俗风情元素数据
@@ -481,32 +519,32 @@ export const jilinFolkCustomsElements = [
     name: "朝鲜族农乐舞",
     description: "朝鲜族传统舞蹈，以其欢快的节奏和独特的表演风格著称",
     image: "https://picsum.photos/id/1070/600/400",
-    tags: ["传统舞蹈", "非遗文化", "朝鲜族特色", "表演艺术", "民俗文化"]
+    tags: ["传统舞蹈", "非遗文化", "朝鲜族特色", "表演艺术", "民俗文化"],
   },
   {
     name: "满族剪纸",
     description: "满族传统剪纸艺术，以其精美的图案和独特的风格著称",
     image: "https://picsum.photos/id/1071/600/400",
-    tags: ["传统技艺", "剪纸艺术", "非遗文化", "满族特色", "民间美术"]
+    tags: ["传统技艺", "剪纸艺术", "非遗文化", "满族特色", "民间美术"],
   },
   {
     name: "朝鲜族跳板",
     description: "朝鲜族传统体育项目，以其独特的表演形式和竞技性著称",
     image: "https://picsum.photos/id/1072/600/400",
-    tags: ["传统体育", "非遗文化", "朝鲜族特色", "民俗活动", "竞技运动"]
+    tags: ["传统体育", "非遗文化", "朝鲜族特色", "民俗活动", "竞技运动"],
   },
   {
     name: "东北二人转",
     description: "东北传统民间艺术形式，以其幽默风趣的表演风格著称",
     image: "https://picsum.photos/id/1073/600/400",
-    tags: ["传统曲艺", "非遗文化", "表演艺术", "东北特色", "民间艺术"]
+    tags: ["传统曲艺", "非遗文化", "表演艺术", "东北特色", "民间艺术"],
   },
   {
     name: "吉林雾凇",
     description: "吉林市的著名自然景观，以其独特的雾凇景观而闻名",
     image: "https://picsum.photos/id/1074/600/400",
-    tags: ["自然景观", "城市名片", "文旅资源", "吉林特色", "冰雪文化"]
-  }
+    tags: ["自然景观", "城市名片", "文旅资源", "吉林特色", "冰雪文化"],
+  },
 ];
 
 // 吉林省文化节庆数据
@@ -518,7 +556,7 @@ export const jilinFestivals = [
     month: "1月",
     day: "10日",
     location: "吉林省吉林市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "2",
@@ -527,7 +565,7 @@ export const jilinFestivals = [
     month: "7月",
     day: "15日",
     location: "吉林省延边朝鲜族自治州安图县",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "3",
@@ -536,7 +574,7 @@ export const jilinFestivals = [
     month: "8月",
     day: "1日",
     location: "吉林省延边朝鲜族自治州延吉市",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "4",
@@ -545,7 +583,7 @@ export const jilinFestivals = [
     month: "12月",
     day: "20日",
     location: "吉林省长春市南关区",
-    isUnique: true
+    isUnique: true,
   },
   {
     id: "5",
@@ -554,7 +592,7 @@ export const jilinFestivals = [
     month: "4月",
     day: "5日",
     location: "吉林省各地",
-    isUnique: false
+    isUnique: false,
   },
   {
     id: "6",
@@ -563,8 +601,8 @@ export const jilinFestivals = [
     month: "9月",
     day: "21日",
     location: "吉林省各地",
-    isUnique: false
-  }
+    isUnique: false,
+  },
 ];
 
 export default jilinData;

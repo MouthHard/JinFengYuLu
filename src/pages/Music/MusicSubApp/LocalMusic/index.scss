@@ -1,371 +1,371 @@
 #localMusic {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .buttonGroup {
-	position: relative;
-	margin: 2% 0;
-	display: flex;
-	width: 100%;
-	input {
-		position: absolute;
-		background: rgba(60, 80, 99, 0.5);
-		border: none;
-		right: 10%;
-		top: 10%;
-		color: #fff;
-		height: 80%;
-		width: 10%;
-		transition: 0.5s;
-		border-radius: 10px;
-		&:hover {
-			box-shadow: inset 0 0 15px 1px #0067bb;
-		}
-		&:focus {
-			width: 25%;
-			outline: none;
-			border-bottom: 1px solid #a8cbff;
-		}
-	}
-	button {
-		padding: 5px 10px;
-		height: 3rem;
-		line-height: 2.5rem;
-		margin-left: 1rem;
-		color: #fff;
-		border: none;
-		background: #292828;
-		text-align: center;
-		border-radius: 10px;
-		&:nth-of-type(1) {
-			background: #24735f;
-			&:hover {
-				cursor: pointer;
-				background: #31997f;
-			}
-		}
-		&:hover {
-			cursor: pointer;
-			background: #424141;
-		}
-	}
+  position: relative;
+  margin: 2% 0;
+  display: flex;
+  width: 100%;
+  input {
+    position: absolute;
+    background: rgba(60, 80, 99, 0.5);
+    border: none;
+    right: 10%;
+    top: 10%;
+    color: #fff;
+    height: 80%;
+    width: 10%;
+    transition: 0.5s;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: inset 0 0 15px 1px #0067bb;
+    }
+    &:focus {
+      width: 25%;
+      outline: none;
+      border-bottom: 1px solid #a8cbff;
+    }
+  }
+  button {
+    padding: 5px 10px;
+    height: 3rem;
+    line-height: 2.5rem;
+    margin-left: 1rem;
+    color: #fff;
+    border: none;
+    background: #292828;
+    text-align: center;
+    border-radius: 10px;
+    &:nth-of-type(1) {
+      background: #24735f;
+      &:hover {
+        cursor: pointer;
+        background: #31997f;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      background: #424141;
+    }
+  }
 }
 header {
-	width: 95%;
-	margin-top: 2%;
-	padding-left: 4%;
-	height: 10%;
-	display: flex;
-	position: relative;
-	button {
-		position: relative;
-		background: transparent;
-		color: #b7b4b4;
-		font-size: 1rem;
-		margin-right: 5%;
-		border: 1px solid transparent;
-		&:hover {
-			cursor: pointer;
-			color: #fff;
-		}
-		h6 {
-			position: absolute;
-			font-size: 0.9rem;
-			top: -35%;
-			right: -20%;
-		}
-	}
-	p {
-		margin: 0;
-		padding: 15px;
-		border-radius: 15px;
-		background: #000;
-		a {
-			color: #3f8bd1;
-			&:hover {
-				color: #63b0f8;
-			}
-		}
-		svg {
-			margin-left: 2rem;
-			&:hover {
-				transition: 0.5s;
-				color: #ff0202;
-				cursor: pointer;
-			}
-		}
-	}
-	.isActive {
-		transition: 0.5s;
-		text-align: center;
-		color: #fff;
-		font-weight: bolder;
-		padding: 0 15px;
-		border-top: 2px double #fff;
-		box-shadow: inset 0 5px 8px -2px #fff;
-	}
+  width: 95%;
+  margin-top: 2%;
+  padding-left: 4%;
+  height: 10%;
+  display: flex;
+  position: relative;
+  button {
+    position: relative;
+    background: transparent;
+    color: #b7b4b4;
+    font-size: 1rem;
+    margin-right: 5%;
+    border: 1px solid transparent;
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+    h6 {
+      position: absolute;
+      font-size: 0.9rem;
+      top: -35%;
+      right: -20%;
+    }
+  }
+  p {
+    margin: 0;
+    padding: 15px;
+    border-radius: 15px;
+    background: #000;
+    a {
+      color: #3f8bd1;
+      &:hover {
+        color: #63b0f8;
+      }
+    }
+    svg {
+      margin-left: 2rem;
+      &:hover {
+        transition: 0.5s;
+        color: #ff0202;
+        cursor: pointer;
+      }
+    }
+  }
+  .isActive {
+    transition: 0.5s;
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+    padding: 0 15px;
+    border-top: 2px double #fff;
+    box-shadow: inset 0 5px 8px -2px #fff;
+  }
 }
 footer {
-	width: 95%;
-	height: 100%;
-	padding-left: 4%;
-	display: flex;
-	flex-direction: column;
+  width: 95%;
+  height: 100%;
+  padding-left: 4%;
+  display: flex;
+  flex-direction: column;
 
-	svg:hover {
-		transition: 0.5s;
-		color: #0217ff;
-		cursor: pointer;
-	}
+  svg:hover {
+    transition: 0.5s;
+    color: #0217ff;
+    cursor: pointer;
+  }
 
-	#localTabA,
-	#localTabB,
-	#localTabC,
-	#localTabD {
-		width: 100%;
-		svg:hover {
-			transition: 0.5s;
-			color: #65dd69;
-			cursor: pointer;
-		}
-		table {
-			margin-top: 1%;
-			width: 95%;
-			tr {
-				&:hover {
-					cursor: pointer;
-					background: rgba(111, 111, 111, 0.5);
-				}
-				&:hover h4 {
-					opacity: 1;
-				}
-			}
-			.likeSong {
-				display: grid;
-				padding-top: 1%;
-				align-items: center;
-				grid-template-rows: 50% 40%;
-				grid-template-columns: 13% 60% 25%;
-				img {
-					height: 100%;
-					width: 3rem;
-					border-radius: 10px;
-					grid-column: 1 / span 1;
-					grid-row: 1 / span 2;
-				}
-				h3 {
-					grid-column: 2 / span 1;
-					grid-row: 1 / span 1;
-					margin: 0;
-					font-size: 1rem;
-				}
-				h4 {
-					display: flex;
-					align-items: center;
-					justify-content: space-around;
-					grid-column: 3 / span 1;
-					grid-row: 1 / span 2;
-					opacity: 0;
-					transition: 0.5s;
-				}
-				span {
-					display: flex;
-					grid-column: 2 / span 1;
-					grid-row: 2 / span 1;
-					align-items: center;
-					justify-content: flex-start;
-					h6,
-					h5 {
-						margin: 5px;
-					}
-					h5 {
-						color: #b7b4b4;
-						&:hover {
-							color: #f4f3f3;
-						}
-					}
-					h6 {
-						font-size: 0.6rem;
-						color: #ffea00;
-						border: 1px solid #ffea00;
-						padding: 3px;
-						&:hover {
-							color: #ff0000;
-							border: 1px solid #ff0000;
-						}
-					}
-				}
-			}
-			th {
-				text-align: left;
-				color: #b7b4b4;
-				padding: 10px;
-				position: relative;
-				&:hover h5 {
-					opacity: 1;
-					transition: 0.5s;
-				}
-				h5 {
-					position: absolute;
-					margin: 0;
-					right: 10%;
-					top: 25%;
-					opacity: 0;
-				}
-				&:hover {
-					cursor: pointer;
-					background: rgba(92, 45, 45, 0.5);
-				}
-			}
+  #localTabA,
+  #localTabB,
+  #localTabC,
+  #localTabD {
+    width: 100%;
+    svg:hover {
+      transition: 0.5s;
+      color: #65dd69;
+      cursor: pointer;
+    }
+    table {
+      margin-top: 1%;
+      width: 95%;
+      tr {
+        &:hover {
+          cursor: pointer;
+          background: rgba(111, 111, 111, 0.5);
+        }
+        &:hover h4 {
+          opacity: 1;
+        }
+      }
+      .likeSong {
+        display: grid;
+        padding-top: 1%;
+        align-items: center;
+        grid-template-rows: 50% 40%;
+        grid-template-columns: 13% 60% 25%;
+        img {
+          height: 100%;
+          width: 3rem;
+          border-radius: 10px;
+          grid-column: 1 / span 1;
+          grid-row: 1 / span 2;
+        }
+        h3 {
+          grid-column: 2 / span 1;
+          grid-row: 1 / span 1;
+          margin: 0;
+          font-size: 1rem;
+        }
+        h4 {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          grid-column: 3 / span 1;
+          grid-row: 1 / span 2;
+          opacity: 0;
+          transition: 0.5s;
+        }
+        span {
+          display: flex;
+          grid-column: 2 / span 1;
+          grid-row: 2 / span 1;
+          align-items: center;
+          justify-content: flex-start;
+          h6,
+          h5 {
+            margin: 5px;
+          }
+          h5 {
+            color: #b7b4b4;
+            &:hover {
+              color: #f4f3f3;
+            }
+          }
+          h6 {
+            font-size: 0.6rem;
+            color: #ffea00;
+            border: 1px solid #ffea00;
+            padding: 3px;
+            &:hover {
+              color: #ff0000;
+              border: 1px solid #ff0000;
+            }
+          }
+        }
+      }
+      th {
+        text-align: left;
+        color: #b7b4b4;
+        padding: 10px;
+        position: relative;
+        &:hover h5 {
+          opacity: 1;
+          transition: 0.5s;
+        }
+        h5 {
+          position: absolute;
+          margin: 0;
+          right: 10%;
+          top: 25%;
+          opacity: 0;
+        }
+        &:hover {
+          cursor: pointer;
+          background: rgba(92, 45, 45, 0.5);
+        }
+      }
 
-			td:nth-of-type(3) {
-				color: #858585da;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				&:hover {
-					color: #ffffff;
-				}
-			}
-			th:nth-of-type(1) {
-				width: 4%;
-			}
-			th:nth-of-type(3) {
-				width: 20%;
-			}
-			th:nth-of-type(4) {
-				width: 10%;
-			}
+      td:nth-of-type(3) {
+        color: #858585da;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover {
+          color: #ffffff;
+        }
+      }
+      th:nth-of-type(1) {
+        width: 4%;
+      }
+      th:nth-of-type(3) {
+        width: 20%;
+      }
+      th:nth-of-type(4) {
+        width: 10%;
+      }
 
-			td {
-				padding-left: 1%;
-			}
-		}
-	}
-	#localTabB,
-	#localTabC,
-	#localTabD {
-		height: 100%;
-		display: flex;
+      td {
+        padding-left: 1%;
+      }
+    }
+  }
+  #localTabB,
+  #localTabC,
+  #localTabD {
+    height: 100%;
+    display: flex;
 
-		aside {
-			width: 15%;
-			height: 90%;
-			margin-top: 1%;
-			background: #000;
-			resize: horizontal;
-			.singerSelectedDom {
-				color: #48ff00;
-				background: linear-gradient(45deg, #22425c, #7b0138);
-				box-shadow: inset 0 0 10px 1px #000;
-			}
-			button {
-				width: 100%;
-				height: 10%;
-				margin-top: 2%;
-				display: grid;
-				color: #fff;
-				border: none;
-				background: transparent;
-				grid-template-rows: 50% 50%;
-				grid-template-columns: 35% 60%;
-				transition: 0.5s;
-				&:hover {
-					cursor: pointer;
-					background: linear-gradient(to bottom, #4e4d4d, #000000);
-					box-shadow: inset -10px 0 15px -2px #524d4d;
-				}
-				img {
-					height: 2.5rem;
-					width: 2.5rem;
-					margin: 5px;
-					border-radius: 50%;
-					grid-column: 1 / span 1;
-					grid-row: 1 / span 2;
-				}
-				h3 {
-					font-size: 0.8rem;
-				}
-				h4 {
-					font-size: 0.7rem;
-					color: #a7a5a5;
-					&:hover {
-						color: #edebeb;
-					}
-				}
-				h3,
-				h4 {
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					margin-top: 5px;
-					text-align: left;
-				}
-			}
-			h5 {
-				text-align: left;
-				color: #ffffff;
-				padding: 10px;
-				margin: 0;
-				position: relative;
-				border-top: 1px solid #fff;
-				border-bottom: 1px solid #fff;
-				background: rgba(15, 47, 93, 0.5);
-				&:hover p {
-					opacity: 1;
-					transition: 0.5s;
-				}
-				p {
-					color: #b7b4b4;
-					position: absolute;
-					margin: 0;
-					right: 10%;
-					top: 25%;
-					opacity: 0;
-				}
-				&:hover {
-					cursor: pointer;
-					background: rgba(92, 45, 45, 0.5);
-				}
-			}
-		}
-		main {
-			width: 85%;
-			table {
-				.likeSong {
-					grid-template-columns: 13% 67% 17%;
-					img {
-						height: 80%;
-					}
-					span {
-						h6 {
-							font-size: 0.5rem;
-						}
-						h5 {
-							color: #a5a4a4;
-							overflow: hidden;
-							text-overflow: ellipsis;
-							white-space: nowrap;
-						}
-					}
-				}
-				td:nth-of-type(3) {
-					font-size: 0.8rem;
-					white-space: pre-wrap;
-					color: #9d9a9a;
+    aside {
+      width: 15%;
+      height: 90%;
+      margin-top: 1%;
+      background: #000;
+      resize: horizontal;
+      .singerSelectedDom {
+        color: #48ff00;
+        background: linear-gradient(45deg, #22425c, #7b0138);
+        box-shadow: inset 0 0 10px 1px #000;
+      }
+      button {
+        width: 100%;
+        height: 10%;
+        margin-top: 2%;
+        display: grid;
+        color: #fff;
+        border: none;
+        background: transparent;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 35% 60%;
+        transition: 0.5s;
+        &:hover {
+          cursor: pointer;
+          background: linear-gradient(to bottom, #4e4d4d, #000000);
+          box-shadow: inset -10px 0 15px -2px #524d4d;
+        }
+        img {
+          height: 2.5rem;
+          width: 2.5rem;
+          margin: 5px;
+          border-radius: 50%;
+          grid-column: 1 / span 1;
+          grid-row: 1 / span 2;
+        }
+        h3 {
+          font-size: 0.8rem;
+        }
+        h4 {
+          font-size: 0.7rem;
+          color: #a7a5a5;
+          &:hover {
+            color: #edebeb;
+          }
+        }
+        h3,
+        h4 {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-top: 5px;
+          text-align: left;
+        }
+      }
+      h5 {
+        text-align: left;
+        color: #ffffff;
+        padding: 10px;
+        margin: 0;
+        position: relative;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        background: rgba(15, 47, 93, 0.5);
+        &:hover p {
+          opacity: 1;
+          transition: 0.5s;
+        }
+        p {
+          color: #b7b4b4;
+          position: absolute;
+          margin: 0;
+          right: 10%;
+          top: 25%;
+          opacity: 0;
+        }
+        &:hover {
+          cursor: pointer;
+          background: rgba(92, 45, 45, 0.5);
+        }
+      }
+    }
+    main {
+      width: 85%;
+      table {
+        .likeSong {
+          grid-template-columns: 13% 67% 17%;
+          img {
+            height: 80%;
+          }
+          span {
+            h6 {
+              font-size: 0.5rem;
+            }
+            h5 {
+              color: #a5a4a4;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+        td:nth-of-type(3) {
+          font-size: 0.8rem;
+          white-space: pre-wrap;
+          color: #9d9a9a;
 
-					&:hover {
-						color: #ffffff;
-					}
-				}
-				th:nth-of-type(1) {
-					width: 5%;
-				}
+          &:hover {
+            color: #ffffff;
+          }
+        }
+        th:nth-of-type(1) {
+          width: 5%;
+        }
 
-				th:nth-of-type(4) {
-					width: 7%;
-				}
-			}
-		}
-	}
+        th:nth-of-type(4) {
+          width: 7%;
+        }
+      }
+    }
+  }
 }
