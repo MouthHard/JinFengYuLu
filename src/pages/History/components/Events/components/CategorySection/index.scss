@@ -1,0 +1,374 @@
+/* 古风Tab分类样式 */
+.category-section {
+  width: 100%;
+  padding: 0 0 20px 0;
+
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  .tab-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .category-tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 2px solid #3d2818;
+      border-radius: 6px;
+      color: #d1c4b8;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.7),
+        0 1px 3px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      /* 古风书籍色渐变：未激活状态更暗，增加层次感 */
+      background: linear-gradient(
+        135deg,
+        #1a120c 0%,
+        #251a14 15%,
+        #2d1f16 30%,
+        #3d2818 45%,
+        #4a3728 50%,
+        #3d2818 65%,
+        #2d1f16 80%,
+        #251a14 90%,
+        #1a120c 100%
+      );
+      background-size: 200% 200%;
+
+      /* 立体反光效果 - 增强版 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -100%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(215, 204, 200, 0.25),
+          transparent,
+          rgba(215, 204, 200, 0.15),
+          transparent
+        );
+        transition: all 0.8s ease;
+        transform: rotate(45deg);
+        z-index: 1;
+      }
+
+      /* 顶部高光和底部阴影效果 */
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(215, 204, 200, 0.2) 0%,
+          rgba(215, 204, 200, 0.1) 30%,
+          transparent 40%,
+          transparent 60%,
+          rgba(0, 0, 0, 0.3) 80%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.7),
+          0 4px 8px rgba(0, 0, 0, 0.5),
+          0 0 12px rgba(215, 204, 200, 0.3);
+        border-color: #6d4c41;
+
+        &::before {
+          left: 100%;
+        }
+
+        .tab-icon {
+          transform: scale(1.05);
+          box-shadow:
+            0 3px 6px rgba(0, 0, 0, 0.5),
+            0 0 10px rgba(215, 204, 200, 0.3),
+            inset 0 1px 0 rgba(160, 144, 128, 0.1);
+        }
+
+        .tab-name {
+          text-shadow: 0 0 8px rgba(215, 204, 200, 0.5);
+        }
+
+        .tab-count {
+          box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.4),
+            0 0 6px rgba(215, 204, 200, 0.2),
+            inset 0 1px 0 rgba(160, 144, 128, 0.1);
+        }
+      }
+
+      &.active {
+        /* 激活状态：更亮的古风书籍色，增加金色调 */
+        background: linear-gradient(
+          135deg,
+          #3d2818 0%,
+          #4a3728 15%,
+          #5d3f1f 30%,
+          #7a5528 45%,
+          #a67c00 50%,
+          #d4c4a0 55%,
+          #a67c00 60%,
+          #7a5528 75%,
+          #5d3f1f 85%,
+          #3d2818 100%
+        );
+        background-size: 200% 200%;
+        border-color: #b8956a;
+        color: #ffffff;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.7),
+          0 4px 8px rgba(0, 0, 0, 0.5),
+          0 0 16px rgba(212, 196, 160, 0.4),
+          inset 0 1px 0 rgba(255, 248, 231, 0.2);
+        transform: translateY(-4px);
+
+        &::before {
+          left: 100%;
+        }
+
+        &::after {
+          background: linear-gradient(
+            180deg,
+            rgba(215, 204, 200, 0.3) 0%,
+            rgba(215, 204, 200, 0.15) 30%,
+            transparent 40%,
+            transparent 60%,
+            rgba(0, 0, 0, 0.2) 80%,
+            rgba(0, 0, 0, 0.2) 100%
+          );
+        }
+
+        .tab-icon {
+          background: linear-gradient(
+            135deg,
+            #5d3f1f 0%,
+            #7a5528 30%,
+            #a67c00 50%,
+            #7a5528 70%,
+            #5d3f1f 100%
+          );
+          color: #ffffff;
+          transform: scale(1.1);
+          box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.5),
+            0 0 12px rgba(212, 196, 160, 0.5),
+            inset 0 1px 0 rgba(255, 248, 231, 0.2);
+          border-color: #b8956a;
+        }
+
+        .tab-name {
+          text-shadow: 0 0 10px rgba(212, 196, 160, 0.6);
+        }
+
+        .tab-count {
+          background: linear-gradient(
+            135deg,
+            #452d13 0%,
+            #7a5528 30%,
+            #816103 50%,
+            #7a5528 70%,
+            #452d13 100%
+          );
+          color: #fff8e7;
+          border-color: #b8956a;
+          box-shadow:
+            0 3px 6px rgba(0, 0, 0, 1),
+            0 0 8px rgba(212, 196, 160, 0.4),
+            inset 0 1px 0 rgba(255, 248, 231, 0.2);
+        }
+      }
+
+      .tab-icon {
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        background: linear-gradient(
+          135deg,
+          #1a120c 0%,
+          #251a14 30%,
+          #2d1f16 50%,
+          #251a14 70%,
+          #1a120c 100%
+        );
+        border-radius: 3px;
+        border: 1px solid #4a3728;
+        transition: all 0.3s ease;
+        /* 图标立体效果 - 增强版 */
+        box-shadow:
+          0 3px 6px rgba(0, 0, 0, 1),
+          inset 0 1px 0 rgba(160, 144, 128, 0.08);
+        position: relative;
+
+        /* 图标高光 */
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 40%;
+          background: linear-gradient(
+            180deg,
+            rgba(215, 204, 200, 0.2) 0%,
+            transparent 100%
+          );
+          border-radius: 3px 3px 0 0;
+          pointer-events: none;
+        }
+      }
+
+      .tab-name {
+        font-weight: bold;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 4px rgba(0, 0, 0, 0.4);
+        letter-spacing: 1px;
+        position: relative;
+        transition: all 0.3s ease;
+        font-size: 16px;
+      }
+
+      .tab-count {
+        font-size: 13px;
+        background: linear-gradient(
+          135deg,
+          #1a120c 0%,
+          #251a14 30%,
+          #2d1f16 50%,
+          #251a14 70%,
+          #1a120c 100%
+        );
+        font-weight: bold;
+        color: #fafafa;
+        padding: 4px 6px;
+        border-radius: 10px;
+        border: 1px solid #4a3728;
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 1),
+          inset 0 1px 0 rgba(160, 144, 128, 0.08);
+    
+        transition: all 0.3s ease;
+        position: relative;
+
+        /* 计数高光 */
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 40%;
+          background: linear-gradient(
+            180deg,
+            rgba(215, 204, 200, 0.15) 0%,
+            transparent 100%
+          );
+          border-radius: 10px 10px 0 0;
+          pointer-events: none;
+        }
+      }
+    }
+
+    /* 底部圆环指示器 - 吊坠样式 */
+    .tab-indicator {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(
+        135deg,
+        #00e5ff 0%,
+        #00bcd4 25%,
+        #2196f3 50%,
+        #4caf50 75%,
+        #69f0ae 100%
+      );
+      box-shadow:
+        0 0 8px rgba(0, 229, 255, 0.8),
+        0 0 16px rgba(33, 150, 243, 0.6),
+        0 0 24px rgba(76, 175, 80, 0.4);
+      z-index: 10;
+      pointer-events: none;
+
+      /* 内圆遮罩，形成圆环效果 */
+      &::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border-radius: 50%;
+        background: #2d1f1a;
+      }
+
+      /* 左侧细线 */
+      .indicator-line-left {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 28px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          #00bcd4 30%,
+          #2196f3 70%,
+          #00e5ff 100%
+        );
+        transform: translateY(-50%);
+        margin-right: 2px;
+        box-shadow: 0 0 4px rgba(0, 188, 212, 0.5);
+      }
+
+      /* 右侧细线 */
+      .indicator-line-right {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 28px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          #00e5ff 0%,
+          #2196f3 30%,
+          #4caf50 70%,
+          transparent 100%
+        );
+        transform: translateY(-50%);
+        margin-left: 2px;
+        box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+      }
+    }
+  }
+}
+
+ 

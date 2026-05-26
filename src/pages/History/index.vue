@@ -149,10 +149,10 @@
   import { useRouter } from 'vue-router';
 
   // 导入组件 - 异步懒加载
-  const DynastiesTimeline = defineAsyncComponent(() => import('./components/dynasties/index.vue'));
-  const HistoricalEvents = defineAsyncComponent(() => import('./components/events/index.vue'));
-  const HistoricalFigures = defineAsyncComponent(() => import('./components/figures/index.vue'));
-  const CulturalHeritage = defineAsyncComponent(() => import('./components/heritage/index.vue'));
+  const DynastiesTimeline = defineAsyncComponent(() => import('./components/Dynasties/index.vue'));
+  const HistoricalEvents = defineAsyncComponent(() => import('./components/Events/index.vue'));
+  const HistoricalFigures = defineAsyncComponent(() => import('./components/Figures/index.vue'));
+  const CulturalHeritage = defineAsyncComponent(() => import('./components/Heritage/index.vue'));
 
   // 导入图标
   import {
