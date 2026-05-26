@@ -78,7 +78,7 @@
   };
 
   const goToHome = () => {
-    window.location.href = '/';
+    router.push('/');
   };
 
   const goToSettings = () => {
