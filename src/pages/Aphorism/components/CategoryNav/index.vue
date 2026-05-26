@@ -15,89 +15,90 @@
     </div>
 
     <!-- 子分类 -->
-    <div v-if="subCategories.length > 0" class="category-section">
-      <div class="category-grid">
-        <button
-          v-for="sub in subCategories"
-          :key="sub.id"
-          class="category-item sub-category"
-          :class="{ active: activeSubCategory === sub.id }"
-          @click="selectSubCategory(sub)"
-        >
-          <span class="item-icon">{{ sub.icon }}</span>
-          <span class="item-name">{{ sub.name }}</span>
-        </button>
-      </div>
+
+    <div v-if="subCategories.length > 0" class="category-grid">
+      <button
+        v-for="sub in subCategories"
+        :key="sub.id"
+        class="category-item sub-category"
+        :class="{ active: activeSubCategory === sub.id }"
+        @click="selectSubCategory(sub)"
+      >
+        <span class="item-icon">{{ sub.icon }}</span>
+        <span class="item-name">{{ sub.name }}</span>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { mainCategories } from "../../data/categories";
-import type { Category } from "../../../../types/poetry/category";
-import "./index.scss";
+  import { ref, computed, onMounted } from 'vue';
+  import { mainCategories } from '../../data/categories';
+  import type { Category } from '../../../../typesOfPages/poetry/category';
+  import './index.scss';
 
-/**
- * 处理分类选择并触发事件
- */
-const handleCategorySelection = (
-  categoryId: string,
-  subCategoryId?: string,
-) => {
-  emit("category-change", categoryId, subCategoryId);
-};
+  /**
+   * 处理分类选择并触发事件
+   */
+  const handleCategorySelection = (
+    categoryId: string,
+    subCategoryId?: string,
+  ) => {
+    emit('category-change', categoryId, subCategoryId);
+  };
 
-/**
- * 重置子分类选择
- */
-const resetSubCategorySelections = () => {
-  activeSubCategory.value = "";
-};
+  /**
+   * 重置子分类选择
+   */
+  const resetSubCategorySelections = () => {
+    activeSubCategory.value = '';
+  };
 
-const emit = defineEmits<{
-  (e: "category-change", categoryId: string, subCategoryId?: string): void;
-}>();
+  const emit = defineEmits<{
+    (e: 'category-change', categoryId: string, subCategoryId?: string): void;
+  }>();
 
-const activeCategory = ref<string>("dynasty");
-const activeSubCategory = ref<string>("");
+  const activeCategory = ref<string>('dynasty');
+  const activeSubCategory = ref<string>('');
 
-const initializeDefaultSelection = () => {
-  if (activeCategory.value !== "all") {
+  const initializeDefaultSelection = () => {
+    if (activeCategory.value !== 'all') {
+      const category = mainCategories.find(
+        (c) => c.id === activeCategory.value,
+      );
+      if (category && category.children && category.children.length > 0) {
+        const firstSubCategory = category.children[0];
+        activeSubCategory.value = firstSubCategory.id;
+        handleCategorySelection(activeCategory.value, firstSubCategory.id);
+      }
+    }
+  };
+
+  onMounted(() => {
+    initializeDefaultSelection();
+  });
+
+  const subCategories = computed(() => {
+    if (activeCategory.value === 'all') return [];
     const category = mainCategories.find((c) => c.id === activeCategory.value);
-    if (category && category.children && category.children.length > 0) {
-      const firstSubCategory = category.children[0];
+    return category?.children || [];
+  });
+
+  const selectCategory = (category: Category) => {
+    // 不允许取消选择，直接设置为选中的分类
+    activeCategory.value = category.id;
+    resetSubCategorySelections();
+    const firstSubCategory = category.children?.[0];
+    if (firstSubCategory) {
       activeSubCategory.value = firstSubCategory.id;
       handleCategorySelection(activeCategory.value, firstSubCategory.id);
+    } else {
+      handleCategorySelection(activeCategory.value);
     }
-  }
-};
+  };
 
-onMounted(() => {
-  initializeDefaultSelection();
-});
-
-const subCategories = computed(() => {
-  if (activeCategory.value === "all") return [];
-  const category = mainCategories.find((c) => c.id === activeCategory.value);
-  return category?.children || [];
-});
-
-const selectCategory = (category: Category) => {
-  // 不允许取消选择，直接设置为选中的分类
-  activeCategory.value = category.id;
-  resetSubCategorySelections();
-  const firstSubCategory = category.children?.[0];
-  if (firstSubCategory) {
-    activeSubCategory.value = firstSubCategory.id;
-    handleCategorySelection(activeCategory.value, firstSubCategory.id);
-  } else {
-    handleCategorySelection(activeCategory.value);
-  }
-};
-
-const selectSubCategory = (sub: Category) => {
-  activeSubCategory.value = sub.id;
-  handleCategorySelection(activeCategory.value, sub.id);
-};
+  const selectSubCategory = (sub: Category) => {
+    activeSubCategory.value = sub.id;
+    handleCategorySelection(activeCategory.value, sub.id);
+  };
 </script>

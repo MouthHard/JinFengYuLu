@@ -1,4 +1,4 @@
-import type { Artifact, ArtifactDetail } from "@/types/museum/index";
+import type { Artifact, ArtifactDetail } from "@/typesOfPages/museum/index";
 
 // 导出常量和映射
 export { artifactTypes, periods, periodMap } from "./constants";

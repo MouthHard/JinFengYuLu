@@ -19,19 +19,19 @@
 </template>
 
 <script setup lang="ts">
-import type { Museum } from "@/types/museum";
-import MuseumIntroSection from "./components/MuseumIntroSection/index.vue";
-import ExhibitionsSection from "./components/ExhibitionsSection/index.vue";
-import ArtifactsSection from "./components/ArtifactsSection/index.vue";
-import ActivitiesSection from "./components/ActivitiesSection/index.vue";
-import NewsSection from "./components/NewsSection/index.vue";
-import ImmersiveSection from "./components/ImmersiveSection/index.vue";
+  import type { Museum } from '@/typesOfPages/museum';
+  import MuseumIntroSection from './components/MuseumIntroSection/index.vue';
+  import ExhibitionsSection from './components/ExhibitionsSection/index.vue';
+  import ArtifactsSection from './components/ArtifactsSection/index.vue';
+  import ActivitiesSection from './components/ActivitiesSection/index.vue';
+  import NewsSection from './components/NewsSection/index.vue';
+  import ImmersiveSection from './components/ImmersiveSection/index.vue';
 
-interface Props {
-  museum: Museum;
-}
+  interface Props {
+    museum: Museum;
+  }
 
-const props = defineProps<Props>();
+  const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped></style>

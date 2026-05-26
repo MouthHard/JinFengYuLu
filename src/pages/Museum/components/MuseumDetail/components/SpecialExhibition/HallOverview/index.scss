@@ -1,0 +1,346 @@
+.hall-overview {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(20, 30, 50, 0.95) 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  // 宇宙星空背景 - 随机星星
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 17px 23px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 39px 58px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 64px 31px, rgba(96, 165, 250, 0.8), transparent),
+      radial-gradient(1px 1px at 87px 67px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 108px 42px, rgba(251, 191, 36, 0.7), transparent),
+      radial-gradient(1px 1px at 132px 89px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 156px 15px, rgba(96, 165, 250, 0.6), transparent);
+    background-size: 170px 100px;
+    animation: twinkle 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  // 极光效果 - 绿色和紫色
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .overview-main {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    gap: 2rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+
+    .overview-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 8px 16px -4px rgba(0, 0, 0, 0.3),
+        0 4px 8px -2px rgba(0, 0, 0, 0.2);
+
+      img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .image-overlay {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+
+        .hall-badge {
+          background: linear-gradient(135deg, rgba(232, 145, 58, 0.9), rgba(240, 168, 92, 0.9));
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          font-size: 0.85rem;
+          font-weight: 700;
+          box-shadow:
+            0 4px 12px rgba(232, 145, 58, 0.3),
+            0 2px 6px rgba(232, 145, 58, 0.2);
+          backdrop-filter: blur(4px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    .overview-info {
+      .hall-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(90deg, #2c5aa0, #e8913a);
+          border-radius: 2px;
+        }
+      }
+
+      .hall-intro {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .hall-stats {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        .stat-item {
+          text-align: center;
+          padding: 1rem 1.5rem;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.04)
+          );
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(4px);
+          box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.2),
+            0 2px 6px rgba(0, 0, 0, 0.15);
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-4px);
+            border-color: rgba(96, 165, 250, 0.4);
+            box-shadow:
+              0 8px 20px rgba(0, 0, 0, 0.3),
+              0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+
+          .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #60a5fa;
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+          }
+
+          .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .hall-actions {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        .action-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.875rem 1.5rem;
+          border-radius: 14px;
+          font-size: 0.95rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: none;
+          position: relative;
+          overflow: hidden;
+
+          &.primary {
+            background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+            color: white;
+            box-shadow:
+              0 4px 14px rgba(44, 90, 160, 0.4),
+              0 2px 6px rgba(44, 90, 160, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
+              transition: left 0.5s ease;
+            }
+
+            &:hover {
+              transform: translateY(-3px);
+              box-shadow:
+                0 8px 24px rgba(44, 90, 160, 0.5),
+                0 4px 10px rgba(44, 90, 160, 0.4);
+
+              &::before {
+                left: 100%;
+              }
+            }
+          }
+
+          &.secondary {
+            background: linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.1),
+              rgba(255, 255, 255, 0.05)
+            );
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            box-shadow:
+              0 4px 12px rgba(0, 0, 0, 0.2),
+              0 2px 6px rgba(0, 0, 0, 0.15);
+
+            &:hover {
+              background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.15),
+                rgba(255, 255, 255, 0.08)
+              );
+              border-color: rgba(44, 90, 160, 0.5);
+              transform: translateY(-3px);
+              box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+
+      .visit-info-inline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        @media (max-width: 968px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 640px) {
+          grid-template-columns: 1fr;
+        }
+
+        .info-item-inline {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.875rem;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.03)
+          );
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(4px);
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.1),
+              rgba(255, 255, 255, 0.05)
+            );
+            border-color: rgba(96, 165, 250, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          .info-icon {
+            font-size: 1.25rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.3), rgba(96, 165, 250, 0.15));
+            border-radius: 10px;
+            flex-shrink: 0;
+            box-shadow:
+              0 2px 8px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          }
+
+          .info-content {
+            flex: 1;
+            min-width: 0;
+
+            .info-label {
+              display: block;
+              font-size: 0.8rem;
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 0.25rem;
+              font-weight: 600;
+            }
+
+            .info-value {
+              display: block;
+              font-size: 0.9rem;
+              color: #ffffff;
+              font-weight: 700;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}

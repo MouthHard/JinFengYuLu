@@ -1,3 +1,13 @@
+.page-switch-enter-active,
+.page-switch-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.page-switch-enter-from,
+.page-switch-leave-to {
+  opacity: 0;
+}
+
 #mainPage {
   position: absolute;
   width: 100%;
@@ -40,15 +50,19 @@
         opacity: 1;
       }
 
-      a {
+      .planet-btn {
         border-radius: 50%;
         position: absolute;
         background-size: cover;
         display: inline-block;
         opacity: 1;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
       }
 
-      &:hover a {
+      &:hover .planet-btn {
         box-shadow:
           inset 0 -2px 0.1rem 1px rgb(0, 0, 0),
           0 0 1.5rem 10px rgb(66, 229, 248);
@@ -62,7 +76,7 @@
         animation: rotate 3s linear infinite;
 
         //水星
-        a {
+        .planet-btn {
           left: 2vmin;
           top: 2vmin;
           width: 1.5vmin;
@@ -80,7 +94,7 @@
         animation: rotate 7.2s linear infinite;
 
         //金星
-        a {
+        .planet-btn {
           left: 3vmin;
           top: 3vmin;
           width: 2vmin;
@@ -97,7 +111,7 @@
         height: 26vmin;
         animation: rotate 12s linear infinite;
 
-        a {
+        .planet-btn {
           left: 3.5vmin;
           top: 3.5vmin;
           width: 3vmin;
@@ -114,7 +128,7 @@
         height: 33vmin;
         animation: rotate 24s linear infinite;
 
-        a {
+        .planet-btn {
           left: 4.5vmin;
           top: 4.5vmin;
           width: 2.5vmin;
@@ -131,7 +145,7 @@
         height: 40vmin;
         animation: rotate 144s linear infinite;
 
-        a {
+        .planet-btn {
           left: 6vmin;
           top: 6vmin;
           width: 4.5vmin;
@@ -148,7 +162,7 @@
         height: 47vmin;
         animation: rotate 360s linear infinite;
 
-        a {
+        .planet-btn {
           left: 6.5vmin;
           top: 6.5vmin;
           width: 4vmin;
@@ -165,7 +179,7 @@
         height: 55vmin;
         animation: rotate 1008s linear infinite;
 
-        a {
+        .planet-btn {
           left: 7.5vmin;
           top: 7.5vmin;
           width: 3.5vmin;
@@ -199,7 +213,7 @@
     color: #ffffff;
     background: #000000;
     transform: translate(-50%, -50%);
-    background-image: url("https://images-pc.oss-cn-hongkong.aliyuncs.com/app/sun.png");
+    background-image: url("https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/sun.png");
     background-size: 100% 100%;
     background-position: center;
     animation: rotateSun 30s ease-in-out infinite both;

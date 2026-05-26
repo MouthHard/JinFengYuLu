@@ -6,12 +6,12 @@
     </div>
     <div class="exhibitions-container">
       <div
-        class="exhibition-card"
         v-for="(exhibition, index) in homeExhibitions"
         :key="index"
+        class="exhibition-card"
       >
         <div class="image-container">
-          <img :src="exhibition.image" @error="handleImageError" />
+          <img loading="lazy" :src="exhibition.image" @error="handleImageError" />
           <div class="image-placeholder" style="display: none">
             <span class="placeholder-icon">🖼️</span>
           </div>
@@ -33,7 +33,7 @@
               <span class="button-text">分享</span>
             </button>
           </div>
-          <p class="exhibition-date">{{ exhibition.date }}</p>
+          <p class="exhibition-date">📅  {{ exhibition.date }}</p>
         </div>
       </div>
     </div>
@@ -42,8 +42,8 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Museum } from "@/types/museum";
-import { getExhibitionsByMuseumId } from "@/pages/Museum/data";
+import type { Museum } from "@/typesOfPages/museum";
+import { getExhibitionsByMuseumId } from "@/pages/Museum/data/exhibitions";
 
 interface Props {
   museum: Museum;

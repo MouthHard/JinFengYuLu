@@ -1,0 +1,100 @@
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .checkbox-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .checkbox-box {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    background: 
+      linear-gradient(165deg, rgba(8, 10, 20, 0.98), rgba(0, 0, 0, 1)), 
+      linear-gradient(135deg, rgba(254, 249, 195, 0.06) 0%, transparent 50%);
+    border: 2px solid rgba(254, 249, 195, 0.4);
+    border-radius: 8px;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(254, 249, 195, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 18%;
+      right: 18%;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(254, 249, 195, 0.2), 
+        rgba(254, 249, 195, 0.25), 
+        transparent);
+      border-radius: 1px;
+    }
+  }
+
+  &:hover:not(.is-disabled) .checkbox-box {
+    border-color: rgba(254, 249, 195, 0.6);
+    box-shadow: 
+      0 6px 16px rgba(254, 249, 195, 0.15),
+      inset 0 1px 0 rgba(254, 249, 195, 0.12);
+  }
+
+  &.is-checked .checkbox-box {
+    background: linear-gradient(135deg, rgba(254, 249, 195, 0.92), rgba(56, 189, 248, 0.82));
+    border-color: rgba(254, 249, 195, 0.85);
+    box-shadow: 
+      0 0 16px rgba(254, 249, 195, 0.5), 
+      0 4px 12px rgba(56, 189, 248, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+    .check-icon {
+      color: rgba(5, 10, 20, 0.95);
+      filter: drop-shadow(0 0 6px rgba(254, 249, 195, 0.7));
+    }
+  }
+
+  .check-icon {
+    width: 14px;
+    height: 14px;
+    animation: checkIn 0.2s ease-out forwards;
+  }
+
+  .checkbox-label {
+    color: rgba(254, 249, 195, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @keyframes checkIn {
+    from {
+      transform: scale(0) rotate(-45deg);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+}

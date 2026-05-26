@@ -1,4 +1,4 @@
-import type { ExhibitionHall } from "@/types/museum";
+import type { ExhibitionHall } from "@/typesOfPages/museum";
 
 // 博物馆专馆数据映射
 // 每个博物馆可以有1-5个专馆

@@ -1,4 +1,4 @@
-import type { ArtifactDetail } from "@/types/museum";
+import type { ArtifactDetail } from "@/typesOfPages/museum";
 
 // 文物详细数据 - 38个博物馆的真实文物详情
 export const artifactDetails: ArtifactDetail[] = [

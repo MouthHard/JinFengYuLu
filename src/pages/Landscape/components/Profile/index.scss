@@ -1,0 +1,205 @@
+﻿.profile-page {
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+
+
+  .cosmic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    .nebula {
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(ellipse at center,
+          rgba(20, 184, 166, 0.15) 0%,
+          rgba(13, 148, 136, 0.1) 40%,
+          transparent 70%);
+      filter: blur(60px);
+      animation: nebulaPulse 15s ease-in-out infinite;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(255, 255, 255, 0.3), transparent);
+      background-size: 200px 150px;
+      animation: starsTwinkle 4s ease-in-out infinite;
+    }
+  }
+
+  // 作品展示区
+  .gallery-section {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .gallery-header {
+      margin-bottom: 20px;
+
+      .gallery-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+      }
+    }
+
+    // 作品瀑布流
+    .gallery-masonry {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+
+      .masonry-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 0;
+      }
+    }
+
+    // 加载更多
+    .load-more {
+      margin-top: 40px;
+      text-align: center;
+
+      .load-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 32px;
+        background: rgba(8, 14, 18, 0.8);
+        border: 1px solid rgba(20, 184, 166, 0.3);
+        border-radius: 12px;
+        color: rgba(20, 184, 166, 1);
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        &:hover {
+          background: linear-gradient(135deg, rgba(20, 184, 166, 0.4) 0%, rgba(13, 148, 136, 0.3) 100%);
+          border-color: rgba(20, 184, 166, 0.6);
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+        }
+      }
+    }
+
+    // 空状态
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 40px;
+      text-align: center;
+      position: relative;
+      min-height: 600px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .empty-icon {
+        margin-bottom: 40px;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 40px rgba(20, 184, 166, 0.5));
+
+        svg {
+          width: 100px;
+          height: 100px;
+          stroke: #14b8a6;
+          stroke-width: 1.5;
+        }
+      }
+
+      h3 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 30px rgba(20, 184, 166, 0.4);
+      }
+
+      p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 450px;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+// 动画
+@keyframes nebulaPulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes starsTwinkle {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

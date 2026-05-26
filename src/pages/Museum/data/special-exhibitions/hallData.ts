@@ -1,4 +1,4 @@
-import type { ExhibitionHall } from "@/types/museum";
+import type { ExhibitionHall } from "@/typesOfPages/museum";
 
 // 专馆数据
 export const exhibitionHalls: ExhibitionHall[] = [

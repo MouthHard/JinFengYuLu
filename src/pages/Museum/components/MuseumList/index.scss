@@ -5,19 +5,18 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-image: url("@/assets/image/Museum/ListBack.webp");
+  background-image: url('@/assets/image/Museum/ListBack.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-
   border: 3px solid #d4c5b0;
   overflow: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 8px;
     left: 8px;
@@ -29,9 +28,8 @@
     z-index: 1;
   }
 
-  // 顶部金线装饰
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -51,9 +49,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1.5rem 2rem;
+    margin: 1rem 2rem;
     flex-wrap: wrap;
-
     flex-shrink: 0;
     position: sticky;
     top: 0;
@@ -67,9 +64,9 @@
       padding: 0.5rem 1rem;
       background: linear-gradient(
         135deg,
-        rgba(30, 144, 255, 0.4),
-        rgba(0, 0, 139, 0.35),
-        rgba(30, 144, 255, 0.35)
+        rgba(30, 221, 255, 0.5),
+        rgba(0, 0, 139, 0.5),
+        rgba(30, 144, 255, 0.5)
       );
       backdrop-filter: blur(20px);
       border-radius: 0.75rem;
@@ -88,10 +85,10 @@
       .section-title {
         margin: 0;
         font-size: 1.75rem;
-        font-family: "FangSong", "STFangsong", serif;
-        color: #ffffff !important;
+        font-family: 'FangSong', 'STFangsong', serif;
+        color: #ffffff;
         font-weight: 700;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.1em;
         text-shadow:
           0 2px 4px rgba(0, 0, 0, 0.8),
           0 0 10px rgba(0, 0, 0, 0.5);
@@ -101,13 +98,13 @@
       .museum-count {
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.9),
-          rgba(240, 240, 240, 0.9)
+          rgb(225, 248, 251),
+          rgba(240, 240, 240, 1)
         );
         color: #1a1a1a;
-        padding: 6px 16px;
+        padding: 3px 16px;
         border-radius: 20px;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 600;
         box-shadow:
           0 2px 8px rgba(0, 0, 0, 0.2),
@@ -136,21 +133,21 @@
         width: 100%;
         padding: 14px 20px;
         padding-right: 60px;
-        border: 2px solid rgba(255, 140, 0, 1);
+        border: 2px solid rgb(198, 111, 6);
         border-radius: 25px;
-        background: rgba(255, 254, 247, 0.9);
-        color: #1a1a1a;
+        background: rgba(255, 254, 247, 1);
+        color: #000000;
         font-family:
-          "Noto Sans SC",
+          'Noto Sans SC',
           -apple-system,
           BlinkMacSystemFont,
-          "Segoe UI",
+          'Segoe UI',
           sans-serif;
         font-size: 1rem;
         box-shadow:
           0 4px 16px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3),
-          0 0 8px rgba(255, 140, 0, 1);
+          inset 0 1px 0 rgba(255, 255, 255, 1),
+          0 0 8px rgb(97, 54, 0);
         transition: all 0.3s ease;
 
         &:focus {
@@ -182,22 +179,15 @@
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow:
-          0 4px 12px rgba(212, 175, 55, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+          0 2px 8px rgb(0, 0, 0),
+          inset 0 1px 0 rgba(255, 255, 255, 1),
+          inset 0 -1px 0 rgba(0, 0, 0, 1);
         display: flex;
         align-items: center;
         justify-content: center;
 
         &:hover {
           transform: translateY(-50%) scale(1.1);
-          box-shadow:
-            0 6px 16px rgba(212, 175, 55, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-
-        svg {
-          width: 18px;
-          height: 18px;
         }
       }
     }
@@ -210,8 +200,7 @@
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 2rem;
-
+    padding: 0 2rem 2rem 2rem;
     scrollbar-width: thin;
     scrollbar-color: rgba(139, 69, 19, 0.3) transparent;
 
@@ -233,7 +222,7 @@
     }
 
     .museum-card {
-      background: rgba(255, 254, 247, 0.9);
+      background: rgba(255, 254, 247, 1);
       border-radius: 16px;
       overflow: hidden;
       box-shadow:
@@ -241,7 +230,7 @@
         0 6px 16px rgba(0, 0, 0, 0.2),
         0 2px 8px rgba(0, 0, 0, 0.15),
         0 0 12px rgba(255, 140, 0, 0.8);
-      border: 3px solid rgba(255, 140, 0, 1);
+      border: 3px ridge rgb(168, 95, 6);
       transition: all 0.4s ease;
       position: relative;
       min-height: 520px;
@@ -253,7 +242,7 @@
       transform: perspective(1000px) rotateX(2deg);
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -288,7 +277,7 @@
           }
 
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             bottom: -3px;
             left: 0;
@@ -347,7 +336,7 @@
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            font-family: "KaiTi", "STKaiti", serif;
+            font-family: 'KaiTi', 'STKaiti', serif;
             box-shadow:
               0 6px 16px rgba(139, 0, 0, 0.6),
               0 3px 8px rgba(0, 0, 0, 0.3),
@@ -366,7 +355,7 @@
             transform: perspective(500px) rotateX(2deg);
 
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 0;
               left: 0;
@@ -382,7 +371,7 @@
             }
 
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               bottom: 2px;
               left: 8px;
@@ -435,7 +424,7 @@
             transform: perspective(500px) rotateX(2deg);
 
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 0;
               left: 0;
@@ -558,7 +547,7 @@
       }
 
       .museum-info {
-        padding: 12px 18px;
+        padding: 10px 20px;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -567,11 +556,11 @@
         z-index: 2;
 
         .museum-name {
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           font-weight: 700;
-          font-family: "FangSong", "STFangsong", serif;
+          font-family: 'FangSong', 'STFangsong', serif;
           color: #8b4513;
-          margin-bottom: 10px;
+          margin: 10px 0;
           line-height: 1.4;
           transition: color 0.3s ease;
           display: -webkit-box;
@@ -585,23 +574,15 @@
           display: flex;
           align-items: center;
           gap: 12px;
-          margin-bottom: 12px;
+          margin: 0;
           flex-wrap: nowrap;
-          overflow-x: auto;
-
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-
-          &::-webkit-scrollbar {
-            display: none;
-          }
 
           .museum-location {
             display: flex;
             align-items: center;
             gap: 7px;
             font-size: 0.9rem;
-            color: #4a4a4a;
+            color: #373737;
             font-weight: 500;
             background: linear-gradient(
               135deg,
@@ -635,8 +616,8 @@
           }
 
           .museum-type-tag {
-            font-size: 0.85rem;
-            color: #5f7c6d;
+            font-size: 0.9rem;
+            color: #3a5346;
             font-weight: 600;
             background: linear-gradient(
               135deg,
@@ -664,20 +645,16 @@
         }
 
         .museum-description {
-          font-size: 0.95rem;
-          color: #4a4a4a;
-          line-height: 1.8;
+          font-size: 1rem;
+          color: #484848;
+          font-weight: 500;
+          line-height: 1.6;
           margin-bottom: 16px;
           flex: 1;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          font-family:
-            "Noto Sans SC",
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            sans-serif;
+          font-family: 'LiSu';
           text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
         }
 
@@ -690,7 +667,7 @@
 
           .action-btn {
             flex: 1;
-            padding: 12px;
+            padding: 10px 12px;
             border: none;
             border-radius: 14px;
             font-size: 0.9rem;
@@ -719,7 +696,7 @@
               transform: perspective(500px) rotateX(2deg);
 
               &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -764,7 +741,7 @@
               transform: perspective(500px) rotateX(2deg);
 
               &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -806,6 +783,7 @@
     padding: 60px 40px;
     background: #fffef7;
     border-radius: 20px;
+    margin:  auto;
     border: 3px solid #d4c5b0;
     box-shadow:
       0 8px 24px rgba(139, 69, 19, 0.16),
@@ -821,7 +799,7 @@
     h3 {
       font-size: 1.5rem;
       font-weight: 700;
-      font-family: "FangSong", "STFangsong", serif;
+      font-family: 'FangSong', 'STFangsong', serif;
       color: #1a1a1a;
       margin-bottom: 12px;
     }

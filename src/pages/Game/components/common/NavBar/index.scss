@@ -1,0 +1,300 @@
+$steam-blue: #66c0f4;
+$steam-dark: #1b2838;
+$steam-darker: #171a21;
+$steam-top: #2a475e;
+$text-primary: #c7d5e0;
+$text-secondary: #8f98a0;
+$text-bright: #ffffff;
+$green: #4c6b22;
+$green-text: #a4d007;
+
+.game-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: $steam-darker;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+
+  &__top {
+    background: linear-gradient(to right, $steam-darker 0%, #1e3a4f 50%, $steam-darker 100%);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 24px;
+    height: 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    font-size: 22px;
+    color: $steam-blue;
+    filter: drop-shadow(0 0 4px rgba($steam-blue, 0.4));
+  }
+
+  &__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: $text-bright;
+    letter-spacing: -0.02em;
+  }
+
+  &__links {
+    display: flex;
+    gap: 0;
+  }
+
+  &__link {
+    padding: 0 14px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: $text-secondary;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 14px;
+      right: 14px;
+      height: 2px;
+      background: $steam-blue;
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover {
+      color: $text-bright;
+      background: rgba(255, 255, 255, 0.06);
+
+      &::after {
+        transform: scaleX(0.5);
+      }
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.1);
+      transition-duration: 0.08s;
+    }
+
+    &--active {
+      color: $text-bright;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__search {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:focus-within {
+      border-color: $steam-blue;
+      box-shadow: 0 0 0 2px rgba($steam-blue, 0.15), 0 0 16px rgba($steam-blue, 0.2);
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    &:hover:not(:focus-within) {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  &__search-input {
+    height: 100%;
+    width: 180px;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    color: $text-primary;
+    font-size: 12px;
+    outline: none;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:focus {
+      width: 220px;
+    }
+
+    &::placeholder { color: rgba(143, 152, 160, 0.6); }
+  }
+
+  &__search-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba($steam-blue, 0.12);
+    border: none;
+    color: $steam-blue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba($steam-blue, 0.22);
+      transform: scale(1.08);
+    }
+
+    &:active {
+      transform: scale(0.95);
+      transition-duration: 0.08s;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+  }
+
+  &__action-btn {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.06);
+    color: $text-secondary;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: $text-bright;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      transition-duration: 0.08s;
+    }
+
+    svg {
+      transition: transform 0.25s;
+    }
+
+    &:hover svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+    animation: badgePop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    @keyframes badgePop {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__sub {
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  &__sub-inner {
+    display: flex;
+    gap: 0;
+    padding: 0 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar { height: 0; }
+  }
+
+  &__cat {
+    padding: 6px 14px;
+    background: transparent;
+    border: none;
+    color: $text-secondary;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.03);
+      opacity: 0;
+      transition: opacity 0.2s;
+      border-radius: 2px 2px 0 0;
+    }
+
+    &:hover {
+      color: $text-bright;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      color: $steam-blue;
+      transition-duration: 0.08s;
+    }
+
+    &--active {
+      color: $steam-blue;
+      border-bottom-color: $steam-blue;
+      text-shadow: 0 0 8px rgba($steam-blue, 0.4);
+
+      &:hover {
+        border-bottom-color: lighten($steam-blue, 10%);
+      }
+    }
+  }
+}

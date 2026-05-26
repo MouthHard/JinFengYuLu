@@ -1,73 +1,10 @@
 // 博物馆详细信息数据（参观信息、历史沿革、建筑特色、重要馆藏、教育活动）
 
-// 开放时间信息
-export interface OpenTimeInfo {
-  regularTime: string; // 常规时间
-  stopEntryTime: string; // 停止入馆时间
-  closeDay: string; // 闭馆日
-  holidayNotice?: string; // 节假日公告
-}
+import type {
+  MuseumDetailInfo,
+} from "../../../../typesOfPages/museum";
 
-// 票务信息
-export interface TicketInfo {
-  price: string; // 门票价格
-  isFree: boolean; // 是否免费
-  needReservation: boolean; // 是否需要预约
-  idRequired?: string; // 证件要求
-  discountPolicy?: string[]; // 优惠政策
-}
-
-// 参观须知
-export interface VisitRules {
-  allowed: string[]; // 允许的行为
-  forbidden: string[]; // 禁止的行为
-}
-
-// 交通信息
-export interface TransportationInfo {
-  address: string; // 地址
-  metro?: string; // 地铁信息
-  bus?: string; // 公交信息
-  parking?: string; // 停车信息
-}
-
-// 服务设施
-export interface ServiceFacilities {
-  hasGuide: boolean; // 讲解服务
-  hasStorage: boolean; // 物品寄存
-  hasRestaurant: boolean; // 餐饮服务
-  hasAccessibility: boolean; // 无障碍设施
-  hasRestArea: boolean; // 休息区
-  hasWiFi: boolean; // 免费WiFi
-  otherServices?: string[]; // 其他服务
-}
-
-// 联系方式
-export interface ContactInfo {
-  phone: string; // 咨询电话
-  email?: string; // 电子邮箱
-  complaintPhone?: string; // 投诉建议电话
-  website?: string; // 官方网站
-}
-
-// 参观信息（用于AboutSection）
-export interface MuseumVisitInfo {
-  openTime: OpenTimeInfo | string; // 开放时间
-  ticket: TicketInfo | string; // 票务信息
-  rules?: VisitRules; // 参观须知
-  transportation?: TransportationInfo; // 交通指南
-  services?: ServiceFacilities; // 服务设施
-  contact?: ContactInfo; // 联系方式
-}
-
-export interface MuseumDetailInfo {
-  museumId: number;
-  visitInfo: MuseumVisitInfo;
-  history: string; // 历史沿革
-  architecture: string; // 建筑特色
-  highlights: string; // 重要馆藏
-  education: string; // 教育活动
-}
+export type { MuseumDetailInfo, MuseumVisitInfo } from "../../../../typesOfPages/museum";
 
 // 博物馆详细信息数据
 export const museumDetailsData: MuseumDetailInfo[] = [
@@ -530,7 +467,5 @@ export const allMuseumDetails: MuseumDetailInfo[] = [
 export const getMuseumDetailsById = (
   museumId: number,
 ): MuseumDetailInfo | undefined => {
-  return allMuseumDetails.find(
-    (detail) => detail.museumId === museumId,
-  );
+  return allMuseumDetails.find((detail) => detail.museumId === museumId);
 };

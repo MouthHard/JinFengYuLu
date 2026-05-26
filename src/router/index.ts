@@ -6,16 +6,18 @@ import {
 import {
   aphorismRoutes,
   museumRoutes,
-  gameRoutes,
   musicRoutes,
+  landscapeRoutes,
+  gameRoutes,
   otherRoutes,
 } from "./modules";
 
 const routes: RouteRecordRaw[] = [
   ...aphorismRoutes,
   ...museumRoutes,
-  ...gameRoutes,
   ...musicRoutes,
+  ...landscapeRoutes,
+  ...gameRoutes,
   ...otherRoutes,
 ];
 

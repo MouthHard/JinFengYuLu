@@ -1,0 +1,26 @@
+<script setup lang="ts">
+  defineOptions({ name: 'CloseIcon' });
+</script>
+
+<template>
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18 6L6 18"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M6 6l12 12"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </svg>
+</template>

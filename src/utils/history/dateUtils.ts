@@ -57,7 +57,7 @@ export const getStartYear = (period: string): number => {
     return 0;
   }
 
-  let yearStr = match[2];
+  const yearStr = match[2];
   let year = isNaN(parseInt(yearStr))
     ? chineseToNumber(yearStr)
     : parseInt(yearStr);
@@ -86,7 +86,7 @@ export const getEndYear = (period: string): number => {
     return getStartYear(period);
   }
 
-  let yearStr = numMatch[2];
+  const yearStr = numMatch[2];
   let year = isNaN(parseInt(yearStr))
     ? chineseToNumber(yearStr)
     : parseInt(yearStr);

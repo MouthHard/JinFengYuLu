@@ -1,5 +1,3 @@
-
-
 export interface WeatherInfo {
   icon: string;
   description: string;

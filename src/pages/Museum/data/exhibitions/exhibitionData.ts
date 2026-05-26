@@ -1,4 +1,4 @@
-import type { ExhibitionCategory } from "@/types/museum";
+import type { ExhibitionCategory } from "@/typesOfPages/museum";
 
 // 展览分类数据
 export const exhibitionCategories: ExhibitionCategory[] = [

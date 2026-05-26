@@ -5,29 +5,31 @@ export const gameRoutes: RouteRecordRaw[] = [
     path: "/game",
     name: "game",
     component: () => import("@/pages/Game/index.vue"),
-    redirect: "/game/shop-steam",
+    redirect: "/game/store",
+    meta: {
+      title: "游戏空间",
+      description: "探索游戏世界，发现热门大作与独立精品",
+    },
     children: [
       {
-        path: "shop-steam",
-        name: "shop-steam",
-        component: () => import("@/pages/Game/GameSubApp/ShopSteam/index.vue"),
+        path: "store",
+        name: "game-store",
+        component: () => import("@/pages/Game/components/Store/index.vue"),
       },
       {
-        path: "warehouse-steam",
-        name: "warehouse-steam",
-        component: () =>
-          import("@/pages/Game/GameSubApp/WarehouseSteam/index.vue"),
+        path: "sale",
+        name: "game-sale",
+        component: () => import("@/pages/Game/components/Sale/index.vue"),
       },
       {
-        path: "community-steam",
-        name: "community-steam",
-        component: () =>
-          import("@/pages/Game/GameSubApp/CommunitySteam/index.vue"),
+        path: "library",
+        name: "game-library",
+        component: () => import("@/pages/Game/components/Library/index.vue"),
       },
       {
-        path: "user-steam",
-        name: "user-steam",
-        component: () => import("@/pages/Game/GameSubApp/UserSteam/index.vue"),
+        path: "detail/:id",
+        name: "game-detail",
+        component: () => import("@/pages/Game/components/GameDetail/index.vue"),
       },
     ],
   },

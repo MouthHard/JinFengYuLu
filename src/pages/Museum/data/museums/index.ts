@@ -1,4 +1,4 @@
-import type { Museum } from "@/types/museum/index";
+import type { Museum } from "@/typesOfPages/museum/index";
 
 // 按省份分组的博物馆数据 - 便于管理和批量添加
 export const museumsByProvince: Record<string, Museum[]> = {
@@ -9,7 +9,7 @@ export const museumsByProvince: Record<string, Museum[]> = {
       province: "北京",
       type: "历史博物馆",
       image:
-        "https://images.unsplash.com/photo-1584468104715-5b8f9e8b8f4e?w=800&h=600&fit=crop",
+        "https://ts2.tc.mm.bing.net/th/id/OIP-C.4gY8qfCoUR9xHYvKN21VJgHaEZ?rs=1&pid=ImgDetMain&o=7&rm=3",
       description:
         "故宫博物院是中国明清两代的皇家宫殿，旧称紫禁城，位于北京中轴线的中心。是中国古代宫廷建筑之精华，无与伦比的艺术宝库，世界上现存规模最大、保存最为完整的木质结构古建筑之一。",
       artifacts: 1863404,

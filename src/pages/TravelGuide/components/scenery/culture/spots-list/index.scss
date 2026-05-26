@@ -1,40 +1,14 @@
 .spots-section {
-  padding: 30px;
+  padding: 10px 30px;
   padding-top: 0;
   position: relative;
   z-index: 2;
-
-  .section-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    font-size: 24px;
-    font-weight: 800;
-    color: #ffffff;
-
-    .title-icon {
-      font-size: 28px;
-      animation: titleIconFloat 3s ease-in-out infinite;
-    }
-
-    .spots-count {
-      font-size: 15px;
-      color: rgba(253, 253, 253, 1);
-      font-weight: bold;
-      margin-left: 8px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 4px 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-  }
 
   .spots-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 24px;
-    padding: 20px 0;
+
     position: relative;
     z-index: 2;
     .spot-card-wrapper {
@@ -63,7 +37,7 @@
           justify-content: space-between;
           align-items: center;
           margin: 0;
-          padding: 20px;
+          padding: 10px 20px;
           background: linear-gradient(
             135deg,
             rgb(0, 0, 0) 0%,
@@ -163,11 +137,11 @@
 
         .image-wrapper {
           position: relative;
-          margin: 20px;
+          margin: 10px 20px;
           padding: 0;
           transform-style: preserve-3d;
           perspective: 1200px;
-          height: 200px;
+          height: 180px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -183,7 +157,7 @@
         }
 
         .card-footer {
-          padding: 20px;
+          padding: 10px 20px;
           background: linear-gradient(
             135deg,
             rgb(0, 0, 0) 0%,
@@ -210,7 +184,7 @@
             color: rgba(255, 255, 255, 0.95);
             font-weight: bold;
             font-size: 14px;
-            margin-bottom: 16px;
+            margin: 0  ;
             overflow: hidden;
             text-overflow: ellipsis;
             z-index: 2;
@@ -219,7 +193,7 @@
           .spot-meta {
             display: flex;
             gap: 12px;
-            margin-bottom: 16px;
+            margin: 12px 0;
             flex-wrap: wrap;
             transform-style: preserve-3d;
             perspective: 1000px;
@@ -276,7 +250,7 @@
 
             .tag-item {
               display: inline-block;
-              padding: 6px 12px;
+              padding: 4px 12px;
               border-radius: 16px;
               font-size: 12px;
               font-weight: bolder;
@@ -450,16 +424,6 @@
   }
 }
 
-@keyframes titleIconFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(5deg);
-  }
-}
-
 @keyframes float {
   0%,
   100% {
@@ -467,84 +431,5 @@
   }
   50% {
     transform: translateY(-10px);
-  }
-}
-
-.stars-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
-
-  .star {
-    animation: twinkle 3s ease-in-out infinite;
-  }
-
-  .star-1 {
-    animation-delay: 0s;
-  }
-  .star-2 {
-    animation-delay: 0.5s;
-  }
-  .star-3 {
-    animation-delay: 1s;
-  }
-  .star-4 {
-    animation-delay: 1.5s;
-  }
-  .star-5 {
-    animation-delay: 2s;
-  }
-  .star-6 {
-    animation-delay: 0.3s;
-  }
-  .star-7 {
-    animation-delay: 0.8s;
-  }
-  .star-8 {
-    animation-delay: 1.3s;
-  }
-  .star-9 {
-    animation-delay: 1.8s;
-  }
-  .star-10 {
-    animation-delay: 0.6s;
-  }
-  .star-11 {
-    animation-delay: 1.1s;
-  }
-  .star-12 {
-    animation-delay: 1.6s;
-  }
-}
-
-.stars-header {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 24px 24px 0 0;
-}
-
-.stars-footer {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0 0 24px 24px;
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
   }
 }

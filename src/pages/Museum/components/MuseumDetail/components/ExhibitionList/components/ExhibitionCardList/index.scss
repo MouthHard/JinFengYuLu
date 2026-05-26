@@ -2,7 +2,7 @@
   flex: 1;
   background: transparent;
   overflow-y: scroll;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -31,7 +31,6 @@
 
       &:hover {
         transform: scale(1.02) rotateX(10deg) rotateY(10deg);
-
         .exhibition-details {
           &::after {
             left: 100%;
@@ -59,17 +58,13 @@
           transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        &:hover img {
-          transform: scale(1.1);
-        }
-
         .status-badge {
           position: absolute;
           top: 8px;
           right: 8px;
           padding: 4px 10px;
           border-radius: 16px;
-          font-size: 0.7rem;
+          font-size: 0.9rem;
           font-weight: bold;
           box-shadow:
             0 2px 4px rgba(0, 0, 0, 0.9),
@@ -99,7 +94,7 @@
             color: #fafafa;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             box-shadow:
               0 2px 4px rgba(0, 0, 0, 0.8),
               0 1px 2px rgba(0, 0, 0, 0.6),
@@ -133,14 +128,14 @@
       }
 
       .exhibition-details {
-        padding: 0.8rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         position: relative;
         background: var(
             --bg-image,
-            url("@/assets/image/Museum/ExhibitionCardBg/card1.png")
+            url('@/assets/image/Museum/ExhibitionCardBg/card1.webp')
           )
           center/cover no-repeat;
         border: none;
@@ -154,26 +149,8 @@
         color: #fff;
         position: relative;
 
-        &::before {
-          content: "";
-          position: absolute;
-          top: 8%;
-          left: 15%;
-          width: 70%;
-          height: 35%;
-          background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            transparent 100%
-          );
-          border-radius: 50%;
-          filter: blur(2px);
-          pointer-events: none;
-        }
-
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: -100%;
@@ -190,7 +167,8 @@
         }
 
         .exhibition-title {
-          font-size: 1rem;
+          font-size: 1.2rem;
+          font-weight: bold;
           color: #fff;
           margin: 0;
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -203,25 +181,11 @@
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-bottom: none;
           box-shadow: 0 -10px 15px rgba(0, 0, 0, 1);
-
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0.8rem;
-            width: 40px;
-            height: 1px;
-            background: linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0.8),
-              transparent
-            );
-          }
         }
 
         .exhibition-date {
-          color: rgba(255, 255, 255, 0.9);
-          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 1);
+          font-size: 0.85rem;
           margin: 0;
           display: flex;
           align-items: center;
@@ -240,7 +204,7 @@
           transition: all 0.3s ease;
 
           &::before {
-            content: "•";
+            content: '•';
             margin-right: 6px;
             color: rgba(255, 255, 255, 0.8);
             font-weight: bold;
@@ -257,8 +221,8 @@
         }
 
         .exhibition-location {
-          color: rgba(255, 255, 255, 0.9);
-          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 1);
+          font-size: 0.85rem;
           margin: 0;
           display: flex;
           align-items: center;
@@ -277,7 +241,7 @@
           transition: all 0.3s ease;
 
           &::before {
-            content: "•";
+            content: '•';
             margin-right: 6px;
             color: rgba(255, 255, 255, 0.8);
             font-weight: bold;
@@ -294,8 +258,9 @@
         }
 
         .exhibition-description {
-          color: rgba(255, 255, 255, 0.85);
-          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 1);
+          font-size: 0.9rem;
+          font-weight: bold;
           line-height: 1.5;
           margin: 0;
           position: relative;

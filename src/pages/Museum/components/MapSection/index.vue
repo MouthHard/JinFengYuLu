@@ -6,7 +6,7 @@
     </h2>
     <div id="chinaMap" ref="mapRef" class="map-element"></div>
 
-    <div class="selected-province" v-if="selectedProvince">
+    <div v-if="selectedProvince" class="selected-province">
       <span class="province-label">当前选择:</span>
       <span class="province-name">{{ selectedProvince }}</span>
       <span class="province-badge"
@@ -18,14 +18,32 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import * as echarts from "echarts";
-import type { Museum } from "@/types/museum";
+import * as echarts from "echarts/core";
+import { MapChart } from "echarts/charts";
+import {
+  TitleComponent,
+  TooltipComponent,
+  VisualMapComponent,
+  GeoComponent,
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
+import type { Museum } from "@/typesOfPages/museum";
 import {
   provinceElevation,
   provinceNameMap,
   provinceColors,
   getElevationTier,
 } from "@/pages/Museum/data/map";
+
+// 注册必要的组件
+echarts.use([
+  MapChart,
+  TitleComponent,
+  TooltipComponent,
+  VisualMapComponent,
+  GeoComponent,
+  CanvasRenderer,
+]);
 
 interface Props {
   selectedProvince: string;
@@ -257,15 +275,17 @@ const initMap = () => {
     const shortName = provinceNameMap[params.name] || params.name;
     emit("select", shortName);
   });
+};
 
-  window.addEventListener("resize", () => {
+const handleResize = () => {
     if (chart) {
       chart.resize();
     }
-  });
-};
+  };
+  window.addEventListener("resize", handleResize);
 
 onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
   if (chart) {
     chart.dispose();
   }

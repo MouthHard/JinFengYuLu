@@ -22,15 +22,6 @@
     display: none;
   }
 
-  .section-title {
-    font-size: 2rem;
-    color: #fafafa;
-    margin-bottom: 2.5rem;
-    text-align: center;
-    text-shadow: 0 0 20px rgba(100, 149, 237, 0.5);
-    position: relative;
-  }
-
   .exhibition-main {
     display: flex;
     width: 100%;
@@ -45,14 +36,20 @@
 
     .exhibition-right {
       width: 40vw;
-      height: 99%;
+      height: 100%;
       background: linear-gradient(
         135deg,
-        rgba(0, 0, 0, 0.8) 0%,
+        rgba(55, 55, 55, 0.8) 0%,
         rgba(10, 10, 30, 0.9) 100%
       );
       box-sizing: border-box;
-      overflow: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

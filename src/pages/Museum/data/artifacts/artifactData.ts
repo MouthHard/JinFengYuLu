@@ -1,4 +1,4 @@
-import type { Artifact } from "@/types/museum";
+import type { Artifact } from "@/typesOfPages/museum";
 
 // 文物列表数据 - 38个博物馆，每个博物馆3-5件真实文物
 export const artifacts: Artifact[] = [

@@ -2,7 +2,6 @@
   <div class="poetry-page">
     <!-- 固定头部区域 -->
     <div class="sticky-header">
-      <!-- 头部 -->
       <header class="page-header">
         <div class="header-content">
           <div class="header-decoration left">
@@ -24,15 +23,11 @@
           </div>
 
           <div class="header-decoration right">
-            <span class="decoration-dot"></span>
             <span class="decoration-line"></span>
+            <span class="decoration-dot"></span>
           </div>
         </div>
-
-        <button class="back-button" @click="goBack">
-          <span class="back-icon">←</span>
-          <span class="back-text">返回首页</span>
-        </button>
+        <button class="back-button" @click="goBack">返回首页</button>
       </header>
 
       <!-- 模式切换 + 内容区域 -->
@@ -69,9 +64,9 @@
               <div class="search-results-bar">
                 <div class="search-results-info">
                   <span class="search-keyword">搜索: "{{ searchQuery }}"</span>
-                  <span class="search-count"
-                    >共找到 {{ filteredPoems.length }} 首诗词</span
-                  >
+                  <span class="search-count">
+                    共找到 {{ filteredPoems.length }} 首诗词
+                  </span>
                 </div>
               </div>
             </section>
@@ -89,8 +84,6 @@
 
     <!-- 可滚动内容区域 -->
     <main class="page-main">
-      <!-- 诗词列表 -->
-
       <div v-if="loading" class="loading-state">
         <div class="loading-spinner"></div>
         <p>正在加载诗词...</p>
@@ -128,7 +121,7 @@
       v-if="selectedPoem"
       :visible="showModal"
       :poem="selectedPoem"
-      :backgroundImage="selectedPoemBackground"
+      :background-image="selectedPoemBackground"
       @close="showModal = false"
       @tag-click="handleTagClick"
       @favorite-toggle="handleFavoriteToggle"
@@ -137,117 +130,117 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { useRouter } from "vue-router";
-import SearchBar from "./components/SearchBar/index.vue";
-import CategoryNav from "./components/CategoryNav/index.vue";
-import PoemCard from "./components/PoemCard/index.vue";
-import PoemModal from "./components/PoemModal/index.vue";
-import Pagination from "./components/Pagination/index.vue";
+  import { ref, computed, onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
+  import SearchBar from './components/SearchBar/index.vue';
+  import CategoryNav from './components/CategoryNav/index.vue';
+  import PoemCard from './components/PoemCard/index.vue';
+  import PoemModal from './components/PoemModal/index.vue';
+  import Pagination from './components/Pagination/index.vue';
 
-// 从公共模块导入
-import { poems } from "./data/poems-refactored";
-import {
-  filterPoemsByCategory,
-  searchPoems as searchPoemsUtil,
-} from "../../utils/poetry";
-import type { Poem } from "../../types/poetry/poem";
-import type { CategoryFilterParams } from "../../types/poetry/category";
+  // 从公共模块导入
+  import { poems } from './data/poems-refactored';
+  import {
+    filterPoemsByCategory,
+    searchPoems as searchPoemsUtil,
+  } from '../../utils/poetry';
+  import type { Poem } from '../../typesOfPages/poetry/poem';
+  import type { CategoryFilterParams } from '../../typesOfPages/poetry/category';
 
-const router = useRouter();
+  const router = useRouter();
 
-// 状态
-const loading = ref(false);
-const searchQuery = ref("");
-const currentPage = ref(1);
-const selectedPoem = ref<Poem | null>(null);
-const selectedPoemBackground = ref<string>("");
-const showModal = ref(false);
-const isSearchMode = ref(false);
-const pageSize = 12;
+  // 状态
+  const loading = ref(false);
+  const searchQuery = ref('');
+  const currentPage = ref(1);
+  const selectedPoem = ref<Poem | null>(null);
+  const selectedPoemBackground = ref<string>('');
+  const showModal = ref(false);
+  const isSearchMode = ref(false);
+  const pageSize = 12;
 
-// 分类筛选状态
-const filterParams = ref<CategoryFilterParams>({
-  categoryId: "",
-  subCategoryId: "",
-});
+  // 分类筛选状态
+  const filterParams = ref<CategoryFilterParams>({
+    categoryId: '',
+    subCategoryId: '',
+  });
 
-// 模式切换
-const switchMode = (searchMode: boolean) => {
-  isSearchMode.value = searchMode;
-  searchQuery.value = "";
-  if (!searchMode) {
-    filterParams.value = { categoryId: "", subCategoryId: "" };
-  }
-  currentPage.value = 1;
-};
-
-// 筛选后的诗词
-const filteredPoems = computed(() => {
-  if (isSearchMode.value && searchQuery.value) {
-    return searchPoemsUtil(poems, searchQuery.value);
-  }
-  if (!isSearchMode.value && filterParams.value.categoryId) {
-    return filterPoemsByCategory(poems, filterParams.value);
-  }
-  return poems;
-});
-
-// 分页数据
-const totalPages = computed(() =>
-  Math.ceil(filteredPoems.value.length / pageSize),
-);
-const displayedPoems = computed(() => {
-  const start = (currentPage.value - 1) * pageSize;
-  return filteredPoems.value.slice(start, start + pageSize);
-});
-
-// 方法
-const goBack = () => router.push("/");
-
-const handleSearch = (query: string) => {
-  searchQuery.value = query;
-  currentPage.value = 1;
-};
-
-const handleCategoryChange = (categoryId: string, subCategoryId?: string) => {
-  filterParams.value = {
-    categoryId,
-    subCategoryId: subCategoryId || "",
+  // 模式切换
+  const switchMode = (searchMode: boolean) => {
+    isSearchMode.value = searchMode;
+    searchQuery.value = '';
+    if (!searchMode) {
+      filterParams.value = { categoryId: '', subCategoryId: '' };
+    }
+    currentPage.value = 1;
   };
-  currentPage.value = 1;
-};
 
-const handlePageChange = (page: number) => {
-  currentPage.value = page;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+  // 筛选后的诗词
+  const filteredPoems = computed(() => {
+    if (isSearchMode.value && searchQuery.value) {
+      return searchPoemsUtil(poems, searchQuery.value);
+    }
+    if (!isSearchMode.value && filterParams.value.categoryId) {
+      return filterPoemsByCategory(poems, filterParams.value);
+    }
+    return poems;
+  });
 
-const handlePoemClick = (poem: Poem, backgroundImage: string) => {
-  selectedPoem.value = poem;
-  selectedPoemBackground.value = backgroundImage;
-  showModal.value = true;
-};
+  // 分页数据
+  const totalPages = computed(() =>
+    Math.ceil(filteredPoems.value.length / pageSize),
+  );
+  const displayedPoems = computed(() => {
+    const start = (currentPage.value - 1) * pageSize;
+    return filteredPoems.value.slice(start, start + pageSize);
+  });
 
-const handleTagClick = (tag: string) => {
-  searchQuery.value = tag;
-  isSearchMode.value = true;
-  currentPage.value = 1;
-};
+  // 方法
+  const goBack = () => router.push('/');
 
-const handleFavoriteToggle = (poemId: string) => {
-  console.log("Toggle favorite:", poemId);
-};
+  const handleSearch = (query: string) => {
+    searchQuery.value = query;
+    currentPage.value = 1;
+  };
 
-// 生命周期
-onMounted(() => {
-  loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-  }, 500);
-});
+  const handleCategoryChange = (categoryId: string, subCategoryId?: string) => {
+    filterParams.value = {
+      categoryId,
+      subCategoryId: subCategoryId || '',
+    };
+    currentPage.value = 1;
+  };
+
+  const handlePageChange = (page: number) => {
+    currentPage.value = page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handlePoemClick = (poem: Poem, backgroundImage: string) => {
+    selectedPoem.value = poem;
+    selectedPoemBackground.value = backgroundImage;
+    showModal.value = true;
+  };
+
+  const handleTagClick = (tag: string) => {
+    searchQuery.value = tag;
+    isSearchMode.value = true;
+    currentPage.value = 1;
+  };
+
+  const handleFavoriteToggle = (poemId: string) => {
+    console.log('Toggle favorite:', poemId);
+  };
+
+  // 生命周期
+  onMounted(() => {
+    loading.value = true;
+    setTimeout(() => {
+      loading.value = false;
+    }, 500);
+  });
 </script>
 
 <style scoped lang="scss">
-@use "./index.scss";
+  @use './index.scss';
 </style>

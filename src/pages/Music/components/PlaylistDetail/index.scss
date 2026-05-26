@@ -1,0 +1,447 @@
+$bg-primary: #0c0c14;
+$bg-card: rgba(255, 255, 255, 0.04);
+$bg-hover: rgba(255, 255, 255, 0.08);
+$text-primary: #e8e8f0;
+$text-secondary: rgba(255, 255, 255, 0.5);
+
+// 高贵金色风格
+$accent-gradient: linear-gradient(135deg, #D4AF37, #F4D03F, #FFD700, #FFEC8B);
+$accent-color: #D4AF37;
+$accent-glow: rgba(212, 175, 55, 0.4);
+$gold-dark: #D4AF37;
+$gold-medium: #F4D03F;
+$gold-light: #FFD700;
+
+.playlist-detail {
+  .detail-header {
+    position: relative;
+    padding: 28px;
+    overflow: hidden;
+
+    .header-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(40px) brightness(0.3) saturate(1.5);
+        transform: scale(1.3);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(12, 12, 20, 0.4), $bg-primary);
+      }
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 24px;
+
+      .cover-wrap {
+        width: 180px;
+        height: 180px;
+        border-radius: 14px;
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .header-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .tag-row {
+          display: flex;
+          gap: 6px;
+          margin-bottom: 8px;
+
+          .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.15);
+            color: $accent-color;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.1);
+          }
+        }
+
+        .playlist-name {
+          font-size: 24px;
+          font-weight: 700;
+          color: $text-primary;
+          margin-bottom: 8px;
+          line-height: 1.3;
+        }
+
+        .creator-row {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          color: $text-secondary;
+          margin-bottom: 8px;
+
+          .creator {
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+
+        .description {
+          font-size: 12px;
+          color: $text-secondary;
+          line-height: 1.6;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          margin-bottom: 14px;
+        }
+
+        .action-row {
+          display: flex;
+          gap: 12px;
+
+          .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: $text-primary;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.12);
+              border-color: rgba(255, 255, 255, 0.25);
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+              transform: translateY(-2px);
+            }
+
+            &:active {
+              transform: translateY(0);
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            &.primary {
+              background: $accent-gradient;
+              border-color: transparent;
+              color: #1a1a2e;
+              position: relative;
+              overflow: hidden;
+              box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                  45deg,
+                  transparent 0%,
+                  rgba(255, 255, 255, 0.4) 25%,
+                  transparent 50%,
+                  rgba(255, 255, 255, 0.2) 75%,
+                  transparent 100%
+                );
+                transform: rotate(45deg);
+                animation: goldSparkle 3s ease-in-out infinite;
+                pointer-events: none;
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                inset: -2px;
+                background: linear-gradient(
+                  45deg,
+                  rgba(212, 175, 55, 0.5),
+                  rgba(244, 208, 63, 0.5),
+                  rgba(212, 175, 55, 0.5)
+                );
+                border-radius: 24px;
+                z-index: -1;
+                animation: goldGlow 4s ease-in-out infinite;
+              }
+
+              &:hover {
+                box-shadow:
+                  0 8px 28px rgba(0, 0, 0, 0.5),
+                  0 0 50px rgba(212, 175, 55, 0.5),
+                  0 0 80px rgba(244, 208, 63, 0.3),
+                  inset 0 2px 0 rgba(255, 255, 255, 0.7);
+                transform: translateY(-3px) scale(1.02);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .song-list {
+    padding: 0 28px 28px;
+
+    .list-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 12px;
+      color: $text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .song-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(212, 175, 55, 0.08) 0%,
+          rgba(212, 175, 55, 0.02) 100%
+        );
+        box-shadow:
+          0 4px 16px rgba(0, 0, 0, 0.15),
+          0 0 20px rgba(212, 175, 55, 0.1);
+        transform: translateX(4px);
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 4px;
+          height: 70%;
+          background: $accent-gradient;
+          border-radius: 0 2px 2px 0;
+          box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(212, 175, 55, 0.1),
+            transparent
+          );
+          transition: right 0.6s;
+        }
+
+        &:hover::after {
+          right: 100%;
+        }
+      }
+
+      &.active {
+        background: linear-gradient(
+          90deg,
+          rgba(212, 175, 55, 0.15) 0%,
+          rgba(212, 175, 55, 0.05) 100%
+        );
+        box-shadow:
+          inset 0 0 20px rgba(212, 175, 55, 0.1),
+          0 4px 16px rgba(212, 175, 55, 0.15);
+
+        .name {
+          color: $accent-color;
+          text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        .playing-icon {
+          animation: pulse 2s ease-in-out infinite;
+        }
+      }
+
+      .col {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .index-col {
+        width: 40px;
+        flex-shrink: 0;
+        font-size: 13px;
+        color: $text-secondary;
+
+        .playing-icon {
+          color: $accent-color;
+        }
+      }
+
+      .name-col {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .song-cover-xs {
+          width: 36px;
+          height: 36px;
+          border-radius: 6px;
+          overflow: hidden;
+          flex-shrink: 0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .song-name-cell {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          overflow: hidden;
+
+          .name {
+            font-size: 13px;
+            color: $text-primary;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .vip-tag,
+          .sq-tag {
+            font-size: 9px;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-weight: 600;
+            flex-shrink: 0;
+          }
+
+          .vip-tag {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: #1a1a2e;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+          }
+
+          .sq-tag {
+            background: linear-gradient(135deg, #F4D03F, #FFD700);
+            color: #1a1a2e;
+            box-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
+          }
+        }
+      }
+
+      .artist-col {
+        flex: 1;
+        font-size: 12px;
+        color: $text-secondary;
+      }
+
+      .album-col {
+        flex: 1;
+        font-size: 12px;
+        color: $text-secondary;
+      }
+
+      .duration-col {
+        width: 60px;
+        flex-shrink: 0;
+        font-size: 12px;
+        color: $text-secondary;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+    }
+  }
+}
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+
+  .not-found-content {
+    text-align: center;
+
+    svg {
+      width: 48px;
+      height: 48px;
+      color: $text-secondary;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: $text-secondary;
+      font-size: 14px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes goldSparkle {
+  0%, 100% {
+    transform: rotate(45deg) translate(-30%, -30%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(45deg) translate(30%, 30%);
+    opacity: 0.9;
+  }
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

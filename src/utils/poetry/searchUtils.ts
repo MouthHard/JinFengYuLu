@@ -3,7 +3,7 @@
  * 提供诗词搜索相关的工具函数
  */
 
-import type { Poem } from "../../types/poetry/poem";
+import type { Poem } from "../../typesOfPages/poetry/poem";
 
 /**
  * 搜索诗词

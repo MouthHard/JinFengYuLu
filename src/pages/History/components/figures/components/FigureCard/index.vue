@@ -2,9 +2,8 @@
   <div
     class="figure-card"
     :style="{ '--delay': delay + 's' }"
-    @click="openDetail(figure)"
   >
-    <div class="card-inner">
+    <div class="card-inner" :class="{ 'flipped': isFlipped }">
       <!-- 正面 -->
       <div class="card-front">
         <div class="card-background">
@@ -13,40 +12,41 @@
             <div class="header-text">{{ figure.dynasty }}</div>
             <div class="header-decor right"></div>
           </div>
-          <div class="portrait-frame">
-            <img
-              :src="figure.portraitUrl"
-              :alt="figure.name"
-              class="portrait"
-            />
-          </div>
           <div class="card-body">
             <h3 class="figure-name">{{ figure.name }}</h3>
             <p class="figure-title">{{ figure.title }}</p>
             <p class="figure-brief">{{ figure.brief }}</p>
+            <div class="tags-container">
+              <div class="tags-title">相关人物</div>
+              <div class="tags-content">
+                <span
+                  v-for="related in figure.backContent?.relatedFigures"
+                  :key="related"
+                  class="tag"
+                >
+                  {{ related }}
+                </span>
+                <span class="tag more-tag">更多..tags</span>
+              </div>
+            </div>
+            <div class="card-buttons">
+              <button class="btn detail-btn" @click="openDetail(figure)">详情</button>
+              <button class="btn flip-btn" @click="isFlipped = !isFlipped">翻面</button>
+            </div>
           </div>
         </div>
         <div class="card-corner"></div>
       </div>
 
       <!-- 背面 -->
-      <div class="card-back" v-if="figure.backContent">
-        <h3 class="back-name">{{ figure.name }}</h3>
-        <div class="back-content">
-          <div class="back-section">
-            <span class="section-label">主要成就</span>
-            <p class="section-text">{{ figure.backContent?.contribution }}</p>
-          </div>
-          <div class="back-section related">
-            <span class="section-label">相关人物</span>
-            <span
-              v-for="related in figure.backContent?.relatedFigures"
-              :key="related"
-              class="related-tag"
-            >
-              {{ related }}
-            </span>
-          </div>
+      <div class="card-back">
+        <img loading="lazy"           :src="figure.portraitUrl"
+          :alt="figure.name"
+          class="back-image"
+        />
+        <div class="back-buttons">
+          <button class="btn back-detail-btn" @click="openDetail(figure)">详情</button>
+          <button class="btn back-flip-btn" @click="isFlipped = !isFlipped">翻面</button>
         </div>
       </div>
     </div>
@@ -54,22 +54,25 @@
 </template>
 
 <script setup lang="ts">
-import type { HistoricalFigure } from "@/types/history";
+  import type { HistoricalFigure } from '@/typesOfPages/history';
+  import { ref } from 'vue';
 
-const props = defineProps<{
-  figure: HistoricalFigure;
-  delay: number;
-}>();
+  const props = defineProps<{
+    figure: HistoricalFigure;
+    delay: number;
+  }>();
 
-const emit = defineEmits<{
-  (e: "open-detail", figure: HistoricalFigure): void;
-}>();
+  const emit = defineEmits<{
+    (e: 'open-detail', figure: HistoricalFigure): void;
+  }>();
 
-const openDetail = (figure: HistoricalFigure) => {
-  emit("open-detail", figure);
-};
+  const isFlipped = ref(false);
+
+  const openDetail = (figure: HistoricalFigure) => {
+    emit('open-detail', figure);
+  };
 </script>
 
 <style scoped lang="scss">
-@use "./index.scss" as *;
+  @use './index.scss' as *;
 </style>

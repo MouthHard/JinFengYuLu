@@ -1,5 +1,5 @@
 // 活动数据
-import type { Activity } from "@/types/museum/index";
+import type { Activity } from "@/typesOfPages/museum/index";
 
 // 活动数据数组
 export const activities: Activity[] = [

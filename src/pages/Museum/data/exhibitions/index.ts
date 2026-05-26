@@ -1,4 +1,4 @@
-import type { Exhibition } from "@/types/museum/index";
+import type { Exhibition } from "@/typesOfPages/museum/index";
 
 // 导出展览分类和静态数据
 export { exhibitionCategories, staticExhibitions } from "./exhibitionData";

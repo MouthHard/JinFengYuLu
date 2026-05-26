@@ -1,0 +1,775 @@
+.province-sidebar {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  box-sizing: border-box;
+  height: 100vh;
+  z-index: 900;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 8, 0.98) 0%,
+    rgba(10, 14, 23, 0.98) 50%,
+    rgba(0, 0, 8, 0.98) 100%
+  );
+
+  border-right: 2px solid rgb(255, 255, 255);
+  box-shadow:
+    5px 0 15px rgba(0, 240, 255, 0.5),
+    inset 0 0 50px rgba(0, 240, 255, 0.2);
+
+  .cyber-bg-effects {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .sidebar-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 240, 255, 0.08) 0%,
+      rgba(255, 0, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 12px;
+    box-shadow:
+      0 0 20px rgba(0, 240, 255, 0.15),
+      inset 0 0 20px rgba(0, 240, 255, 0.05);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+
+    .title-icon {
+      font-size: 1.5rem;
+      color: rgb(140, 190, 251);
+      animation: iconPulse 2s ease-in-out infinite;
+    }
+
+    .glitch-text {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &::before {
+        color: rgba(255, 0, 255, 0.8);
+        animation: glitch1 2s infinite;
+        clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      }
+
+      &::after {
+        color: rgba(0, 255, 255, 0.8);
+        animation: glitch2 5s infinite;
+        clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+      }
+    }
+
+    .title-decoration {
+      position: absolute;
+      bottom: -1px;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .deco-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(0, 240, 255, 0.8), transparent);
+      }
+
+      .deco-dot {
+        width: 6px;
+        height: 6px;
+        background: rgba(255, 0, 255, 1);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+        animation: dotPulse 1.5s ease-in-out infinite;
+      }
+    }
+  }
+
+  .search-box {
+    position: relative;
+    z-index: 1;
+    margin: 0.5rem auto;
+
+    .search-input {
+      width: 100%;
+      padding: 0.9rem 3.5rem 0.9rem 1.5rem;
+      font-size: 0.9rem;
+      border: 2px solid rgba(0, 240, 255, 0.3);
+      border-radius: 25px;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 8, 0.9) 0%,
+        rgba(10, 14, 23, 0.5) 100%
+      );
+      color: rgba(255, 255, 255, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+      box-shadow:
+        0 0 15px rgba(0, 240, 255, 0.1),
+        inset 0 0 20px rgba(0, 240, 255, 0.05);
+
+      &:hover {
+        border-color: rgba(0, 240, 255, 0.7);
+        box-shadow:
+          0 0 25px rgba(0, 240, 255, 0.25),
+          0 8px 20px rgba(0, 240, 255, 0.15),
+          inset 0 0 25px rgba(0, 240, 255, 0.08);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: rgba(0, 240, 255, 1);
+        box-shadow:
+          0 0 30px rgba(0, 240, 255, 0.4),
+          0 0 60px rgba(0, 240, 255, 0.2),
+          inset 0 0 30px rgba(0, 240, 255, 0.1);
+      }
+
+      &::placeholder {
+        color: rgba(0, 240, 255, 0.6);
+        font-style: italic;
+      }
+
+      &:focus::placeholder {
+        color: rgba(0, 240, 255, 0.8);
+      }
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 2;
+    }
+  }
+
+  .region-filter {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    .region-button {
+      position: relative;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.85rem;
+      font-weight: bolder;
+      color: rgba(0, 240, 255, 0.8);
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 8, 0.8) 0%,
+        rgba(10, 14, 23, 0.8) 100%
+      );
+      border: 1px solid rgba(0, 240, 255, 0.6);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+
+      .btn-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at center,
+          rgb(125, 191, 253),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+
+      .btn-particles {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 1),
+          transparent
+        );
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease;
+        z-index: 0;
+      }
+
+      &:hover {
+        color: rgba(0, 240, 255, 1);
+        border-color: rgba(0, 240, 255, 1);
+        box-shadow:
+          0 0 25px rgba(0, 240, 255, 0.4),
+          0 8px 20px rgba(0, 240, 255, 0.2);
+        transform: translateY(-3px) scale(1.05);
+
+        .btn-glow {
+          opacity: 1;
+          animation: glowPulse 1.5s ease-in-out infinite;
+        }
+
+        .btn-particles {
+          width: 100px;
+          height: 100px;
+          opacity: 0;
+        }
+      }
+
+      &.active {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 0, 255, 0.2) 0%,
+          rgba(0, 240, 255, 0.15) 100%
+        );
+        color: rgba(255, 255, 0, 1);
+        border-color: rgba(255, 0, 255, 0.8);
+        box-shadow:
+          0 0 30px rgba(255, 0, 255, 0.5),
+          0 0 60px rgba(255, 0, 255, 0.3),
+          inset 0 0 20px rgba(255, 0, 255, 0.2);
+        transform: translateY(-3px) scale(1.08);
+
+        .btn-glow {
+          background: radial-gradient(
+            circle at center,
+            rgba(255, 0, 255, 0.4),
+            transparent
+          );
+          opacity: 1;
+          animation: glowPulse 1s ease-in-out infinite;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%
+          );
+          animation: shine 2s linear infinite;
+          z-index: 0;
+        }
+      }
+    }
+  }
+
+  .province-list {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 8, 0.6) 0%,
+      rgba(10, 14, 23, 0.6) 100%
+    );
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 15px;
+    box-shadow:
+      0 0 20px rgba(0, 240, 255, 0.2),
+      inset 0 0 30px rgba(0, 240, 255, 0.05);
+    overflow: hidden;
+
+    .list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 240, 255, 0.2) 0%,
+        transparent 100%
+      );
+      border-bottom: 1px solid rgba(0, 240, 255, 0.5);
+
+      .header-text {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: rgba(0, 240, 255, 1);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+      }
+
+      .header-status {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: rgba(0, 255, 0, 1);
+        padding: 0.2rem 0.5rem;
+        background: rgba(0, 255, 0, 0.1);
+        border: 1px solid rgba(0, 255, 0, 0.6);
+        border-radius: 4px;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 1);
+        animation: statusPulse 2s ease-in-out infinite;
+      }
+    }
+
+    .list-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0.7rem;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 240, 255, 0.05);
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 240, 255, 0.4),
+          rgba(255, 0, 255, 0.4)
+        );
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+
+        &:hover {
+          background: linear-gradient(
+            180deg,
+            rgba(0, 240, 255, 0.6),
+            rgba(255, 0, 255, 0.6)
+          );
+        }
+      }
+
+      .province-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 8, 0.6) 0%,
+          rgba(10, 14, 23, 0.6) 100%
+        );
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        overflow: hidden;
+        animation: itemSlideIn 0.6s ease-out backwards;
+
+        .item-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(
+            circle at center,
+            rgba(0, 240, 255, 0.2),
+            transparent
+          );
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
+        }
+
+        .item-data-line {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(
+            90deg,
+            rgba(0, 240, 255, 0.8),
+            rgba(255, 0, 255, 0.8)
+          );
+          transition: width 0.5s ease;
+          box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        &:hover {
+          border-color: rgba(0, 240, 255, 1);
+          box-shadow: 0 0 15px rgba(0, 240, 255, 0.7);
+          transform: translateX(3px) scale(1.02);
+
+          .item-glow {
+            opacity: 1;
+            animation: glowPulse 1.5s ease-in-out infinite;
+          }
+
+          .item-data-line {
+            width: 100%;
+          }
+
+          .province-name {
+            color: rgba(255, 255, 255, 1);
+            text-shadow:
+              0 0 10px rgba(0, 240, 255, 0.8),
+              0 0 20px rgba(0, 240, 255, 0.5);
+          }
+
+          .province-abbreviation {
+            color: rgba(255, 215, 0, 1);
+            border-color: rgba(255, 215, 0, 1);
+            box-shadow:
+              0 0 15px rgba(255, 215, 0, 0.5),
+              inset 0 0 10px rgba(255, 215, 0, 0.2);
+          }
+
+          .province-region {
+            color: rgba(0, 240, 255, 1);
+            border-color: rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+          }
+        }
+
+        &.selected {
+          background: linear-gradient(
+            135deg,
+            rgba(255, 0, 0, 0.15) 0%,
+            rgba(255, 102, 0, 0.1) 50%,
+            rgba(255, 0, 255, 0.1) 100%
+          );
+          border-color: rgba(255, 0, 0, 1);
+          box-shadow:
+            0 0 20px rgba(255, 0, 0, 0.4),
+            inset 0 0 30px rgba(255, 0, 0, 0.1);
+          transform: translateX(3px) scale(1.02);
+          animation: selectedPulse 1.5s ease-in-out infinite;
+
+          .item-glow {
+            background: radial-gradient(
+              circle at center,
+              rgba(255, 0, 0, 0.3),
+              transparent
+            );
+            opacity: 1;
+          }
+
+          .item-data-line {
+            width: 100%;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 0, 0, 0.8),
+              rgba(255, 102, 0, 0.8),
+              rgba(255, 0, 255, 0.8)
+            );
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+          }
+
+          .province-name {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 800;
+          }
+
+          .province-abbreviation {
+            color: rgba(255, 255, 255, 1);
+            border-color: rgba(255, 0, 0, 1);
+            box-shadow:
+              0 0 20px rgba(255, 0, 0, 0.6),
+              inset 0 0 15px rgba(255, 0, 0, 0.3);
+          }
+
+          .province-region {
+            color: rgba(255, 255, 255, 1);
+            background: rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.6);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(
+              180deg,
+              rgba(255, 0, 0, 1),
+              rgb(245, 178, 133),
+              rgb(166, 0, 255)
+            );
+            box-shadow:
+              0 0 15px rgba(255, 0, 0, 0.8),
+              0 0 30px rgba(255, 0, 0, 0.4);
+          }
+        }
+
+        .province-name {
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: rgba(0, 240, 255, 1);
+          flex: 1;
+          transition: all 0.3s ease;
+          text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .province-abbreviation {
+          font-size: 0.8rem;
+          font-weight: 800;
+          color: rgba(255, 215, 0, 1);
+
+          padding: 0.3rem 0.6rem;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 215, 0, 0.6);
+          transition: all 0.3s ease;
+          box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        .province-region {
+          font-size: 0.8rem;
+          color: rgba(0, 240, 255, 0.8);
+          background: rgba(0, 240, 255, 0.1);
+          padding: 0.25rem 0.5rem;
+          border-radius: 6px;
+          font-weight: 600;
+          border: 1px solid rgba(0, 240, 255, 0.3);
+          transition: all 0.3s ease;
+          box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  .status-bar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 240, 255, 0.08) 0%,
+      rgba(255, 0, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(0, 240, 255, 0.5);
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(0, 255, 0, 1);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 1);
+        animation: dotBlink 1.5s ease-in-out infinite;
+      }
+
+      .status-text {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgba(0, 240, 255, 1);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .status-count {
+        font-size: 1rem;
+        font-weight: 800;
+        color: rgba(255, 255, 0, 1);
+        text-shadow: 0 0 10px rgba(255, 255, 0, 1);
+        font-family: monospace;
+      }
+
+      .status-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgba(0, 240, 255, 1);
+      }
+    }
+  }
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 1));
+  }
+}
+
+@keyframes glitch1 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch2 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+  }
+}
+
+@keyframes itemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes selectedPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 40px rgba(255, 0, 0, 0.4),
+      0 0 80px rgba(255, 0, 0, 0.2),
+      inset 0 0 30px rgba(255, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 50px rgba(255, 0, 0, 0.5),
+      0 0 100px rgba(255, 0, 0, 0.3),
+      inset 0 0 40px rgba(255, 0, 0, 0.15);
+  }
+}
+
+@keyframes dotBlink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}

@@ -1,8 +1,7 @@
 <template>
   <div class="detail-panel">
     <Transition name="detail-fade" mode="out-in">
-      <div v-if="dynasty" class="detail-content" :key="dynasty.id">
-        <!-- 头部信息 -->
+      <div v-if="dynasty" :key="dynasty.id" class="detail-content">
         <div class="detail-header">
           <div class="header-main">
             <h2 class="dynasty-title">{{ dynasty.name }}</h2>
@@ -13,18 +12,10 @@
             </div>
           </div>
           <button class="close-btn" @click="handleClose">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+            ×
           </button>
         </div>
 
-        <!-- 基本信息卡片 -->
         <div class="info-cards">
           <div class="info-card" :style="{ '--index': 0 }">
             <div class="card-icon">👑</div>
@@ -49,13 +40,13 @@
           </div>
         </div>
 
-        <!-- 历史概述 -->
+ 
         <div class="description-section">
           <h3 class="section-title">历史概述</h3>
           <p class="description-text">{{ dynasty.description }}</p>
         </div>
 
-        <!-- 重要事件 -->
+ 
         <div class="highlights-section">
           <h3 class="section-title">重要事件</h3>
           <div class="highlights-list">
@@ -71,11 +62,11 @@
           </div>
         </div>
 
-        <!-- 疆域地图 -->
+ 
         <div class="map-section">
           <h3 class="section-title">疆域范围</h3>
           <div class="map-container">
-            <img :src="dynasty.mapUrl" :alt="dynasty.name + '疆域'" />
+            <img loading="lazy" :src="dynasty.mapUrl" :alt="dynasty.name + '疆域'" />
             <div class="map-overlay">
               <p>{{ dynasty.mapDescription }}</p>
             </div>
@@ -83,7 +74,7 @@
         </div>
       </div>
 
-      <!-- 空状态 -->
+ 
       <div v-else class="empty-state">
         <div class="empty-icon">📜</div>
         <h3 class="empty-title">探索中国历史</h3>
@@ -94,39 +85,39 @@
 </template>
 
 <script setup lang="ts">
-interface Dynasty {
-  id: string;
-  name: string;
-  period: string;
-  era: string;
-  periodTag: string;
-  isUnified?: boolean;
-  description?: string;
-  highlights?: string[];
-  mapUrl?: string;
-  mapDescription?: string;
-  capital?: string;
-  location?: string;
-  ethnicGroup?: string;
-  founder?: string;
-  startYear?: number;
-  endYear?: number;
-}
+  interface Dynasty {
+    id: string;
+    name: string;
+    period: string;
+    era: string;
+    periodTag: string;
+    isUnified?: boolean;
+    description?: string;
+    highlights?: string[];
+    mapUrl?: string;
+    mapDescription?: string;
+    capital?: string;
+    location?: string;
+    ethnicGroup?: string;
+    founder?: string;
+    startYear?: number;
+    endYear?: number;
+  }
 
-const props = defineProps<{
-  dynasty: Dynasty | null;
-  durationYears: number;
-}>();
+  const props = defineProps<{
+    dynasty: Dynasty | null;
+    durationYears: number;
+  }>();
 
-const emit = defineEmits<{
-  (e: "close"): void;
-}>();
+  const emit = defineEmits<{
+    (e: 'close'): void;
+  }>();
 
-const handleClose = () => {
-  emit("close");
-};
+  const handleClose = () => {
+    emit('close');
+  };
 </script>
 
 <style scoped lang="scss">
-@use "./index.scss" as *;
+  @use './index.scss' as *;
 </style>

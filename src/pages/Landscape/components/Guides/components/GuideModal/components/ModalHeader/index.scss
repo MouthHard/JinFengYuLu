@@ -1,0 +1,695 @@
+.modal-header {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+
+  .modal-hero {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      height: 180px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 8s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    .modal-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.3) 30%,
+        rgba(8, 4, 18, 0.85) 60%,
+        rgba(8, 4, 18, 1) 100%
+      );
+    }
+
+    .modal-hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      z-index: 1;
+
+      @media (max-width: 768px) {
+        padding: 1rem;
+      }
+
+      .modal-badges {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+
+        .badge {
+          padding: 0.35rem 0.9rem;
+          backdrop-filter: blur(20px);
+          border-radius: 999px;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          box-shadow:
+            0 3px 10px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          transition: all 250ms;
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent);
+            border-radius: 999px 999px 0 0;
+          }
+
+          &:hover {
+            transform: translateY(-2px) scale(1.05);
+          }
+
+          &.mode {
+            &.mode-self-drive {
+              background: linear-gradient(135deg, rgba(37, 99, 235, 0.7), rgba(29, 78, 216, 0.6));
+              border: 1px solid rgba(37, 99, 235, 0.5);
+            }
+
+            &.mode-free-travel {
+              background: linear-gradient(135deg, rgba(34, 197, 94, 0.7), rgba(22, 163, 74, 0.6));
+              border: 1px solid rgba(34, 197, 94, 0.5);
+            }
+
+            &.mode-group-travel {
+              background: linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(220, 38, 38, 0.6));
+              border: 1px solid rgba(239, 68, 68, 0.5);
+            }
+
+            &.mode-photo-travel {
+              background: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(20, 184, 166, 0.6));
+              border: 1px solid rgba(6, 182, 212, 0.5);
+            }
+
+            &.mode-hiking {
+              background: linear-gradient(135deg, rgba(146, 64, 14, 0.7), rgba(120, 53, 15, 0.6));
+              border: 1px solid rgba(146, 64, 14, 0.5);
+            }
+
+            &.mode-camping {
+              background: linear-gradient(135deg, rgba(21, 128, 61, 0.7), rgba(16, 185, 129, 0.6));
+              border: 1px solid rgba(21, 128, 61, 0.5);
+            }
+
+            &.mode-cruise {
+              background: linear-gradient(135deg, rgba(3, 105, 161, 0.7), rgba(2, 132, 199, 0.6));
+              border: 1px solid rgba(3, 105, 161, 0.5);
+            }
+
+            &.mode-cycling {
+              background: linear-gradient(135deg, rgba(234, 88, 12, 0.7), rgba(217, 70, 23, 0.6));
+              border: 1px solid rgba(234, 88, 12, 0.5);
+            }
+
+            &.mode-rv-travel {
+              background: linear-gradient(135deg, rgba(120, 53, 15, 0.7), rgba(92, 37, 13, 0.6));
+              border: 1px solid rgba(120, 53, 15, 0.5);
+            }
+
+            &.mode-backpacking {
+              background: linear-gradient(135deg, rgba(51, 65, 85, 0.7), rgba(30, 41, 59, 0.6));
+              border: 1px solid rgba(51, 65, 85, 0.5);
+            }
+
+            &.mode-family-travel {
+              background: linear-gradient(135deg, rgba(236, 72, 153, 0.7), rgba(219, 39, 119, 0.6));
+              border: 1px solid rgba(236, 72, 153, 0.5);
+            }
+
+            &.mode-honeymoon {
+              background: linear-gradient(135deg, rgba(244, 114, 182, 0.7), rgba(236, 72, 153, 0.6));
+              border: 1px solid rgba(244, 114, 182, 0.5);
+            }
+            color: #ffffff;
+          }
+
+          &.theme {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(20, 184, 166, 0.6));
+            border: 1px solid rgba(6, 182, 212, 0.5);
+            color: #ffffff;
+          }
+
+          &.diff {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+
+            &.easy {
+              background: linear-gradient(135deg, rgba(34, 197, 94, 0.7), rgba(22, 163, 74, 0.6));
+              border-color: rgba(34, 197, 94, 0.5);
+            }
+
+            &.medium {
+              background: linear-gradient(135deg, rgba(245, 158, 11, 0.7), rgba(234, 88, 12, 0.6));
+              border-color: rgba(245, 158, 11, 0.5);
+            }
+
+            &.hard {
+              background: linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(220, 38, 38, 0.6));
+              border-color: rgba(239, 68, 68, 0.5);
+            }
+          }
+        }
+      }
+
+      .modal-title {
+        font-family: 'Playfair Display', 'Songti SC', serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.3;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 0 40px rgba(6, 182, 212, 0.15);
+
+        @media (max-width: 768px) {
+          font-size: 1.35rem;
+        }
+      }
+    }
+  }
+
+  .modal-meta-wrapper {
+    padding: 1rem 1.5rem;
+  }
+
+  .modal-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .meta-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(6, 182, 212, 0.35);
+        box-shadow:
+          0 0 20px rgba(6, 182, 212, 0.25),
+          0 0 40px rgba(6, 182, 212, 0.1),
+          inset 0 0 5px rgba(255, 255, 255, 0.1);
+        transition: all 300ms;
+
+        &:hover {
+          border-color: rgba(6, 182, 212, 0.6);
+          transform: scale(1.05);
+          box-shadow:
+            0 0 30px rgba(6, 182, 212, 0.4),
+            0 0 60px rgba(6, 182, 212, 0.15);
+        }
+      }
+
+      .author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+
+        .author-name {
+          font-size: 1rem;
+          font-weight: 600;
+          color: #ffffff;
+        }
+
+        .author-badge {
+          font-size: 0.8rem;
+          font-weight: 500;
+
+          &.mode-self-drive {
+            color: #60a5fa;
+          }
+
+          &.mode-free-travel {
+            color: #4ade80;
+          }
+
+          &.mode-group-travel {
+            color: #f87171;
+          }
+
+          &.mode-photo-travel {
+            color: #22d3ee;
+          }
+
+          &.mode-hiking {
+            color: #f97316;
+          }
+
+          &.mode-camping {
+            color: #34d399;
+          }
+
+          &.mode-cruise {
+            color: #38bdf8;
+          }
+
+          &.mode-cycling {
+            color: #fb923c;
+          }
+
+          &.mode-rv-travel {
+            color: #d97706;
+          }
+
+          &.mode-backpacking {
+            color: #94a3b8;
+          }
+
+          &.mode-family-travel {
+            color: #f472b6;
+          }
+
+          &.mode-honeymoon {
+            color: #f9a8d4;
+          }
+        }
+      }
+    }
+
+    .meta-details {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+
+      .detail-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 999px;
+        background: rgba(6, 182, 212, 0.06);
+        border: 1px solid rgba(6, 182, 212, 0.08);
+        transition: all 250ms;
+
+        &:hover {
+          background: rgba(6, 182, 212, 0.12);
+          border-color: rgba(6, 182, 212, 0.2);
+          color: #67e8f9;
+        }
+
+        svg {
+          opacity: 0.8;
+          color: #22d3ee;
+        }
+      }
+
+      .detail-divider {
+        color: rgba(6, 182, 212, 0.3);
+      }
+    }
+  }
+
+  .modal-stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 0 1.5rem 1rem;
+
+    .stat-block {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: 0.6rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+
+      svg {
+        width: 19px;
+        height: 19px;
+        stroke-width: 2;
+        flex-shrink: 0;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .stat-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        flex: 1;
+
+        .stat-value {
+          font-size: 0.88rem;
+          font-weight: 700;
+          line-height: 1;
+          transition: all 0.2s;
+        }
+
+        .stat-label {
+          font-size: 0.62rem;
+          letter-spacing: 0.04em;
+          opacity: 0.75;
+          transition: all 0.2s;
+        }
+      }
+    }
+  }
+}
+
+$color-cyan: #22d3ee;
+$color-blue: #60a5fa;
+$color-pink: #f472b6;
+$color-purple: #a78bfa;
+$color-green: #34d399;
+
+@mixin statButtonBase($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $light-color: mix(white, $color, 35%);
+
+  background: linear-gradient(145deg, 
+    rgba($r, $g, $b, 0.12) 0%,
+    rgba($r, $g, $b, 0.05) 100%
+  );
+  border: 1.5px solid rgba($r, $g, $b, 0.4);
+  box-shadow: 
+    0 3px 12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba($r, $g, $b, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  svg {
+    stroke: $light-color;
+    filter: drop-shadow(0 0 4px rgba($r, $g, $b, 0.4));
+  }
+
+  .stat-value {
+    color: $light-color;
+    text-shadow: 0 0 12px rgba($r, $g, $b, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .stat-label {
+    color: mix(white, $color, 20%);
+    text-shadow: 0 0 8px rgba($r, $g, $b, 0.3);
+  }
+}
+
+@mixin statButtonHover($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $light-color: mix(white, $color, 45%);
+
+  background: linear-gradient(145deg, 
+    rgba($r, $g, $b, 0.25) 0%,
+    rgba($r, $g, $b, 0.15) 100%
+  );
+  border: 2.5px solid rgba($r, $g, $b, 0.9);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba($r, $g, $b, 0.35),
+    0 0 0 1px rgba($r, $g, $b, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px) scale(1.03);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba($r, $g, $b, 0.3);
+    border-radius: 0.5rem;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $color, transparent);
+    box-shadow: 0 0 8px rgba($r, $g, $b, 0.6);
+  }
+
+  svg {
+    stroke: $light-color;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba($r, $g, $b, 0.7));
+  }
+
+  .stat-value {
+    color: $light-color;
+    text-shadow: 0 0 24px rgba($r, $g, $b, 0.7), 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .stat-label {
+    color: mix(white, $color, 35%);
+    opacity: 1;
+  }
+}
+
+@mixin statButtonActive($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $light-color: mix(white, $color, 50%);
+
+  background: linear-gradient(145deg, 
+    rgba($r, $g, $b, 0.32) 0%,
+    rgba($r, $g, $b, 0.2) 100%
+  );
+  border: 2px solid rgba($r, $g, $b, 0.8);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba($r, $g, $b, 0.25),
+    inset 0 3px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.05s;
+
+  svg {
+    stroke: $light-color;
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 3px rgba($r, $g, $b, 0.3));
+  }
+
+  .stat-value {
+    color: $light-color;
+    text-shadow: 0 0 12px rgba($r, $g, $b, 0.4);
+  }
+
+  .stat-label {
+    color: mix(white, $color, 35%);
+  }
+}
+
+@mixin statButtonActivated($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $darker-color: mix(black, $color, 25%);
+
+  background: linear-gradient(180deg, 
+    rgba($r, $g, $b, 0.7) 0%,
+    rgba($r, $g, $b, 0.85) 40%,
+    rgba(red($darker-color), green($darker-color), blue($darker-color), 0.9) 100%
+  );
+  border: none;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    filter: blur(0.5px);
+    pointer-events: none;
+  }
+
+  svg {
+    stroke: #ffffff;
+    transform: scale(1.1);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  .stat-value {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .stat-label {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.modal-header {
+  .modal-stats-row .stat-block {
+    &:first-child {
+      @include statButtonBase($color-cyan);
+
+      &:hover {
+        @include statButtonHover($color-cyan);
+      }
+
+      &:active {
+        @include statButtonActive($color-cyan);
+      }
+
+      &.active {
+        @include statButtonActivated($color-cyan);
+      }
+    }
+
+    &:nth-child(2) {
+      @include statButtonBase($color-blue);
+
+      &:hover {
+        @include statButtonHover($color-blue);
+      }
+
+      &:active {
+        @include statButtonActive($color-blue);
+      }
+
+      &.active {
+        @include statButtonActivated($color-blue);
+      }
+    }
+
+    &:nth-child(3) {
+      @include statButtonBase($color-pink);
+
+      &.active svg {
+        fill: rgba(236, 72, 153, 0.3);
+      }
+
+      &:hover {
+        @include statButtonHover($color-pink);
+
+        svg {
+          fill: rgba(236, 72, 153, 0.2);
+        }
+      }
+
+      &:active {
+        @include statButtonActive($color-pink);
+      }
+
+      &.active {
+        @include statButtonActivated($color-pink);
+      }
+    }
+
+    &:nth-child(4) {
+      @include statButtonBase($color-purple);
+
+      &:hover {
+        @include statButtonHover($color-purple);
+      }
+
+      &:active {
+        @include statButtonActive($color-purple);
+      }
+
+      &.active {
+        @include statButtonActivated($color-purple);
+      }
+    }
+
+    &:nth-child(5) {
+      @include statButtonBase($color-green);
+
+      &:hover {
+        @include statButtonHover($color-green);
+
+        svg {
+          transform: scale(1.15) rotate(12deg);
+        }
+      }
+
+      &:active {
+        @include statButtonActive($color-green);
+      }
+
+      &.active {
+        @include statButtonActivated($color-green);
+      }
+    }
+
+    &.interactive {
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-4px) scale(1.03);
+      }
+
+      &:active {
+        transform: translateY(-1px) scale(0.96);
+      }
+    }
+  }
+}

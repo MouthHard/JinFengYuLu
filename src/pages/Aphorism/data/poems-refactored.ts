@@ -3,7 +3,7 @@
  * 每首诗词可以在多个一级分类下出现，但在同一个一级分类下只属于一个二级分类
  */
 
-import type { Poem } from "../../../types/poetry/poem";
+import type { Poem } from "../../../typesOfPages/poetry/poem";
 
 export const poems: Poem[] = [
   {

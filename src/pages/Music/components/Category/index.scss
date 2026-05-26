@@ -1,0 +1,818 @@
+$bg-primary: #0c0c14;
+$bg-card: rgba(255, 255, 255, 0.04);
+$bg-hover: rgba(255, 255, 255, 0.08);
+$text-primary: #e8e8f0;
+$text-secondary: rgba(255, 255, 255, 0.5);
+
+$accent-gradient: linear-gradient(135deg, #10B981, #06B6D4, #3B82F6);
+$accent-color: #10B981;
+$accent-glow: rgba(16, 185, 129, 0.4);
+$gradient-green: #10B981;
+$gradient-cyan: #06B6D4;
+$gradient-blue: #3B82F6;
+
+.category-page {
+  padding: 24px 28px;
+
+  .page-header {
+    margin-bottom: 24px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      color: $text-secondary;
+    }
+  }
+
+  .category-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+
+    .tab-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 14px;
+      color: $text-secondary;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: $text-primary;
+      }
+
+      &.active {
+        background: $accent-gradient;
+        color: white;
+        box-shadow: 0 4px 16px $accent-glow;
+      }
+
+      .tab-icon {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tab-label {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .subcategory-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+
+    .filter-item {
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 13px;
+      color: $text-secondary;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: $text-primary;
+      }
+
+      &.active {
+        background: $accent-gradient;
+        color: white;
+      }
+    }
+  }
+
+  .song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+
+    .song-card {
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.05));
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(16, 185, 129, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(16, 185, 129, 0.08) 25%,
+          rgba(6, 182, 212, 0.05) 50%,
+          rgba(16, 185, 129, 0.08) 75%,
+          transparent 100%
+        );
+        pointer-events: none;
+        animation: greenShimmer 3s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      &:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(16, 185, 129, 0.5);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(16, 185, 129, 0.3),
+          0 0 60px rgba(6, 182, 212, 0.2),
+          inset 0 2px 0 rgba(16, 185, 129, 0.2),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+      }
+
+      .song-cover {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+        z-index: 2;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 215, 0, 0.05) 50%,
+            rgba(135, 206, 235, 0.05) 100%
+          );
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s;
+          position: relative;
+          z-index: 0;
+        }
+
+        &:hover img {
+          transform: scale(1.08);
+        }
+
+        .song-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(42, 42, 53, 0.4) 50%,
+            rgba(26, 26, 34, 0.5) 100%
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.4s;
+          z-index: 3;
+
+          .play-button {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #10B981, #06B6D4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+              0 6px 20px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              right: -2px;
+              bottom: -2px;
+              background: linear-gradient(
+                45deg,
+                rgba(16, 185, 129, 0.6),
+                rgba(6, 182, 212, 0.6),
+                rgba(59, 130, 246, 0.6),
+                rgba(16, 185, 129, 0.6)
+              );
+              border-radius: 50%;
+              z-index: -1;
+              animation: greenGlow 4s ease-in-out infinite;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 60%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
+              transform: skewX(-25deg) translateX(-100%);
+              animation: greenShine 3s ease-in-out infinite;
+            }
+
+            &:hover {
+              transform: scale(1.1);
+              box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(16, 185, 129, 0.6),
+                0 0 60px rgba(6, 182, 212, 0.3);
+            }
+
+            svg {
+              width: 22px;
+              height: 20px;
+              color: white;
+              margin-left: 2px;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+              z-index: 1;
+              position: relative;
+            }
+          }
+        }
+
+        &:hover .song-overlay {
+          opacity: 1;
+        }
+      }
+
+      .song-info {
+        padding: 12px;
+
+        .song-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .song-artist {
+          font-size: 12px;
+          color: $text-secondary;
+          margin-bottom: 8px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .song-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 11px;
+          color: $text-secondary;
+
+          .song-album {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .song-duration {
+            font-variant-numeric: tabular-nums;
+          }
+        }
+      }
+    }
+  }
+
+  .artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+
+    .artist-card {
+      background: $bg-card;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.3s;
+      cursor: pointer;
+      text-align: center;
+      padding: 16px;
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(139, 92, 246, 0.1);
+      }
+
+      .artist-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 12px;
+        border: 2px solid rgba(139, 92, 246, 0.3);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .artist-info {
+        .artist-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 4px;
+        }
+
+        .artist-songs {
+          font-size: 12px;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+
+    .album-card {
+      background: $bg-card;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(139, 92, 246, 0.1);
+      }
+
+      .album-cover {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+
+      .album-info {
+        padding: 12px;
+
+        .album-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .album-artist {
+          font-size: 12px;
+          color: $text-secondary;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .album-year {
+          font-size: 11px;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+
+  .mv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+
+    .mv-card {
+      background: $bg-card;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(139, 92, 246, 0.1);
+      }
+
+      .mv-cover {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .mv-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s;
+
+          .play-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: $accent-gradient;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px $accent-glow;
+
+            svg {
+              width: 20px;
+              height: 20px;
+              color: white;
+              margin-left: 2px;
+            }
+          }
+
+          .mv-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            padding: 4px 8px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            font-size: 11px;
+            color: white;
+          }
+        }
+
+        &:hover .mv-overlay {
+          opacity: 1;
+        }
+      }
+
+      .mv-info {
+        padding: 12px;
+
+        .mv-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .mv-artist {
+          font-size: 12px;
+          color: $text-secondary;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .radio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+
+    .radio-card {
+      background: $bg-card;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(139, 92, 246, 0.1);
+      }
+
+      .radio-cover {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .radio-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.3s;
+
+          .play-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: $accent-gradient;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px $accent-glow;
+
+            svg {
+              width: 20px;
+              height: 20px;
+              color: white;
+              margin-left: 2px;
+            }
+          }
+        }
+
+        &:hover .radio-overlay {
+          opacity: 1;
+        }
+      }
+
+      .radio-info {
+        padding: 12px;
+
+        .radio-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .radio-desc {
+          font-size: 12px;
+          color: $text-secondary;
+          margin-bottom: 8px;
+          line-height: 1.3;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .radio-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 11px;
+          color: $text-secondary;
+
+          .radio-listener {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .radio-category {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 8px;
+            border-radius: 10px;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .charts-section {
+    .chart-content {
+      background: $bg-card;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+
+      .chart-header {
+        margin-bottom: 24px;
+
+        h2 {
+          font-size: 24px;
+          font-weight: 700;
+          color: $text-primary;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 14px;
+          color: $text-secondary;
+        }
+      }
+
+      .chart-list {
+        .chart-song-item {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+
+            .chart-song-name {
+              color: $accent-color;
+            }
+          }
+
+          .chart-rank {
+            font-size: 18px;
+            font-weight: 700;
+            color: $text-secondary;
+            min-width: 32px;
+
+            &.top3 {
+              color: $accent-color;
+              font-size: 20px;
+            }
+          }
+
+          .chart-song-info {
+            flex: 1;
+            overflow: hidden;
+
+            .chart-song-name-row {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+
+              .chart-song-name {
+                font-size: 14px;
+                color: $text-primary;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: color 0.2s;
+              }
+
+              .vip-tag, .sq-tag {
+                font-size: 10px;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: 600;
+                flex-shrink: 0;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+              }
+
+              .vip-tag {
+                background: linear-gradient(135deg, #10B981, #059669);
+                color: white;
+              }
+
+              .sq-tag {
+                background: linear-gradient(135deg, #06B6D4, #0891B2);
+                color: white;
+              }
+            }
+
+            .chart-song-artist {
+              font-size: 12px;
+              color: $text-secondary;
+              margin-top: 4px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+
+          .chart-song-duration {
+            font-size: 13px;
+            color: $text-secondary;
+            font-variant-numeric: tabular-nums;
+          }
+        }
+
+        .chart-song-item:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes greenShimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-30%);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(30%);
+  }
+}
+
+@keyframes greenGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes greenShine {
+  0%, 100% {
+    transform: skewX(-25deg) translateX(-100%);
+  }
+  50% {
+    transform: skewX(-25deg) translateX(200%);
+  }
+}

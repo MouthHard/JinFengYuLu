@@ -11,9 +11,17 @@
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  background: rgba(10, 14, 23, 0.8);
+  background: rgba(10, 14, 23, 1);
   color: #ffffff;
   position: relative;
   z-index: 1;
+
+  .food-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #888;
+    font-size: 14px;
+  }
 }

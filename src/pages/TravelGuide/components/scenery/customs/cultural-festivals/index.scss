@@ -1,19 +1,18 @@
 .cultural-festivals {
   margin-bottom: 50px;
-
   .section-header {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
-    padding: 16px 20px;
+    padding: 10px 20px;
     border-radius: 20px;
     box-shadow:
       0 4px 12px rgba(0, 0, 0, 1),
       0 0 5px rgba(138, 43, 226, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-bottom: 30px;
+    margin-bottom: 0;
     border: 1px solid rgba(138, 43, 226, 0.3);
     background: linear-gradient(
       27deg,
@@ -25,11 +24,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 36px;
+      font-size: 28px;
       transition: all 0.5s ease;
     }
     .badge-text {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 800;
       color: #ffffff;
     }
@@ -38,7 +37,8 @@
   .festivals-calendar {
     position: relative;
     border-radius: 24px;
-    padding: 28px;
+    padding: 12px 28px;
+    margin: 0;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     border: 2px solid rgba(138, 43, 226, 0.3);
@@ -103,7 +103,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 28px;
+      margin-bottom: 0;
       padding: 0 8px;
       position: relative;
       z-index: 1;
@@ -126,11 +126,16 @@
         box-shadow:
           0 4px 15px rgba(0, 0, 0, 0.4),
           0 0 20px rgba(138, 43, 226, 0.1);
-
         &:hover {
           border-color: rgba(138, 43, 226, 1);
-          transform: scale(1.05) rotate(10deg);
+          transform: scale(1.05) rotate(15deg);
           box-shadow: 0 0 20px rgba(138, 43, 226, 1);
+        }
+        &:first-child {
+          transform: rotate(180deg);
+          &:hover {
+            transform: rotate(195deg) scale(1.05);
+          }
         }
 
         &:active {
@@ -139,10 +144,9 @@
       }
 
       .current-month {
-        font-size: 32px;
+        font-size: 28px;
         font-weight: 800;
         color: #ffffff;
-
         letter-spacing: 4px;
         position: relative;
         z-index: 1;
@@ -169,10 +173,10 @@
         margin-bottom: 20px;
         .weekday {
           text-align: center;
-          font-size: 15px;
+          font-size: 18px;
           font-weight: 700;
           color: #e7d1fe;
-          padding: 14px 10px;
+          padding: 8px 10px;
           background: linear-gradient(
             135deg,
             rgba(168, 82, 248, 0.3),
@@ -195,7 +199,7 @@
         padding: 0 4px;
 
         .calendar-day {
-          min-height: 95px;
+          min-height: 80px;
           background: linear-gradient(
             135deg,
             rgba(25, 15, 50, 0.7),
@@ -203,7 +207,7 @@
           );
           border-radius: 18px;
           border: 1px solid rgba(138, 43, 226, 0.2);
-          padding: 14px;
+          padding: 6px 14px;
           cursor: pointer;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
@@ -281,7 +285,7 @@
 
           /* 节日名称标签 */
           .festival-name-label {
-            font-size: 10px;
+            font-size: 14px;
             font-weight: 700;
             color: #ffffff;
             text-align: center;
@@ -322,7 +326,7 @@
           }
 
           .day-number {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: #ffffff;
           }
@@ -332,10 +336,148 @@
   }
 
   .festivals-list {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 10px;
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 40px;
+      background: linear-gradient(
+        135deg,
+        rgba(8, 3, 22, 0.95) 0%,
+        rgba(18, 8, 40, 0.92) 100%
+      );
+      border-radius: 28px;
+      border: 2px dashed rgba(138, 43, 226, 0.2);
+      position: relative;
+      overflow: hidden;
+
+      .empty-cosmos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+
+        .cosmic-star {
+          position: absolute;
+          background: radial-gradient(
+            circle,
+            #ffffff 0%,
+            #e1c9fa 60%,
+            transparent 100%
+          );
+          border-radius: 50%;
+          box-shadow: 0 0 8px rgba(225, 201, 250, 0.7);
+
+          &.cs-1 {
+            width: 3px;
+            height: 3px;
+            top: 15%;
+            left: 20%;
+            animation: cosmic-twinkle-1 4s ease-in-out infinite;
+          }
+          &.cs-2 {
+            width: 2px;
+            height: 2px;
+            top: 65%;
+            left: 75%;
+            animation: cosmic-twinkle-2 5s ease-in-out infinite;
+          }
+          &.cs-3 {
+            width: 4px;
+            height: 4px;
+            top: 30%;
+            left: 80%;
+            animation: cosmic-twinkle-1 6s ease-in-out infinite reverse;
+          }
+          &.cs-4 {
+            width: 2px;
+            height: 2px;
+            top: 80%;
+            left: 15%;
+            animation: cosmic-twinkle-2 7s ease-in-out infinite reverse;
+          }
+        }
+
+        .cosmic-ring {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 280px;
+          height: 280px;
+          border: 1px solid rgba(138, 43, 226, 0.08);
+          border-radius: 50%;
+          animation: cosmic-ring-pulse 5s ease-in-out infinite;
+        }
+      }
+
+      .empty-icon-wrap {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        margin-bottom: 24px;
+
+        .empty-icon {
+          font-size: 72px;
+          display: block;
+          animation: cosmic-icon-glow 5s ease-in-out infinite;
+          filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.5));
+        }
+      }
+
+      .empty-title {
+        font-size: 22px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          #e1c9fa 0%,
+          #c084fc 50%,
+          #f0abfc 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 12px 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .empty-desc {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.45);
+        margin: 0 0 24px 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .empty-calendar-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(138, 43, 226, 0.12),
+          rgba(168, 85, 247, 0.06)
+        );
+        border: 1px solid rgba(197, 141, 250, 0.2);
+        border-radius: 30px;
+        font-size: 13px;
+        color: rgba(225, 201, 250, 0.75);
+        position: relative;
+        z-index: 1;
+
+        .cal-icon {
+          font-size: 16px;
+          animation: cal-bounce 2s ease-in-out infinite;
+        }
+      }
+    }
     .month-section {
       background: linear-gradient(
         135deg,
@@ -345,8 +487,7 @@
       );
       border-radius: 24px;
       border: 2px solid rgba(138, 43, 226, 0.2);
-      padding: 15px;
-
+      padding: 10px 15px;
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
       position: relative;
@@ -358,7 +499,7 @@
           0 2px 15px rgba(0, 0, 0, 1),
           inset 0 0 40px rgba(138, 43, 226, 0.3);
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -379,10 +520,8 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid rgba(197, 141, 250, 0.3);
+        margin-bottom: 10px;
         position: relative;
-
         .month-icon {
           font-size: 28px;
         }
@@ -394,7 +533,7 @@
         }
 
         .festival-count {
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 700;
           color: #ffffff;
           background: linear-gradient(
@@ -506,7 +645,7 @@
                   &.traditional {
                     background: linear-gradient(
                       135deg,
-                      rgba(92, 43, 226, 0.9),
+                      rgba(115, 199, 251, 0.9),
                       rgba(11, 0, 130, 0.8)
                     );
                     color: #ffffff;
@@ -567,5 +706,75 @@
   }
   50% {
     opacity: 1;
+  }
+}
+
+@keyframes cosmic-twinkle-1 {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+    box-shadow: 0 0 12px rgba(225, 201, 250, 1);
+  }
+}
+
+@keyframes cosmic-twinkle-2 {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes cosmic-ring-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.05;
+  }
+}
+
+@keyframes cosmic-icon-glow {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.5));
+  }
+  25% {
+    transform: translateY(-6px) scale(1.03);
+    filter: drop-shadow(0 0 40px rgba(138, 43, 226, 0.7));
+  }
+  50% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.5));
+  }
+  75% {
+    transform: translateY(-3px) scale(1.01);
+    filter: drop-shadow(0 0 35px rgba(138, 43, 226, 0.6));
+  }
+}
+
+@keyframes cal-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(5deg);
   }
 }

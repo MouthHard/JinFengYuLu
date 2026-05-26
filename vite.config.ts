@@ -1,14 +1,27 @@
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath, URL } from "node:url";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
+  const isProduction = mode === "production";
 
   return {
     base: "/Personal-Website/",
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+        dts: "types/auto-imports.d.ts",
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+        dts: "types/components.d.ts",
+      }),
+    ],
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -26,17 +39,29 @@ export default defineConfig(({ mode }) => {
       minify: "terser",
       terserOptions: {
         compress: {
-          drop_console: mode === "production",
-          drop_debugger: mode === "production",
+          drop_console: isProduction,
+          drop_debugger: isProduction,
+          pure_funcs: isProduction ? ["console.log", "console.info"] : [],
         },
       },
       rollupOptions: {
         output: {
-          manualChunks: {
-            "vue-vendor": ["vue", "vue-router", "pinia"],
-            "element-plus": ["element-plus"],
-            echarts: ["echarts"],
-            utils: ["@vueuse/core", "gsap"],
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("element-plus")) {
+                return "element-plus";
+              }
+              if (id.includes("echarts")) {
+                return "echarts";
+              }
+              if (
+                id.includes("vue") ||
+                id.includes("vue-router") ||
+                id.includes("pinia")
+              ) {
+                return "vue-vendor";
+              }
+            }
           },
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",

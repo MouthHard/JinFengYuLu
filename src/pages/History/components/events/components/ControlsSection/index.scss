@@ -34,7 +34,7 @@
 
   /* 竹简绑绳效果 */
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -45,7 +45,7 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -60,10 +60,11 @@
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    background: linear-gradient(90deg, #c8a970, #d9c28a, #c8a970);
+    background: linear-gradient(90deg, #e3cfaa, #d9c28a, #f6ead4);
     border: 2px solid #8b6e4a;
     border-radius: 4px;
-    color: #5c4023;
+    font-weight: bold;
+    color: #000000;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -76,7 +77,7 @@
 
     /* 竹简绑绳效果 */
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -87,7 +88,7 @@
     }
 
     &:hover:not(:disabled) {
-      background: linear-gradient(90deg, #b8945a, #c9b37a, #b8945a);
+ 
       border-color: #7d5d3a;
       color: #4a3018;
       transform: translateY(-4px) rotateX(3deg);
@@ -143,7 +144,7 @@
     align-items: center;
     gap: 8px;
     padding: 12px 28px;
-    background: linear-gradient(90deg, #b8945a, #c9b37a, #b8945a);
+    background: linear-gradient(90deg, #b88b5a, #f7dfa3, #b88b5a);
     border: 2px solid #8b6e4a;
     border-radius: 4px;
     /* 竹简风格 */
@@ -152,10 +153,12 @@
       inset 0 0 10px rgba(139, 110, 74, 0.2);
     animation: pageIndicatorPulse 3s infinite;
     transition: all 0.3s ease;
-
+ 
+    font-weight: bold;
+ 
     /* 竹简绑绳效果 */
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -168,68 +171,16 @@
     .current-page,
     .total-pages {
       font-size: 18px;
-      font-family: "SimSun", monospace;
+      font-family: 'SimSun', monospace;
       letter-spacing: 2px;
-      color: #5c4023;
+      color: #341e07;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
     }
 
     .page-separator {
       font-size: 18px;
-      color: #8b6e4a;
+      color: rgb(0, 0, 0);
       margin: 0 8px;
-    }
-  }
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .controls-section {
-    gap: 15px;
-
-    .control-btn {
-      padding: 12px 24px;
-      font-size: 14px;
-    }
-
-    .page-indicator {
-      padding: 10px 24px;
-      font-size: 16px;
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .controls-section {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px;
-
-    .control-btn {
-      flex: 1;
-      min-width: 120px;
-      justify-content: center;
-      padding: 10px 20px;
-    }
-
-    .page-indicator {
-      order: -1;
-      width: 100%;
-      justify-content: center;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .controls-section {
-    .control-btn {
-      padding: 8px 16px;
-      font-size: 13px;
-    }
-
-    .page-indicator {
-      padding: 8px 20px;
-      font-size: 14px;
     }
   }
 }

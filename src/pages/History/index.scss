@@ -126,7 +126,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      max-width: 900px;
+      max-width: 1000px;
 
       .hero-badge {
         display: inline-flex;
@@ -140,9 +140,9 @@
         );
         border: 1px solid rgba(218, 165, 32, 0.3);
         border-radius: 30px;
-        margin-bottom: 20px;
-        animation: fadeInDown 0.8s ease-out;
 
+        animation: fadeInDown 0.8s ease-out;
+        font-weight: bold;
         .badge-icon {
           width: 28px;
           height: 28px;
@@ -151,25 +151,26 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 14px;
-          font-weight: bold;
+          font-size: 16px;
+          font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
           color: #1a1510;
         }
 
         .badge-text {
-          font-size: 14px;
+          font-size: 16px;
           color: #daa520;
+          font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
           letter-spacing: 2px;
         }
       }
 
       .hero-title {
-        font-size: clamp(36px, 8vw, 72px);
+        font-size: clamp(36px, 6vw, 72px);
         font-weight: 300;
         line-height: 1.3;
         margin-bottom: 20px;
         animation: fadeInUp 1s ease-out 0.2s both;
-
+        font-weight: bold;
         .title-line {
           display: block;
 
@@ -192,6 +193,7 @@
         font-size: 18px;
         color: rgba(232, 224, 213, 0.7);
         line-height: 1.8;
+        font-weight: bold;
         margin-bottom: 50px;
         animation: fadeInUp 1s ease-out 0.4s both;
       }
@@ -276,6 +278,7 @@
         svg {
           width: 100%;
           height: 100%;
+          transform: rotate(180deg);
         }
       }
 
@@ -293,7 +296,6 @@
     }
   }
 
-  // 内容区域
   .content-area {
     position: fixed;
     inset: 0;
@@ -344,7 +346,7 @@
         text-transform: uppercase;
         z-index: 100;
         transition: all 0.3s ease;
-
+        margin-bottom: 20px;
         svg {
           width: 24px;
           height: 24px;
@@ -398,14 +400,14 @@
         flex: 1;
         min-height: 0;
         box-shadow:
-          8px 0 20px rgba(0, 0, 0, 0.4),
-          4px 0 10px rgba(139, 90, 43, 0.2);
-
+          4px 0 10px rgba(0, 0, 0, 1),
+          -4px 0 10px rgb(0, 0, 0);
         &.rolled-up {
           transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-
+          box-shadow: none;
           .scroll-paper {
-            max-height: 10px;
+            max-height: 0;
+            padding: 0;
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
           }
 
@@ -422,13 +424,7 @@
             min-height: 0;
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
-          }
-
-          // 显示内容
-          .scroll-paper .paper-content {
-            opacity: 1;
-            transition: opacity 0.3s ease 0.5s;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
           }
 
           .scroll-roller.top {
@@ -486,7 +482,7 @@
 
             // 玉轴反光效果
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 2px;
               left: 2px;
@@ -538,7 +534,7 @@
 
             // 木纹细节
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               inset: 0;
               background-image: repeating-linear-gradient(
@@ -558,7 +554,7 @@
 
             // 金色装饰条纹
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               left: 50%;
               top: 50%;
@@ -622,7 +618,7 @@
             transform: translate(-50%, -50%);
             width: 48px;
             height: 48px;
-            background-image: url("../../assets/image/HistoryPic/roll-toggle.png");
+            background-image: url('./assets/roll-toggle.webp');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -634,28 +630,10 @@
             justify-content: center;
             z-index: 100;
             transition: all 0.3s ease;
-            box-shadow:
-              0 8px 16px rgba(0, 0, 0, 0.6),
-              0 0 20px rgba(218, 165, 32, 0.4),
-              // 光影效果
-              0 1px 1px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
 
             &:hover {
-              background-image: url("../../assets/image/HistoryPic/roll-toggle.png");
-              box-shadow:
-                0 10px 20px rgba(0, 0, 0, 0.7),
-                0 0 30px rgba(218, 165, 32, 0.6),
-                // 光影效果
-                0 1px 2px rgba(255, 255, 255, 0.4);
               transform: translate(-50%, -50%) scale(1.05);
-            }
-
-            &:active {
-              transform: translate(-50%, -50%) scale(0.95);
-              box-shadow:
-                0 4px 8px rgba(0, 0, 0, 0.5),
-                // 光影效果
-                0 1px 1px rgba(255, 255, 255, 0.2);
             }
           }
 
@@ -692,7 +670,7 @@
 
             // 玉轴反光效果
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 2px;
               left: 2px;
@@ -710,90 +688,24 @@
           }
         }
 
-        // 卷轴纸张 - 仿古宣纸效果
+        // 卷轴纸张
         .scroll-paper {
           flex: 1;
-          background: linear-gradient(
-            180deg,
-            // 顶部装饰边框
-            rgba(218, 165, 32, 0.2) 0%,
-            rgba(218, 165, 32, 0.1) 8px,
-            // 主背景 - 淡色
-            linear-gradient(
-                90deg,
-                rgba(70, 60, 50, 0.95) 0%,
-                rgba(80, 70, 60, 0.92) 5%,
-                rgba(90, 80, 70, 0.9) 50%,
-                rgba(80, 70, 60, 0.92) 95%,
-                rgba(70, 60, 50, 0.95) 100%
-              )
-              8px calc(100% - 8px),
-            // 底部装饰边框
-            rgba(218, 165, 32, 0.1) calc(100% - 8px),
-            rgba(218, 165, 32, 0.2) 100%
-          );
-          border-left: 3px solid rgba(139, 90, 43, 0.5);
-          border-right: 3px solid rgba(139, 90, 43, 0.5);
+          border-left: 3px ridge rgba(139, 90, 43, 0.5);
+          border-right: 3px groove rgba(139, 90, 43, 0.5);
           position: relative;
           overflow: hidden;
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
           max-height: calc(100vh - 184px);
-
-          // 纸张纹理 - 仿古宣纸纤维感 + 中国传统图案
-          &::before {
-            content: "";
-            position: absolute;
-            inset: 8px 0; // 避开顶部和底部装饰边框
-            background-image: 
-			// 纵向纤维
-              repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 3px,
-                rgba(139, 90, 43, 0.03) 3px,
-                rgba(139, 90, 43, 0.03) 4px,
-                transparent 4px,
-                transparent 12px,
-                rgba(160, 120, 80, 0.02) 12px,
-                rgba(160, 120, 80, 0.02) 13px
-              ),
-              // 横向纤维
-              repeating-linear-gradient(
-                  0deg,
-                  transparent,
-                  transparent 8px,
-                  rgba(139, 90, 43, 0.02) 8px,
-                  rgba(139, 90, 43, 0.02) 9px
-                ),
-              // 中国传统云纹图案
-              repeating-radial-gradient(
-                  circle at 50% 50%,
-                  transparent 0%,
-                  transparent 90%,
-                  rgba(218, 165, 32, 0.01) 90%,
-                  rgba(218, 165, 32, 0.01) 92%,
-                  transparent 92%,
-                  transparent 98%,
-                  rgba(139, 90, 43, 0.01) 98%,
-                  rgba(139, 90, 43, 0.01) 100%
-                ),
-              // 回纹图案
-              repeating-linear-gradient(
-                  45deg,
-                  transparent,
-                  transparent 40px,
-                  rgba(218, 165, 32, 0.008) 40px,
-                  rgba(218, 165, 32, 0.008) 42px,
-                  transparent 42px,
-                  transparent 80px
-                );
-            pointer-events: none;
-            z-index: 0;
-          }
-
+          padding: 25px 16px;
+          height: 100%;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          z-index: 1;
+          background: rgba(255, 255, 255, 0.95);
           // 边缘做旧效果
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             inset: 0;
             box-shadow:
@@ -805,300 +717,151 @@
             z-index: 1;
           }
 
-          // 左侧边缘高光
-          .scroll-edge-left {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(
-              180deg,
-              transparent,
-              rgba(218, 165, 32, 0.3) 20%,
-              rgba(218, 165, 32, 0.3) 80%,
-              transparent
-            );
-            box-shadow: 1px 0 3px rgba(218, 165, 32, 0.1);
-            z-index: 3;
-          }
-
-          // 右侧边缘高光
-          .scroll-edge-right {
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(
-              180deg,
-              transparent,
-              rgba(218, 165, 32, 0.3) 20%,
-              rgba(218, 165, 32, 0.3) 80%,
-              transparent
-            );
-            box-shadow: -1px 0 3px rgba(218, 165, 32, 0.1);
-            z-index: 3;
-          }
-
-          // 纸张内容
-          .paper-content {
-            padding: 25px 16px;
-            height: 100%;
-            overflow-y: auto;
-            opacity: 1;
-            transition: opacity 0.3s ease;
+          .scroll-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(139, 90, 43, 0.3);
             position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.95);
 
-            &::-webkit-scrollbar {
-              width: 4px;
+            // 卷轴标题装饰
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              width: 60px;
+              height: 1px;
+              background: linear-gradient(90deg, #010101, transparent);
             }
 
-            &::-webkit-scrollbar-track {
-              background: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-              background: rgba(139, 90, 43, 0.3);
-              border-radius: 2px;
-            }
-
-            .scroll-header {
+            .scroll-icon {
+              width: 36px;
+              height: 36px;
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.05)
+                ),
+                linear-gradient(
+                  135deg,
+                  rgba(80, 80, 80, 1),
+                  rgba(60, 60, 60, 1)
+                );
+              border: 1px solid rgba(0, 0, 0, 0.4);
+              border-radius: 8px;
               display: flex;
               align-items: center;
-              gap: 10px;
-              padding-bottom: 16px;
-              margin-bottom: 16px;
-              border-bottom: 1px solid rgba(139, 90, 43, 0.3);
-              position: relative;
+              justify-content: center;
 
-              // 卷轴标题装饰
-              &::before {
-                content: "";
-                position: absolute;
-                bottom: -1px;
-                left: 0;
-                width: 60px;
-                height: 1px;
-                background: linear-gradient(90deg, #010101, transparent);
-              }
-
-              .scroll-icon {
-                width: 36px;
-                height: 36px;
-                background:
-                  linear-gradient(
-                    135deg,
-                    rgba(0, 0, 0, 0.2),
-                    rgba(0, 0, 0, 0.05)
-                  ),
-                  linear-gradient(
-                    135deg,
-                    rgba(80, 80, 80, 1),
-                    rgba(60, 60, 60, 1)
-                  );
-                border: 1px solid rgba(0, 0, 0, 0.4);
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 16px;
-                color: #fff;
-                flex-shrink: 0;
-                box-shadow:
-                  inset 0 1px 2px rgba(255, 255, 255, 0.1),
-                  0 2px 4px rgba(0, 0, 0, 0.2);
-              }
-
-              .scroll-title {
-                font-size: 16px;
-                font-weight: 600;
-                color: #000;
-                letter-spacing: 2px;
-                text-shadow:
-                  1px 1px 2px rgba(0, 0, 0, 0.2),
-                  0 1px 1px rgba(255, 255, 255, 0.3);
-              }
-
-              // 传统印章装饰
-              .scroll-seal {
-                position: absolute;
-                top: -10px;
-                right: -5px;
-                width: 40px;
-                height: 40px;
-                background: rgba(184, 46, 46, 0.8);
-                border-radius: 4px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow:
-                  0 2px 4px rgba(0, 0, 0, 0.5),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.2),
-                  inset 0 -1px 2px rgba(0, 0, 0, 0.3);
-                transform: rotate(15deg);
-
-                .seal-text {
-                  font-size: 16px;
-                  color: #fff;
-                  font-family: "Ma Shan Zheng", cursive;
-                  font-weight: bold;
-                  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-                }
-              }
+              box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.5),
+                0 2px 4px rgba(0, 0, 0, 1);
             }
 
-            .nav-items {
-              display: flex;
-              flex-direction: column;
-              gap: 6px;
+            .scroll-title {
+              font-size: 20px;
+              font-family: 'Ma Shan Zheng', cursive;
+              font-weight: bolder;
+              color: #000;
+              letter-spacing: 2px;
+              text-shadow:
+                1px 1px 2px rgba(0, 0, 0, 0.2),
+                0 1px 1px rgba(255, 255, 255, 0.3);
+            }
 
-              .nav-item {
+            // 传统印章装饰
+            .scroll-seal {
+              position: absolute;
+              top: -10px;
+              right: -5px;
+              width: 40px;
+              height: 40px;
+              background: linear-gradient(90deg, #db661d, #510202);
+              border-radius: 4px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.5),
+                inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+              transform: rotate(15deg);
+            }
+          }
+
+          .nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .nav-item {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 12px 14px;
+              background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.8),
+                rgba(250, 250, 250, 0.9)
+              );
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              border-radius: 10px;
+              color: #000000;
+              font-size: 18px;
+              font-family:
+                'STKaiti', 'KaiTi', 'SimHei', 'Microsoft YaHei', serif;
+              letter-spacing: 1px;
+              font-weight: bold;
+              cursor: pointer;
+              position: relative;
+              transition: all 0.3s ease;
+              overflow: hidden;
+              box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+              .item-icon {
+                width: 2.5rem;
+                height: 2.5rem; 
                 display: flex;
                 align-items: center;
-                gap: 12px;
-                padding: 12px 14px;
-                background: linear-gradient(
-                  145deg,
-                  rgba(255, 255, 255, 0.8),
-                  rgba(250, 250, 250, 0.9)
-                );
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                color: #333;
-                font-size: 14px;
-                cursor: pointer;
-                position: relative;
-                transition: all 0.3s ease;
-                overflow: hidden;
-                box-shadow:
-                  0 2px 4px rgba(0, 0, 0, 0.1),
-                  inset 0 1px 1px rgba(255, 255, 255, 0.8);
+                justify-content: center;
+                flex-shrink: 0;
+                opacity: 0.8;
+ 
+              }
+
+              .item-text {
+                white-space: nowrap;
+              }
+
+              &:hover {
+                background: rgba(0, 0, 0, 0.05);
+                color: #222;
+                border-color: rgba(0, 0, 0, 0.1);
 
                 .item-icon {
-                  width: 22px;
-                  height: 22px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  flex-shrink: 0;
-                  opacity: 0.8;
-
-                  :deep(svg) {
-                    width: 100%;
-                    height: 100%;
-                    fill: currentColor;
-                  }
-                }
-
-                .item-text {
-                  white-space: nowrap;
-                  font-weight: 500;
+                  opacity: 1;
                 }
 
                 .item-ink {
-                  position: absolute;
-                  bottom: 6px;
-                  left: 48px;
-                  right: 14px;
-                  height: 1px;
-                  background: linear-gradient(
-                    90deg,
-                    rgba(0, 0, 0, 0.3),
-                    transparent
-                  );
-                  opacity: 0;
-                  transition: opacity 0.3s ease;
+                  opacity: 1;
                 }
+              }
 
-                &:hover {
-                  background: rgba(0, 0, 0, 0.05);
-                  color: #222;
-                  border-color: rgba(0, 0, 0, 0.1);
-
-                  .item-icon {
-                    opacity: 1;
-                  }
-
-                  .item-ink {
-                    opacity: 1;
-                  }
-                }
-
-                &.active {
-                  background: linear-gradient(
-                    90deg,
-                    rgba(0, 0, 0, 0.1),
-                    rgba(0, 0, 0, 0.05) 50%,
-                    transparent
-                  );
-                  border-color: rgba(0, 0, 0, 0.3);
-                  color: #000;
-                  font-weight: 600;
-                }
-
-                // 返回首页按钮特殊样式
-                &.back-home {
-                  margin-top: 10px;
-                  background: linear-gradient(
-                    145deg,
-                    rgba(218, 165, 32, 0.15),
-                    rgba(184, 134, 11, 0.1)
-                  );
-                  border-color: rgba(218, 165, 32, 0.3);
-                  color: #8b4513;
-
-                  &:hover {
-                    background: linear-gradient(
-                      145deg,
-                      rgba(218, 165, 32, 0.25),
-                      rgba(184, 134, 11, 0.2)
-                    );
-                    border-color: rgba(218, 165, 32, 0.5);
-                    color: #daa520;
-                  }
-
-                  .item-icon {
-                    color: #daa520;
-                  }
-
-                  &::before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    bottom: 0;
-                    width: 4px;
-                    background: linear-gradient(
-                      180deg,
-                      #8b4513,
-                      #daa520,
-                      #8b4513
-                    );
-                    box-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
-                  }
-
-                  &::after {
-                    content: "";
-                    position: absolute;
-                    right: 12px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 20px;
-                    height: 20px;
-                    background-image: url("data:image/svg+xml,%3Csvg t='1772687952187' class='icon' viewBox='0 0 1920 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2719' width='20' height='20'%3E%3Cpath d='M1203.904 380.224c10.56-134.08 205.696-144.384 234.88-44.48 31.296-0.64 55.872 14.592 73.408 35.2 7.04 8.384 29.76 31.68 31.04 68.096 0.32 9.856 0.832 35.84-18.24 58.944-22.912 27.84-56.576 29.888-62.272 30.144-10.688 152.576-101.696 260.48-293.568 365.44 58.432-6.848 149.248-26.24 235.264-88.96 49.024-35.776 83.264-75.968 104.064-100.672 96.192-114.176 101.632-190.784 174.976-210.624 8.32-2.24 49.024-13.248 78.016 9.344 36.352 28.352 25.856 87.488 25.088 91.52-1.472-129.856-177.728-87.232-147.968 24.064 6.912 25.92 19.2 45.696 34.944 60.16 40.32 37.248 115.008 51.008 174.72 15.36 56.32-33.728 77.888-99.072 69.248-153.6-8-50.88-40.64-82.56-52.352-92.928 4.352-7.232 22.016-38.4 12.544-76.48-8.64-34.624-38.08-68.224-77.184-72.896-40.768-4.8-71.552 24.192-75.776 28.288-15.488 15.04-12.032 23.872-28.544 38.976a123.008 123.008 0 0 1-66.56 31.104c-39.168 4.864-99.008-8.576-116.608-62.144-28.16-85.824 52.48-125.44 73.792-103.104a52.928 52.928 0 0 0-31.552 10.624c-24.256 18.56-30.08 57.472-14.848 85.248 18.56 33.92 60.416 36.352 66.176 36.544 49.92 2.048 79.04-42.368 81.664-46.4 4.032-6.4 21.376-35.52 12.928-72.96a98.944 98.944 0 0 0-40.192-58.496 104.448 104.448 0 0 0-70.4-17.6c1.28-8.192 6.4-46.656-19.456-80.704-21.952-29.056-61.056-48-101.12-40.384-37.12 7.04-57.984 33.92-63.168 40.96-2.944-10.752-14.528-47.36-50.88-69.632-38.272-23.424-94.336-24.96-131.2 7.04-28.416 24.512-33.536 58.496-34.688 69.12a115.072 115.072 0 0 0-57.6-10.624 116.544 116.544 0 0 0-75.392 37.248c-36.992 40.768-28.928 92.608-27.456 102.016 1.664 10.432 11.2 63.232 55.552 86.592 8.832 4.608 28.032 14.72 48.64 8.448 28.864-8.896 52.864-48 39.168-81.216-7.744-18.816-27.136-35.008-61.952-40.96 6.784-1.536 19.456-3.456 34.496 0.192 7.36 1.792 29.696 8.448 43.712 30.464 13.184 20.608 10.688 41.6 9.792 48.384-3.84 28.928-24.512 55.488-53.504 66.304-2.688 0.96-33.408 11.84-63.872-2.368-22.272-10.368-34.048-29.376-53.184-60.288-15.168-24.512-11.712-26.112-22.464-39.168-7.296-8.832-32.448-39.36-70.976-39.808-7.616-0.064-34.88-0.384-51.968 21.12-17.024 21.312-10.88 47.68-9.92 51.264-39.68 1.92-75.776 27.648-83.84 64.256-8.96 40.96 4.352 88.704 50.432 105.6-89.984 12.096-87.68 148.096-11.776 177.28 75.712 29.056 122.496-14.72 114.24-62.208-10.752-61.44-64.512-67.456-88-41.92-18.176 19.712-8.768 41.216 12.736 56-41.664 8.832-45.696-56.64-20.224-81.28 24.96-24.128 103.232-14.464 119.68 41.408 6.016 20.736 5.568 38.912 3.328 50.752-2.112 11.008-12.672 58.176-79.616 109.248-83.008 63.424-174.72 73.152-199.296 75.136-27.008 2.176-136.064 10.176-231.616-50.56-29.44-18.688-104.128-73.6-125.888-89.536-21.44-15.68-41.92-30.976-73.792-44.16a320.128 320.128 0 0 0-87.616-20.736A426.624 426.624 0 0 0 0.064 579.776a503.104 503.104 0 0 1 179.328 35.84c137.856 55.872 153.664 138.496 272.128 200.96 152.192 80.192 315.968 43.968 351.744 36.032 180.928-40.064 285.824-159.552 318.528-200.128a121.856 121.856 0 0 1-43.52-26.88c-41.28-40.128-53.44-113.408-21.44-170.624 28.288-50.56 86.208-80 147.072-74.752' fill='%238b4513' p-id='2720'%3E%3C/path%3E%3C/svg%3E");
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                  }
-
-                  .item-icon {
-                    opacity: 1;
-                    color: #8b4513;
-                  }
-                }
+              &.active {
+                background: linear-gradient(
+                  90deg,
+                  rgba(0, 0, 0, 0.05),
+                  rgba(0, 0, 0, 0.3) 100%
+                );
+                border-color: rgba(0, 0, 0, 0.3);
+                color: #000;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
               }
             }
           }
@@ -1147,7 +910,7 @@
 
             // 玉轴反光效果
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 2px;
               left: 2px;
@@ -1199,7 +962,7 @@
 
             // 木纹细节
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               inset: 0;
               background-image: repeating-linear-gradient(
@@ -1219,7 +982,7 @@
 
             // 金色装饰条纹
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               left: 50%;
               top: 50%;
@@ -1275,7 +1038,7 @@
 
             // 玉轴反光效果
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               top: 2px;
               left: 2px;
@@ -1349,52 +1112,14 @@
       }
 
       .content-panel {
-        background: rgba(30, 26, 22, 0.7);
-        border: 1px solid rgba(218, 165, 32, 0.2);
+        background: linear-gradient(
+          45deg,
+          rgba(85, 61, 36, 0.7) 0%,
+          rgba(46, 23, 12, 0.3) 100%
+        );
         border-radius: 20px;
-        backdrop-filter: blur(10px);
         overflow: hidden;
         height: 96%;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  }
-
-  // 浮动装饰
-  .floating-decorations {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-
-    .decoration-item {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.03;
-
-      &.deco-1 {
-        width: 600px;
-        height: 600px;
-        top: -200px;
-        right: -200px;
-        background: radial-gradient(circle, #daa520 0%, transparent 70%);
-      }
-
-      &.deco-2 {
-        width: 400px;
-        height: 400px;
-        bottom: 20%;
-        left: -100px;
-        background: radial-gradient(circle, #8b4513 0%, transparent 70%);
-      }
-
-      &.deco-3 {
-        width: 300px;
-        height: 300px;
-        top: 50%;
-        right: 10%;
-        background: radial-gradient(circle, #b8860b 0%, transparent 70%);
       }
     }
   }

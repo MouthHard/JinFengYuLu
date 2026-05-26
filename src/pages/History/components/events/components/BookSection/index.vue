@@ -37,7 +37,7 @@
       </div>
 
       <!-- 书籍背景层 -->
-      <div class="book-background" v-if="isBookOpen">
+      <div v-if="isBookOpen" class="book-background">
         <!-- 书页层叠 -->
         <div class="page-stack">
           <div class="stack-page page-1"></div>
@@ -54,7 +54,7 @@
       </div>
 
       <!-- 内页 -->
-      <div class="book-pages" v-if="isBookOpen">
+      <div v-if="isBookOpen" class="book-pages">
         <!-- 空状态 - 左右分页布局 -->
         <template v-if="filteredEvents.length === 0">
           <!-- 左页 - 空状态提示 -->
@@ -134,6 +134,7 @@
 
         <!-- 左页 -->
         <div
+          v-if="filteredEvents.length > 0"
           class="page left-page"
           :class="{
             'page-flipping': props.isFlipping,
@@ -141,23 +142,22 @@
             'flip-right': props.isFlipping && props.flipDirection === 'right',
             'page-enter': !props.isFlipping,
           }"
-          v-if="filteredEvents.length > 0"
         >
-          <div class="page-content" v-if="currentEvent">
+          <div v-if="currentEvent" class="page-content">
             <div class="page-header">
               <span class="page-period">{{ currentEvent.period }}</span>
               <span class="page-number">{{ currentPageNumber }}</span>
             </div>
             <div class="page-image">
-              <img :src="currentEvent.imageUrl" :alt="currentEvent.title" />
+              <img loading="lazy" :src="currentEvent.imageUrl" :alt="currentEvent.title" />
             </div>
             <div class="page-body">
-              <div class="page-category">
-                {{ getCategoryName(currentEvent.category) }}
-              </div>
               <h3 class="page-title">{{ currentEvent.title }}</h3>
               <p class="page-brief">{{ currentEvent.brief }}</p>
               <div class="page-tags">
+                <span class="tag">
+                  {{ getCategoryName(currentEvent.category) }}
+                </span>
                 <span v-for="tag in currentEvent.tags" :key="tag" class="tag">
                   {{ tag }}
                 </span>
@@ -169,6 +169,7 @@
 
         <!-- 右页 -->
         <div
+          v-if="filteredEvents.length > 0"
           class="page right-page"
           :class="{
             'page-flipping': props.isFlipping,
@@ -176,9 +177,8 @@
             'flip-right': props.isFlipping && props.flipDirection === 'right',
             'page-enter': !props.isFlipping,
           }"
-          v-if="filteredEvents.length > 0"
         >
-          <div class="page-content" v-if="currentEvent">
+          <div v-if="currentEvent" class="page-content">
             <div class="page-header">
               <span class="page-section-title">事件详情</span>
               <span class="page-number">{{ currentPageNumber + 1 }}</span>
@@ -192,7 +192,7 @@
                 <p class="block-content">{{ currentEvent.description }}</p>
               </div>
 
-              <div class="detail-block impact-block" v-if="currentEvent.impact">
+              <div v-if="currentEvent.impact" class="detail-block impact-block">
                 <h4 class="block-title">
                   <span class="title-icon">⚡</span>
                   历史影响

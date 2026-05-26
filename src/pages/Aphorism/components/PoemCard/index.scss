@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 0;
 
-  // 古典卷轴容器
+ 
   .scroll-container {
     position: relative;
     width: 100%;
@@ -13,8 +13,8 @@
     border-radius: 16px;
     overflow: hidden;
     box-shadow:
-      0 15px 35px rgba(0, 0, 0, 0.25),
-      0 8px 20px rgba(0, 0, 0, 0.15);
+      0 6px 15px rgba(0, 0, 0, 0.5),
+      0 4px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
@@ -31,9 +31,9 @@
       bottom: 0;
       background: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(251, 250, 246, 0.6) 5%,
-        rgba(255, 255, 255, 0.5) 100%
+        rgba(255, 255, 255, 0.7) 0%,   
+        rgba(251, 250, 246, 1) 50%,
+        rgba(255, 255, 255, 0.7) 100%
       );
       pointer-events: none;
       z-index: 0;
@@ -41,17 +41,15 @@
 
     // 诗词标题
     .poem-title {
-      font-size: 36px;
-      font-weight: 700;
+      font-size: 32px;
+      font-weight: bolder;
       color: #000000;
       margin: 0 0 15px 0;
       font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
       letter-spacing: 8px;
       text-align: center;
       text-shadow:
-        2px 2px 4px rgba(0, 0, 0, 0.3),
-        3px 3px 6px rgba(0, 0, 0, 0.2),
-        -1px -1px 2px rgba(255, 255, 255, 0.6);
+        2px 2px 4px rgba(0, 0, 0, 0.5);
       position: relative;
       z-index: 1;
     }
@@ -69,20 +67,19 @@
         padding: 6px 14px;
         background: linear-gradient(
           135deg,
-          #8b0000 0%,
-          #cd5c5c 30%,
-          #ff6b6b 50%,
-          #cd5c5c 70%,
-          #8b0000 100%
+          #550101 0%,
+          #ac2f2f 30%,
+          #f84a4a 50%,
+          #b42b2b 70%,
+          #530101 100%
         );
         color: #ffffff;
         border-radius: 4px;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bolder;
         font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
         box-shadow:
-          0 3px 8px rgba(0, 0, 0, 0.85),
-          0 5px 12px rgba(0, 0, 0, 0.65),
+          0 3px 8px rgba(0, 0, 0, 1), 
           inset 0 1px 2px rgba(255, 255, 255, 0.4),
           inset 0 -1px 2px rgba(0, 0, 0, 0.4);
         letter-spacing: 2px;
@@ -93,13 +90,13 @@
       }
 
       .author-name {
-        font-size: 16px;
+        font-size: 20px;
         color: #000000;
         font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
-        letter-spacing: 3px;
-        font-weight: 600;
+        letter-spacing: 4px;
+        font-weight: bolder;
         text-shadow:
-          1px 1px 2px rgba(0, 0, 0, 0.25),
+          1px 1px 2px rgba(0, 0, 0, 0.1),
           -1px -1px 1px rgba(255, 255, 255, 0.5);
       }
     }
@@ -118,15 +115,15 @@
         padding: 4px 10px;
         background: linear-gradient(
           135deg,
-          #2c2c2c 0%,
-          #4a4a4a 30%,
+          #1a1a1a 0%,
+          #3e3e3e 30%,
           #666666 50%,
-          #4a4a4a 70%,
-          #2c2c2c 100%
+          #3f3f3f 70%,
+          #222020 100%
         );
-        color: #fee48d;
+        color: #fdeebb;
         border-radius: 12px;
-        font-size: 11px;
+        font-size: 14px;
         font-weight: bolder;
         border: 1px solid rgba(184, 134, 11, 0.6);
         font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
@@ -137,8 +134,8 @@
           inset 0 1px 1px rgba(255, 255, 255, 0.2),
           inset 0 -1px 1px rgba(0, 0, 0, 0.4);
         text-shadow:
-          1px 1px 2px rgba(0, 0, 0, 0.95),
-          0 0 4px rgba(0, 0, 0, 0.7);
+          1px 1px 2px rgba(0, 0, 0, 0.3),
+          0 0 4px rgba(0, 0, 0, 0.1);
 
         &:hover {
           background: linear-gradient(
@@ -171,17 +168,14 @@
       z-index: 1;
 
       .content-line {
-        font-size: 15px;
-        font-weight: 600;
+        font-size: 17px;
+        font-weight: bolder;
         color: #000000;
-        line-height: 1.8;
+        line-height: 1.5;
         font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
         margin: 0;
         text-align: center;
-        text-shadow:
-          1px 1px 3px rgba(0, 0, 0, 0.35),
-          2px 2px 5px rgba(0, 0, 0, 0.25),
-          -1px -1px 2px rgba(255, 255, 255, 0.5);
+ 
         word-wrap: break-word;
         white-space: normal;
         letter-spacing: 2px;

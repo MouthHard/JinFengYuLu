@@ -15,13 +15,14 @@
     background: linear-gradient(135deg, #fff, #f8f5f0);
     border-radius: 12px;
     cursor: pointer;
-    font-size: 14px;
-    color: #4a4a4a;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #000000;
     transition: all 0.3s ease;
-    font-weight: 600;
+ 
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.15);
+    box-shadow: 0 4px 12px rgba(184, 115, 51, 0.3);
     transform-style: preserve-3d;
     perspective: 1000px;
 
@@ -83,10 +84,10 @@
       background: linear-gradient(135deg, #fff, #f8f5f0);
       border-radius: 12px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
       color: #4a4a4a;
       transition: all 0.3s ease;
-      font-weight: 600;
+      font-weight: bold;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -159,6 +160,7 @@
 
     .info-text {
       font-size: 13px;
+      font-weight: 700;
       color: #4a4a4a;
       font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
     }

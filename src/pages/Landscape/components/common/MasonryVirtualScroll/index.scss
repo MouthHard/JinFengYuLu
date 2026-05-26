@@ -1,0 +1,14 @@
+.masonry-virtual-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  will-change: transform;
+
+  .masonry-content {
+    position: relative;
+    width: 100%;
+
+    .masonry-item {
+      will-change: transform;
+    }
+  }
+}

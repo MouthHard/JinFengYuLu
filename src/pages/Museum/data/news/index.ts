@@ -1,5 +1,5 @@
 // 新闻数据
-import type { News } from "@/types/museum/index";
+import type { News } from "@/typesOfPages/museum/index";
 
 // 新闻数据数组
 export const news: News[] = [

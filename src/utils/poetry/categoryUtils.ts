@@ -6,8 +6,8 @@
 import type {
   Category,
   CategoryFilterParams,
-} from "../../types/poetry/category";
-import type { Poem } from "../../types/poetry/poem";
+} from "../../typesOfPages/poetry/category";
+import type { Poem } from "../../typesOfPages/poetry/poem";
 
 // 标签映射表
 

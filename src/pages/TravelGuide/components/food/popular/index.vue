@@ -1,105 +1,144 @@
 <template>
-  <section class="module-popular" v-if="popularFoods.length > 0">
-    <!-- 黑客帝国风格背景线条 -->
-    <svg
-      class="matrix-background"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <!-- 随机线条 -->
-      <line
-        v-for="i in 25"
-        :key="i"
-        class="matrix-line"
-        :x1="getRandomPosition()"
-        :y1="getRandomPosition()"
-        :x2="getLongLineEnd()"
-        :y2="getLongLineEnd()"
-        :stroke="getMatrixColor()"
-        :stroke-width="getRandomWidth()"
-        :style="{
-          animationDelay: `${i * 0.2}s`,
-          animationDuration: `${getRandomDuration()}s`,
-        }"
-      />
-    </svg>
+  <section v-if="popularFoods.length > 0" class="module-popular">
+    <div class="cyber-bg">
+      <ParticlesBackground />
+
+      <div class="data-matrix">
+        <div
+          v-for="i in 30"
+          :key="i"
+          class="matrix-dot"
+          :style="getMatrixDotStyle(i)"
+        ></div>
+      </div>
+    </div>
 
     <div class="section-header">
-      <h3 class="section-title">🔥 热门推荐</h3>
+      <div class="header-content">
+        <div class="header-icon">🔥</div>
+        <h3 class="section-title">
+          <span class="title-main">热门推荐</span>
+          <span class="title-sub">HOT RECOMMENDATION</span>
+        </h3>
+      </div>
       <button class="section-more">查看更多</button>
     </div>
+
     <div class="popular-grid">
-      <div v-for="food in popularFoods" :key="food.id" class="popular-card">
-        <!-- 图片区域 -->
-        <div class="popular-card-image-container">
-          <!-- 左侧三角形热门推荐标签 -->
-          <div
-            class="popular-card-badge"
-            :style="{ '--badge-color': food.badgeColor || '#ff6b6b' }"
-          >
-            <span class="badge-text">{{ food.badgeText || "热门推荐" }}</span>
+      <div
+        v-for="(food, index) in popularFoods"
+        :key="food.id"
+        class="popular-card"
+        :style="{ '--card-index': index }"
+      >
+        <div class="card-frame">
+          <div class="frame-corner top-left"></div>
+          <div class="frame-corner top-right"></div>
+          <div class="frame-corner bottom-left"></div>
+          <div class="frame-corner bottom-right"></div>
+          <div class="frame-edge top"></div>
+          <div class="frame-edge right"></div>
+          <div class="frame-edge bottom"></div>
+          <div class="frame-edge left"></div>
+        </div>
+
+        <div class="card-hologram">
+          <div class="holo-shimmer"></div>
+        </div>
+
+        <div class="card-image-section">
+          <div class="image-frame">
+            <div class="image-border"></div>
+            <div class="image-glow"></div>
+            <img :src="food.image" class="card-image" loading="lazy" />
+            <div class="image-overlay"></div>
           </div>
 
-          <div class="popular-card-image-wrapper">
-            <img :src="food.image" class="popular-card-image" loading="lazy" />
+          <div
+            class="data-badge"
+            :style="{ '--badge-color': food.badgeColor || '#ff6b6b' }"
+          >
+            <div class="badge-content">
+              <span class="badge-icon">★</span>
+              <span class="badge-text">{{ food.badgeText || '热门' }}</span>
+            </div>
+            <div class="badge-glow"></div>
+          </div>
+
+          <div class="rating-display">
+            <div class="rating-value">{{ food.rating }}</div>
+            <div class="rating-label">评分</div>
           </div>
         </div>
 
-        <!-- 卡片内容区域 -->
-        <div class="popular-card-content">
-          <div class="popular-card-header">
-            <h4 class="popular-card-title">{{ food.name }}</h4>
-            <div class="popular-card-title-rating">
-              <el-rate
-                :model-value="Number(food.rating)"
-                :disabled="true"
-                :max="5"
-                :precision="1"
-                show-score
-                class="custom-element-rate popular-card-title-rate"
-              />
+        <div class="card-content-section">
+          <div class="content-header">
+            <div class="title-bar">
+              <div class="title-indicator"></div>
+              <h4 class="card-title">{{ food.name }}</h4>
+            </div>
+            <div class="title-id">
+              ID: {{ String(food.id).padStart(4, '0') }}
             </div>
           </div>
 
-          <div class="popular-card-tags">
-            <span
-              v-for="(tag, index) in food.tags"
-              :key="index"
-              class="popular-card-tag"
-              :style="getColorByString(tag)"
+          <div class="tag-cloud">
+            <div
+              v-for="(tag, tagIndex) in food.tags"
+              :key="tagIndex"
+              class="tag-item"
+              :style="{
+                '--tag-index': tagIndex,
+                '--tag-border-color': getTagBorderColor(tag),
+                ...getColorByString(tag),
+              }"
             >
-              {{ tag }}
-            </span>
+              <span class="tag-text">{{ tag }}</span>
+            </div>
           </div>
 
-          <p class="popular-card-description">{{ food.description }}</p>
-
-          <div class="popular-card-footer">
-            <div class="popular-card-price">
-              <span class="price-symbol">¥</span>
-              <span class="price-value">{{ food.price }}</span>
+          <div class="description-box">
+            <div class="desc-header">
+              <span class="desc-icon">i</span>
+              <span class="desc-label">简介</span>
             </div>
-            <div class="popular-card-actions">
-              <button class="action-btn">了解详情</button>
+            <p class="card-description">{{ food.description }}</p>
+          </div>
+
+          <div class="action-bar">
+            <div class="price-display">
+              <div class="price-label">价格</div>
+              <div class="price-value">
+                <span class="currency">¥</span>
+                <span class="amount">{{ food.price }}</span>
+              </div>
+              <div class="price-glow"></div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="btn-detail">
+                <span class="btn-text">详情</span>
+                <div class="btn-shine"></div>
+              </button>
               <button
-                class="favorite-btn"
+                class="btn-favorite"
                 :class="{ active: isFavorite(food) }"
                 @click.stop="toggleFavorite(food)"
               >
-                <svg
-                  class="heart-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
+                <HeartIcon />
+                <div class="btn-pulse"></div>
               </button>
             </div>
           </div>
+        </div>
+
+        <div class="data-flow">
+          <div
+            v-for="i in 5"
+            :key="i"
+            class="flow-line"
+            :style="{ '--flow-delay': i * 0.2 + 's' }"
+          ></div>
         </div>
       </div>
     </div>
@@ -107,84 +146,52 @@
 </template>
 
 <script setup lang="ts">
-import { useFavorites } from "@/composables/useFavorites";
-import { getColorByString } from "@/utils";
-import type { Food } from "@/types/travelGuide";
+  import { useFavorites } from '@/composables/travelGuide';
+  import { getColorByString } from '@/utils';
+  import type { Food } from '@/typesOfPages/travelGuide';
+  import {
+    HeartIcon,
+    ParticlesBackground,
+  } from '@/pages/TravelGuide/icons/pages/food/index.ts';
 
-interface Props {
-  popularFoods: Food[];
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  popularFoods: () => [],
-});
-
-const { isFavorite, toggleFavorite } = useFavorites<Food>();
-
-// 生成黑客帝国风格颜色
-const usedColors = new Set<number>();
-const colorPalette: number[][] = [
-  [0, 255, 140],
-  [34, 139, 34],
-  [0, 255, 0],
-  [144, 238, 144],
-  [0, 200, 0],
-  [50, 205, 50],
-  [0, 255, 255],
-  [0, 191, 255],
-  [0, 139, 139],
-  [147, 112, 219],
-  [123, 104, 238],
-  [64, 224, 208],
-  [255, 215, 0],
-  [255, 107, 107],
-  [102, 126, 234],
-  [255, 165, 0],
-  [255, 192, 203],
-  [152, 251, 152],
-  [218, 112, 214],
-  [255, 20, 147],
-  [240, 128, 128],
-  [173, 216, 230],
-  [238, 130, 238],
-];
-
-const getMatrixColor = (): string => {
-  const opacity = Math.random() * 0.5 + 0.4;
-
-  if (usedColors.size >= colorPalette.length) {
-    usedColors.clear();
+  interface Props {
+    popularFoods: Food[];
   }
 
-  let colorIndex: number;
-  let rgb: number[];
+  const props = withDefaults(defineProps<Props>(), {
+    popularFoods: () => [],
+  });
 
-  do {
-    colorIndex = Math.floor(Math.random() * colorPalette.length);
-    rgb = colorPalette[colorIndex];
-  } while (usedColors.has(colorIndex));
+  const { isFavorite, toggleFavorite } = useFavorites<Food>();
 
-  usedColors.add(colorIndex);
+  // 数据点阵样式生成
+  const getMatrixDotStyle = (_index: number) => {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const size = Math.random() * 3 + 1;
+    const duration = Math.random() * 2 + 1;
+    const delay = Math.random() * 3;
 
-  return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
-};
+    return {
+      left: `${x}%`,
+      top: `${y}%`,
+      width: `${size}px`,
+      height: `${size}px`,
+      animationDuration: `${duration}s`,
+      animationDelay: `${delay}s`,
+    };
+  };
 
-const getRandomWidth = (): number => {
-  return Math.random() * 0.5 + 0.2;
-};
-
-const getRandomPosition = (): number => {
-  return Math.random() * 100;
-};
-
-const getRandomDuration = (): number => {
-  return Math.random() * 4 + 1;
-};
-
-const getLongLineEnd = (): number => {
-  const direction = Math.random() > 0.5 ? 1 : -1;
-  return direction > 0 ? 150 : -50;
-};
+  // Tag边框颜色生成
+  const getTagBorderColor = (tag: string): string => {
+    let hash = 0;
+    for (let i = 0; i < tag.length; i++) {
+      hash = tag.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const hue = Math.abs(hash % 360);
+    // 返回HSL颜色，饱和度更高，亮度更亮，用于边框
+    return `hsl(${hue}, 80%, 60%)`;
+  };
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

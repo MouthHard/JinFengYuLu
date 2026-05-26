@@ -1,4 +1,4 @@
-import type { CreativeProduct } from "@/types/museum/index";
+import type { CreativeProduct } from "@/typesOfPages/museum/index";
 
 // 文创产品数据 - 38个博物馆真实文创产品
 export const creativeProducts: CreativeProduct[] = [

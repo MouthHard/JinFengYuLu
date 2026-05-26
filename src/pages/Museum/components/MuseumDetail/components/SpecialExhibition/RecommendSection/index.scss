@@ -1,0 +1,435 @@
+.recommend-section {
+  background: linear-gradient(45deg, rgba(22, 32, 48, 0.95) 0%, rgba(35, 48, 68, 0.9) 50%, rgba(28, 38, 52, 0.95) 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  // 宇宙星空背景 - 随机星星
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 27px 34px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 54px 66px, rgba(96, 165, 250, 0.7), transparent),
+      radial-gradient(1px 1px at 81px 42px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 108px 78px, rgba(251, 191, 36, 0.8), transparent),
+      radial-gradient(1px 1px at 135px 49px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 162px 87px, rgba(96, 165, 250, 0.6), transparent),
+      radial-gradient(1px 1px at 189px 28px, rgba(255, 255, 255, 0.5), transparent);
+    background-size: 210px 105px;
+    animation: twinkle 6.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  // 星云效果 - 蓝色和绿色
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 70%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .title-icon {
+        font-size: 1.25rem;
+        animation: lightbulbGlow 2s ease-in-out infinite;
+        display: inline-block;
+      }
+
+      @keyframes lightbulbGlow {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 5px rgba(232, 145, 58, 0.5));
+          transform: scale(1);
+        }
+        50% {
+          filter: drop-shadow(0 0 15px rgba(232, 145, 58, 0.8));
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .header-decoration {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .decoration-line {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(44, 90, 160, 0.5));
+      }
+
+      .decoration-dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(44, 90, 160, 0.5);
+        border-radius: 50%;
+        animation: dotPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes dotPulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+
+  .recommend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 968px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+
+    .recommend-card {
+      background: radial-gradient(circle at 50% 50%,
+          #0f2027 0%,
+          #1a3540 70%,
+          #0a1a20 100%);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 2px solid rgba(30, 70, 80, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 1),
+        0 1px 4px rgba(0, 0, 0, 0.8);
+
+      // 卡片背景图案
+      .card-bg-pattern {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 20% 80%,
+          rgba(44, 90, 160, 0.1) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      // 卡片光效
+      .card-glow {
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(232, 145, 58, 0.15) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(96, 165, 250, 0.4);
+        box-shadow:
+          0 12px 24px -8px rgba(0, 0, 0, 0.3),
+          0 4px 8px -2px rgba(0, 0, 0, 0.2);
+
+        .card-bg-pattern {
+          opacity: 1;
+        }
+
+        .card-glow {
+          opacity: 1;
+        }
+      }
+
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      // 图标容器
+      .recommend-icon-wrapper {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon-circle {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(44, 90, 160, 0.2),
+            rgba(44, 90, 160, 0.1)
+          );
+          border-radius: 50%;
+          box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 2px 6px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-ring {
+          position: absolute;
+          inset: -4px;
+          border: 2px solid rgba(44, 90, 160, 0.3);
+          border-radius: 50%;
+          animation: ringRotate 8s linear infinite;
+        }
+
+        @keyframes ringRotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .recommend-icon {
+          font-size: 2rem;
+          position: relative;
+          z-index: 2;
+          filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+          animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+      }
+
+      .card-info {
+        flex: 1;
+        margin-bottom: 1rem;
+
+        h5 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 0.5rem;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+          position: relative;
+          display: inline-block;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2c5aa0, #e8913a);
+            transition: width 0.3s ease;
+          }
+        }
+
+        &:hover h5::after {
+          width: 100%;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.6;
+        }
+      }
+
+      // 底部区域
+      .recommend-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+
+        .recommend-type {
+          .type-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.875rem;
+            background: linear-gradient(
+              135deg,
+              rgba(232, 145, 58, 0.2),
+              rgba(232, 145, 58, 0.1)
+            );
+            color: #e8913a;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid rgba(232, 145, 58, 0.3);
+            box-shadow:
+              0 2px 8px rgba(0, 0, 0, 0.2),
+              0 1px 4px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+
+            &::before {
+              content: '●';
+              font-size: 0.5rem;
+              animation: badgePulse 2s ease-in-out infinite;
+            }
+
+            @keyframes badgePulse {
+              0%,
+              100% {
+                opacity: 1;
+              }
+              50% {
+                opacity: 0.5;
+              }
+            }
+          }
+
+          &:hover .type-badge {
+            background: linear-gradient(135deg, #e8913a, #f0a85c);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(232, 145, 58, 0.4);
+          }
+        }
+
+        .explore-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.625rem 1.25rem;
+          background: linear-gradient(135deg, #2c5aa0, #4a7ac2);
+          color: white;
+          border: none;
+          border-radius: 12px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow:
+            0 4px 12px rgba(44, 90, 160, 0.3),
+            0 2px 6px rgba(44, 90, 160, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          position: relative;
+          overflow: hidden;
+
+          .btn-text {
+            position: relative;
+            z-index: 2;
+          }
+
+          .btn-arrow {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            );
+            transition: left 0.5s ease;
+            z-index: 1;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow:
+              0 8px 20px rgba(44, 90, 160, 0.4),
+              0 4px 8px rgba(44, 90, 160, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+
+            .btn-arrow {
+              transform: translateX(4px);
+            }
+
+            &::before {
+              left: 100%;
+            }
+          }
+
+          &:active {
+            transform: translateY(-1px);
+            box-shadow:
+              0 2px 6px rgba(44, 90, 160, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+}

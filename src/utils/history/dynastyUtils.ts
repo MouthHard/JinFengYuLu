@@ -1,4 +1,4 @@
-import type { Dynasty } from "@/types/history";
+import type { Dynasty } from "@/typesOfPages/history";
 import { getStartYear, getDurationYears } from "./dateUtils";
 
 // 朝代分类映射

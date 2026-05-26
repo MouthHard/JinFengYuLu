@@ -1,14 +1,7 @@
 // 中国各省份数据
+import type { Province } from "@/typesOfPages/travelGuide";
 
-export interface Province {
-  id: string;
-  name: string;
-  abbreviation: string;
-  capital: string;
-  region: string;
-  description: string;
-  tags: string[];
-}
+export type { Province };
 
 export const provinces: Province[] = [
   // 华北地区

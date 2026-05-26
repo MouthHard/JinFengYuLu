@@ -2,11 +2,6 @@ import type { RouteRecordRaw } from "vue-router";
 
 export const otherRoutes: RouteRecordRaw[] = [
   {
-    path: "/like",
-    name: "like",
-    component: () => import("@/pages/Like/index.vue"),
-  },
-  {
     path: "/travel-guide",
     name: "travel-guide",
     component: () => import("@/pages/TravelGuide/index.vue"),
@@ -25,11 +20,7 @@ export const otherRoutes: RouteRecordRaw[] = [
       },
     ],
   },
-  {
-    path: "/note",
-    name: "note",
-    component: () => import("@/pages/Note/index.vue"),
-  },
+
   {
     path: "/history",
     name: "history",

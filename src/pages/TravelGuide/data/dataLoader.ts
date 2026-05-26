@@ -1,7 +1,6 @@
-// 数据加载工具
-// 支持按需加载各个省份的风光数据
+ 
 
-import { SceneryData } from "./scenery";
+import type { SceneryData } from "@/typesOfPages/travelGuide";
 
 // 省份数据映射
 const provinceDataMap: Record<string, () => Promise<SceneryData>> = {

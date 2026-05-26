@@ -1,11 +1,8 @@
 <template>
   <div class="search-filter-section">
     <div class="filter-layout">
-      <!-- 搜索框 -->
       <div class="search-box">
-        <div class="search-icon-wrapper">
-          <SearchIcon />
-        </div>
+        <div class="search-icon-wrapper">🔍</div>
         <input
           v-model="localSearchQuery"
           type="text"
@@ -15,7 +12,6 @@
         />
       </div>
 
-      <!-- 筛选容器 -->
       <div class="filter-container">
         <div class="filter-options">
           <div
@@ -32,7 +28,6 @@
         </div>
       </div>
 
-      <!-- 已选筛选 -->
       <div v-if="selectedLandscapeType" class="active-filters">
         <span class="filter-label">已选筛选：</span>
         <div class="active-filter-tag">
@@ -62,53 +57,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { landscapeTypes } from "../../../../data/scenery";
-import { SearchIcon, CloseIcon } from "../../../../icons";
+  import { ref, watch } from 'vue';
+  import { landscapeTypes } from '../../../../data/scenery';
+  import { CloseIcon } from '../../../../icons';
 
-const props = defineProps<{
-  searchQuery: string;
-  selectedLandscapeType: string;
-  getTypeCount: (type: string) => number;
-}>();
+  const props = defineProps<{
+    searchQuery: string;
+    selectedLandscapeType: string;
+    getTypeCount: (type: string) => number;
+  }>();
 
-const emit = defineEmits<{
-  searchQuery: [value: string];
-  selectedLandscapeType: [value: string];
-  clearAll: [];
-}>();
+  const emit = defineEmits<{
+    searchQuery: [value: string];
+    selectedLandscapeType: [value: string];
+    clearAll: [];
+  }>();
 
-const localSearchQuery = ref(props.searchQuery);
+  const localSearchQuery = ref(props.searchQuery);
 
-watch(
-  () => props.searchQuery,
-  (newValue) => {
-    localSearchQuery.value = newValue;
-  },
-);
-
-const updateSearchQuery = () => {
-  emit("searchQuery", localSearchQuery.value);
-};
-
-const selectLandscapeType = (type: string) => {
-  emit("selectedLandscapeType", type);
-};
-
-const clearLandscapeType = () => {
-  emit("selectedLandscapeType", "");
-};
-
-const clearAll = () => {
-  emit("clearAll");
-};
-
-const getSelectedLandscapeName = () => {
-  const type = landscapeTypes.find(
-    (t) => t.value === props.selectedLandscapeType,
+  watch(
+    () => props.searchQuery,
+    (newValue) => {
+      localSearchQuery.value = newValue;
+    },
   );
-  return type ? type.label : "";
-};
+
+  const updateSearchQuery = () => {
+    emit('searchQuery', localSearchQuery.value);
+  };
+
+  const selectLandscapeType = (type: string) => {
+    emit('selectedLandscapeType', type);
+  };
+
+  const clearLandscapeType = () => {
+    emit('selectedLandscapeType', '');
+  };
+
+  const clearAll = () => {
+    emit('clearAll');
+  };
+
+  const getSelectedLandscapeName = () => {
+    const type = landscapeTypes.find(
+      (t) => t.value === props.selectedLandscapeType,
+    );
+    return type ? type.label : '';
+  };
 </script>
 
 <style scoped src="./index.scss" />

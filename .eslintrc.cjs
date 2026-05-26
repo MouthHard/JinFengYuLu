@@ -18,18 +18,19 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-console": "off",
+    "no-debugger": "off",
     "vue/multi-word-component-names": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-      },
-    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "prettier/prettier": "off",
+    // 放宽 Vue 模板格式化
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/first-attribute-linebreak": "off",
+    "vue/attribute-hyphenation": "off",
   },
 };

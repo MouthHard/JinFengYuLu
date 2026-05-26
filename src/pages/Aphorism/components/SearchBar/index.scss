@@ -1,7 +1,7 @@
 .search-bar {
   position: relative;
   width: 100%;
-  font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+  font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
 
   .search-container {
     display: flex;
@@ -17,7 +17,7 @@
 
     // 竹简装饰边框
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 4px;
       left: 4px;
@@ -26,23 +26,6 @@
       border: 1px solid rgba(184, 115, 51, 0.15);
       border-radius: 16px;
       pointer-events: none;
-    }
-
-    // 竹简纹理装饰
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(
-        circle,
-        rgba(139, 115, 85, 0.08),
-        transparent 70%
-      );
-      pointer-events: none;
-      border-radius: 0 20px 0 60px;
     }
 
     &:focus-within {
@@ -59,25 +42,75 @@
       filter: drop-shadow(0 2px 4px rgba(205, 92, 92, 0.3));
     }
 
-    .search-input {
+    .search-input-container {
       flex: 1;
-      border: none;
-      outline: none;
-      font-size: 17px;
-      color: #1a1a1a;
-      background: transparent;
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+      position: relative;
+      display: flex;
+      align-items: center;
       z-index: 1;
 
-      &::placeholder {
-        color: #7a7a7a;
-        font-style: italic;
+      .search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #000000;
+        background: transparent;
+        font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
+        padding-right: 40px; // 为清除按钮留出空间
+
+        &::placeholder {
+          color: #737373;
+          font-style: italic;
+        }
+      }
+
+      .clear-button {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(
+          135deg,
+          rgba(205, 92, 92, 0.1),
+          rgba(178, 34, 34, 0.1)
+        );
+        border: 1px solid rgba(205, 92, 92, 0.3);
+        font-size: 14px;
+        cursor: pointer;
+        color: #cd5c5c;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 4px rgba(205, 92, 92, 0.5);
+        backdrop-filter: blur(10px);
+
+        &:hover {
+          background: linear-gradient(
+            135deg,
+            rgba(205, 92, 92, 0.2),
+            rgba(178, 34, 34, 0.3)
+          );
+          transform: translateY(-50%) scale(1.05) rotate(360deg);
+          box-shadow: 0 0 8x rgba(205, 92, 92, 0.7);
+          border-color: rgba(205, 92, 92, 0.5);
+        }
+
+        &:active {
+          transform: translateY(-50%) scale(0.95);
+          box-shadow: 0 2px 6px rgba(205, 92, 92, 0.2);
+        }
       }
     }
 
     .search-button {
       padding: 14px 32px;
-      background: linear-gradient(135deg, #cd5c5c, #b22222);
+      background: linear-gradient(135deg, #cd895c, #8a0a0a);
       border: none;
       border-radius: 16px;
       color: white;
@@ -85,15 +118,15 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
-      box-shadow: 0 4px 16px rgba(205, 92, 92, 0.3);
+      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
+      box-shadow: 0 4px 8px rgba(205, 92, 92, 0.5);
       z-index: 1;
       position: relative;
       overflow: hidden;
 
       // 按钮光泽效果
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: -100%;
@@ -110,15 +143,11 @@
 
       &:hover {
         transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 8px 24px rgba(205, 92, 92, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
 
         &::before {
           left: 100%;
         }
-      }
-
-      &:active {
-        transform: translateY(-1px) scale(0.98);
       }
     }
   }
@@ -144,7 +173,7 @@
       font-size: 16px;
       color: #4a4a4a;
       font-weight: 600;
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
     }
 
     .hot-tag {
@@ -156,44 +185,23 @@
       );
       border-radius: 28px;
       font-size: 15px;
-      color: #8b4513;
+      color: #5d2b08;
+      font-weight: bold;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border: 1px solid rgba(184, 115, 51, 0.2);
-      font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
       position: relative;
       overflow: hidden;
-
-      // 标签装饰效果
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(184, 115, 51, 0.2),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
       &:hover {
         background: linear-gradient(
           135deg,
-          rgba(184, 115, 51, 0.2),
-          rgba(184, 115, 51, 0.15)
+          rgba(254, 174, 99, 0.05),
+          rgba(184, 115, 51, 0.4)
         );
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(184, 115, 51, 0.25);
+        box-shadow: 0 2px 4px rgb(114, 33, 1);
         border-color: rgba(184, 115, 51, 0.35);
-
-        &::before {
-          opacity: 1;
-        }
       }
 
       &:active {
@@ -209,7 +217,7 @@
     right: 0;
     background: linear-gradient(135deg, #fff, #f8f5f0);
     border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(44, 24, 16, 0.2);
+    box-shadow: 0 12px 40px rgba(44, 24, 16, 0.4);
     margin-top: 12px;
     overflow: hidden;
     z-index: 100;
@@ -219,7 +227,7 @@
 
     // 竹简装饰边框
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 4px;
       left: 4px;
@@ -230,22 +238,6 @@
       pointer-events: none;
     }
 
-    // 竹简纹理装饰
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70px;
-      height: 70px;
-      background: radial-gradient(
-        circle,
-        rgba(139, 115, 85, 0.06),
-        transparent 70%
-      );
-      pointer-events: none;
-      border-radius: 70px 0 20px 0;
-    }
 
     .suggestion-item {
       display: flex;
@@ -279,18 +271,19 @@
       .suggestion-text {
         flex: 1;
         font-size: 16px;
-        color: #1a1a1a;
-        font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
-        font-weight: 500;
+        color: #636363;
+        font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
+        font-weight: bold;
       }
 
       .suggestion-count {
         font-size: 14px;
-        color: #8b4513;
+        color: #713408;
         padding: 6px 16px;
-        background: rgba(184, 115, 51, 0.1);
+        background: rgba(184, 115, 51, 0.2);
         border-radius: 16px;
-        font-family: "STKaiti", "KaiTi", "Noto Serif SC", "SimSun", serif;
+        font-weight: bold;
+        font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif;
       }
     }
   }

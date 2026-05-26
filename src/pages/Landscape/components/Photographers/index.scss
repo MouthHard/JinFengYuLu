@@ -1,0 +1,130 @@
+.photographers-page {
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  overflow-y: auto;
+
+  .cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    .cosmic-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(
+          ellipse at 15% 25%,
+          rgba(212, 148, 58, 0.06) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 85% 75%,
+          rgba(180, 100, 30, 0.04) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 50% 50%,
+          rgba(20, 14, 8, 0.12) 0%,
+          transparent 70%
+        );
+    }
+
+    .cosmic-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(
+          1px 1px at 10% 20%,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 30% 40%,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 50% 60%,
+          rgba(255, 255, 255, 0.12),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 70% 80%,
+          rgba(255, 255, 255, 0.08),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 90% 10%,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 20% 70%,
+          rgba(255, 183, 77, 0.15),
+          transparent
+        ),
+        radial-gradient(
+          1px 1px at 80% 30%,
+          rgba(212, 148, 58, 0.12),
+          transparent
+        );
+      background-size: 100% 100%;
+      animation: particleFloat 25s ease-in-out infinite;
+    }
+
+    .cosmic-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 5, 3, 0.4);
+      backdrop-filter: blur(0.5px);
+    }
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-15px) translateX(8px);
+  }
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}

@@ -1,5 +1,5 @@
 // 沉浸式体验数据
-import type { ImmersiveExperience } from "@/types/museum/index";
+import type { ImmersiveExperience } from "@/typesOfPages/museum/index";
 
 // 沉浸式体验数据数组
 export const immersiveExperiences: ImmersiveExperience[] = [
