@@ -25,11 +25,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(0, 123, 255, 0.06) 0%,
-      transparent 50%
-    );
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 123, 255, 0.06) 0%,
+        transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -200,7 +198,7 @@
         letter-spacing: -0.01em;
         transition: all 0.3s ease;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+
         -webkit-box-orient: vertical;
         overflow: hidden;
         min-height: 2.625em;
@@ -226,7 +224,7 @@
       letter-spacing: -0.01em;
       transition: all 0.3s ease;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+
       -webkit-box-orient: vertical;
       overflow: hidden;
       min-height: 2.625em;
@@ -238,7 +236,7 @@
       margin: 0 0 0.75rem;
       line-height: 1.6;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+
       -webkit-box-orient: vertical;
       overflow: hidden;
       min-height: 2.4em;
@@ -469,6 +467,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

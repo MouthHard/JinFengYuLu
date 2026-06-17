@@ -5,14 +5,19 @@
         <div class="modal-container" @click.stop>
           <div class="modal-header">
             <div class="header-actions">
-              <button
-                class="action-button"
-                :title="isFavorite ? '取消收藏' : '收藏'"
-                @click="toggleFavorite"
-              >
-                {{ isFavorite ? '❤️' : '🤍' }}
+              <button class="action-button like-button" :class="{ active: isLiked }" :title="isLiked ? '取消点赞' : '点赞'"
+                @click="toggleLike">
+                {{ isLiked ? '👍' : '👍' }}
               </button>
-              <button class="action-button" title="分享" @click="sharePoem">
+              <button class="action-button love-button" :class="{ active: isLoved }" :title="isLoved ? '取消喜爱' : '喜爱'"
+                @click="toggleLove">
+                {{ isLoved ? '❤️' : '🤍' }}
+              </button>
+              <button class="action-button favorite-button" :class="{ active: isFavorite }"
+                :title="isFavorite ? '取消收藏' : '收藏'" @click="toggleFavorite">
+                {{ isFavorite ? '⭐' : '☆' }}
+              </button>
+              <button class="action-button share-button" title="分享" @click="sharePoem">
                 📤
               </button>
             </div>
@@ -35,22 +40,13 @@
               <h2 class="poem-title">{{ poem.title }}</h2>
 
               <div class="poem-content">
-                <p
-                  v-for="(line, index) in poem.content"
-                  :key="index"
-                  class="poem-line"
-                >
+                <p v-for="(line, index) in poem.content" :key="index" class="poem-line">
                   {{ line }}
                 </p>
               </div>
 
               <div v-if="poem.tags && poem.tags.length > 0" class="poem-tags">
-                <span
-                  v-for="(tag, index) in poem.tags"
-                  :key="index"
-                  class="tag"
-                  @click="handleTagClick(tag)"
-                >
+                <span v-for="(tag, index) in poem.tags" :key="index" class="tag" @click="handleTagClick(tag)">
                   #{{ tag }}
                 </span>
               </div>
@@ -95,52 +91,79 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import type { Poem } from '../../../../typesOfPages/poetry/poem';
-  import './index.scss';
+import { computed } from 'vue';
+import type { Poem } from '../../../../typesOfPages/poetry/poem';
+import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
+import { showMessage } from '@/components/common/InteractionMessage';
+import './index.scss';
 
-  const props = defineProps<{
-    visible: boolean;
-    poem: Poem;
-    backgroundImage: string;
-  }>();
+const props = defineProps<{
+  visible: boolean;
+  poem: Poem;
+  backgroundImage: string;
+}>();
 
-  const emit = defineEmits<{
-    (e: 'close'): void;
-    (e: 'tag-click', tag: string): void;
-    (e: 'favorite-toggle', poemId: string): void;
-  }>();
+const emit = defineEmits<{
+  (e: 'close'): void;
+  (e: 'tag-click', tag: string): void;
+}>();
 
-  const isFavorite = ref(false);
+const interactionStore = useAphorismInteractionStore();
 
-  const handleClose = () => {
-    emit('close');
-  };
+const isLiked = computed(() => interactionStore.isLiked(props.poem.id));
+const isLoved = computed(() => interactionStore.isLoved(props.poem.id));
+const isFavorite = computed(() => interactionStore.isFavorite(props.poem.id));
 
-  const handleOverlayClick = () => {
-    handleClose();
-  };
+const handleClose = () => {
+  emit('close');
+};
 
-  const handleTagClick = (tag: string) => {
-    emit('tag-click', tag);
-  };
+const handleOverlayClick = () => {
+  handleClose();
+};
 
-  const toggleFavorite = () => {
-    isFavorite.value = !isFavorite.value;
-    emit('favorite-toggle', props.poem.id);
-  };
+const handleTagClick = (tag: string) => {
+  emit('tag-click', tag);
+};
 
-  const sharePoem = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: props.poem.title,
-        text: `${props.poem.title} - ${props.poem.author}\n\n${props.poem.content.join('\n')}`,
-        url: window.location.href,
-      });
-    } else {
-      const text = `${props.poem.title} - ${props.poem.author}\n\n${props.poem.content.join('\n')}`;
-      navigator.clipboard.writeText(text);
-      alert('已复制到剪贴板');
-    }
-  };
+const toggleLike = () => {
+  interactionStore.toggleLike(props.poem.id);
+  if (isLiked.value) {
+    showMessage.like.success(props.poem.title);
+  } else {
+    showMessage.like.cancel();
+  }
+};
+
+const toggleLove = () => {
+  interactionStore.toggleLove(props.poem.id);
+  if (isLoved.value) {
+    showMessage.love.success(props.poem.title, 'poem');
+  } else {
+    showMessage.love.cancel(props.poem.title, 'poem');
+  }
+};
+
+const toggleFavorite = () => {
+  interactionStore.toggleFavorite(props.poem.id);
+  if (isFavorite.value) {
+    showMessage.favorite.success(props.poem.title, 'poem');
+  } else {
+    showMessage.favorite.cancel(props.poem.title, 'poem');
+  }
+};
+
+const sharePoem = () => {
+  if (navigator.share) {
+    navigator.share({
+      title: props.poem.title,
+      text: `${props.poem.title} - ${props.poem.author}\n\n${props.poem.content.join('\n')}`,
+      url: window.location.href,
+    });
+  } else {
+    const text = `${props.poem.title} - ${props.poem.author}\n\n${props.poem.content.join('\n')}`;
+    navigator.clipboard.writeText(text);
+    showMessage.share.copied();
+  }
+};
 </script>

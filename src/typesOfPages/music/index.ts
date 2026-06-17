@@ -157,3 +157,25 @@ export interface PlayTimeInfo {
 export interface LocalSong extends Song {
   size: string;
 }
+
+// 下载歌曲类型定义
+export interface DownloadedSong extends Song {
+  downloadedAt: string;
+  size: string;
+  quality: string;
+  fileSize?: string;
+  downloadTime?: string;
+  qualityLabel?: string;
+  fileBytes?: number;
+}
+
+// 默认歌单类型定义
+export interface DefaultPlaylist {
+  key: string;
+  icon?: any;
+  name: string;
+  count: string;
+  cover: string;
+  desc: string;
+  songs: string[];
+}

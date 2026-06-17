@@ -1,0 +1,9 @@
+export { default as ParkingIcon } from './ParkingIcon.vue';
+export { default as StorageIcon } from './StorageIcon.vue';
+export { default as RestaurantIcon } from './RestaurantIcon.vue';
+export { default as AccessibilityIcon } from './AccessibilityIcon.vue';
+export { default as RestAreaIcon } from './RestAreaIcon.vue';
+export { default as WifiIcon } from './WifiIcon.vue';
+export { default as SpecialHallIcon } from './SpecialHallIcon.vue';
+export { default as BusIcon } from './BusIcon.vue';
+export { default as ComplaintIcon } from './ComplaintIcon.vue';

@@ -21,6 +21,15 @@ export interface Artifact {
   image: string;
   description?: string;
   category?: string;
+  basicInfo?: {
+    periodDetail?: string;
+    material?: string;
+    dimensions?: string;
+    collection?: string;
+    excavation?: string;
+  };
+  appearance?: string;
+  historicalValue?: string;
 }
 
 // 展览类型定义
@@ -33,6 +42,13 @@ export interface Exhibition {
   image: string;
   location?: string;
   category?: string;
+  status?: string;
+  statusText?: string;
+  tags?: string[];
+  curator?: string;
+  scale?: string;
+  visitors?: number;
+  background?: string;
 }
 
 // 活动类型定义
@@ -231,4 +247,20 @@ export interface MuseumDetailInfo {
   architecture: string; // 建筑特色
   highlights: string; // 重要馆藏
   education: string; // 教育活动
+}
+
+// 省份数据接口
+export interface ProvinceData {
+  code: string;
+  name: string;
+  museums: Museum[];
+  details?: Record<number, MuseumDetailInfo>;
+  artifacts?: Artifact[];
+  activities?: Activity[];
+  creativeProducts?: CreativeProduct[];
+  exhibitions?: Exhibition[];
+  news?: News[];
+  academicResources?: AcademicResource[];
+  immersiveExperiences?: ImmersiveExperience[];
+  exhibitionHalls?: Record<number, ExhibitionHall[]>;
 }

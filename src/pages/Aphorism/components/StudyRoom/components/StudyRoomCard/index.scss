@@ -1,0 +1,253 @@
+.studyroom-card {
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  min-width: 0;
+
+  .scroll-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: center center / cover no-repeat;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 6px 15px rgba(0, 0, 0, 0.5),
+      0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 25px 25px 25px;
+    box-sizing: border-box;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0%;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(251, 250, 246, 1) 50%,
+        rgba(255, 255, 255, 0.7) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    // 移除按钮
+    .remove-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      &.loved {
+            background: rgba(220, 38, 38, 0.85);
+            color: white;
+            &:hover { background: #dc2626; transform: scale(1.15); }
+          }
+
+          &.favorites {
+            background: rgba(184, 115, 51, 0.85);
+            color: white;
+            &:hover { background: #b87333; transform: scale(1.15); }
+          }
+    }
+
+    // 类型标签
+    .type-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: bolder;
+      z-index: 10;
+      letter-spacing: 1px;
+      font-family: 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+
+      &.loved {
+        background: linear-gradient(135deg, #dc2626, #991b1b);
+        color: white;
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5);
+      }
+
+      &.favorites {
+        background: linear-gradient(135deg, #b87333, #8b6914);
+        color: white;
+        box-shadow: 0 2px 8px rgba(184, 115, 51, 0.5);
+      }
+    }
+
+    // 诗词标题
+    .poem-title {
+      font-size: 32px;
+      font-weight: bolder;
+      color: #000000;
+      margin: 20px 0 15px 0;
+      font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+      letter-spacing: 8px;
+      text-align: center;
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    // 朝代和作者信息
+    .meta-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+
+      .dynasty-badge {
+        padding: 6px 14px;
+        background: linear-gradient(
+          135deg,
+          #550101 0%,
+          #ac2f2f 30%,
+          #f84a4a 50%,
+          #b42b2b 70%,
+          #530101 100%
+        );
+        color: #ffffff;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bolder;
+        font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+        box-shadow:
+          0 3px 8px rgba(0, 0, 0, 1),
+          inset 0 1px 2px rgba(255, 255, 255, 0.4),
+          inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+        text-shadow:
+          1px 1px 2px rgba(0, 0, 0, 0.9),
+          0 0 5px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(139, 0, 0, 0.5);
+      }
+
+      .author-name {
+        font-size: 20px;
+        color: #000000;
+        font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+        letter-spacing: 4px;
+        font-weight: bolder;
+        text-shadow:
+          1px 1px 2px rgba(0, 0, 0, 0.1),
+          -1px -1px 1px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    // 派别 tags
+    .poem-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+
+      .tag {
+        padding: 4px 10px;
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #3e3e3e 30%,
+          #666666 50%,
+          #3f3f3f 70%,
+          #222020 100%
+        );
+        color: #fdeebb;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: bolder;
+        border: 1px solid rgba(184, 134, 11, 0.6);
+        font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+        transition: all 0.3s ease;
+        box-shadow:
+          0 2px 6px rgba(0, 0, 0, 0.85),
+          0 4px 10px rgba(0, 0, 0, 0.65),
+          inset 0 1px 1px rgba(255, 255, 255, 0.2),
+          inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+        text-shadow:
+          1px 1px 2px rgba(0, 0, 0, 0.3),
+          0 0 4px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          background: linear-gradient(
+            135deg,
+            #3d3d3d 0%,
+            #5a5a5a 30%,
+            #777777 50%,
+            #5a5a5a 70%,
+            #3d3d3d 100%
+          );
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    // 诗词内容
+    .poem-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      flex: 1;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+
+      .content-line {
+        font-size: 17px;
+        font-weight: bolder;
+        color: #000000;
+        line-height: 1.5;
+        font-family: "STKaiti", "KaiTi", "Noto Serif SC", serif;
+        margin: 0;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+
+    .scroll-container {
+      box-shadow:
+        0 5px 10px rgba(0, 0, 0, 1),
+        0 10px 20px rgba(0, 0, 0, 1);
+
+      .remove-btn {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

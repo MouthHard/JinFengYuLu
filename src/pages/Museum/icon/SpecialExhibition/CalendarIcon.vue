@@ -1,0 +1,28 @@
+<template>
+  <svg t="1781331351653" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    p-id="15952" width="1.5rem" height="2rem" fill="currentColor">
+    <path
+      d="M960 128H833c0-53-43-96-96-96h-16c-53 0-96 43-96 96H400c0-26.5-10.7-50.5-28.1-67.9C354.5 42.7 330.5 32 304 32h-16c-53 0-96 43-96 96H64c-35.3 0-64 28.6-64 64v736c0 35.3 28.7 64 64 64h896c35.3 0 64-28.7 64-64V192c0-35.4-28.7-64-64-64z m-271 8c0-22.1 17.9-40 40-40s40 17.9 40 40v80c0 22.1-17.9 40-40 40-11 0-21-4.5-28.3-11.7C693.5 237 689 227 689 216v-80z m-433 0c0-22.1 17.9-40 40-40s40 17.9 40 40v80c0 22.1-17.9 40-40 40-11 0-21-4.5-28.3-11.7C260.5 237 256 227 256 216v-80z m704 760c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V448h896v448z"
+      p-id="15953"></path>
+    <path
+      d="M96 512h256v160H96zM96 704h256v160H96zM384 512h256v160H384zM384 704h256v160H384zM672 512h256v160H672zM672 704h256v160H672z"
+      p-id="15954"></path>
+  </svg>
+</template>
+
+<script setup lang="ts">
+import type { CSSProperties } from 'vue';
+
+interface Props {
+  fill?: string;
+  strokeWidth?: number | string;
+  class?: string;
+  style?: CSSProperties;
+}
+
+withDefaults(defineProps<Props>(), {
+  fill: 'none',
+  strokeWidth: 2,
+});
+
+</script>

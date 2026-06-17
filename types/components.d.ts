@@ -15,9 +15,12 @@ declare module 'vue' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElRate: typeof import('element-plus/es')['ElRate']
+    ErrorAlertIcon: typeof import('./../src/components/common/ErrorBoundary/icon/ErrorAlertIcon.vue')['default']
     ErrorBoundary: typeof import('./../src/components/common/ErrorBoundary/index.vue')['default']
+    HomeIcon: typeof import('./../src/components/common/ErrorBoundary/icon/HomeIcon.vue')['default']
     LazyLoadWrapper: typeof import('./../src/components/common/LazyLoadWrapper/index.vue')['default']
     PageChange: typeof import('./../src/components/common/PageChange/index.vue')['default']
+    RetryIcon: typeof import('./../src/components/common/ErrorBoundary/icon/RetryIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

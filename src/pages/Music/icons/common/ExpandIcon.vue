@@ -1,0 +1,18 @@
+<template>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="4 14 10 14 10 20"/>
+    <polyline points="20 10 14 10 14 4"/>
+    <line x1="14" y1="10" x2="21" y2="3"/>
+    <line x1="3" y1="21" x2="10" y2="14"/>
+  </svg>
+</template>
+<script setup lang="ts">
+import type { CSSProperties } from 'vue';
+interface Props {
+  fill?: string;
+  strokeWidth?: number | string;
+  class?: string;
+  style?: CSSProperties;
+}
+withDefaults(defineProps<Props>(), { fill: 'none', strokeWidth: 2 });
+</script>

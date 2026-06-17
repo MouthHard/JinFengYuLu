@@ -1,7 +1,6 @@
 <template>
   <div class="result-grid">
-    <div v-for="(item, index) in items" :key="item.id" class="result-item"
-      :class="item.type"
+    <div v-for="(item, index) in items" :key="item.id" class="result-item" :class="item.type"
       :style="{ '--item-index': index }">
       <div class="item-image" @click="$emit('open-detail', item)">
         <img :src="item.thumbnail" :alt="item.title" loading="lazy" @load="onImageLoad" />
@@ -34,42 +33,43 @@
             </div>
             <div class="item-actions" :class="item.type">
               <span class="act-chip act-views" @click.stop>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
                 {{ formatNumber(getCount(item.id).views) }}
               </span>
-              <button 
-                class="act-chip act-like" 
-                type="button"
-                :class="{ active: isLiked(item.id) }"
-                @click.stop="handleToggleLike($event, item)"
-              >
+              <button class="act-chip act-like" type="button" :class="{ active: isLiked(item.id) }"
+                @click.stop="handleToggleLike($event, item)">
                 <ThumbUpIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).likes) }}
               </button>
-              <button 
-                class="act-chip act-love" 
-                type="button"
-                :class="{ active: isLoved(item.id) }"
-                @click.stop="handleToggleLove($event, item)"
-              >
+              <button class="act-chip act-love" type="button" :class="{ active: isLoved(item.id) }"
+                @click.stop="handleToggleLove($event, item)">
                 <HeartIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).loves) }}
               </button>
-              <button 
-                class="act-chip act-bookmark" 
-                type="button"
-                :class="{ active: isFavorited(item.id) }"
-                @click.stop="handleToggleFavorite($event, item)"
-              >
+              <button class="act-chip act-bookmark" type="button" :class="{ active: isFavorited(item.id) }"
+                @click.stop="handleToggleFavorite($event, item)">
                 <BookmarkIcon :stroke-width="2" />
                 {{ formatNumber(getCount(item.id).favorites) }}
               </button>
               <button class="act-chip act-share" type="button" @click.stop>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
                 {{ formatNumber(getCount(item.id).shares) }}
               </button>
               <button class="act-chip act-download" type="button" @click.stop>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
               </button>
             </div>
           </div>
@@ -91,7 +91,7 @@ interface Props {
   items: LandscapeItem[];
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const emit = defineEmits<{
   'open-detail': [item: LandscapeItem];

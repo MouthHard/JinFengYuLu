@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import viteCompression from "vite-plugin-compression";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -20,6 +21,18 @@ export default defineConfig(({ mode }) => {
       Components({
         resolvers: [ElementPlusResolver()],
         dts: "types/components.d.ts",
+      }),
+      viteCompression({
+        algorithm: "gzip",
+        ext: ".gz",
+        threshold: 10240,
+        deleteOriginFile: false,
+      }),
+      viteCompression({
+        algorithm: "brotliCompress",
+        ext: ".br",
+        threshold: 10240,
+        deleteOriginFile: false,
       }),
     ],
     resolve: {

@@ -1,4 +1,4 @@
-import type { Song, MyPlaylist, LocalFolder, PlayTimeInfo, LocalSong } from "@/typesOfPages/music";
+import type { Song, MyPlaylist, LocalFolder, PlayTimeInfo, LocalSong, DownloadedSong } from "@/typesOfPages/music";
 
 export const likedSongsData: Song[] = [
   {
@@ -356,4 +356,12 @@ export const collectionSongsData: Song[] = [
   { id: 7006, name: "吻别", cover: "https://picsum.photos/seed/cs6/400/400", duration: 295000, artists: [{ id: 18, name: "张学友" }], album: { id: 27, name: "吻别", cover: "" }, isVip: false, isSq: true },
   { id: 7007, name: "朋友", cover: "https://picsum.photos/seed/cs7/400/400", duration: 253000, artists: [{ id: 19, name: "周华健" }], album: { id: 28, name: "朋友", cover: "" }, isVip: false, isSq: true },
   { id: 7008, name: "一生有你", cover: "https://picsum.photos/seed/cs8/400/400", duration: 257000, artists: [{ id: 20, name: "水木年华" }], album: { id: 29, name: "一生有你", cover: "" }, isVip: false, isSq: false }
+];
+
+export const downloadedSongsData: DownloadedSong[] = [
+  { id: 8001, name: "夜曲", cover: "https://picsum.photos/seed/dl1/400/400", duration: 245000, artists: [{ id: 1, name: "周杰伦" }], album: { id: 1, name: "十一月的萧邦", cover: "" }, isVip: false, isSq: true, downloadedAt: "2024-01-15", size: "8.5MB", quality: "SQ" },
+  { id: 8002, name: "晴天", cover: "https://picsum.photos/seed/dl2/400/400", duration: 269000, artists: [{ id: 1, name: "周杰伦" }], album: { id: 2, name: "叶惠美", cover: "" }, isVip: false, isSq: true, downloadedAt: "2024-01-14", size: "9.2MB", quality: "SQ" },
+  { id: 8003, name: "起风了", cover: "https://picsum.photos/seed/dl3/400/400", duration: 320000, artists: [{ id: 2, name: "买辣椒也用券" }], album: { id: 3, name: "起风了", cover: "" }, isVip: true, isSq: true, downloadedAt: "2024-01-13", size: "10.8MB", quality: "SQ" },
+  { id: 8004, name: "平凡之路", cover: "https://picsum.photos/seed/dl4/400/400", duration: 256000, artists: [{ id: 3, name: "朴树" }], album: { id: 4, name: "猎户星座", cover: "" }, isVip: false, isSq: true, downloadedAt: "2024-01-12", size: "8.9MB", quality: "SQ" },
+  { id: 8005, name: "孤勇者", cover: "https://picsum.photos/seed/dl5/400/400", duration: 226000, artists: [{ id: 4, name: "陈奕迅" }], album: { id: 5, name: "孤勇者", cover: "" }, isVip: false, isSq: true, downloadedAt: "2024-01-11", size: "7.8MB", quality: "SQ" }
 ];

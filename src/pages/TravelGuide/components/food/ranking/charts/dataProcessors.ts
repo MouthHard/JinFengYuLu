@@ -17,10 +17,11 @@ export const calculatePriceRanges = (foods: Food[]) => {
   foods.forEach((food: Food) => {
     const price = food.price;
     if (price !== undefined) {
-      if (price <= 50) priceRanges['¥0-50']++;
-      else if (price <= 100) priceRanges['¥51-100']++;
-      else if (price <= 150) priceRanges['¥101-150']++;
-      else if (price <= 200) priceRanges['¥151-200']++;
+      const numPrice = Number(price);
+      if (numPrice <= 50) priceRanges['¥0-50']++;
+      else if (numPrice <= 100) priceRanges['¥51-100']++;
+      else if (numPrice <= 150) priceRanges['¥101-150']++;
+      else if (numPrice <= 200) priceRanges['¥151-200']++;
       else priceRanges['¥200+']++;
     }
   });
@@ -56,7 +57,8 @@ export const groupPriceRatingData = (foods: Food[]) => {
 
   foods.forEach((food: Food) => {
     if (food.price !== undefined) {
-      const priceRange = Math.floor(food.price / 20) * 20;
+      const numPrice = Number(food.price);
+      const priceRange = Math.floor(numPrice / 20) * 20;
       const ratingRange = Math.floor(food.rating / 0.5) * 0.5;
       const key = `${priceRange}-${ratingRange}`;
 

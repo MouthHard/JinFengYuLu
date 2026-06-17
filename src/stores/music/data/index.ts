@@ -3,12 +3,13 @@ export { playlists } from './playlists'
 export { toplists, searchHots, recommendPlaylists, newSongs, bannerImages } from './discover'
 export { lyrics } from './lyrics'
 export { artistDetails } from './artistDetails'
-export { 
-  likedSongsData, 
-  recentPlayedData, 
-  collectionPlaylistsData, 
-  localSongsData, 
-  localFoldersData, 
+export {
+  likedSongsData,
+  recentPlayedData,
+  collectionPlaylistsData,
+  localSongsData,
+  localFoldersData,
   recentPlaylistsData,
-  collectionSongsData
+  collectionSongsData,
+  downloadedSongsData
 } from './myMusic'

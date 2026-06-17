@@ -22,13 +22,20 @@ export interface FoodItem {
   name: string;
   description?: string;
   image: string;
-  isPopular: boolean;
-  price: number;
+  isPopular?: boolean;
+  price: string | number;
   rating: number;
   category: string;
   badgeText?: string;
   badgeColor?: string;
   tags?: string[];
+  province?: string;
+  taste?: string;
+  ingredients?: string[];
+  cookingMethod?: string;
+  nameEn?: string;
+  history?: string;
+  bestRestaurant?: string;
   recommendations?: {
     pairings?: string[];
     eatingMethod?: string;
@@ -47,6 +54,12 @@ export interface FoodLocation {
   reason: string;
   rank?: number;
   rating?: number;
+  address?: string;
+  openingHours?: string;
+  specialties?: string[];
+  bestTimeToVisit?: string;
+  provinceId?: string;
+  provinceName?: string;
 }
 
 // 美食接口
@@ -54,14 +67,14 @@ export interface Food {
   id: string;
   name: string;
   rating: number;
-  isPopular: boolean;
+  isPopular?: boolean;
   tags?: string[];
   openingHours?: string;
   address?: string;
   description?: string;
   images?: string[];
   category?: string;
-  price?: number;
+  price?: string | number;
   badgeText?: string;
   badgeColor?: string;
   image?: string;
@@ -69,6 +82,30 @@ export interface Food {
     pairings?: string[];
     eatingMethod?: string;
   };
+}
+
+// 美食街道接口
+export interface FoodStreet {
+  id: string;
+  name: string;
+  description?: string;
+  image: string;
+  location: string;
+  province?: string;
+  provinceId?: string;
+  provinceName?: string;
+  city?: string;
+  foods?: string[];
+  rating?: number;
+  tags?: string[];
+  type?: string;
+  icon?: string;
+  reason?: string;
+  rank?: number;
+  address?: string;
+  openingHours?: string;
+  specialties?: string[];
+  bestTimeToVisit?: string;
 }
 
 // 美食分类接口
@@ -93,6 +130,7 @@ export interface ScenerySpot {
   landscapeType?: string;
   landscapeCategory?: string[];
   landformTags?: string[];
+  cultureType?: string;
 }
 
 // 风光概览接口
@@ -151,15 +189,17 @@ export interface SceneryData {
     description: string;
     image: string;
     category: string;
-    heritageType: string;
+    heritageType?: string;
     protectionUnit: string;
-    tags: string[];
+    tags?: string[];
     icon: string;
     features: string[];
     views?: number;
     likes?: number;
     rating?: number;
   }>;
+  festivals?: any[];
+  folkCustomsElements?: any[];
 }
 
 // 景观类型接口
@@ -167,6 +207,8 @@ export interface LandscapeType {
   value: string;
   label: string;
   icon: string;
+  name?: string;
+  description?: string;
   children?: LandscapeType[];
 }
 
@@ -175,6 +217,7 @@ export interface CultureTheme {
   value: string;
   name: string;
   icon: string;
+  description?: string;
 }
 
 // 最佳时间接口

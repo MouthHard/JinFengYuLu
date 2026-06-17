@@ -1,6 +1,6 @@
 import { ElMessage } from 'element-plus';
 
-type ContentType = 'image' | 'video' | 'guide' | 'photographer' | 'game';
+type ContentType = 'image' | 'video' | 'guide' | 'photographer' | 'game' | 'poem';
 
 const getContentTypeText = (type: ContentType): string => {
   const typeMap: Record<ContentType, string> = {
@@ -9,28 +9,48 @@ const getContentTypeText = (type: ContentType): string => {
     guide: '攻略',
     photographer: '摄影师',
     game: '游戏',
+    poem: '诗词',
   };
   return typeMap[type] || '内容';
 };
 
 const MESSAGE_Z_INDEX = 11000;
+const MESSAGE_DURATION = 3000;
+
+const showMessageWithHoverClose = (options: {
+  type: 'success' | 'info' | 'error' | 'warning';
+  message: string;
+}) => {
+  const handler = ElMessage({
+    ...options,
+    duration: MESSAGE_DURATION,
+    showClose: true,
+    zIndex: MESSAGE_Z_INDEX,
+    onClose: () => { },
+  });
+
+  const messageEl = document.querySelector('.el-message:last-child') as HTMLElement;
+  if (messageEl) {
+    messageEl.addEventListener('mouseenter', () => {
+      handler.close();
+    });
+  }
+
+  return handler;
+};
 
 export const showMessage = {
   like: {
     success: (title: string) => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `已为「${title}」点赞`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     cancel: () => {
-      ElMessage.info({
+      showMessageWithHoverClose({
+        type: 'info',
         message: '已取消点赞',
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
@@ -38,20 +58,16 @@ export const showMessage = {
   love: {
     success: (title: string, type: ContentType) => {
       const typeText = getContentTypeText(type);
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `「${title}」已添加到「我的喜欢 - ${typeText}」`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     cancel: (title: string, type: ContentType) => {
       const typeText = getContentTypeText(type);
-      ElMessage.info({
+      showMessageWithHoverClose({
+        type: 'info',
         message: `已从「我的喜欢 - ${typeText}」移除「${title}」`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
@@ -59,93 +75,73 @@ export const showMessage = {
   favorite: {
     success: (title: string, type: ContentType) => {
       const typeText = getContentTypeText(type);
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `「${title}」已收藏到「我的收藏 - ${typeText}」`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     cancel: (title: string, type: ContentType) => {
       const typeText = getContentTypeText(type);
-      ElMessage.info({
+      showMessageWithHoverClose({
+        type: 'info',
         message: `已从「我的收藏 - ${typeText}」移除「${title}」`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
 
   follow: {
     success: (name: string) => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `已关注「${name}」，可在「我的关注」查看`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     cancel: (name: string) => {
-      ElMessage.info({
+      showMessageWithHoverClose({
+        type: 'info',
         message: `已取消关注「${name}」`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
 
   share: {
     success: (title: string) => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `已复制「${title}」分享链接`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     platform: (platformName: string) => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `已分享到 ${platformName}`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     copied: () => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: '链接已复制到剪贴板',
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     error: () => {
-      ElMessage.error({
+      showMessageWithHoverClose({
+        type: 'error',
         message: '复制失败，请手动复制',
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
 
   download: {
     success: (title: string) => {
-      ElMessage.success({
+      showMessageWithHoverClose({
+        type: 'success',
         message: `「${title}」下载已开始`,
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
     error: () => {
-      ElMessage.error({
+      showMessageWithHoverClose({
+        type: 'error',
         message: '下载失败，请稍后重试',
-        duration: 3000,
-        showClose: true,
-        zIndex: MESSAGE_Z_INDEX,
       });
     },
   },
