@@ -4,8 +4,8 @@
       type="checkbox" 
       :checked="modelValue"
       :disabled="disabled"
-      @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
       class="checkbox-input"
+      @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
     />
     <span class="checkbox-box">
       <svg v-if="modelValue" class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">

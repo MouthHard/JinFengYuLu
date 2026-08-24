@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-select" ref="selectRef">
+  <div ref="selectRef" class="custom-select">
     <div
       class="select-trigger"
       :class="{ 'is-open': isOpen, 'is-disabled': disabled }"
@@ -23,11 +23,11 @@
     <Teleport to="body">
       <Transition name="dropdown">
         <div
+          v-if="isOpen"
+          ref="dropdownRef"
           class="select-dropdown"
           :class="{ 'is-up': placement === 'top' }"
-          v-if="isOpen"
           :style="dropdownStyle"
-          ref="dropdownRef"
         >
           <div class="dropdown-header"></div>
           <div class="dropdown-list">

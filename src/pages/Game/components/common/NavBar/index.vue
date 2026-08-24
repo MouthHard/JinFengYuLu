@@ -70,18 +70,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import type { GameCategory } from '@/typesOfPages/game';
-import { gameCategories, games } from '../../../data/index';
+
 import { useGameStore } from '@/stores/game';
 
-defineEmits<{ categoryChange: [key: GameCategory | 'all'] }>();
+defineEmits<{ categoryChange: [key: string] }>();
 
 const router = useRouter();
 const gameStore = useGameStore();
 const searchQuery = ref('');
-const activeCategory = ref<GameCategory | 'all'>('all');
+const activeCategory = ref<string>('all');
 
 const cartCount = gameStore.cartCount;
 const wishlistCount = gameStore.wishlistCount;
@@ -92,10 +91,10 @@ const navLinks = [
   { to: '/game/library', label: '游戏库' },
 ];
 
-const categories = [
+const categories = computed(() => [
   { key: 'all' as const, label: '全部', icon: '🎮' },
-  ...gameCategories,
-];
+  ...gameStore.categories,
+]);
 
 const handleSearch = () => {
   const q = searchQuery.value.trim();
@@ -103,7 +102,7 @@ const handleSearch = () => {
 };
 
 onMounted(() => {
-  gameStore.initializeFromData(games);
+  gameStore.ensureDataLoaded();
 });
 </script>
 

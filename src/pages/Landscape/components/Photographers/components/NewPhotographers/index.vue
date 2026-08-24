@@ -3,10 +3,9 @@
     <div class="section-header">
       <h2 class="section-title">
         <span class="title-icon">🌟</span>
-        新晋摄影师
-      </h2>
+        新晋摄影�?      </h2>
       <div class="header-right">
-        <p class="section-desc">最近加入的优秀摄影师</p>
+        <p class="section-desc">最近加入的优秀摄影�?/p>
         <button class="show-more-btn">
           <span>展示更多</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -31,7 +30,7 @@
           <div class="info-section">
             <h3 class="name">{{ photographer.name }}</h3>
             <p class="title">{{ photographer.title }}</p>
-            <div class="bio">{{ photographer.bio || '专注于摄影艺术创作，用镜头记录美好瞬间' }}</div>
+            <div class="bio">{{ photographer.bio || '专注于摄影艺术创作，用镜头记录美好瞬�? }}</div>
             <div class="tags-row">
               <span v-for="tag in photographer.tags?.slice(0, 3)" :key="tag" class="tag">{{ tag }}</span>
             </div>
@@ -55,7 +54,7 @@
             </div>
             <div class="action-buttons">
               <button class="follow-btn" :class="{ following: getFollowingState(photographer) }" @click="$emit('toggle-follow', photographer)">
-                <span>{{ getFollowingState(photographer) ? '已关注' : '关注' }}</span>
+                <span>{{ getFollowingState(photographer) ? '已关�? : '关注' }}</span>
               </button>
               <button 
                 class="interaction-btn" 
@@ -74,7 +73,7 @@
                 <circle cx="12" cy="12" r="10"/>
                 <polyline points="12 6 12 12 16 14"/>
               </svg>
-              <span>{{ photographer.joinDate || '最近加入' }}</span>
+              <span>{{ photographer.joinDate || '最近加�? }}</span>
             </div>
           </div>
         </div>
@@ -98,21 +97,21 @@
     </div>
     <div v-else class="empty-state">
       <div class="empty-icon">🌟</div>
-      <h3>暂无新晋摄影师</h3>
-      <p>快来成为第一个新晋摄影师吧</p>
+      <h3>暂无新晋摄影�?/h3>
+      <p>快来成为第一个新晋摄影师�?/p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { computed, watch } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
 import { workTypeLabels } from '@/utils/landscape/constants';
 import { usePhotographersViewData } from '@/composables/landscape';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import type { Photographer } from '@/typesOfPages/landscape';
+import type { Photographer } from '@/types/landscape';
 
 defineEmits<{
   preview: [work: { image?: string; type?: string; author?: string; authorId?: string; authorAvatar?: string; id?: string; cover?: string; title?: string; likes?: number; loves?: number; favorites?: number; views?: number; shares?: number }]
@@ -122,7 +121,7 @@ defineEmits<{
 const getWorkTypeLabel = (type?: string) => workTypeLabels[type || 'photo'] || '照片';
 
 const { newPhotographers } = usePhotographersViewData();
-const photographers = ref(newPhotographers());
+const photographers = computed(() => newPhotographers());
 const interactionStore = useInteractionStore();
 const { formatCount: formatNumber } = useFormatNumber();
 
@@ -134,33 +133,38 @@ const getPhotographerId = (photographer: Photographer): string => {
   return String(photographer.id);
 };
 
-onMounted(() => {
-  photographers.value.forEach(photographer => {
-    const id = getPhotographerId(photographer);
-    interactionStore.registerCount(id, {
-      likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
-      views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
-      loves: Math.floor(Math.random() * 500 + 100),
-      favorites: Math.floor(Math.random() * 300 + 50),
-      shares: Math.floor(Math.random() * 100 + 10)
-    });
+watch(
+  () => photographers.value.length,
+  (len) => {
+    if (len === 0) return;
+    photographers.value.forEach(photographer => {
+      const id = getPhotographerId(photographer);
+      interactionStore.registerCount(id, {
+        likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
+        views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
+        loves: 0,
+        favorites: 0,
+        shares: 0
+      });
 
-    if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
-      interactionStore.registerBatch(
-        photographer.worksPreview.map(work => ({
-          id: work.id || `work-${Date.now()}-${Math.random()}`,
-          counts: {
-            likes: work.likes || 0,
-            loves: work.loves || 0,
-            favorites: work.favorites || 0,
-            views: work.views || 0,
-            shares: work.shares || 0,
-          }
-        }))
-      );
-    }
-  });
-});
+      if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
+        interactionStore.registerBatch(
+          photographer.worksPreview.map(work => ({
+            id: work.id || `work-${photographer.id}-${Math.random()}`,
+            counts: {
+              likes: work.likes || 0,
+              loves: work.loves || 0,
+              favorites: work.favorites || 0,
+              views: work.views || 0,
+              shares: work.shares || 0,
+            }
+          }))
+        );
+      }
+    });
+  },
+  { immediate: true },
+);
 
 const toggleLike = (photographer: Photographer) => {
   const id = getPhotographerId(photographer);

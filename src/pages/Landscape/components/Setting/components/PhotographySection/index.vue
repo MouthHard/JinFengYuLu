@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="selected-tags" v-if="activeTags.length > 0">
+        <div v-if="activeTags.length > 0" class="selected-tags">
           <span class="selected-label">已选择 ({{ activeTags.length }})</span>
           <div class="selected-list">
             <span 
@@ -100,11 +100,11 @@
 
         <div class="custom-tag-input">
           <input 
-            type="text" 
             v-model="newTag" 
+            type="text" 
             placeholder="添加自定义标签..." 
-            @keyup.enter="addCustomTag"
             class="tag-input-field"
+            @keyup.enter="addCustomTag"
           />
           <button class="add-tag-btn" @click="addCustomTag">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

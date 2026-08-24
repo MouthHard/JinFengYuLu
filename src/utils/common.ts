@@ -151,3 +151,33 @@ export const formatNumber = (num: number): string => {
   }
   return num.toLocaleString();
 };
+
+/**
+ * HTML 特殊字符转义，防止 XSS
+  */
+export const escapeHtml = (str: string): string => {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+};
+
+/**
+ * 转义正则表达式特殊字符
+ */
+const escapeRegExp = (str: string): string => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+/**
+ * 安全地高亮搜索关键词：先转义 HTML，再用 <mark> 包裹匹配项
+ */
+export const highlightSearchMatch = (text: string, keyword: string): string => {
+  const escapedText = escapeHtml(text);
+  if (!keyword) return escapedText;
+  const escapedKeyword = escapeRegExp(escapeHtml(keyword));
+  const regex = new RegExp(`(${escapedKeyword})`, 'gi');
+  return escapedText.replace(regex, '<mark>$1</mark>');
+};

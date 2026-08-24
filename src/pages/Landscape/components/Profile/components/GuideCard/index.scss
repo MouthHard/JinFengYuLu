@@ -152,11 +152,43 @@
  $teal-bright: #14a3a8;
  $emerald: #2ecc71;
  $amber: #f39c12;
- $ruby: #e74c3c;
- $ink-dark: #2c3e50;
- $ink-light: #5d6d7e;
+  $ruby: #e74c3c;
+  $ink-dark: #2c3e50;
+  $ink-light: #5d6d7e;
 
- .guide-card {
+  @mixin section-header-style {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $ink-dark;
+    margin: 0 0 10px;
+    letter-spacing: 0.5px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba($teal-bright, 0.2);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, $teal-bright, transparent);
+      border-radius: 2px;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: $teal-bright;
+      filter: drop-shadow(0 2px 4px rgba($teal-bright, 0.3));
+    }
+  }
+
+  .guide-card {
   cursor: pointer;
   animation: handbook-enter 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards;
   animation-delay: var(--delay);
@@ -271,13 +303,13 @@
      }
    }
 
-   .cover {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px 16px 16px 6px;
-    overflow: visible;
-    transform-origin: left center;
+    .cover {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     border-radius: 6px 16px 16px 6px;
+     overflow: hidden;
+     transform-origin: left center;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow:
       6px 6px 20px rgba(0, 0, 0, 0.4),
@@ -292,34 +324,36 @@
        z-index: 1;
        pointer-events: none;
 
-       .cover-image {
-         position: absolute;
-         inset: 0;
-         background-size: cover;
-         background-position: center;
-         background-color: $leather-dark;
-         transition: transform 0.6s ease, filter 0.4s ease;
+          .cover-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: $leather-dark;
+            filter: brightness(0.5) saturate(0.85);
+            transition: transform 0.6s ease, filter 0.4s ease;
 
-         .image-overlay {
-           position: absolute;
-           inset: 0;
-           background: linear-gradient(160deg,
-               rgba($leather-dark, 0.95) 0%,
-               rgba($leather-dark, 0.88) 30%,
-               rgba($leather-mid, 0.85) 60%,
-               rgba($leather-dark, 0.92) 100%);
+            .image-overlay {
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(180deg,
+                  rgba(10, 8, 6, 0.7) 0%,
+                  rgba(10, 8, 6, 0.3) 30%,
+                  rgba(10, 8, 6, 0.5) 60%,
+                  rgba(10, 8, 6, 0.7) 100%);
 
-           &::before {
-             content: '';
-             position: absolute;
-             inset: 0;
-             background:
-               radial-gradient(ellipse at 20% 0%, rgba($gold-bright, 0.08) 0%, transparent 50%),
-               radial-gradient(ellipse at 80% 100%, rgba($teal-deep, 0.06) 0%, transparent 40%);
-             pointer-events: none;
+             &::before {
+               content: '';
+               position: absolute;
+               inset: 0;
+               background:
+                radial-gradient(ellipse at 50% 0%, rgba(0, 0, 0, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.5) 0%, transparent 50%);
+               pointer-events: none;
+             }
            }
-         }
-       }
+        }
 
        .leather-border {
          position: absolute;
@@ -365,73 +399,89 @@
        z-index: 3;
      }
 
-     .cover-content {
-       position: absolute;
-       inset: 0;
-       z-index: 100;
-       padding: 22px 26px;
-       display: flex;
-       flex-direction: column;
-       justify-content: space-between;
-       opacity: 1;
-       transition: opacity 0.3s ease;
-       box-sizing: border-box;
+      .cover-content {
+        position: absolute;
+        inset: 0;
+        z-index: 100;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        box-sizing: border-box;
 
-       .cover-header {
-         flex: 0 0 auto;
-         display: flex;
-         flex-direction: column;
-         gap: 0;
-         pointer-events: auto;
+        .cover-top {
+          flex: 0 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          pointer-events: auto;
+        }
 
-         .info-bar {
-           display: flex;
-           flex-direction: column;
-           gap: 8px;
-           padding-top: 12px;
-           margin-top: 8px;
-         }
-       }
+        .cover-body {
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding-bottom: 12px;
+          pointer-events: none;
+        }
 
-       .cover-body {
-         flex: 1 1 auto;
-         min-height: 20px;
-         pointer-events: none;
-       }
-
-       .cover-footer {
-         flex: 0 0 auto;
-         padding-top: 14px;
-         border-top: 1px solid rgba(255, 255, 255, 0.12);
-         display: grid;
-         grid-template-columns: auto 1fr;
-         gap: 12px;
-         align-items: center;
-         position: relative;
-         z-index: 30;
-         pointer-events: auto;
+          .cover-footer {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            z-index: 30;
+            pointer-events: auto;
+            backdrop-filter: blur(20px) saturate(1.6);
+            -webkit-backdrop-filter: blur(20px) saturate(1.6);
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0.65) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px 14px;
+            box-shadow:
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              0 4px 16px rgba(0, 0, 0, 0.3);
 
          .cover-author {
            display: flex;
            align-items: center;
            gap: 12px;
+           width: 100%;
 
-           .author-avatar {
-             width: 36px;
-             height: 36px;
-             border-radius: 50%;
-             background: linear-gradient(135deg, rgba($teal-deep, 0.9) 0%, rgba($teal-bright, 0.7) 100%);
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+            .author-avatar {
+              width: 36px;
+              height: 36px;
+              flex-shrink: 0;
+              border-radius: 50%;
+              overflow: hidden;
+              position: relative;
+              background: linear-gradient(135deg, rgba($teal-deep, 0.9) 0%, rgba($teal-bright, 0.7) 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
 
-             svg {
-               width: 18px;
-               height: 18px;
-               color: rgba(255, 255, 255, 0.95);
-             }
-           }
+              svg {
+                width: 18px;
+                height: 18px;
+                color: rgba(255, 255, 255, 0.95);
+              }
+
+              img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+              }
+            }
 
            .author-info {
              display: flex;
@@ -452,26 +502,31 @@
          }
 
          .cover-actions {
-           display: flex;
-           align-items: center;
-           justify-content: flex-end;
-           gap: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 6px;
+            width: 100%;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
 
-           .cover-btn {
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             gap: 4px;
-             padding: 8px 14px;
-             background: rgba(0, 0, 0, 0.4);
-             border: 1px solid rgba(255, 255, 255, 0.25);
-             border-radius: 10px;
-             cursor: pointer;
-             transition: all 0.2s ease;
-             position: relative;
-             z-index: 40;
-             pointer-events: auto;
-             min-width: 40px;
+            .cover-btn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 4px;
+              padding: 6px 10px;
+              background: rgba(0, 0, 0, 0.4);
+              border: 1px solid rgba(255, 255, 255, 0.25);
+              border-radius: 8px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              position: relative;
+              z-index: 40;
+              pointer-events: auto;
+              min-width: 36px;
+              flex-shrink: 0;
 
              svg {
                width: 16px;
@@ -1706,15 +1761,339 @@
            margin-bottom: 6px;
            position: relative;
 
-           &::marker {
-             color: $teal-deep;
-             font-size: 14px;
-           }
-         }
-       }
-     }
+            &::marker {
+              color: $teal-deep;
+              font-size: 14px;
+            }
+          }
+        }
+      }
 
-     .footer-section {
+      // 动态章节模块（搬自 Guides，适配浅色纸质背景）
+      .content-sections {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.15s;
+
+        .section-block {
+          margin-bottom: 12px;
+          padding: 12px 14px;
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba($teal-bright, 0.04) 100%);
+          border-radius: 10px;
+          border: 1px solid rgba($teal-deep, 0.15);
+          box-shadow: 0 2px 8px rgba($ink-dark, 0.05);
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, $teal-bright, $gold-bright);
+            border-radius: 3px 0 0 3px;
+          }
+
+          .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: $teal-deep;
+            margin: 0 0 8px;
+            padding-bottom: 6px;
+            padding-left: 6px;
+            border-bottom: 1px solid rgba($ink-dark, 0.08);
+          }
+
+          .section-items {
+            margin: 0;
+            padding-left: 20px;
+
+            li {
+              font-size: 12.5px;
+              color: $ink-dark;
+              line-height: 1.7;
+              margin-bottom: 4px;
+
+              &::marker {
+                color: $teal-bright;
+              }
+            }
+          }
+        }
+      }
+
+      // 装备分类模块
+      .equipments-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.2s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .equipments-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 8px;
+
+          .equipment-card {
+            padding: 10px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba($gold-bright, 0.04) 100%);
+            border-radius: 8px;
+            border: 1px solid rgba($gold-bright, 0.2);
+
+            .equipment-header {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              margin-bottom: 6px;
+
+              .equipment-icon {
+                font-size: 16px;
+              }
+
+              .equipment-title-text {
+                font-size: 13px;
+                font-weight: 700;
+                color: $gold-dark;
+              }
+            }
+
+            .equipment-items {
+              margin: 0;
+              padding-left: 18px;
+
+              li {
+                font-size: 12px;
+                color: $ink-dark;
+                line-height: 1.6;
+                margin-bottom: 2px;
+
+                &::marker {
+                  color: $gold-bright;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // 实用提示（GuideTip 结构）
+      .guide-tips-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.35s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .guide-tips-list {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .tip-card {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba($ink-dark, 0.1);
+            background: rgba(255, 255, 255, 0.5);
+
+            &.tip-warning {
+              background: rgba($ruby, 0.06);
+              border-color: rgba($ruby, 0.2);
+            }
+
+            &.tip-tip {
+              background: rgba($teal-bright, 0.06);
+              border-color: rgba($teal-bright, 0.2);
+            }
+
+            .tip-icon {
+              font-size: 16px;
+              flex-shrink: 0;
+            }
+
+            .tip-content {
+              .tip-title {
+                font-size: 13px;
+                font-weight: 700;
+                color: $ink-dark;
+                margin: 0 0 2px;
+              }
+
+              .tip-text {
+                font-size: 12px;
+                color: $ink-light;
+                margin: 0;
+                line-height: 1.6;
+              }
+            }
+          }
+        }
+      }
+
+      // 补充信息
+      .extra-info-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.4s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .extra-info-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 8px;
+
+          .extra-info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            border: 1px solid rgba($ink-dark, 0.08);
+
+            .extra-label {
+              font-size: 11px;
+              color: $ink-light;
+              font-weight: 600;
+            }
+
+            .extra-value {
+              font-size: 12.5px;
+              color: $ink-dark;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      // 安全须知
+      .safety-notes-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.45s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .safety-notes-list {
+          margin: 0;
+          padding-left: 20px;
+
+          li {
+            font-size: 12.5px;
+            color: $ink-dark;
+            line-height: 1.7;
+            margin-bottom: 4px;
+
+            &::marker {
+              color: $ruby;
+            }
+          }
+        }
+      }
+
+      // 行程路线
+      .route-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.5s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .route-timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          .route-point {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .route-marker {
+              width: 22px;
+              height: 22px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, $teal-deep, $teal-bright);
+              color: #fff;
+              font-size: 11px;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+            }
+
+            .route-text {
+              font-size: 12.5px;
+              color: $ink-dark;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+
+      // 推荐装备
+      .recommended-gear-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.55s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .recommended-gear-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+
+          .recommended-gear-tag {
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: $teal-deep;
+            background: rgba($teal-bright, 0.1);
+            border: 1px solid rgba($teal-bright, 0.25);
+            border-radius: 999px;
+          }
+        }
+      }
+
+      // 后期处理
+      .post-processing-section {
+        animation: content-fade-in 0.4s ease backwards;
+        animation-delay: 0.6s;
+
+        .section-header {
+          @include section-header-style;
+        }
+
+        .post-processing-list {
+          margin: 0;
+          padding-left: 20px;
+
+          li {
+            font-size: 12.5px;
+            color: $ink-dark;
+            line-height: 1.7;
+            margin-bottom: 4px;
+
+            &::marker {
+              color: $gold-bright;
+            }
+          }
+        }
+      }
+
+      .footer-section {
        display: flex;
        align-items: center;
        justify-content: space-between;

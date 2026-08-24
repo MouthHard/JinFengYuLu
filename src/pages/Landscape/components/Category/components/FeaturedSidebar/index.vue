@@ -8,7 +8,7 @@
       </div>
       <div class="header-text">
         <h3>精选推荐</h3>
-        <span class="header-count">{{ items.length }}项</span>
+        <span class="header-count">{{ items.length }}</span>
       </div>
     </div>
     <div class="featured-list">
@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 
 interface Props {
   items: LandscapeItem[];

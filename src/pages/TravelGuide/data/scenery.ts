@@ -3,7 +3,7 @@ import type {
   CultureTheme,
   BestTime,
   LandscapeType,
-} from "@/typesOfPages/travelGuide";
+} from "@/types/travelGuide";
 
 // 风光页面标签
 export const sceneryTabs: SceneryTab[] = [
@@ -39,8 +39,7 @@ export const cultureThemes: CultureTheme[] = [
   { value: "modern", name: "现代文化", icon: "🌆" },
 ];
 
-// 最佳时间
-export const bestTimes: BestTime[] = [
+// 最佳时�?export const bestTimes: BestTime[] = [
   { value: "", name: "全部时间", icon: "⏰" },
   { value: "spring", name: "春季", icon: "🌸" },
   { value: "summer", name: "夏季", icon: "☀️" },
@@ -72,7 +71,7 @@ export const landscapeTypes: LandscapeType[] = [
   },
   {
     value: "water",
-    label: "水景观",
+    label: "水景�?,
     icon: "🌊",
     children: [
       { value: "river", label: "河流景观", icon: "🌊" },
@@ -161,7 +160,7 @@ export const landscapeTypes: LandscapeType[] = [
 export const seasons = [
   { value: "", label: "全部季节", icon: "🌍" },
   { value: "spring", label: "春季", icon: "🌸" },
-  { value: "summer", label: "夏季", icon: "☀️" },
+  { value: "summer", name: "夏季", icon: "☀️" },
   { value: "autumn", label: "秋季", icon: "🍁" },
   { value: "winter", label: "冬季", icon: "❄️" },
 ];

@@ -2,9 +2,9 @@
   <div class="museum-container">
     <div class="museum-header">
       <div class="header-title">
-        <span class="title-icon">🏛️</span>
+        <span class="title-icon">🏛�?/span>
         <h2 class="section-title">
-          {{ selectedProvince ? selectedProvince + '的博物馆' : '博物馆列表' }}
+          {{ selectedProvince ? selectedProvince + '的博物馆' : '博物馆列�? }}
         </h2>
         <span v-if="filteredMuseums.length > 0" class="museum-count">
           {{ filteredMuseums.length }}
@@ -14,9 +14,16 @@
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="搜索博物馆名称、地点..."
+          placeholder="搜索博物馆名称、地�?.."
           class="search-input"
         />
+        <button
+          v-if="searchQuery"
+          class="clear-btn"
+          @click="searchQuery = ''"
+          aria-label="清空搜索"
+        >
+          �?        </button>
         <button class="search-btn">🔍</button>
       </div>
     </div>
@@ -32,12 +39,12 @@
         <div class="museum-image">
           <div class="museum-badge-wrapper">
             <div class="museum-badge">
-              <span class="badge-icon">✨</span>
+              <span class="badge-icon">�?/span>
               {{ museum.type }}
             </div>
             <div class="visitor-count">
               <VisitorsIcon />
-              <span>{{ formatNumber(museum.visitors) }} 年访问量</span>
+              <span>{{ museum.visitors > 0 ? formatNumber(museum.visitors) + ' 年访问量' : '暂无数据' }}</span>
             </div>
           </div>
 
@@ -49,22 +56,23 @@
               @error="handleImageError"
             />
             <div v-if="imageErrors[museum.id]" class="image-placeholder">
-              <span class="placeholder-icon">🏛️</span>
+              <span class="placeholder-icon">🏛�?/span>
             </div>
 
-            <!-- 统计信息 - 迁移到图片容器底部 -->
+            <!-- 统计信息 - 迁移到图片容器底�?-->
             <div class="image-stats">
               <span class="stat-item" title="文物数量">
                 <span class="stat-icon">🏺</span>
-                <span class="stat-value">
-                  {{ formatNumber(museum.artifacts) }}
-                </span>
-                <span>件文物</span>
+                <template v-if="museum.artifacts > 0">
+                  <span class="stat-value">{{ formatNumber(museum.artifacts) }}</span>
+                  <span>件文�?/span>
+                </template>
+                <span v-else class="stat-value">暂无数据</span>
               </span>
               <span class="stat-item" title="展览数量">
                 <span class="stat-icon">🎨</span>
                 <span class="stat-value">{{ museum.exhibitions }}</span>
-                <span>个展览</span>
+                <span>个展�?/span>
               </span>
             </div>
           </div>
@@ -91,7 +99,7 @@
               <span>查看详情</span>
             </button>
             <button class="action-btn secondary" @click.stop>
-              <span>❤ 收藏</span>
+              <span>�?收藏</span>
             </button>
           </div>
         </div>
@@ -101,7 +109,7 @@
     <div v-else class="no-results">
       <div class="no-results-icon">🔍</div>
       <h3>未找到相关博物馆</h3>
-      <p>请尝试调整筛选条件或搜索关键词</p>
+      <p>请尝试调整筛选条件或搜索关键�?/p>
     </div>
   </div>
 </template>
@@ -109,7 +117,7 @@
 <script setup lang="ts">
   import { ref, computed, reactive } from 'vue';
   import { useRouter } from 'vue-router';
-  import type { Museum } from '@/typesOfPages/museum';
+  import type { Museum } from '@/types/museum';
   import { formatNumber, generateMuseumRoute } from '@/utils/museum';
   import { LocationIcon, VisitorsIcon } from '../../icon/common';
 
@@ -157,8 +165,7 @@
     if (museumId) {
       imageErrors[museumId] = true;
     }
-    // 隐藏错误的图片
-    img.style.display = 'none';
+    // 隐藏错误的图�?    img.style.display = 'none';
   };
 </script>
 

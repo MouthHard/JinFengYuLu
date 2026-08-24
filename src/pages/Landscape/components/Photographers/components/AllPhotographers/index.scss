@@ -162,42 +162,11 @@
           }
 
           &.active {
-            background: linear-gradient(180deg, rgba(212, 148, 58, 0.35) 0%, rgba(180, 100, 30, 0.25) 100%);
-            border-color: rgba(212, 148, 58, 0.6);
-            border-top-color: rgba(255, 183, 77, 0.5);
+            background: linear-gradient(180deg, color-mix(in srgb, var(--tag-color, #D4943A) 35%, transparent) 0%, color-mix(in srgb, var(--tag-color-dark, #B4641E) 25%, transparent) 100%);
+            border-color: color-mix(in srgb, var(--tag-color, #D4943A) 60%, transparent);
+            border-top-color: color-mix(in srgb, var(--tag-color-light, #FFB74D) 50%, transparent);
             color: #fff;
-            box-shadow: 0 4px 15px rgba(212, 148, 58, 0.25), inset 0 1px 0 rgba(255, 183, 77, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-
-            &:nth-child(2) {
-              background: linear-gradient(180deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.18) 100%);
-              border-color: rgba(245, 158, 11, 0.55);
-              border-top-color: rgba(251, 191, 36, 0.45);
-              box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(251, 191, 36, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-            }
-            &:nth-child(3) {
-              background: linear-gradient(180deg, rgba(6, 182, 212, 0.3) 0%, rgba(8, 145, 178, 0.18) 100%);
-              border-color: rgba(6, 182, 212, 0.55);
-              border-top-color: rgba(34, 211, 238, 0.45);
-              box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2), inset 0 1px 0 rgba(34, 211, 238, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-            }
-            &:nth-child(4) {
-              background: linear-gradient(180deg, rgba(244, 63, 94, 0.3) 0%, rgba(225, 29, 72, 0.18) 100%);
-              border-color: rgba(244, 63, 94, 0.55);
-              border-top-color: rgba(251, 113, 133, 0.45);
-              box-shadow: 0 4px 15px rgba(244, 63, 94, 0.2), inset 0 1px 0 rgba(251, 113, 133, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-            }
-            &:nth-child(5) {
-              background: linear-gradient(180deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.18) 100%);
-              border-color: rgba(16, 185, 129, 0.55);
-              border-top-color: rgba(52, 211, 153, 0.45);
-              box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(52, 211, 153, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-            }
-            &:nth-child(6) {
-              background: linear-gradient(180deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.18) 100%);
-              border-color: rgba(245, 158, 11, 0.55);
-              border-top-color: rgba(251, 191, 36, 0.45);
-              box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(251, 191, 36, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-            }
+            box-shadow: 0 4px 15px color-mix(in srgb, var(--tag-color, #D4943A) 25%, transparent), inset 0 1px 0 color-mix(in srgb, var(--tag-color-light, #FFB74D) 20%, transparent), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
           }
         }
       }

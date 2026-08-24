@@ -35,7 +35,7 @@
               <div class="carousel-title-row">
                 <h4 class="carousel-title">{{ image.title }}</h4>
                 <span class="carousel-rating">
-                  <span class="rating-icon">⭐</span>
+                  <span class="rating-icon">�?/span>
                   {{ image.rating || 5.0 }}
                 </span>
               </div>
@@ -54,19 +54,19 @@
       <div class="carousel-controls">
         <button
           class="carousel-control prev"
-          aria-label="上一个"
+          aria-label="上一�?
           @click="prevSlide"
-        >➫</button>
+        >�?/button>
         <button
           class="carousel-control next"
-          aria-label="下一个"
+          aria-label="下一�?
           @click="nextSlide"
-        >➫</button>
+        >�?/button>
       </div>
     </div>
 
     <div v-else class="empty-state">
-      <div class="empty-icon">🖼️</div>
+      <div class="empty-icon">🖼�?/div>
       <h4 class="empty-title">暂无风光图片</h4>
       <p class="empty-description">该地区暂无风光图片数</p>
     </div>
@@ -75,7 +75,7 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import type { ScenerySpot, SceneryData } from '@/typesOfPages/travelGuide';
+  import type { ScenerySpot, SceneryData } from '@/types/travelGuide';
   import {
     GalleryBackground,
     GalleryPanelIcon,
@@ -89,8 +89,7 @@
 
   // 使用计算属性替代方法，避免每次渲染都返回新数组
   const sceneryGallery = computed(() => {
-    // 从props获取数据，如果没有则返回空数组
-    if (props.sceneryData?.spots && props.sceneryData.spots.length > 0) {
+    // 从props获取数据，如果没有则返回空数�?    if (props.sceneryData?.spots && props.sceneryData.spots.length > 0) {
       return props.sceneryData.spots.slice(0, 3).map((spot: ScenerySpot) => ({
         url: spot.image,
         title: spot.name,

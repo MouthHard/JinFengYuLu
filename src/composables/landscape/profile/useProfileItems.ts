@@ -6,10 +6,10 @@ import { useProfileTransform } from './useProfileTransform';
 export function useProfileItems(
   activeTab: Ref<string>,
   selectedCategory: Ref<string>,
-  images: any[],
-  videos: any[],
-  photographers: any[],
-  guides: any[]
+  images: Ref<any[]>,
+  videos: Ref<any[]>,
+  photographers: Ref<any[]>,
+  guides: Ref<any[]>
 ) {
   const interactionStore = useInteractionStore();
   const {
@@ -112,10 +112,10 @@ export function useProfileItems(
     const items: ProfileItem[] = [];
     const gi = { value: 0 };
 
-    const filteredImages = selectedCategory.value !== 'image' ? [] : images;
-    const filteredVideos = selectedCategory.value !== 'video' ? [] : videos;
-    const filteredPhotographers = selectedCategory.value !== 'photographer' ? [] : photographers;
-    const filteredGuides = selectedCategory.value !== 'guide' ? [] : guides;
+    const filteredImages = selectedCategory.value !== 'image' ? [] : images.value;
+    const filteredVideos = selectedCategory.value !== 'video' ? [] : videos.value;
+    const filteredPhotographers = selectedCategory.value !== 'photographer' ? [] : photographers.value;
+    const filteredGuides = selectedCategory.value !== 'guide' ? [] : guides.value;
 
     for (const item of filteredImages) {
       const displayCounts = getDisplayCount(item);

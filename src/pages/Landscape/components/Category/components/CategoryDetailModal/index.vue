@@ -136,7 +136,7 @@
 import { computed } from 'vue';
 import { useInteractionStore } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 import CloseIcon from '../../../../icon/common/CloseIcon.vue';
 import LocationIcon from '../../../../icon/common/LocationIcon.vue';
 import CalendarIcon from '../../../../icon/common/CalendarIcon.vue';

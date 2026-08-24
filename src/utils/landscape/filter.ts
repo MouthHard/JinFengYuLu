@@ -1,4 +1,4 @@
-import type { ImageItem, VideoItem, PhotographerItem, GuideItem } from '@/typesOfPages/landscape'
+import type { ImageItem, VideoItem, PhotographerItem, GuideItem } from '@/types/landscape'
 
 export function filterImages(items: ImageItem[], category: string): ImageItem[] {
   if (!category || category === 'all') return items

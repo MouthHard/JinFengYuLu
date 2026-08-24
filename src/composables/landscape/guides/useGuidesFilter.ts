@@ -1,5 +1,5 @@
 import { ref, computed, type Ref, type ComputedRef } from 'vue';
-import type { GlobalGuide } from '@/typesOfPages/landscape';
+import type { GlobalGuide } from '@/types/landscape';
 import { guideModeMap, guideSeasonMap, guideDurationMap, guideThemeMap } from '@/utils/landscape/constants';
 
 interface SelectedFilters {
@@ -52,64 +52,67 @@ export function useGuidesFilter(
   });
 
   const filteredGuides = computed(() => {
-    let result = [...guides.value];
+    const keyword = searchKeyword.value ? searchKeyword.value.toLowerCase() : '';
+    const hasKeyword = !!keyword;
+    const tmFilters = selectedFilters.value.travelMode;
+    const stFilters = selectedFilters.value.sceneryTheme;
+    const seasonFilters = selectedFilters.value.season;
+    const locFilters = selectedFilters.value.location;
+    const durFilters = selectedFilters.value.duration;
 
-    if (searchKeyword.value) {
-      const keyword = searchKeyword.value.toLowerCase();
-      result = result.filter(
-        (guide) =>
+    const hasTm = tmFilters.length > 0;
+    const hasSt = stFilters.length > 0;
+    const hasSeason = seasonFilters.length > 0;
+    const hasLoc = locFilters.length > 0;
+    const hasDur = durFilters.length > 0;
+
+    if (!hasKeyword && !hasTm && !hasSt && !hasSeason && !hasLoc && !hasDur) {
+      return [...guides.value];
+    }
+
+    const result: GlobalGuide[] = [];
+    for (const guide of guides.value) {
+      if (hasKeyword) {
+        const match =
           guide.title.toLowerCase().includes(keyword) ||
           guide.excerpt.toLowerCase().includes(keyword) ||
           guide.location.toLowerCase().includes(keyword) ||
-          guide.tags.some((tag) => tag.toLowerCase().includes(keyword))
-      );
+          (guide.author || '').toLowerCase().includes(keyword) ||
+          (guide.season || '').toLowerCase().includes(keyword) ||
+          (guide.travelMode || '').toLowerCase().includes(keyword) ||
+          (guide.sceneryTheme || '').toLowerCase().includes(keyword) ||
+          (guide.duration || '').toLowerCase().includes(keyword) ||
+          (guide.publishDate || '').toLowerCase().includes(keyword) ||
+          guide.tags.some((tag) => tag.toLowerCase().includes(keyword));
+        if (!match) continue;
+      }
+      if (hasTm && !(guide.travelMode && tmFilters.some((m) => guide.travelMode === modeMap[m]))) continue;
+      if (hasSt && !(guide.sceneryTheme && stFilters.some((t) => guide.sceneryTheme === themeMap[t]))) continue;
+      if (hasSeason && !(guide.season && seasonFilters.some((s) => guide.season === seasonMap[s]))) continue;
+      if (hasLoc && !(guide.locationId && locFilters.includes(guide.locationId))) continue;
+      if (hasDur && !(guide.duration && durFilters.some((d) => guide.duration === durationMap[d]))) continue;
+      result.push(guide);
     }
 
-    if (selectedFilters.value.travelMode.length > 0) {
-      result = result.filter((guide) =>
-        guide.travelMode && selectedFilters.value.travelMode.some((mode) => guide.travelMode === modeMap[mode])
-      );
-    }
-
-    if (selectedFilters.value.sceneryTheme.length > 0) {
-      result = result.filter((guide) =>
-        guide.sceneryTheme && selectedFilters.value.sceneryTheme.some((theme) => guide.sceneryTheme === themeMap[theme])
-      );
-    }
-
-    if (selectedFilters.value.season.length > 0) {
-      result = result.filter((guide) =>
-        guide.season && selectedFilters.value.season.some((s) => guide.season === seasonMap[s])
-      );
-    }
-
-    if (selectedFilters.value.location.length > 0) {
-      result = result.filter((guide) =>
-        guide.locationId && selectedFilters.value.location.includes(guide.locationId)
-      );
-    }
-
-    if (selectedFilters.value.duration.length > 0) {
-      result = result.filter((guide) =>
-        guide.duration && selectedFilters.value.duration.some((dur) => guide.duration === durationMap[dur])
-      );
-    }
-
-    if (currentSort.value === 'latest') {
+    const sortFn = currentSort.value;
+    if (sortFn === 'latest') {
+      const timeCache = new Map<string, number>();
       result.sort((a, b) => {
-        const dateA = a.publishDate ? new Date(a.publishDate).getTime() : 0;
-        const dateB = b.publishDate ? new Date(b.publishDate).getTime() : 0;
-        return dateB - dateA;
+        let ta = timeCache.get(a.id);
+        if (ta === undefined) { ta = a.publishDate ? new Date(a.publishDate).getTime() : 0; timeCache.set(a.id, ta); }
+        let tb = timeCache.get(b.id);
+        if (tb === undefined) { tb = b.publishDate ? new Date(b.publishDate).getTime() : 0; timeCache.set(b.id, tb); }
+        return tb - ta;
       });
-    } else if (currentSort.value === 'views') {
+    } else if (sortFn === 'views') {
       result.sort((a, b) => b.views - a.views);
-    } else if (currentSort.value === 'likes') {
+    } else if (sortFn === 'likes') {
       result.sort((a, b) => b.likes - a.likes);
-    } else if (currentSort.value === 'loves') {
+    } else if (sortFn === 'loves') {
       result.sort((a, b) => b.loves - a.loves);
-    } else if (currentSort.value === 'bookmarks') {
+    } else if (sortFn === 'bookmarks') {
       result.sort((a, b) => b.bookmarks - a.bookmarks);
-    } else if (currentSort.value === 'shares') {
+    } else if (sortFn === 'shares') {
       result.sort((a, b) => b.shares - a.shares);
     }
 
@@ -124,9 +127,6 @@ export function useGuidesFilter(
       expandedSections.value.push(section);
     }
     activeCategory.value = section;
-    Object.keys(selectedFilters.value).forEach((key) => {
-      selectedFilters.value[key as keyof SelectedFilters] = [];
-    });
   };
 
   const toggleFilter = (category: string, value: string) => {
@@ -138,10 +138,7 @@ export function useGuidesFilter(
     if (index > -1) {
       filters.splice(index, 1);
     } else {
-      Object.keys(selectedFilters.value).forEach((key) => {
-        selectedFilters.value[key as keyof SelectedFilters] = [];
-      });
-      selectedFilters.value[category as keyof SelectedFilters] = [value];
+      filters.push(value);
     }
   };
 

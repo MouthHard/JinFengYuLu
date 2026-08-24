@@ -1,5 +1,5 @@
-import type { InteractionItem } from '@/typesOfPages/landscape/common'
-import type { GlobalImage, GlobalVideo, GlobalGuide, GlobalPhotographer, GlobalPhotographerWork } from '@/typesOfPages/landscape/data'
+import type { InteractionItem } from '@/types/landscape/common'
+import type { GlobalImage, GlobalVideo, GlobalGuide, GlobalPhotographer, GlobalPhotographerWork } from '@/types/landscape/data'
 import {
   IMAGE_DEFAULTS,
   VIDEO_DEFAULTS,

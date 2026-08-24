@@ -4,7 +4,7 @@
 
     <!-- ===== 顶板（相机顶壳） ===== -->
     <div class="top-plate">
-      <!-- 热靴座 -->
+      <!-- 热靴�?-->
       <div class="hot-shoe">
         <span class="shoe-rail"></span>
         <span v-for="c in 4" :key="c" class="shoe-contact"></span>
@@ -16,7 +16,7 @@
         <span class="dial-indicator"></span>
         <span class="dial-label">MOV</span>
       </div>
-      <!-- 快门释放钮 -->
+      <!-- 快门释放�?-->
       <div class="shutter-btn"></div>
       <!-- 状态LED -->
       <div class="status-led">
@@ -27,7 +27,7 @@
 
     <!-- ===== 机身主区 ===== -->
     <div class="camera-body">
-      <!-- 左侧：胶片卷轴 + LCD屏 -->
+      <!-- 左侧：胶片卷�?+ LCD�?-->
       <div class="reel-section">
         <div class="reel-wheel left">
           <span v-for="s in 6" :key="s" class="spoke" :style="{ '--s': s }"></span>
@@ -45,7 +45,7 @@
             <div class="lcd-glare"></div>
             <div class="lcd-vignette"></div>
 
-            <!-- 三分线网格 -->
+            <!-- 三分线网�?-->
             <div class="rule-thirds">
               <span class="h-line h1"></span>
               <span class="h-line h2"></span>
@@ -53,7 +53,7 @@
               <span class="v-line v2"></span>
             </div>
 
-            <!-- 播放指示器 -->
+            <!-- 播放指示�?-->
             <div class="play-indicator" @click.stop>
               <span class="tape-icon">
                 <PlayIcon />
@@ -62,11 +62,11 @@
               <span class="tape-line right"></span>
             </div>
 
-            <!-- 分辨率 -->
+            <!-- 分辨�?-->
             <span v-if="item.resolution" class="res-stamp">{{ item.resolution }}</span>
             <!-- 时长 -->
             <span class="dur-stamp">{{ item.duration }}</span>
-            <!-- 帧进度 -->
+            <!-- 帧进�?-->
             <div class="film-progress">
               <div class="progress-track"></div>
               <div class="progress-head"></div>
@@ -84,9 +84,9 @@
         </div>
       </div>
 
-      <!-- 右侧：控制面板 -->
+      <!-- 右侧：控制面�?-->
       <div class="control-section">
-        <!-- OSD信息栏 -->
+        <!-- OSD信息�?-->
         <div class="osd-bar">
           <span class="osd-item iso">ISO 800</span>
           <span class="osd-sep"></span>
@@ -124,7 +124,7 @@
           <span v-if="item.tag3" class="tag">{{ item.tag3 }}</span>
         </div>
 
-        <!-- 仪表盘统计 -->
+        <!-- 仪表盘统�?-->
         <div class="dash-stats">
           <div class="gauge">
             <EyeIcon />
@@ -163,7 +163,7 @@
           </div>
         </div>
 
-        <!-- 物理按钮组 -->
+        <!-- 物理按钮�?-->
         <div class="action-bar">
           <button class="act-btn like-btn" :class="{ liked: isLiked }" @click.stop="toggleLike">
             <ThumbUpIcon :filled="isLiked" :stroke-width="2" />
@@ -177,7 +177,7 @@
           <button class="act-btn share-btn" :class="{ shared: isShared }" @click.stop="toggleShare">
             <ShareIcon :stroke-width="2" />
           </button>
-          <!-- 后拨轮 -->
+          <!-- 后拨�?-->
           <div class="rear-dial">
             <span v-for="t in 12" :key="t" class="rd-tick" :style="{ '--t': t }"></span>
           </div>
@@ -216,7 +216,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { showMessage } from '@/utils/landscape';
-import type { VideoItem } from '@/typesOfPages/landscape';
+import type { VideoItem } from '@/types/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import PlayIcon from '@/pages/Landscape/icon/common/PlayIcon.vue';

@@ -1,6 +1,6 @@
 <template>
   <div class="music-app" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
-    <!-- 顶部搜索栏 -->
+    <!-- 顶部搜索�?-->
     <header class="music-header">
       <div class="header-left">
         <button class="menu-toggle" @click="toggleSidebar">
@@ -57,7 +57,7 @@
           <input
             v-model="headerSearchKeyword"
             type="text"
-            placeholder="搜索音乐、歌手、专辑"
+            placeholder="搜索音乐、歌手、专�?
             @keyup.enter="handleHeaderSearch"
           />
         </div>
@@ -214,7 +214,7 @@
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
                     <line x1="12" y1="17" x2="12.01" y2="17" />
                   </svg>
-                  <span>帮助与反馈</span>
+                  <span>帮助与反�?/span>
                 </div>
                 <div class="menu-item">
                   <svg
@@ -227,7 +227,7 @@
                     <polyline points="16 17 21 12 16 7" />
                     <line x1="21" y1="12" x2="9" y2="12" />
                   </svg>
-                  <span>退出登录</span>
+                  <span>退出登�?/span>
                 </div>
               </div>
             </div>
@@ -236,7 +236,7 @@
       </div>
     </header>
 
-    <!-- 左侧侧边栏 -->
+    <!-- 左侧侧边�?-->
     <aside class="music-sidebar" :class="{ collapsed: sidebarCollapsed }">
       <div class="sidebar-content">
         <Sidebar :active-route="currentRoute" @navigate="handleNavigate" />
@@ -268,7 +268,7 @@
         </div>
       </transition>
 
-      <!-- 正常内容区 -->
+      <!-- 正常内容�?-->
       <div v-show="!showMusicDisc" class="music-content">
         <router-view v-slot="{ Component }">
           <transition name="fade-slide" mode="out-in">
@@ -278,7 +278,7 @@
       </div>
     </main>
 
-    <!-- 底部播放器 -->
+    <!-- 底部播放�?-->
     <div class="music-player">
       <PlayerBar
         :current-song="currentSong"
@@ -333,7 +333,7 @@
   import MusicDisc from './components/MusicDisc/index.vue';
   import { songs, lyrics } from '@/stores/music';
   import { getNextIndex, getPrevIndex } from '@/utils/music';
-  import type { Song, PlayMode, LyricLine } from '@/typesOfPages/music';
+  import type { Song, PlayMode, LyricLine } from '@/types/music';
 
   const getLyricsBySongId = (songId: number): LyricLine[] => {
     return lyrics[songId] || [{ time: 0, text: '暂无歌词' }];
@@ -355,8 +355,7 @@
   const currentIndex = ref(0);
   const audioRef = ref<HTMLAudioElement | null>(null);
 
-  // 侧边栏状态
-  const sidebarCollapsed = ref(false);
+  // 侧边栏状�?  const sidebarCollapsed = ref(false);
 
   // 顶部搜索
   const headerSearchKeyword = ref('');
@@ -504,8 +503,7 @@
     playNext();
   };
 
-  // 监听播放状态
-  watch(isPlaying, (newVal) => {
+  // 监听播放状�?  watch(isPlaying, (newVal) => {
     if (audioRef.value) {
       if (newVal) {
         audioRef.value.play().catch(() => {
@@ -548,8 +546,7 @@
     router.push(path);
   };
 
-  // 侧边栏折叠方法
-  const toggleSidebar = () => {
+  // 侧边栏折叠方�?  const toggleSidebar = () => {
     sidebarCollapsed.value = !sidebarCollapsed.value;
   };
 

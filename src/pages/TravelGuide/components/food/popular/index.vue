@@ -59,7 +59,7 @@
             :style="{ '--badge-color': food.badgeColor || '#ff6b6b' }"
           >
             <div class="badge-content">
-              <span class="badge-icon">★</span>
+              <span class="badge-icon">�?/span>
               <span class="badge-text">{{ food.badgeText || '热门' }}</span>
             </div>
             <div class="badge-glow"></div>
@@ -100,7 +100,7 @@
           <div class="description-box">
             <div class="desc-header">
               <span class="desc-icon">i</span>
-              <span class="desc-label">简介</span>
+              <span class="desc-label">简�?/span>
             </div>
             <p class="card-description">{{ food.description }}</p>
           </div>
@@ -148,7 +148,7 @@
 <script setup lang="ts">
   import { useFavorites } from '@/composables/travelGuide';
   import { getColorByString } from '@/utils';
-  import type { Food } from '@/typesOfPages/travelGuide';
+  import type { Food } from '@/types/travelGuide';
   import {
     HeartIcon,
     ParticlesBackground,

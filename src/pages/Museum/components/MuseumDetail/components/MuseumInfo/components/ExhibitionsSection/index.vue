@@ -1,7 +1,7 @@
 <template>
   <section class="exhibitions-section">
     <div class="section-header">
-      <h2 class="section-title">最新展览</h2>
+      <h2 class="section-title">最新展�?/h2>
       <button class="more-button">更多</button>
     </div>
     <div class="exhibitions-container">
@@ -13,7 +13,7 @@
         <div class="image-container">
           <img loading="lazy" :src="exhibition.image" @error="handleImageError" />
           <div class="image-placeholder" style="display: none">
-            <span class="placeholder-icon">🖼️</span>
+            <span class="placeholder-icon">🖼�?/span>
           </div>
         </div>
         <div class="exhibition-info">
@@ -25,7 +25,7 @@
               <span class="button-text">收藏</span>
             </button>
             <button class="action-button follow-button">
-              <span class="button-icon">⭐</span>
+              <span class="button-icon">�?/span>
               <span class="button-text">关注</span>
             </button>
             <button class="action-button share-button">
@@ -42,14 +42,15 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Museum } from "@/typesOfPages/museum";
-import { getExhibitionsByMuseumId } from "@/pages/Museum/data/exhibitions";
+import type { Museum } from "@/types/museum";
+import { useMuseumDataStore } from "@/stores/museum";
 
 interface Props {
   museum: Museum;
 }
 
 const props = defineProps<Props>();
+const store = useMuseumDataStore();
 
 const handleImageError = (e: Event) => {
   const target = e.target as HTMLImageElement;
@@ -64,7 +65,7 @@ const handleImageError = (e: Event) => {
 
 const homeExhibitions = computed(() => {
   if (!props.museum) return [];
-  return getExhibitionsByMuseumId(props.museum.id);
+  return store.getExhibitionsByMuseumId(props.museum.id);
 });
 </script>
 

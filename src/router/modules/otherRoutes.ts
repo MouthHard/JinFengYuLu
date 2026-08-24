@@ -20,7 +20,6 @@ export const otherRoutes: RouteRecordRaw[] = [
       },
     ],
   },
-
   {
     path: "/history",
     name: "history",

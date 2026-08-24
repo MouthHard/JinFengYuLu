@@ -16,7 +16,7 @@
             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
-          <span>显示 {{ startIndex }}-{{ endIndex }} / {{ filteredPhotographers.length }} 位</span>
+          <span>显示 {{ startIndex }}-{{ endIndex }} / {{ filteredPhotographers.length }} �?/span>
         </div>
       </div>
     </div>
@@ -24,17 +24,20 @@
     <div class="filter-container">
       <div class="filter-left">
         <div class="filter-tabs">
-          <button v-for="tag in filterTags" :key="tag.id" :class="['filter-tab', { active: selectedTag === tag.id }]" @click="selectedTag = tag.id">
+          <button v-for="tag in visibleFilterTags" :key="tag.id" :class="['filter-tab', { active: selectedTag === tag.id }]" :style="getTagStyle(tag.id)" @click="selectedTag = tag.id">
             <span class="tab-icon">{{ tag.icon }}</span>
             <span class="tab-label">{{ tag.name }}</span>
             <span v-if="tag.count" class="tab-count">{{ tag.count }}</span>
+          </button>
+          <button v-if="hasMoreTags" class="filter-tab more-btn" @click="showAllTags = !showAllTags">
+            <span class="tab-label">{{ showAllTags ? '收起' : '更多' }}</span>
           </button>
         </div>
       </div>
       <div class="filter-right">
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-          <input v-model="searchQuery" type="text" placeholder="搜索摄影师..." @input="handleSearch" />
+          <input v-model="searchQuery" type="text" placeholder="搜索摄影�?.." @input="handleSearch" />
           <button v-if="searchQuery" class="clear-btn" @click="searchQuery = ''">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -67,7 +70,7 @@
 
     <div :class="['photographers-container', viewMode]">
       <article v-for="(photographer, index) in paginatedPhotographers" :key="photographer.id" class="photographer-card" :style="{ '--delay': `${index * 0.05}s` }">
-        <!-- 卡片顶部：作品预览-->
+        <!-- 卡片顶部：作品预�?->
         <div class="card-preview">
           <div class="preview-grid">
             <div v-for="(work, idx) in photographer.worksPreview?.slice(0, 4)" :key="work.id || idx" class="preview-item" @click="$emit('preview', { ...(typeof work === 'string' ? { image: work } : work), author: photographer.name, authorId: photographer.id, authorAvatar: photographer.avatar })">
@@ -179,7 +182,7 @@
               <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>{{ getFollowingState(photographer) ? '已关注' : '关注' }}</span>
+              <span>{{ getFollowingState(photographer) ? '已关�? : '关注' }}</span>
             </button>
             <button 
               class="action-btn secondary" 
@@ -206,7 +209,7 @@
     <div v-if="totalPages > 1" class="pagination-container">
       <button class="pagination-btn prev" :disabled="currentPage === 1" @click="prevPage">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg>
-        <span>上一页</span>
+        <span>上一�?/span>
       </button>
       <div class="pagination-numbers">
         <button v-for="page in visiblePages" :key="page" :class="['page-number', { active: currentPage === page, ellipsis: page === '...' }]" @click="page !== '...' && goToPage(page as number)">
@@ -214,7 +217,7 @@
         </button>
       </div>
       <button class="pagination-btn next" :disabled="currentPage === totalPages" @click="nextPage">
-        <span>下一页</span>
+        <span>下一�?/span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
@@ -225,8 +228,8 @@
         <path d="M21 21l-4.35-4.35"/>
       </svg>
       <h3>未找到摄影师</h3>
-      <p>尝试调整筛选条件或搜索关键词</p>
-      <button class="reset-btn" @click="resetFilters">重置筛选</button>
+      <p>尝试调整筛选条件或搜索关键�?/p>
+      <button class="reset-btn" @click="resetFilters">重置筛�?/button>
     </div>
   </section>
 </template>
@@ -236,10 +239,10 @@ import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useFormatNumber } from '@/composables/landscape/useFormatNumber';
-import { workTypes, workTypeIcons, workTypeLabels, filterTags as filterTagsData, sortOptions as sortOptionsData } from '@/utils/landscape/constants';
+import { workTypes, workTypeIcons, workTypeLabels, sortOptions as sortOptionsData } from '@/utils/landscape/constants';
 import { usePhotographersViewData } from '@/composables/landscape';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
-import type { Photographer } from '@/typesOfPages/landscape';
+import type { Photographer } from '@/types/landscape';
 
 const emit = defineEmits<{
   'toggle-follow': [photographer: Photographer]
@@ -273,41 +276,104 @@ const handleClickOutside = (e: MouseEvent) => {
   }
 };
 
+const { allPhotographers } = usePhotographersViewData();
+const photographers = computed(() => allPhotographers());
+
 onMounted(() => {
   document.addEventListener('click', handleClickOutside, true);
-  
-  photographers.value.forEach(photographer => {
-    const id = getPhotographerId(photographer);
-    interactionStore.registerCount(id, {
-      likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
-      views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
-      loves: Math.floor(Math.random() * 500 + 100),
-      favorites: Math.floor(Math.random() * 300 + 50),
-      shares: Math.floor(Math.random() * 100 + 10)
-    });
-
-    if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
-      interactionStore.registerBatch(
-        photographer.worksPreview.map(work => ({
-          id: work.id || `work-${Date.now()}-${Math.random()}`,
-          counts: {
-            likes: work.likes || 0,
-            loves: work.loves || 0,
-            favorites: work.favorites || 0,
-            views: work.views || 0,
-            shares: work.shares || 0,
-          }
-        }))
-      );
-    }
-  });
 });
+
+watch(
+  () => photographers.value.length,
+  (len) => {
+    if (len === 0) return;
+    photographers.value.forEach(photographer => {
+      const id = getPhotographerId(photographer);
+      interactionStore.registerCount(id, {
+        likes: parseInt(photographer.likes?.replace(/[KM]/g, '') || '0') * (photographer.likes?.includes('K') ? 1000 : photographer.likes?.includes('M') ? 1000000 : 1),
+        views: parseInt(photographer.views?.replace(/[KM]/g, '') || '0') * (photographer.views?.includes('K') ? 1000 : photographer.views?.includes('M') ? 1000000 : 1),
+        loves: 0,
+        favorites: 0,
+        shares: 0
+      });
+
+      if (photographer.worksPreview && Array.isArray(photographer.worksPreview)) {
+        interactionStore.registerBatch(
+          photographer.worksPreview.map(work => ({
+            id: work.id || `work-${photographer.id}-${Math.random()}`,
+            counts: {
+              likes: work.likes || 0,
+              loves: work.loves || 0,
+              favorites: work.favorites || 0,
+              views: work.views || 0,
+              shares: work.shares || 0,
+            }
+          }))
+        );
+      }
+    });
+  },
+  { immediate: true },
+);
 
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside, true);
 });
 
-const filterTags = ref(filterTagsData);
+const tagColors = [
+  { main: '#D4943A', light: '#FFB74D', dark: '#B4641E' },
+  { main: '#F59E0B', light: '#FBBF24', dark: '#D97706' },
+  { main: '#06B6D4', light: '#22D3EE', dark: '#0891B2' },
+  { main: '#F43F5E', light: '#FB7185', dark: '#E11D48' },
+  { main: '#10B981', light: '#34D399', dark: '#059669' },
+  { main: '#8B5CF6', light: '#A78BFA', dark: '#7C3AED' },
+  { main: '#3B82F6', light: '#60A5FA', dark: '#2563EB' },
+  { main: '#EF4444', light: '#FCA5A5', dark: '#DC2626' },
+];
+
+const hashString = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+};
+
+const getTagStyle = (tagId: string): Record<string, string> => {
+  if (tagId === 'all') return {};
+  const color = tagColors[hashString(tagId) % tagColors.length];
+  return {
+    '--tag-color': color.main,
+    '--tag-color-light': color.light,
+    '--tag-color-dark': color.dark,
+  };
+};
+
+const filterTags = computed(() => {
+  const tagCountMap = new Map<string, number>();
+  photographers.value.forEach(p => {
+    p.tags?.forEach(tag => {
+      tagCountMap.set(tag, (tagCountMap.get(tag) || 0) + 1);
+    });
+  });
+  const tags = Array.from(tagCountMap.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, count]) => ({ id: name, name, icon: '🏷�?, count }));
+  return [{ id: 'all', name: '全部', icon: '📷', count: photographers.value.length }, ...tags];
+});
+
+const showAllTags = ref(false);
+const MAX_TAGS_INLINE = 6;
+
+const visibleFilterTags = computed(() => {
+  if (showAllTags.value) {
+    return filterTags.value;
+  }
+  return filterTags.value.slice(0, MAX_TAGS_INLINE);
+});
+
+const hasMoreTags = computed(() => filterTags.value.length > MAX_TAGS_INLINE);
 
 const workTypesList = ref(workTypes.map(key => ({
   key,
@@ -318,8 +384,6 @@ const workTypesList = ref(workTypes.map(key => ({
 
 const sortOptions = sortOptionsData;
 
-const { allPhotographers } = usePhotographersViewData();
-const photographers = ref(allPhotographers());
 
 const parseCount = (value: string): number => {
   const num = parseFloat(value.replace(/[KMk]/gi, ''));
@@ -340,7 +404,12 @@ const filteredPhotographers = computed(() => {
     result = result.filter(p => 
       p.name.toLowerCase().includes(query) || 
       p.title.toLowerCase().includes(query) ||
-      p.tags?.some(tag => tag.toLowerCase().includes(query))
+      (p.location || '').toLowerCase().includes(query) ||
+      (p.specialty || '').toLowerCase().includes(query) ||
+      (p.bio || '').toLowerCase().includes(query) ||
+      (p.category || '').toLowerCase().includes(query) ||
+      p.tags?.some(tag => tag.toLowerCase().includes(query)) ||
+      p.worksPreview?.some(work => (work.title || '').toLowerCase().includes(query))
     );
   }
   
@@ -350,6 +419,13 @@ const filteredPhotographers = computed(() => {
     result.sort((a, b) => parseCount(b.likes) - parseCount(a.likes));
   } else if (sortBy.value === 'followers') {
     result.sort((a, b) => parseCount(b.followers) - parseCount(a.followers));
+  } else if (sortBy.value === 'active') {
+    result.sort((a, b) => {
+      const aOnline = a.isOnline ? 1 : 0;
+      const bOnline = b.isOnline ? 1 : 0;
+      if (bOnline !== aOnline) return bOnline - aOnline;
+      return parseCount(b.views) - parseCount(a.views);
+    });
   }
   
   return result;
@@ -435,7 +511,7 @@ const getWorkTypeColor = (typeId: string) => {
 
 const handleShare = (photographer: Photographer) => {
   // 实现分享功能
-  console.log('分享摄影师', photographer.name);
+  console.log('分享摄影�?, photographer.name);
 };
 
 const resetFilters = () => {

@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import { historicalEvents } from '../../../../data/events';
+  import { useHistoryDataStore } from '@/stores/history';
   import './index.scss';
 
   const props = defineProps<{
@@ -46,13 +46,14 @@
     (e: 'next-page'): void;
   }>();
 
+  const historyStore = useHistoryDataStore();
   const hoveredControl = ref<string | null>(null);
 
   const filteredEvents = computed(() => {
     if (props.activeCategory === 'all') {
-      return historicalEvents;
+      return historyStore.events;
     }
-    return historicalEvents.filter(
+    return historyStore.events.filter(
       (event) => event.category === props.activeCategory,
     );
   });

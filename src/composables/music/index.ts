@@ -1,5 +1,5 @@
 import { useMusicDataStore } from '@/stores/music'
-import type { Song, Artist, Playlist } from '@/typesOfPages/music'
+import type { Song, Artist, Playlist } from '@/types/music'
 
 export function useMusicSearch() {
   const musicStore = useMusicDataStore()

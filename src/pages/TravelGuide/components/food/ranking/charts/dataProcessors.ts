@@ -1,4 +1,4 @@
-import type { Food } from '@/typesOfPages/travelGuide';
+import type { Food } from '@/types/travelGuide';
 
 /**
  * 计算价格分布范围

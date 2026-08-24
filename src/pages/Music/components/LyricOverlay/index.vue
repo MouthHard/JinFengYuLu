@@ -49,7 +49,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from "vue";
 import { getCurrentLyricIndex } from "@/utils/music";
-import type { Song, LyricLine } from "@/typesOfPages/music";
+import type { Song, LyricLine } from "@/types/music";
 
 const props = defineProps<{
   song: Song;

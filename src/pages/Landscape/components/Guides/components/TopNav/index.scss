@@ -216,54 +216,42 @@
             }
           }
 
-          .history-list {
+          .history-tags {
             display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            padding: 0.25rem 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.25rem 1.5rem 0.5rem;
 
-            .history-item {
-              display: flex;
-              align-items: center;
-              gap: 0.75rem;
-              width: 100%;
-              padding: 0.75rem 1rem;
-              background: transparent;
-              border: none;
-              border-radius: 0.5rem;
-              text-align: left;
+            .history-tag {
+              padding: 0.4rem 0.85rem;
+              background: rgba(255, 255, 255, 0.06);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 2rem;
+              font-size: 0.8125rem;
+              color: #e2e8f0;
               cursor: pointer;
               transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
-              .history-icon {
-                width: 16px;
-                height: 16px;
-                color: #64748b;
-                stroke-width: 2;
-                flex-shrink: 0;
+              &:hover {
+                background: rgba(0, 123, 255, 0.15);
+                border-color: rgba(0, 123, 255, 0.4);
+                color: #22d3ee;
               }
+            }
 
-              .history-text {
-                flex: 1;
-                font-size: 0.9375rem;
-                color: #e2e8f0;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-              }
+            .more-history-btn {
+              padding: 0.4rem 0.85rem;
+              background: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 2rem;
+              font-size: 0.8125rem;
+              color: #94a3b8;
+              cursor: pointer;
+              transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
               &:hover {
-                background: rgba(0, 123, 255, 0.1);
-                transform: translateX(4px);
-
-                .history-icon {
-                  color: #22d3ee;
-                  filter: drop-shadow(0 0 8px rgba(0, 123, 255, 0.5));
-                }
-
-                .history-text {
-                  color: #22d3ee;
-                }
+                color: #22d3ee;
+                border-color: rgba(0, 123, 255, 0.4);
               }
             }
           }

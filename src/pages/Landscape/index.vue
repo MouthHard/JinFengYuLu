@@ -28,14 +28,15 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, defineAsyncComponent } from 'vue';
+  import { ref, shallowRef, computed, onMounted, watch, defineAsyncComponent } from 'vue';
   import {
     useLandscapeDataStore,
     useInteractionStore,
   } from '@/stores/landscape';
-  import type { LandscapeItem } from '@/typesOfPages/landscape';
-  import { cachedViews, MIN_LOAD_TIME } from '@/utils/landscape/constants';
+  import type { LandscapeItem } from '@/types/landscape';
+  import { cachedViews } from '@/utils/landscape/constants';
   import { convertToLandscapeItem } from '@/utils/landscape';
+  import { debounce } from '@/utils/landscape/debounce';
 
   const cachedViewsArray = [...cachedViews];
 
@@ -51,19 +52,21 @@
     () => import('./components/common/UploadModal/index.vue'),
   );
 
-  const isPageLoading = ref(true);
   const searchQuery = ref('');
-  const selectedItem = ref<LandscapeItem | null>(null);
+  const debouncedQuery = ref('');
   const showUploadModal = ref(false);
 
   const dataStore = useLandscapeDataStore();
   const interactionStore = useInteractionStore();
 
-  const landscapeItems = ref<LandscapeItem[]>([]);
-  const favoriteItems = ref<LandscapeItem[]>([]);
+  const landscapeItems = shallowRef<LandscapeItem[]>([]);
 
-  onMounted(() => {
-    const startTime = performance.now();
+  watch(searchQuery, debounce((val: string) => {
+    debouncedQuery.value = val;
+  }, 200));
+
+  onMounted(async () => {
+    await dataStore.ensureLoaded();
 
     const images = dataStore.getAllImages();
     const videos = dataStore.getAllVideos();
@@ -85,43 +88,27 @@
         },
       })),
     );
-
-    const savedFavorites = localStorage.getItem('landscape-favorites');
-    if (savedFavorites) {
-      try {
-        favoriteItems.value = JSON.parse(savedFavorites);
-      } catch (e) {
-        console.error('Failed to parse favorites:', e);
-      }
-    }
-
-    const loadTime = performance.now() - startTime;
-    const delay = Math.max(0, MIN_LOAD_TIME - loadTime);
-
-    setTimeout(() => {
-      isPageLoading.value = false;
-    }, delay);
   });
 
   const filteredItems = computed(() => {
     let items = landscapeItems.value;
 
-    if (searchQuery.value) {
-      const lowerQuery = searchQuery.value.toLowerCase();
+    if (debouncedQuery.value) {
+      const lowerQuery = debouncedQuery.value.toLowerCase();
       items = items.filter(
         (item) =>
           item.title.toLowerCase().includes(lowerQuery) ||
           item.location.toLowerCase().includes(lowerQuery) ||
-          item.tags.some((tag) => tag.toLowerCase().includes(lowerQuery)),
+          item.tags.some((tag) => tag.toLowerCase().includes(lowerQuery)) ||
+          (item.author || '').toLowerCase().includes(lowerQuery) ||
+          (item.description || '').toLowerCase().includes(lowerQuery),
       );
     }
 
     return items;
   });
 
-  const openDetail = (item: LandscapeItem) => {
-    selectedItem.value = item;
-  };
+  const openDetail = (_item: LandscapeItem) => {};
 
   const handleUpload = (file: File) => {
     console.log('上传文件:', file.name);

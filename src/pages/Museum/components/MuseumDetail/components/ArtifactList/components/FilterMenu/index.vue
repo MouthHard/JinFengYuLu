@@ -62,7 +62,7 @@
 
 <script setup lang="ts">
   import { ref, watch } from 'vue';
-  import { artifactTypes, periods } from '@/pages/Museum/data/artifacts';
+  import { artifactTypes, periods } from '@/pages/Museum/constants/artifactFilters';
   import { SearchIcon } from "@/pages/Museum/icon/pages/ArtifactContainer";
 
   // 定义 Props

@@ -11,7 +11,7 @@
           <div class="icon-wrapper">
             <ClockIcon />
           </div>
-          <h3>开放时间</h3>
+          <h3>开放时�?/h3>
         </div>
         <div class="card-body">
           <div class="time-item">
@@ -20,7 +20,7 @@
               {{
                 typeof visitInfo?.openTime === 'string'
                   ? visitInfo.openTime
-                  : visitInfo?.openTime?.regularTime || '周二至周日 9:00-17:00'
+                  : visitInfo?.openTime?.regularTime || '周二至周�?9:00-17:00'
               }}
             </span>
           </div>
@@ -34,9 +34,9 @@
             </span>
           </div>
           <div v-if="typeof visitInfo?.openTime !== 'string'" class="time-item">
-            <span class="label">闭馆日</span>
+            <span class="label">闭馆�?/span>
             <span class="value">
-              {{ visitInfo?.openTime?.closeDay || '周一（法定节假日除外）' }}
+              {{ visitInfo?.openTime?.closeDay || '周一（法定节假日除外�? }}
             </span>
           </div>
           <div
@@ -104,7 +104,7 @@
               v-for="(policy, index) in visitInfo.ticket.discountPolicy"
               :key="index"
             >
-              • {{ policy }}
+              �?{{ policy }}
             </p>
           </div>
         </div>
@@ -125,7 +125,7 @@
               :key="`allow-${index}`"
               class="rule-item"
             >
-              <span class="rule-icon allow">✓</span>
+              <span class="rule-icon allow">�?/span>
               <span>{{ rule }}</span>
             </div>
             <div
@@ -133,20 +133,20 @@
               :key="`forbid-${index}`"
               class="rule-item"
             >
-              <span class="rule-icon forbid">✕</span>
+              <span class="rule-icon forbid">�?/span>
               <span>{{ rule }}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 交通指南 -->
+      <!-- 交通指�?-->
       <div class="info-card">
         <div class="card-header">
           <div class="icon-wrapper">
             <MapIcon />
           </div>
-          <h3>交通指南</h3>
+          <h3>交通指�?/h3>
         </div>
         <div class="card-body">
           <div v-if="visitInfo?.transportation" class="transport-item">
@@ -223,11 +223,11 @@
               class="service-item"
             >
               <AccessibilityIcon />
-              <span>无障碍设施</span>
+              <span>无障碍设�?/span>
             </div>
             <div v-if="visitInfo.services.hasRestArea" class="service-item">
               <RestAreaIcon />
-              <span>休息区</span>
+              <span>休息�?/span>
             </div>
             <div v-if="visitInfo.services.hasWiFi" class="service-item">
               <WifiIcon />
@@ -282,8 +282,7 @@
         <div class="footer-info">
           <h3>
             <MuseumInfoIcon />
-            博物馆信息
-          </h3>
+            博物馆信�?          </h3>
           <div class="info-item">
             <div class="info-icon">
               <MapIcon />
@@ -311,13 +310,13 @@
               <OpenTimeIcon />
             </div>
             <div class="info-content">
-              <span class="info-label">开放时间</span>
+              <span class="info-label">开放时�?/span>
               <span class="info-value">
                 {{
                   typeof visitInfo?.openTime === 'string'
                     ? visitInfo.openTime
                     : visitInfo?.openTime?.regularTime ||
-                      '周二至周日 9:00-17:00'
+                      '周二至周�?9:00-17:00'
                 }}
               </span>
             </div>
@@ -326,8 +325,7 @@
         <div class="footer-links">
           <h4>
             <QuickLinkIcon />
-            快速链接
-          </h4>
+            快速链�?          </h4>
           <ul>
             <li>
               <a href="#" @click.prevent="switchTab('home')">
@@ -365,57 +363,15 @@
         <div class="footer-links">
           <h4>
             <LinkIcon />
-            博物馆友链
-          </h4>
+            博物馆友�?          </h4>
           <ul>
-            <li>
+            <li v-for="link in friendLinks" :key="link.id">
               <span class="official-tag">官方网站</span>
               <a
-                href="https://www.chnmuseum.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                @click.prevent="goToMuseum(link.id)"
               >
-                中国国家博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.dpm.org.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                故宫博物院
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.bmy.com.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                秦始皇兵马俑博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.shanghaimuseum.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                上海博物馆
-              </a>
-            </li>
-            <li>
-              <span class="official-tag">官方网站</span>
-              <a
-                href="https://www.njmuseum.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                南京博物院
+                {{ link.name }}
               </a>
             </li>
           </ul>
@@ -426,8 +382,10 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import { getMuseumDetailsById } from '@/pages/Museum/data/museum-details/index';
+  import { ref, computed, watch } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useMuseumDataStore } from '@/stores/museum';
+  import type { MuseumDetailInfo } from '@/types/museum';
 
   // 批量导入图标组件
   import {
@@ -471,15 +429,33 @@
     'update:activeTab': [tab: string];
   }>();
 
-  // 获取博物馆详细信息
-  const museumDetails = computed(() => {
-    return getMuseumDetailsById(props.museumId);
-  });
+  const store = useMuseumDataStore();
+  const router = useRouter();
 
-  // 获取参观信息
+  const museumDetails = ref<MuseumDetailInfo | null>(null);
+
+  watch(
+    () => props.museumId,
+    async (id) => {
+      museumDetails.value = await store.getMuseumDetailsById(id);
+    },
+    { immediate: true },
+  );
+
   const visitInfo = computed(() => {
     return museumDetails.value?.visitInfo;
   });
+
+  const friendLinks = computed(() => {
+    return store.museums
+      .filter((m) => m.id !== props.museumId)
+      .slice(0, 5)
+      .map((m) => ({ id: m.id, name: m.name }));
+  });
+
+  const goToMuseum = (id: number) => {
+    router.push(`/museum/${id}`);
+  };
 
   const switchTab = (tab: string) => {
     emit('update:activeTab', tab);

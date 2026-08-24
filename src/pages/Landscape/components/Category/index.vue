@@ -37,9 +37,9 @@
         />
         <div v-else class="empty-state">
           <div class="empty-icon">🔍</div>
-          <h3>未找到相关内容</h3>
+          <h3>未找到相关内�?/h3>
           <p>尝试调整筛选条件或切换分类</p>
-          <button class="reset-btn" @click="resetFilters">重置筛选</button>
+          <button class="reset-btn" @click="resetFilters">重置筛�?/button>
         </div>
       </div>
 
@@ -66,10 +66,10 @@
   import { ref, onMounted, watch, toRef } from 'vue';
   import { useRoute } from 'vue-router';
   import { useInteractionStore } from '@/stores/landscape';
-  import type { InteractionItem } from '@/typesOfPages/landscape';
+  import type { InteractionItem } from '@/types/landscape';
   import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
   import { useCategoryFilter } from '@/composables/landscape/category';
-  import type { LandscapeItem } from '@/typesOfPages/landscape';
+  import type { LandscapeItem } from '@/types/landscape';
   import { categoryGroups } from '@/utils/landscape/categories';
   import CategorySidebar from './components/CategorySidebar/index.vue';
   import FilterHeader from './components/FilterHeader/index.vue';

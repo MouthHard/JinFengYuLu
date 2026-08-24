@@ -140,14 +140,17 @@
         </div>
 
         <!-- 历史评价 -->
-        <div class="main-section evaluation-section">
+        <div
+          v-if="evaluationTags.length"
+          class="main-section evaluation-section"
+        >
           <h4 class="section-title">
             <span class="title-icon">📊</span>
             <span class="title-text">历史评价</span>
           </h4>
           <div class="section-content">
             <span
-              v-for="(tag, idx) in getEvaluationTags(selectedFigure)"
+              v-for="(tag, idx) in evaluationTags"
               :key="idx"
               class="evaluation-tag"
             >
@@ -179,7 +182,7 @@
             <div class="heritage-item">
               <span class="heritage-icon">📜</span>
               <span class="heritage-name">
-                {{ getRepresentativeWorks(selectedFigure) }}
+                {{ representativeWorks }}
               </span>
             </div>
           </div>
@@ -190,11 +193,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { HistoricalFigure } from '@/typesOfPages/history';
-  import {
-    figureWorksMap,
-    figureEvaluationTagsMap,
-  } from '../../../../data/figures';
+  import { computed } from 'vue';
+  import type { HistoricalFigure } from '@/types/history';
 
   const props = defineProps<{
     selectedFigure: HistoricalFigure | null;
@@ -208,15 +208,13 @@
     emit('close');
   };
 
-  // 获取代表作品
-  const getRepresentativeWorks = (figure: HistoricalFigure): string => {
-    return figureWorksMap[figure.id] || '暂无记录';
-  };
+  const representativeWorks = computed(() => {
+    return props.selectedFigure?.representativeWorks || '暂无记录';
+  });
 
-  // 获取历史评价标签
-  const getEvaluationTags = (figure: HistoricalFigure): string[] => {
-    return figureEvaluationTagsMap[figure.id] || ['历史人物', '杰出代表'];
-  };
+  const evaluationTags = computed<string[]>(() => {
+    return props.selectedFigure?.evaluationTags || [];
+  });
 </script>
 
 <style scoped lang="scss">

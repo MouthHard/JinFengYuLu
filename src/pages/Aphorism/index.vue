@@ -30,7 +30,7 @@
         <button class="back-button" @click="goBack">返回首页</button>
         <div class="header-actions">
           <button class="study-room-button" @click="goToStudyRoom">
-            <span class="button-icon">📚</span>
+            <span class="button-icon"><BooksIcon /></span>
             <span class="button-text">书房</span>
           </button>
         </div>
@@ -41,11 +41,11 @@
         <!-- 左侧竖排模式切换Tab -->
         <aside class="mode-tabs-vertical">
           <div class="mode-tab-vertical" :class="{ active: !isSearchMode }" @click="switchMode(false)">
-            <span class="tab-icon">📚</span>
+            <span class="tab-icon"><ScrollIcon /></span>
             <span class="tab-text">分类浏览</span>
           </div>
           <div class="mode-tab-vertical" :class="{ active: isSearchMode }" @click="switchMode(true)">
-            <span class="tab-icon">🔍</span>
+            <span class="tab-icon"><SearchIcon /></span>
             <span class="tab-text">搜索模式</span>
           </div>
         </aside>
@@ -88,14 +88,14 @@
       </div>
 
       <div v-else-if="filteredPoems.length === 0" class="empty-state">
-        <div class="empty-icon">📜</div>
+        <div class="empty-icon"><ScrollIcon /></div>
         <h3>暂无相关诗词</h3>
         <p>换个关键词试试吧</p>
       </div>
 
       <div v-else class="poems-grid">
         <PoemCard v-for="poem in displayedPoems" :key="poem.id" :poem="poem" @click="handlePoemClick"
-          @tag-click="handleTagClick" @favorite-toggle="handleFavoriteToggle" />
+          @tag-click="handleTagClick" />
       </div>
 
       <!-- 分页 -->
@@ -105,27 +105,30 @@
 
     <!-- 诗词详情弹窗 -->
     <PoemModal v-if="selectedPoem" :visible="showModal" :poem="selectedPoem" :background-image="selectedPoemBackground"
-      @close="showModal = false" @tag-click="handleTagClick" @favorite-toggle="handleFavoriteToggle" />
+      @close="showModal = false" @tag-click="handleTagClick" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, defineAsyncComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import SearchBar from './components/SearchBar/index.vue';
 import CategoryNav from './components/CategoryNav/index.vue';
 import PoemCard from './components/PoemCard/index.vue';
-import PoemModal from './components/PoemModal/index.vue';
+const PoemModal = defineAsyncComponent(() => import('./components/PoemModal/index.vue'));
 import Pagination from './components/Pagination/index.vue';
+import BooksIcon from './icons/common/BooksIcon.vue';
+import SearchIcon from './icons/common/SearchIcon.vue';
+import ScrollIcon from './icons/common/ScrollIcon.vue';
 
-import { poems } from '@/constants/Aphorism';
-import { filterPoemsByCategory, searchPoems as searchPoemsUtil } from '@/utils/Aphorism/categoryFilter';
-import type { Poem } from '@/typesOfPages/aphorism/poem';
-import type { CategoryFilterParams } from '@/typesOfPages/aphorism/category';
+import { useAphorismDataStore } from '@/stores/aphorism';
+import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
+import type { Poem } from '@/types/aphorism/poem';
 
 const router = useRouter();
+const dataStore = useAphorismDataStore();
+const interactionStore = useAphorismInteractionStore();
 
-const loading = ref(false);
 const searchQuery = ref('');
 const currentPage = ref(1);
 const selectedPoem = ref<Poem | null>(null);
@@ -134,37 +137,17 @@ const showModal = ref(false);
 const isSearchMode = ref(false);
 const pageSize = 12;
 
-const filterParams = ref<CategoryFilterParams>({
-  categoryId: '',
-  subCategoryId: '',
-});
+const loading = computed(() => dataStore.loading);
+const filteredPoems = computed(() => dataStore.filteredPoems);
 
 const switchMode = (searchMode: boolean) => {
   isSearchMode.value = searchMode;
   searchQuery.value = '';
   if (!searchMode) {
-    filterParams.value = { categoryId: '', subCategoryId: '' };
+    dataStore.resetFilter();
   }
   currentPage.value = 1;
 };
-
-const filteredPoems = computed(() => {
-  performance.mark('filter-start');
-
-  let result: Poem[];
-  if (isSearchMode.value && searchQuery.value) {
-    result = searchPoemsUtil(poems, searchQuery.value);
-  } else if (!isSearchMode.value && filterParams.value.categoryId) {
-    result = filterPoemsByCategory(poems, filterParams.value);
-  } else {
-    result = poems;
-  }
-
-  performance.mark('filter-end');
-  performance.measure('filter-poems', 'filter-start', 'filter-end');
-
-  return result;
-});
 
 const totalPages = computed(() =>
   Math.ceil(filteredPoems.value.length / pageSize),
@@ -180,14 +163,12 @@ const goToStudyRoom = () => router.push('/aphorism/study-room');
 const handleSearch = (query: string) => {
   searchQuery.value = query;
   currentPage.value = 1;
+  dataStore.searchByKeyword(query);
 };
 
-const handleCategoryChange = (categoryId: string, subCategoryId?: string) => {
-  filterParams.value = {
-    categoryId,
-    subCategoryId: subCategoryId || '',
-  };
+const handleCategoryChange = (categoryId: string, subCategoryId?: number) => {
   currentPage.value = 1;
+  dataStore.filterByCategory(categoryId, subCategoryId);
 };
 
 const handlePageChange = (page: number) => {
@@ -202,25 +183,21 @@ const handlePoemClick = (poem: Poem, backgroundImage: string) => {
 };
 
 const handleTagClick = (tag: string) => {
-  searchQuery.value = tag;
   isSearchMode.value = true;
   currentPage.value = 1;
+  interactionStore.addSearchHistory(tag);
+  searchQuery.value = tag;
+  dataStore.searchByKeyword(tag);
 };
 
-const handleFavoriteToggle = (poemId: string) => {
-  console.log('Toggle favorite:', poemId);
-};
 
-onMounted(() => {
-  performance.mark('mount-start');
-
-  loading.value = true;
-
-  requestAnimationFrame(() => {
-    loading.value = false;
-    performance.mark('mount-end');
-    performance.measure('aphorism-mount', 'mount-start', 'mount-end');
-  });
+onMounted(async () => {
+  if (dataStore.poems.length === 0) {
+    await dataStore.loadPoems();
+  }
+  if (dataStore.hotTags.length === 0) {
+    dataStore.loadHotTags();
+  }
 });
 </script>
 

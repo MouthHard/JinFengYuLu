@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="category-filter">
-      <h3 class="filter-title">所有文创产品</h3>
+      <h3 class="filter-title">所有文创产�?/h3>
       <div class="filter-buttons">
         <button
           class="filter-btn"
@@ -54,7 +54,7 @@
                   <ShareIcon />
                 </button>
               </div>
-              <button class="buy-btn">加入购物车</button>
+              <button class="buy-btn">加入购物�?/button>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import type { CreativeProduct } from '@/typesOfPages/museum/index';
+  import type { CreativeProduct } from '@/types/museum/index';
   import { HeartIcon, StarIcon, ShareIcon } from '@/pages/Museum/icon/common';
 
   const props = defineProps<{
@@ -74,8 +74,7 @@
 
   const selectedCategory = ref('全部');
 
-  // 所有分类
-  const categories = computed(() => {
+  // 所有分�?  const categories = computed(() => {
     const cats = new Set(
       props.creativeProducts
         .map((product) => product.category)
@@ -84,8 +83,7 @@
     return Array.from(cats);
   });
 
-  // 筛选后的产品
-  const filteredProducts = computed(() => {
+  // 筛选后的产�?  const filteredProducts = computed(() => {
     if (selectedCategory.value === '全部') {
       return props.creativeProducts;
     }

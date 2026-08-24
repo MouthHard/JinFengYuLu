@@ -1,9 +1,8 @@
 <template>
   <div class="map-content">
-    <h2 class="section-title" data-text="按省份浏览">
-      <span class="title-icon">🗺️</span>
-      按省份浏览
-    </h2>
+    <h2 class="section-title" data-text="按省份浏�?>
+      <span class="title-icon">🗺�?/span>
+      按省份浏�?    </h2>
     <div id="chinaMap" ref="mapRef" class="map-element"></div>
 
     <div v-if="selectedProvince" class="selected-province">
@@ -27,16 +26,15 @@ import {
   GeoComponent,
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
-import type { Museum } from "@/typesOfPages/museum";
+import type { Museum } from "@/types/museum";
 import {
   provinceElevation,
   provinceNameMap,
   provinceColors,
   getElevationTier,
-} from "@/pages/Museum/data/map";
+} from "@/stores/museum";
 
-// 注册必要的组件
-echarts.use([
+// 注册必要的组�?echarts.use([
   MapChart,
   TitleComponent,
   TooltipComponent,
@@ -71,7 +69,7 @@ const loadChinaMap = () => {
   fetch("https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json")
     .then((response) => {
       if (!response.ok) {
-        throw new Error("网络响应不正常");
+        throw new Error("网络响应不正�?);
       }
       return response.json();
     })
@@ -86,7 +84,7 @@ const loadChinaMap = () => {
 
 const initMap = () => {
   if (!mapRef.value) {
-    console.error("地图容器不存在");
+    console.error("地图容器不存�?);
     return;
   }
   chart = echarts.init(mapRef.value);
@@ -104,8 +102,7 @@ const initMap = () => {
     };
   }> = [];
 
-  // 生成地图数据，包括所有省份
-  const allProvinces = Object.entries(provinceNameMap);
+  // 生成地图数据，包括所有省�?  const allProvinces = Object.entries(provinceNameMap);
 
   allProvinces.forEach(([fullName, shortName]) => {
     const elevation =
@@ -117,8 +114,7 @@ const initMap = () => {
     let shadowColor = "rgba(0, 0, 0, 1)";
 
     switch (tier) {
-      case 4: // 第一梯队 - 最高
-        shadowOffsetY = 10;
+      case 4: // 第一梯队 - 最�?        shadowOffsetY = 10;
         shadowBlur = 12;
         shadowColor = "rgba(0, 0, 0, 1)";
         break;
@@ -132,8 +128,7 @@ const initMap = () => {
         shadowBlur = 8;
         shadowColor = "rgba(0, 0, 0, 1)";
         break;
-      case 1: // 第四梯队 - 最低
-        shadowOffsetY = 0;
+      case 1: // 第四梯队 - 最�?        shadowOffsetY = 0;
         shadowBlur = 0;
         shadowColor = "rgba(0, 0, 0, 1)";
         break;
@@ -191,7 +186,7 @@ const initMap = () => {
         return `
             <div style="padding: 4px;">
               <h3 style="margin: 0 0 8px 0; color: #8B4513; font-size: 16px; font-weight: 700;">${params.name}</h3>
-              <p style="margin: 0; color: #4a5568; font-size: 13px;">点击查看该省份的博物馆</p>
+              <p style="margin: 0; color: #4a5568; font-size: 13px;">点击查看该省份的博物�?/p>
               ${count > 0 ? `<p style="margin: 8px 0 0 0; color: #D4AF37; font-size: 12px; font-weight: 600;">共有 ${count} 个博物馆</p>` : ""}
             </div>
           `;

@@ -1,5 +1,5 @@
 import { ref, computed, type Ref, type ComputedRef } from 'vue';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 import type { Category } from '@/utils/landscape/categories';
 import { dimensions } from '@/utils/landscape/constants';
 

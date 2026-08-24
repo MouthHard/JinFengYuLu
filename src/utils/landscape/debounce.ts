@@ -1,15 +1,15 @@
-export function debounce<T extends (...args: unknown[]) => void>(
+export function debounce<T extends (...args: any[]) => void>(
   fn: T,
   delay: number
 ): T {
   let timer: ReturnType<typeof setTimeout> | null = null;
-  return ((...args: unknown[]) => {
+  return ((...args: any[]) => {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => fn(...args), delay);
   }) as T;
 }
 
-export function throttle<T extends (...args: unknown[]) => void>(
+export function throttle<T extends (...args: any[]) => void>(
   fn: T,
   limit: number
 ): T {

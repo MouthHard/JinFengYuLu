@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 
 interface Props {
   src: string
@@ -129,19 +129,31 @@ const retry = () => {
   currentSrc.value = props.src
 }
 
-onMounted(() => {
-  if (props.progressive && props.placeholder && props.placeholder !== props.src) {
-    const img = new Image()
-    img.src = props.src
-    img.onload = () => {
-      currentSrc.value = props.src
+let preloadImage: HTMLImageElement | null = null
+
+const preloadSrc = (src: string) => {
+  if (preloadImage) {
+    preloadImage.onload = null
+    preloadImage.onerror = null
+  }
+  if (props.progressive && props.placeholder && props.placeholder !== src) {
+    preloadImage = new Image()
+    preloadImage.src = src
+    preloadImage.onload = () => {
+      currentSrc.value = src
     }
-    img.onerror = () => {
+    preloadImage.onerror = () => {
       if (props.fallbackSrc) {
         currentSrc.value = props.fallbackSrc
       }
     }
+  } else {
+    currentSrc.value = src
   }
+}
+
+onMounted(() => {
+  preloadSrc(props.src)
 })
 
 watch(() => props.src, (newSrc) => {
@@ -149,15 +161,14 @@ watch(() => props.src, (newSrc) => {
   isError.value = false
   isLoading.value = true
   currentSrc.value = props.placeholder || newSrc
-  
-  if (props.progressive && props.placeholder) {
-    const img = new Image()
-    img.src = newSrc
-    img.onload = () => {
-      currentSrc.value = newSrc
-    }
-  } else {
-    currentSrc.value = newSrc
+  preloadSrc(newSrc)
+})
+
+onUnmounted(() => {
+  if (preloadImage) {
+    preloadImage.onload = null
+    preloadImage.onerror = null
+    preloadImage = null
   }
 })
 

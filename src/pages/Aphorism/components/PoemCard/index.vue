@@ -16,7 +16,7 @@
         </div>
 
         <div v-if="poem.tags && poem.tags.length > 0" class="poem-tags">
-          <span v-for="(tag, index) in poem.tags.slice(0, 3)" :key="index" class="tag">
+          <span v-for="(tag, index) in displayTags" :key="index" class="tag">
             {{ tag }}
           </span>
         </div>
@@ -32,9 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import type { Poem } from '../../../../typesOfPages/poetry/poem';
-import { useBackgroundImage } from '../../composables/useBackgroundImages';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import type { Poem } from '@/types/aphorism/poem';
+import { getBackgroundUrl } from '@/composables/aphorism/usePoemBackground';
 import './index.scss';
 
 const props = defineProps<{
@@ -54,13 +54,17 @@ const previewLines = computed(() => {
   return props.poem.content.slice(0, 6);
 });
 
+const displayTags = computed(() => props.poem.tags?.slice(0, 3) ?? []);
+
+let observer: IntersectionObserver | null = null;
+
 onMounted(() => {
-  const observer = new IntersectionObserver(
+  observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting && !isLoaded.value) {
-        backgroundImage.value = useBackgroundImage(props.poem.id);
+        backgroundImage.value = getBackgroundUrl(props.poem.id);
         isLoaded.value = true;
-        observer.disconnect();
+        observer?.disconnect();
       }
     },
     { rootMargin: '100px' }
@@ -69,6 +73,11 @@ onMounted(() => {
   if (cardRef.value) {
     observer.observe(cardRef.value);
   }
+});
+
+onBeforeUnmount(() => {
+  observer?.disconnect();
+  observer = null;
 });
 
 const handleClick = () => {

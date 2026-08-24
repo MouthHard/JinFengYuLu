@@ -172,18 +172,18 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 3px solid rgba(139, 92, 246, 0.5);
-        border-top-color: rgba(167, 139, 250, 0.6);
+        border: 3px solid rgba(14, 165, 233, 0.5);
+        border-top-color: rgba(125, 211, 252, 0.6);
         overflow: hidden;
         background: linear-gradient(
           135deg,
-          rgba(139, 92, 246, 0.2) 0%,
-          rgba(124, 58, 237, 0.15) 100%
+          rgba(14, 165, 233, 0.2) 0%,
+          rgba(2, 132, 199, 0.15) 100%
         );
         box-shadow:
           0 8px 24px rgba(0, 0, 0, 0.3),
-          0 0 20px rgba(139, 92, 246, 0.15),
-          inset 0 2px 0 rgba(167, 139, 250, 0.1);
+          0 0 20px rgba(14, 165, 233, 0.15),
+          inset 0 2px 0 rgba(125, 211, 252, 0.1);
         transition: all 0.3s ease;
         flex-shrink: 0;
 
@@ -191,8 +191,8 @@
           transform: scale(1.05);
           box-shadow:
             0 12px 32px rgba(0, 0, 0, 0.4),
-            0 0 30px rgba(139, 92, 246, 0.25),
-            inset 0 2px 0 rgba(167, 139, 250, 0.15);
+            0 0 30px rgba(14, 165, 233, 0.25),
+            inset 0 2px 0 rgba(125, 211, 252, 0.15);
         }
 
         img {
@@ -211,7 +211,7 @@
           svg {
             width: 45%;
             height: 45%;
-            color: rgba(167, 139, 250, 0.6);
+            color: rgba(125, 211, 252, 0.6);
           }
         }
       }
@@ -287,16 +287,16 @@
   }
 
   .photography-section {
-    border: 1px solid rgba(139, 92, 246, 0.4);
+    border: 1px solid rgba(14, 165, 233, 0.4);
     background: linear-gradient(
       180deg,
-      rgba(139, 92, 246, 0.08) 0%,
-      rgba(124, 58, 237, 0.05) 100%
+      rgba(14, 165, 233, 0.08) 0%,
+      rgba(2, 132, 199, 0.05) 100%
     );
 
     .photography-label {
-      color: rgba(167, 139, 250, 0.95);
-      border-bottom-color: rgba(139, 92, 246, 0.4);
+      color: rgba(125, 211, 252, 0.95);
+      border-bottom-color: rgba(14, 165, 233, 0.4);
     }
 
     .photography-grid {
@@ -307,17 +307,17 @@
     }
 
     .photography-input {
-      border-color: rgba(167, 139, 250, 0.45);
+      border-color: rgba(125, 211, 252, 0.45);
       border-top-color: rgba(196, 181, 253, 0.4);
-      border-bottom-color: rgba(139, 92, 246, 0.5);
+      border-bottom-color: rgba(14, 165, 233, 0.5);
 
       &:hover {
         border-color: rgba(196, 181, 253, 0.65);
         border-top-color: rgba(216, 195, 255, 0.6);
-        border-bottom-color: rgba(167, 139, 250, 0.7);
+        border-bottom-color: rgba(125, 211, 252, 0.7);
         box-shadow:
           0 6px 20px rgba(0, 0, 0, 0.35),
-          0 3px 10px rgba(139, 92, 246, 0.25),
+          0 3px 10px rgba(14, 165, 233, 0.25),
           inset 0 2px 0 rgba(196, 181, 253, 0.18),
           inset 0 -1px 0 rgba(0, 0, 0, 0.2);
       }
@@ -327,10 +327,10 @@
         border-top-color: rgba(233, 213, 255, 0.85);
         border-bottom-color: rgba(196, 181, 253, 0.95);
         box-shadow:
-          0 0 0 3px rgba(167, 139, 250, 0.2),
-          0 0 0 6px rgba(139, 92, 246, 0.08),
+          0 0 0 3px rgba(125, 211, 252, 0.2),
+          0 0 0 6px rgba(14, 165, 233, 0.08),
           0 8px 24px rgba(0, 0, 0, 0.4),
-          0 4px 12px rgba(139, 92, 246, 0.3),
+          0 4px 12px rgba(14, 165, 233, 0.3),
           inset 0 2px 0 rgba(216, 195, 255, 0.25),
           inset 0 -1px 0 rgba(0, 0, 0, 0.15);
       }
@@ -338,7 +338,7 @@
 
     .specialty-section {
       padding-top: 16px;
-      border-top: 1px solid rgba(139, 92, 246, 0.2);
+      border-top: 1px solid rgba(14, 165, 233, 0.2);
 
       .field-label {
         color: rgba(255, 255, 255, 0.85);
@@ -358,10 +358,10 @@
       padding: 8px 16px;
       background: linear-gradient(
         180deg,
-        rgba(139, 92, 246, 0.15) 0%,
-        rgba(124, 58, 237, 0.1) 100%
+        rgba(14, 165, 233, 0.15) 0%,
+        rgba(2, 132, 199, 0.1) 100%
       );
-      border: 1px solid rgba(139, 92, 246, 0.35);
+      border: 1px solid rgba(14, 165, 233, 0.35);
       border-radius: 18px;
       color: rgba(196, 181, 253, 0.9);
       font-size: 13px;
@@ -377,10 +377,10 @@
       &:hover {
         background: linear-gradient(
           180deg,
-          rgba(139, 92, 246, 0.25) 0%,
-          rgba(124, 58, 237, 0.18) 100%
+          rgba(14, 165, 233, 0.25) 0%,
+          rgba(2, 132, 199, 0.18) 100%
         );
-        border-color: rgba(167, 139, 250, 0.5);
+        border-color: rgba(125, 211, 252, 0.5);
       }
 
       &.active {
@@ -393,12 +393,12 @@
         border-color: rgba(196, 181, 253, 0.6);
         color: #fff;
         box-shadow:
-          0 4px 14px rgba(139, 92, 246, 0.4),
+          0 4px 14px rgba(14, 165, 233, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
         &:hover {
           box-shadow:
-            0 6px 20px rgba(139, 92, 246, 0.5),
+            0 6px 20px rgba(14, 165, 233, 0.5),
             inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
       }

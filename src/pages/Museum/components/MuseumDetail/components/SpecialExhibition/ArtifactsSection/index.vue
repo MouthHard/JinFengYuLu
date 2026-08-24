@@ -34,7 +34,7 @@
         <div class="artifact-info">
           <div class="info-badge">
             <span class="badge-dot"></span>
-            精品馆藏
+            馆藏精品
           </div>
           <h5 class="artifact-name">{{ artifact.name }}</h5>
           <div class="artifact-meta">
@@ -42,14 +42,8 @@
               <span class="period-icon">📅</span>
               {{ artifact.period }}
             </span>
-            <span class="artifact-rarity">珍贵文物</span>
           </div>
           <p class="artifact-desc">{{ artifact.description }}</p>
-          <!-- 互动标签 -->
-          <div class="artifact-tags">
-            <span class="tag-3d">国宝级</span>
-            <span class="tag-3d">限时展出</span>
-          </div>
         </div>
       </div>
     </div>

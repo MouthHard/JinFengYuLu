@@ -67,17 +67,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import type { GameItem, GameCategory } from '@/typesOfPages/game';
-import { games, categoryLabelMap } from '../../data/index';
+
+import { useGameStore } from '@/stores/game';
+import type { GameItemResponse } from '@/services/game';
 
 defineOptions({ name: 'GameLibrary' });
 
 const router = useRouter();
-const ownedGames = games.filter(g => g.isOwned);
-const suggestions = games.filter(g => g.rating >= 4.5).slice(0, 3);
-const navigateToDetail = (game: GameItem) => { router.push(`/game/detail/${game.id}`); };
+const gameStore = useGameStore();
+
+const ownedGames = computed(() => gameStore.getOwnedGames(gameStore.games));
+const suggestions = computed(() => gameStore.games.filter(g => g.rating >= 4.5).slice(0, 3));
+const navigateToDetail = (game: GameItemResponse) => { router.push(`/game/detail/${game.id}`); };
 
 const sortOptions = [
   { key: 'name', label: '名称' },
@@ -88,22 +91,28 @@ const sortOptions = [
 type SortKey = typeof sortOptions[number]['key'];
 const sortBy = ref<SortKey>('recent');
 
-const ownedCategories = [...new Set(ownedGames.map(g => g.category))];
+const ownedCategories = computed(() => [...new Set(ownedGames.value.map(g => g.category))]);
 const filterCategories = computed(() => [
   { key: 'all' as const, label: '全部' },
-  ...ownedCategories.map(c => ({ key: c, label: categoryLabelMap[c] })),
+  ...ownedCategories.value.map(c => ({ key: c, label: gameStore.categoryLabelMap[c] })),
 ]);
 
-const filterBy = ref<GameCategory | 'all'>('all');
+const filterBy = ref<string>('all');
+
+const categoryLabelMap = computed(() => gameStore.categoryLabelMap);
 
 const displayGames = computed(() => {
-  let list = [...ownedGames];
+  let list = [...ownedGames.value];
   if (filterBy.value !== 'all') list = list.filter(g => g.category === filterBy.value);
   switch (sortBy.value) {
     case 'name': return list.sort((a, b) => a.title.localeCompare(b.title));
     case 'rating': return list.sort((a, b) => b.rating - a.rating);
     default: return list;
   }
+});
+
+onMounted(() => {
+  gameStore.ensureDataLoaded();
 });
 </script>
 

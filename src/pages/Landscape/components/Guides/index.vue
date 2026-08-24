@@ -1,22 +1,20 @@
 <template>
   <div class="travel-guide">
-    <!-- 使用网格布局的整体容器 -->
+    <!-- 使用网格布局的整体容�?-->
     <div class="page-grid">
-      <!-- 左侧列：搜索框header + 筛选结果 -->
+      <!-- 左侧列：搜索框header + 筛选结�?-->
       <div class="left-column">
-        <!-- 顶部导航栏 -->
-        <TopNav @update:search-keyword="searchKeyword = $event" @search="handleSearch" />
+        <!-- 顶部导航�?-->
+        <TopNav :initial-keyword="searchKeyword" @update:search-keyword="searchKeyword = $event" @search="handleSearch" />
 
-        <!-- 内容展示区 -->
-        <main class="content-area">
-          <!-- 排序栏 -->
+        <!-- 内容展示�?-->
+        <main ref="contentAreaRef" class="content-area">
+          <!-- 排序�?-->
           <div class="sort-bar">
             <div class="result-count">
               <SearchIcon class="result-icon" />
-              共找到
-              <strong>{{ filteredGuides.length }}</strong>
-              篇攻略
-            </div>
+              共找�?              <strong>{{ filteredGuides.length }}</strong>
+              篇攻�?            </div>
             <div class="sort-options">
               <button v-for="sort in guideSortOptions" :key="sort.value"
                 :class="['sort-btn', { active: currentSort === sort.value }]" @click="changeSort(sort.value)">
@@ -45,17 +43,17 @@
             </button>
           </div>
 
-          <!-- 空状态 -->
+          <!-- 空状�?-->
           <div v-if="filteredGuides.length === 0 && !isLoadingMore" class="empty-state">
             <div class="empty-icon">🔍</div>
             <h3>没有找到相关攻略</h3>
-            <p>试试调整筛选条件或搜索关键词</p>
-            <button class="reset-btn" @click="clearAllFilters">重置筛选</button>
+            <p>试试调整筛选条件或搜索关键�?/p>
+            <button class="reset-btn" @click="clearAllFilters">重置筛�?/button>
           </div>
         </main>
       </div>
 
-      <!-- 右侧列：筛选菜单 - 极简卡片式设计 -->
+      <!-- 右侧列：筛选菜�?- 极简卡片式设�?-->
       <FilterSidebar :travel-modes-with-count="travelModesWithCount"
         :natural-scenery-with-count="naturalSceneryWithCount" :weather-scenery-with-count="weatherSceneryWithCount"
         :seasonal-scenery-with-count="seasonalSceneryWithCount" :cultural-scenery-with-count="culturalSceneryWithCount"
@@ -75,11 +73,12 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Guides' });
-import { ref, computed, onMounted, Teleport } from 'vue';
+import { ref, computed, onMounted, watch, Teleport } from 'vue';
 import { useRoute } from 'vue-router';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useLandscapeDataStore } from '@/stores/landscape';
+import type { GlobalGuide } from '@/types/landscape/data';
 import { useGuidesFilter, modeMap, seasonMap, durationMap, themeMap } from '@/composables/landscape/guides/useGuidesFilter';
 import TopNav from './components/TopNav/index.vue';
 import FilterSidebar from './components/FilterSidebar/index.vue';
@@ -107,12 +106,17 @@ import {
 
 const interactionStore = useInteractionStore();
 const dataStore = useLandscapeDataStore();
+const route = useRoute();
 
-const guidesData = dataStore.getAllGuides();
-type Guide = typeof guidesData[0];
+const guides = computed<GlobalGuide[]>(() => dataStore.getAllGuides());
+type Guide = GlobalGuide;
 
-const searchKeyword = ref('');
-const guides = ref<Guide[]>(guidesData);
+const initialQueryKeyword = (() => {
+  const q = route.query.q;
+  return q && typeof q === 'string' ? q : '';
+})();
+
+const searchKeyword = ref(initialQueryKeyword);
 
 const {
   selectedFilters,
@@ -213,8 +217,12 @@ const durationWithCount = computed(() =>
   }))
 );
 
+const contentAreaRef = ref<HTMLElement | null>(null);
+
 const handleSearch = () => {
-  // 搜索处理逻辑
+  if (contentAreaRef.value) {
+    contentAreaRef.value.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 };
 
 const openGuideDetail = (guide: Guide) => {
@@ -273,32 +281,32 @@ const shareGuide = (guide: Guide) => {
     });
   } else {
     navigator.clipboard.writeText(window.location.href);
-    alert('链接已复制到剪贴板');
+    showMessage.share.copied();
   }
 };
 
-const loadMoreGuides = async () => {
-  isLoadingMore.value = true;
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  isLoadingMore.value = false;
+const loadMoreGuides = () => {
   hasMoreGuides.value = false;
 };
 
-onMounted(() => {
-  interactionStore.registerBatch(
-    guides.value.map((guide) => ({
-      id: getGuideId(guide.id),
-      counts: {
-        likes: guide.likes,
-        loves: guide.loves,
-        views: guide.views,
-        favorites: guide.bookmarks,
-        shares: guide.shares,
-      },
-    }))
-  );
+watch(() => guides.value.length, (len) => {
+  if (len > 0) {
+    interactionStore.registerBatch(
+      guides.value.map((guide) => ({
+        id: getGuideId(guide.id),
+        counts: {
+          likes: guide.likes,
+          loves: guide.loves,
+          views: guide.views,
+          favorites: guide.bookmarks,
+          shares: guide.shares,
+        },
+      }))
+    );
+  }
+}, { immediate: true });
 
-  const route = useRoute();
+onMounted(() => {
   initializeFromQuery(route.query);
 });
 </script>

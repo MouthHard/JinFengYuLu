@@ -1,4 +1,4 @@
-import type { SceneryData } from '@/typesOfPages/travelGuide';
+import type { SceneryData } from '@/types/travelGuide';
 
 export const guizhouData: SceneryData = {
   overview: {
@@ -12,7 +12,7 @@ export const guizhouData: SceneryData = {
         description: '中国第一大瀑布,亚洲第一大瀑布',
       },
       {
-        name: '梵净山',
+        name: '梵净�?,
         image: 'https://picsum.photos/id/1581/600/400',
         description: '中国佛教名山之一,世界自然遗产',
       },
@@ -22,14 +22,14 @@ export const guizhouData: SceneryData = {
         description: '中国最大的苗族聚居村寨',
       },
       {
-        name: '荔波小七孔',
+        name: '荔波小七�?,
         image: 'https://picsum.photos/id/1583/600/400',
-        description: '世界自然遗产,地球腰带上的绿宝石',
+        description: '世界自然遗产,地球腰带上的绿宝�?,
       },
       {
         name: '镇远古镇',
         image: 'https://picsum.photos/id/1584/600/400',
-        description: '中国十大古镇之一,东方威尼斯',
+        description: '中国十大古镇之一,东方威尼�?,
       },
       {
         name: '青岩古镇',
@@ -39,12 +39,12 @@ export const guizhouData: SceneryData = {
       {
         name: '赤水丹霞',
         image: 'https://picsum.photos/id/1586/600/400',
-        description: '世界自然遗产,丹霞地貌的杰作',
+        description: '世界自然遗产,丹霞地貌的杰�?,
       },
       {
         name: '遵义会议会址',
         image: 'https://picsum.photos/id/1587/600/400',
-        description: '中国革命的重要历史遗迹',
+        description: '中国革命的重要历史遗�?,
       },
     ],
   },
@@ -65,10 +65,10 @@ export const guizhouData: SceneryData = {
     },
     {
       id: 'fanjingshan',
-      name: '梵净山',
+      name: '梵净�?,
       description: '中国佛教名山之一,世界自然遗产',
       image: 'https://picsum.photos/id/1581/600/400',
-      location: '贵州省铜仁市江口县',
+      location: '贵州省铜仁市江口�?,
       type: 'culture',
       bestTime: '春秋',
       tags: ['名山', '佛教', '世界遗产', '自然'],
@@ -87,8 +87,8 @@ export const guizhouData: SceneryData = {
     },
     {
       id: 'liboSevenSmallArches',
-      name: '荔波小七孔',
-      description: '世界自然遗产,地球腰带上的绿宝石',
+      name: '荔波小七�?,
+      description: '世界自然遗产,地球腰带上的绿宝�?,
       image: 'https://picsum.photos/id/1583/600/400',
       location: '贵州省黔南布依族苗族自治州荔波县',
       type: 'nature',
@@ -102,7 +102,7 @@ export const guizhouData: SceneryData = {
     {
       id: 'zhenyuanAncientTown',
       name: '镇远古镇',
-      description: '中国十大古镇之一,东方威尼斯',
+      description: '中国十大古镇之一,东方威尼�?,
       image: 'https://picsum.photos/id/1584/600/400',
       location: '贵州省黔东南苗族侗族自治州镇远县',
       type: 'culture',
@@ -115,7 +115,7 @@ export const guizhouData: SceneryData = {
       name: '青岩古镇',
       description: '贵州四大古镇之一,明清古建筑群',
       image: 'https://picsum.photos/id/1585/600/400',
-      location: '贵州省贵阳市花溪区',
+      location: '贵州省贵阳市花溪�?,
       type: 'culture',
       bestTime: '全年',
       tags: ['古镇', '历史', '文化', '建筑'],
@@ -124,9 +124,9 @@ export const guizhouData: SceneryData = {
     {
       id: 'chishuiDanxia',
       name: '赤水丹霞',
-      description: '世界自然遗产,丹霞地貌的杰作',
+      description: '世界自然遗产,丹霞地貌的杰�?,
       image: 'https://picsum.photos/id/1586/600/400',
-      location: '贵州省遵义市赤水市',
+      location: '贵州省遵义市赤水�?,
       type: 'nature',
       bestTime: '春秋',
       tags: ['世界遗产', '丹霞', '自然', '风光'],
@@ -138,7 +138,7 @@ export const guizhouData: SceneryData = {
     {
       id: 'zunyiConferenceSite',
       name: '遵义会议会址',
-      description: '中国革命的重要历史遗迹',
+      description: '中国革命的重要历史遗�?,
       image: 'https://picsum.photos/id/1587/600/400',
       location: '贵州省遵义市红花岗区',
       type: 'culture',
@@ -150,25 +150,25 @@ export const guizhouData: SceneryData = {
   seasonal: [
     {
       name: '春季',
-      description: '春暖花开,梵净山山花烂漫,是踏青赏花的好时节',
+      description: '春暖花开,梵净山山花烂�?是踏青赏花的好时�?,
       image: 'https://picsum.photos/id/1581/600/400',
-      activities: ['梵净山踏青', '西江千户苗寨游览', '镇远古镇游', '青岩古镇参观'],
+      activities: ['梵净山踏�?, '西江千户苗寨游览', '镇远古镇�?, '青岩古镇参观'],
     },
     {
       name: '夏季',
-      description: '绿树成荫,黄果树瀑布和荔波小七孔是避暑纳凉的好去处',
+      description: '绿树成荫,黄果树瀑布和荔波小七孔是避暑纳凉的好去�?,
       image: 'https://picsum.photos/id/1580/600/400',
-      activities: ['黄果树瀑布观瀑', '荔波小七孔避暑', '梵净山避暑', '西江千户苗寨游览'],
+      activities: ['黄果树瀑布观�?, '荔波小七孔避�?, '梵净山避�?, '西江千户苗寨游览'],
     },
     {
       name: '秋季',
-      description: '秋高气爽,梵净山和赤水丹霞秋色迷人,是游览的好时节',
+      description: '秋高气爽,梵净山和赤水丹霞秋色迷人,是游览的好时�?,
       image: 'https://picsum.photos/id/1581/600/400',
-      activities: ['梵净山赏秋', '赤水丹霞赏秋', '荔波小七孔秋游', '镇远古镇秋景'],
+      activities: ['梵净山赏�?, '赤水丹霞赏秋', '荔波小七孔秋�?, '镇远古镇秋景'],
     },
     {
       name: '冬季',
-      description: '银装素裹,是体验贵州民族风情的好时节',
+      description: '银装素裹,是体验贵州民族风情的好时�?,
       image: 'https://picsum.photos/id/1582/600/400',
       activities: ['西江千户苗寨游览', '镇远古镇游览', '青岩古镇参观', '遵义会议会址参观'],
     },
@@ -181,8 +181,8 @@ export const guizhouData: SceneryData = {
       image: 'https://picsum.photos/id/1580/600/400',
       category: 'nature',
       location: '黄果树瀑布',
-      duration: '1天',
-      difficulty: '简单',
+      duration: '1�?,
+      difficulty: '简�?,
       type: '自然体验',
     },
     {
@@ -192,8 +192,8 @@ export const guizhouData: SceneryData = {
       image: 'https://picsum.photos/id/1582/600/400',
       category: 'culture',
       location: '西江千户苗寨',
-      duration: '1天',
-      difficulty: '简单',
+      duration: '1�?,
+      difficulty: '简�?,
       type: '文化体验',
     },
   ],
@@ -202,9 +202,9 @@ export const guizhouData: SceneryData = {
       id: '1',
       name: '贵州民族风情之旅',
       title: '贵州民族风情之旅',
-      description: '体验贵州独特的民族风情',
-      duration: '3天',
-      difficulty: '简单',
+      description: '体验贵州独特的民族风�?,
+      duration: '3�?,
+      difficulty: '简�?,
       highlights: ['西江千户苗寨', '镇远古镇'],
       spots: ['西江千户苗寨', '镇远古镇'],
       tags: ['民族', '文化', '历史'],
@@ -212,7 +212,7 @@ export const guizhouData: SceneryData = {
       rating: 4.6,
       bestTime: '全年',
       traffic: '旅游大巴',
-      suitableFor: '文化爱好者',
+      suitableFor: '文化爱好�?,
     },
   ],
 };
@@ -222,12 +222,12 @@ export const guizhouCustomsData = {
     {
       id: '1',
       name: '苗族文化体验',
-      description: '体验苗族传统文化和生活方式',
+      description: '体验苗族传统文化和生活方�?,
       image: 'https://picsum.photos/id/1582/600/400',
       category: 'culture',
       location: '西江千户苗寨',
-      duration: '1天',
-      difficulty: '简单',
+      duration: '1�?,
+      difficulty: '简�?,
       type: '文化体验',
     },
   ],

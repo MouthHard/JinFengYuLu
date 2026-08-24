@@ -9,7 +9,7 @@
         <img loading="lazy" :src="artifact.image" class="artifact-detail-image" />
         <div class="modal-content-grid">
           <div class="artifact-detail-description">
-            <strong>描述：</strong>
+            <strong>描述�?/strong>
             {{ artifact.description }}
           </div>
           <div class="modal-actions-container">
@@ -31,35 +31,35 @@
               v-if="artifact.basicInfo?.periodDetail"
               class="section-content basic-info-content"
             >
-              <strong>详细年代：</strong>
+              <strong>详细年代�?/strong>
               {{ artifact.basicInfo.periodDetail }}
             </p>
             <p
               v-if="artifact.basicInfo?.material"
               class="section-content basic-info-content"
             >
-              <strong>材质工艺：</strong>
+              <strong>材质工艺�?/strong>
               {{ artifact.basicInfo.material }}
             </p>
             <p
               v-if="artifact.basicInfo?.dimensions"
               class="section-content basic-info-content"
             >
-              <strong>规格：</strong>
+              <strong>规格�?/strong>
               {{ artifact.basicInfo.dimensions }}
             </p>
             <p
               v-if="artifact.basicInfo?.collection"
               class="section-content basic-info-content"
             >
-              <strong>收藏机构：</strong>
+              <strong>收藏机构�?/strong>
               {{ artifact.basicInfo.collection }}
             </p>
             <p
               v-if="artifact.basicInfo?.excavation"
               class="section-content basic-info-content"
             >
-              <strong>出土信息：</strong>
+              <strong>出土信息�?/strong>
               {{ artifact.basicInfo.excavation }}
             </p>
           </div>
@@ -70,7 +70,7 @@
             </p>
           </div>
           <div v-if="artifact.historicalValue" class="artifact-detail-section">
-            <h3 class="section-title">历史价值</h3>
+            <h3 class="section-title">历史价�?/h3>
             <p class="section-content simple-content">
               {{ artifact.historicalValue }}
             </p>
@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { ArtifactDetail } from '@/typesOfPages/museum';
+  import type { ArtifactDetail } from '@/types/museum';
   import { HeartIcon, StarIcon, ShareIcon } from "@/pages/Museum/icon/pages/ArtifactContainer";
 
   interface Props {

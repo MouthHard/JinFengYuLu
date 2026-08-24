@@ -1,9 +1,9 @@
 <template>
   <section class="artifacts-section">
     <div class="section-header">
-      <h2 class="section-title">文物精选</h2>
+      <h2 class="section-title">文物精�?/h2>
       <button class="more-button">
-        <span class="button-decoration">❖</span>
+        <span class="button-decoration">�?/span>
         <span>更多</span>
       </button>
     </div>
@@ -35,7 +35,7 @@
                 <span class="button-text">喜爱</span>
               </button>
               <button class="action-button like-button">
-                <span class="button-icon">⭐</span>
+                <span class="button-icon">�?/span>
                 <span class="button-text">收藏</span>
               </button>
               <button class="action-button share-button">
@@ -52,20 +52,21 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import type { Museum } from '@/typesOfPages/museum';
-  import { getArtifactsByMuseumId } from '@/pages/Museum/data/artifacts';
+  import type { Museum } from '@/types/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const hoveredIndex = ref<number | null>(null);
 
   const homeArtifacts = computed(() => {
     if (!props.museum) return [];
-    return getArtifactsByMuseumId(props.museum.id);
+    return store.getArtifactsByMuseumId(props.museum.id);
   });
 
   const getCardStyle = (index: number) => {
@@ -79,12 +80,10 @@
     // 当悬停在某个卡片上时
     if (hoveredIndex.value !== null) {
       if (index === hoveredIndex.value) {
-        // 当前悬停的卡片
-        zIndex = homeArtifacts.value.length + 1; // 提升到最上层
+        // 当前悬停的卡�?        zIndex = homeArtifacts.value.length + 1; // 提升到最上层
         transform = 'translateY(-10px) scale(1.05)';
       } else if (index > hoveredIndex.value) {
-        // 右侧的卡片
-        left = index * baseOffset + 100; // 右移100px
+        // 右侧的卡�?        left = index * baseOffset + 100; // 右移100px
         zIndex = homeArtifacts.value.length - index; // 保持原有层级
       }
     }

@@ -1,5 +1,6 @@
 import type { DisplayCounts, BaseItemData } from './types';
 import { useLandscapeDataStore } from '@/stores/landscape/data';
+import { useInteractionStore } from '@/stores/landscape';
 import {
   IMAGE_DEFAULTS,
   VIDEO_DEFAULTS,
@@ -10,6 +11,7 @@ import {
 
 export function useProfileTransform() {
   const dataStore = useLandscapeDataStore();
+  const interactionStore = useInteractionStore();
 
   const resolveAuthor = (item: any): { author: string; authorId: string; authorAvatar: string } => {
     if (item.authorId) {
@@ -70,14 +72,22 @@ export function useProfileTransform() {
       title: photographer.title,
       bio: photographer.bio,
       location: photographer.location,
-      works: parseInt(photographer.worksCount) || 0,
+      works: photographer.works,
+      worksCount: parseInt(photographer.worksCount) || 0,
       followers: photographer.followers,
       views: photographer.views,
       likes: photographer.likes,
       tags: photographer.tags,
       verified: photographer.verified,
-      isFollowing: true,
-      recentWorks: photographer.worksPreview.slice(0, 3),
+      isFollowing: interactionStore.isFollowing(photographer.id),
+      recentWorks: [...(photographer.worksPreview || [])]
+        .sort((a: any, b: any) => {
+          const la = typeof a === 'string' ? 0 : (a.likes || 0);
+          const lb = typeof b === 'string' ? 0 : (b.likes || 0);
+          return lb - la;
+        })
+        .slice(0, 3)
+        .map((w: any) => (typeof w === 'string' ? w : (w.image || w.cover || ''))),
       rating: photographer.rating,
       equipment: photographer.equipment.join(' / '),
       experience: photographer.experience || '',
@@ -115,34 +125,70 @@ export function useProfileTransform() {
 
   const transformGuideData = (item: any, baseData: BaseItemData) => {
     const authorInfo = resolveAuthor(item);
+    // 从 dataStore 拉取完整攻略数据，确保内容与攻略页面一致
+    const fullGuide = dataStore.getGuide(item.id) as any;
+    const g = fullGuide || item;
+
+    // safety: GlobalGuide 是 string[]，GuideItem 是 SafetyInfo[]
+    const rawSafety = g.safety;
+    const safety = rawSafety
+      ? (fullGuide
+        ? rawSafety.map((s: string) => ({ type: 'info' as const, title: '注意事项', content: s }))
+        : rawSafety)
+      : GUIDE_DEFAULTS.safety;
+
+    // tips: GlobalGuide 是 GuideTip[]，GuideItem 是 string[]
+    const rawTips = g.tips;
+    const tips = rawTips
+      ? (fullGuide
+        ? rawTips.map((t: any) => (typeof t === 'string' ? t : t.title + (t.content ? `：${t.content}` : '')))
+        : rawTips)
+      : GUIDE_DEFAULTS.tips;
+
     return {
       ...baseData,
       ...authorInfo,
-      summary: item.summary || item.excerpt || GUIDE_DEFAULTS.summary,
-      authorVerified: item.authorVerified || AUTHOR_DEFAULTS.verified,
-      difficulty: item.difficulty || GUIDE_DEFAULTS.difficulty,
-      rating: item.rating || GUIDE_DEFAULTS.rating,
-      ratingCount: item.ratingCount || GUIDE_DEFAULTS.ratingCount,
-      readTime: item.readTime || GUIDE_DEFAULTS.readTime,
-      saves: item.saves || GUIDE_DEFAULTS.saves,
-      comments: item.comments || GUIDE_DEFAULTS.comments,
-      date: item.date || item.publishDate || DATE_DEFAULTS.fallback,
-      isEditorPick: item.isEditorPick || false,
-      season: item.season || GUIDE_DEFAULTS.season,
-      transport: item.transport || GUIDE_DEFAULTS.transport,
-      budget: item.budget || GUIDE_DEFAULTS.budget,
-      audience: item.audience || GUIDE_DEFAULTS.audience,
-      highlights: item.highlights || GUIDE_DEFAULTS.highlights,
-      accommodation: item.accommodation || GUIDE_DEFAULTS.accommodation,
-      language: item.language || GUIDE_DEFAULTS.language,
-      warnings: item.warnings || GUIDE_DEFAULTS.warnings,
-      shootTime: item.shootTime || GUIDE_DEFAULTS.shootTime,
-      shootParams: item.shootParams || GUIDE_DEFAULTS.shootParams,
-      gears: item.gears || GUIDE_DEFAULTS.gears,
-      safety: item.safety || GUIDE_DEFAULTS.safety,
-      altitude: item.altitude || GUIDE_DEFAULTS.altitude,
-      temperature: item.temperature || GUIDE_DEFAULTS.temperature,
-      tips: item.tips || GUIDE_DEFAULTS.tips,
+      summary: g.summary || g.excerpt || GUIDE_DEFAULTS.summary,
+      authorVerified: g.authorVerified || AUTHOR_DEFAULTS.verified,
+      difficulty: g.difficulty || GUIDE_DEFAULTS.difficulty,
+      rating: g.rating || GUIDE_DEFAULTS.rating,
+      ratingCount: g.ratingCount || GUIDE_DEFAULTS.ratingCount,
+      readTime: g.readTime || GUIDE_DEFAULTS.readTime,
+      saves: g.saves || g.bookmarks || GUIDE_DEFAULTS.saves,
+      comments: g.comments || GUIDE_DEFAULTS.comments,
+      date: g.date || g.publishDate || DATE_DEFAULTS.fallback,
+      isEditorPick: g.isEditorPick || false,
+      season: g.season || GUIDE_DEFAULTS.season,
+      transport: g.transport || GUIDE_DEFAULTS.transport,
+      budget: g.budget || GUIDE_DEFAULTS.budget,
+      audience: g.audience || GUIDE_DEFAULTS.audience,
+      highlights: g.highlights || GUIDE_DEFAULTS.highlights,
+      accommodation: g.accommodation || GUIDE_DEFAULTS.accommodation,
+      language: g.language || GUIDE_DEFAULTS.language,
+      warnings: g.warnings || GUIDE_DEFAULTS.warnings,
+      shootTime: g.shootTime || GUIDE_DEFAULTS.shootTime,
+      shootParams: g.shootParams || GUIDE_DEFAULTS.shootParams,
+      gears: g.gears || GUIDE_DEFAULTS.gears,
+      safety,
+      altitude: g.altitude || GUIDE_DEFAULTS.altitude,
+      temperature: g.temperature || GUIDE_DEFAULTS.temperature,
+      tips,
+      // 动态模块字段：完整搬用 Guides 攻略内容，有值才传，不兜底默认值
+      sections: g.sections,
+      equipments: g.equipments,
+      guideTips: fullGuide ? g.tips : undefined,
+      routePoints: g.routePoints,
+      recommendedGear: g.recommendedGear,
+      postProcessing: g.postProcessing,
+      safetyNotes: g.safetyNotes,
+      bestTime: g.bestTime,
+      weather: g.weather,
+      transportation: g.transportation,
+      budgetDetail: g.budgetDetail,
+      content: g.content,
+      tags: g.tags,
+      travelMode: g.travelMode,
+      sceneryTheme: g.sceneryTheme,
     };
   };
 

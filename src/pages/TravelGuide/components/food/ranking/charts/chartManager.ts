@@ -10,7 +10,7 @@ import {
   MarkLineComponent,
   MarkPointComponent,
 } from 'echarts/components';
-import type { Food } from '@/typesOfPages/travelGuide';
+import type { Food } from '@/types/travelGuide';
 import {
   initRatingChart,
   initPriceChart,
@@ -35,8 +35,7 @@ echarts.use([
 ]);
 
 /**
- * 图表管理器
- * 负责图表的初始化、更新、销毁等生命周期管理
+ * 图表管理�? * 负责图表的初始化、更新、销毁等生命周期管理
  */
 export class ChartManager {
   private chartContainer: HTMLElement | null = null;
@@ -45,10 +44,8 @@ export class ChartManager {
   private props: { popularFoods?: Food[]; allFoods?: Food[] };
 
   /**
-   * 构造函数
-   * @param chartContainer 图表容器
-   * @param props 组件属性
-   */
+   * 构造函�?   * @param chartContainer 图表容器
+   * @param props 组件属�?   */
   constructor(chartContainer: HTMLElement | null, props: { popularFoods?: Food[]; allFoods?: Food[] }) {
     this.chartContainer = chartContainer;
     this.props = props;
@@ -63,16 +60,13 @@ export class ChartManager {
   }
 
   /**
-   * 更新属性
-   * @param props 新的属性
-   */
+   * 更新属�?   * @param props 新的属�?   */
   updateProps(props: { popularFoods?: Food[]; allFoods?: Food[] }) {
     this.props = props;
   }
 
   /**
-   * 初始化图表
-   */
+   * 初始化图�?   */
   init() {
     if (!this.chartContainer) return;
 
@@ -80,8 +74,7 @@ export class ChartManager {
     this.chartContainer.style.width = '100%';
     this.chartContainer.style.height = '100%';
 
-    // 如果图表实例不存在，创建新实例
-    if (!this.currentChart) {
+    // 如果图表实例不存在，创建新实�?    if (!this.currentChart) {
       this.currentChart = echarts.init(this.chartContainer);
     }
 
@@ -104,8 +97,7 @@ export class ChartManager {
 
     // 设置图表选项
     if (chartOption) {
-      // 使用 replaceMerge 模式，只更新变化的部分
-      this.currentChart.setOption(chartOption, true);
+      // 使用 replaceMerge 模式，只更新变化的部�?      this.currentChart.setOption(chartOption, true);
     } else {
       // 如果没有数据，创建空图表
       this.currentChart.setOption(
@@ -130,15 +122,12 @@ export class ChartManager {
       );
     }
 
-    // 确保图表立即调整大小以填充容器
-    this.currentChart.resize();
+    // 确保图表立即调整大小以填充容�?    this.currentChart.resize();
 
-    // 清理之前的事件监听器，避免累积
-    this.currentChart.off('mouseover');
+    // 清理之前的事件监听器，避免累�?    this.currentChart.off('mouseover');
     this.currentChart.off('mouseout');
 
-    // 添加价格分布图表的事件监听
-    if (this.activeTab === 'price') {
+    // 添加价格分布图表的事件监�?    if (this.activeTab === 'price') {
       const chart = this.currentChart;
 
       chart.on('mouseover', 'series', (params: any) => {
@@ -149,7 +138,7 @@ export class ChartManager {
               {},
               {
                 label: {
-                  formatter: `${params.name}\n${params.value}种美食 (${params.percent}%)`,
+                  formatter: `${params.name}\n${params.value}种美�?(${params.percent}%)`,
                   fontSize: 16,
                   fontWeight: 'bold',
                   color: '#fff',
@@ -201,8 +190,7 @@ export class ChartManager {
   }
 
   /**
-   * 销毁图表
-   */
+   * 销毁图�?   */
   destroy() {
     if (this.currentChart) {
       // 清理所有事件监听器
@@ -213,8 +201,7 @@ export class ChartManager {
   }
 
   /**
-   * 重新初始化图表
-   */
+   * 重新初始化图�?   */
   reinit() {
     this.destroy();
     this.init();

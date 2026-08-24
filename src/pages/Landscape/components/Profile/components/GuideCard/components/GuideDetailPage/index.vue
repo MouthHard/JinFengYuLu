@@ -19,7 +19,7 @@
               <ZapIcon />
             </div>
             <div class="info-body">
-              <span class="info-label">交通</span>
+              <span class="info-label">交�?/span>
               <span class="info-value">{{ item.transport }}</span>
             </div>
           </div>
@@ -84,7 +84,7 @@
           </h4>
           <div class="shoot-info">
             <div v-if="item.shootTime" class="shoot-time">
-              <span class="shoot-label">最佳</span>
+              <span class="shoot-label">最�?/span>
               <span class="shoot-value">{{ item.shootTime }}</span>
             </div>
             <div v-if="item.shootParams?.length" class="params-grid">
@@ -148,7 +148,7 @@
 </template>
 
 <script setup lang="ts">
-import type { GuideItem } from '@/typesOfPages/landscape'
+import type { GuideItem } from '@/types/landscape'
 import ChevronLeftIcon from '@/pages/Landscape/icon/common/ChevronLeftIcon.vue'
 import ZapIcon from '@/pages/Landscape/icon/common/ZapIcon.vue'
 import UsersGroupIcon from '@/pages/Landscape/icon/common/UsersGroupIcon.vue'

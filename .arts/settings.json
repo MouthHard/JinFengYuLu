@@ -1,33 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "files.eol": "\n",
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "vscode.css-language-features",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "diffEditor.renderSideBySide": false,
-  "clawMode.mode": "editor",
-  "workbench.activityBar.location": "default",
-  "[css]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-  }
+    "clawMode.mode": "editor"
 }

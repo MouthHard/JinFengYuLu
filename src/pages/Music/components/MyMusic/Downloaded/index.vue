@@ -16,10 +16,9 @@
             <h1>下载</h1>
             <div class="title-badge">
               <CheckCircleIcon :width="12" :height="12" />
-              已同步
-            </div>
+              已同�?            </div>
           </div>
-          <p class="subtitle">{{ downloadedSongs.length }} 首已下载 路 {{ totalSize }}</p>
+          <p class="subtitle">{{ downloadedSongs.length }} 首已下载 �?{{ totalSize }}</p>
         </div>
       </div>
       <div class="header-actions">
@@ -29,8 +28,7 @@
         </button>
         <button class="btn btn-secondary" @click="clearAll">
           <TrashIcon />
-          娓呯┖鍒楄〃
-        </button>
+          娓呯┖鍒楄�?        </button>
       </div>
     </div>
 
@@ -112,7 +110,7 @@
           <div class="col col-cover"></div>
           <div class="col col-name">歌曲</div>
           <div class="col col-artist"></div>
-          <div class="col col-size">鏂囦欢</div>
+          <div class="col col-size">鏂囦�?/div>
           <div class="col col-date">下载</div>
           <div class="col col-quality"></div>
           <div class="col col-action"></div>
@@ -179,8 +177,7 @@
           <span class="empty-desc">暂无下载内容，去发现好音乐吧</span>
           <button class="btn-go-discover" @click="$router.push('/music/discover')">
             <SearchIcon :stroke-width="2" />
-            去发现
-          </button>
+            去发�?          </button>
         </div>
       </div>
     </div>
@@ -193,7 +190,7 @@
             <div class="selected-icon">
               <CheckIcon :stroke-width="2.5" />
             </div>
-            <span class="selected-count">宸查€夋嫨 <strong>{{ selectedIds.size }}</strong> </span>
+            <span class="selected-count">宸查€夋�?<strong>{{ selectedIds.size }}</strong> </span>
           </div>
           <div class="batch-buttons">
             <button class="btn-batch primary" @click="batchDelete">
@@ -213,7 +210,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { downloadedSongsData } from '@/stores/music/data'
-import type { DownloadedSong } from '@/typesOfPages/music'
+import type { DownloadedSong } from '@/types/music'
 import PlayIcon from '@/pages/Music/icons/common/PlayIcon.vue';
 import DownloadIcon from '@/pages/Music/icons/MyMusic/common/DownloadIcon.vue';
 import CheckCircleIcon from '@/pages/Music/icons/MyMusic/common/CheckCircleIcon.vue';

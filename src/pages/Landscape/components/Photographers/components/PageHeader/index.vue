@@ -21,7 +21,7 @@
             </svg>
           </div>
           <div class="stat-text">
-            <span class="stat-value">1,280+</span>
+            <span class="stat-value">{{ statsA }}</span>
             <span class="stat-label">摄影师</span>
           </div>
         </div>
@@ -35,7 +35,7 @@
             </svg>
           </div>
           <div class="stat-text">
-            <span class="stat-value">50K+</span>
+            <span class="stat-value">{{ statsB }}</span>
             <span class="stat-label">作品</span>
           </div>
         </div>
@@ -49,8 +49,8 @@
             </svg>
           </div>
           <div class="stat-text">
-            <span class="stat-value">100+</span>
-            <span class="stat-label">国家</span>
+            <span class="stat-value">{{ statsC }}</span>
+            <span class="stat-label">拍摄地</span>
           </div>
         </div>
       </div>
@@ -62,6 +62,20 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue';
+  import { useLandscapeDataStore } from '@/stores/landscape';
+  import { formatNumber } from '@/utils/landscape/format';
+
+  const dataStore = useLandscapeDataStore();
+
+  const statsA = computed(() => formatNumber(dataStore.getAllPhotographers().length));
+  const statsB = computed(() => formatNumber(dataStore.getAllImages().length + dataStore.getAllVideos().length));
+  const statsC = computed(() => {
+    const locations = new Set<string>();
+    dataStore.getAllImages().forEach(img => { if (img.location) locations.add(img.location); });
+    dataStore.getAllVideos().forEach(vid => { if (vid.location) locations.add(vid.location); });
+    return formatNumber(locations.size);
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

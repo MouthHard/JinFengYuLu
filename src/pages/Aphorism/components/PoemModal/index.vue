@@ -7,21 +7,21 @@
             <div class="header-actions">
               <button class="action-button like-button" :class="{ active: isLiked }" :title="isLiked ? '取消点赞' : '点赞'"
                 @click="toggleLike">
-                {{ isLiked ? '👍' : '👍' }}
+                <ThumbsUpIcon :fill="isLiked ? 'currentColor' : 'none'" />
               </button>
               <button class="action-button love-button" :class="{ active: isLoved }" :title="isLoved ? '取消喜爱' : '喜爱'"
                 @click="toggleLove">
-                {{ isLoved ? '❤️' : '🤍' }}
+                <HeartIcon :fill="isLoved ? 'currentColor' : 'none'" />
               </button>
               <button class="action-button favorite-button" :class="{ active: isFavorite }"
                 :title="isFavorite ? '取消收藏' : '收藏'" @click="toggleFavorite">
-                {{ isFavorite ? '⭐' : '☆' }}
+                <BookmarkIcon :fill="isFavorite ? 'currentColor' : 'none'" />
               </button>
               <button class="action-button share-button" title="分享" @click="sharePoem">
-                📤
+                <ShareIcon />
               </button>
             </div>
-            <button class="close-button" @click="handleClose">×</button>
+            <button class="close-button" @click="handleClose"><CloseIcon /></button>
           </div>
 
           <div class="modal-content">
@@ -53,7 +53,7 @@
 
               <div v-if="poem.annotation" class="poem-annotation">
                 <div class="annotation-title">
-                  <span class="title-icon">📖</span>
+                  <span class="title-icon"><BookOpenIcon /></span>
                   <span>注释</span>
                 </div>
                 <p class="annotation-text">{{ poem.annotation }}</p>
@@ -61,7 +61,7 @@
 
               <div v-if="poem.background" class="poem-background">
                 <div class="background-title">
-                  <span class="title-icon">📜</span>
+                  <span class="title-icon"><ScrollIcon /></span>
                   <span>创作背景</span>
                 </div>
                 <p class="background-text">{{ poem.background }}</p>
@@ -69,7 +69,7 @@
 
               <div v-if="poem.appreciation" class="poem-appreciation">
                 <div class="appreciation-title">
-                  <span class="title-icon">✨</span>
+                  <span class="title-icon"><SparkleIcon /></span>
                   <span>赏析</span>
                 </div>
                 <p class="appreciation-text">{{ poem.appreciation }}</p>
@@ -77,7 +77,7 @@
 
               <div v-if="poem.poetIntroduction" class="poet-introduction">
                 <div class="poet-title">
-                  <span class="title-icon">👤</span>
+                  <span class="title-icon"><UserIcon /></span>
                   <span>诗人介绍</span>
                 </div>
                 <p class="poet-text">{{ poem.poetIntroduction }}</p>
@@ -91,10 +91,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Poem } from '../../../../typesOfPages/poetry/poem';
+import { computed, watch, onBeforeUnmount } from 'vue';
+import type { Poem } from '@/types/aphorism/poem';
 import { useAphorismInteractionStore } from '@/stores/aphorism/interaction';
 import { showMessage } from '@/components/common/InteractionMessage';
+import ThumbsUpIcon from '../../icons/PoemModal/ThumbsUpIcon.vue';
+import HeartIcon from '../../icons/common/HeartIcon.vue';
+import BookmarkIcon from '../../icons/PoemModal/BookmarkIcon.vue';
+import ShareIcon from '../../icons/PoemModal/ShareIcon.vue';
+import CloseIcon from '../../icons/common/CloseIcon.vue';
+import BookOpenIcon from '../../icons/common/BookOpenIcon.vue';
+import ScrollIcon from '../../icons/common/ScrollIcon.vue';
+import SparkleIcon from '../../icons/common/SparkleIcon.vue';
+import UserIcon from '../../icons/common/UserIcon.vue';
 import './index.scss';
 
 const props = defineProps<{
@@ -113,6 +122,24 @@ const interactionStore = useAphorismInteractionStore();
 const isLiked = computed(() => interactionStore.isLiked(props.poem.id));
 const isLoved = computed(() => interactionStore.isLoved(props.poem.id));
 const isFavorite = computed(() => interactionStore.isFavorite(props.poem.id));
+
+let savedOverflow = '';
+watch(
+  () => props.visible,
+  (visible) => {
+    if (visible) {
+      savedOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = savedOverflow;
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = savedOverflow;
+});
 
 const handleClose = () => {
   emit('close');

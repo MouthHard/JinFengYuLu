@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
-import { reactive, computed, ref, watch } from 'vue'
+import { reactive, shallowReactive, computed, ref, watch } from 'vue'
 import { useLandscapeDataStore, type GlobalPhotographer } from './data'
-import type { InteractionItem } from '@/typesOfPages/landscape'
+import type { InteractionItem } from '@/types/landscape'
+import { debounce } from '@/utils/landscape/debounce'
 
 export type { InteractionItem }
 
@@ -33,12 +34,12 @@ export const useInteractionStore = defineStore('interaction', () => {
   const savedRaw = typeof localStorage !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null
   const saved = savedRaw ? ((): Record<string, string> | null => { try { return JSON.parse(savedRaw) } catch { return null } })() : null
 
-  const favorites = reactive(saved ? mapFromJSON<InteractionItem>(saved.favorites || null) : new Map<string, InteractionItem>())
-  const loves = reactive(saved ? mapFromJSON<InteractionItem>(saved.loves || null) : new Map<string, InteractionItem>())
-  const likes = reactive(saved ? mapFromJSON<InteractionItem>(saved.likes || null) : new Map<string, InteractionItem>())
-  const shares = reactive(new Map<string, number>())
-  const following = reactive(saved ? mapFromJSON<InteractionItem>(saved.following || null) : new Map<string, InteractionItem>())
-  const counts = reactive(new Map<string, ItemCounts>())
+  const favorites = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.favorites || null) : new Map<string, InteractionItem>())
+  const loves = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.loves || null) : new Map<string, InteractionItem>())
+  const likes = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.likes || null) : new Map<string, InteractionItem>())
+  const shares = shallowReactive(saved ? mapFromJSON<number>(saved.shares || null) : new Map<string, number>())
+  const following = shallowReactive(saved ? mapFromJSON<InteractionItem>(saved.following || null) : new Map<string, InteractionItem>())
+  const counts = reactive(saved ? mapFromJSON<ItemCounts>(saved.counts || null) : new Map<string, ItemCounts>())
 
   const persistToStorage = () => {
     try {
@@ -46,7 +47,9 @@ export const useInteractionStore = defineStore('interaction', () => {
         favorites: mapToJSON(favorites),
         loves: mapToJSON(loves),
         likes: mapToJSON(likes),
+        shares: mapToJSON(shares),
         following: mapToJSON(following),
+        counts: mapToJSON(counts),
       }))
     } catch { }
   }
@@ -103,11 +106,18 @@ export const useInteractionStore = defineStore('interaction', () => {
     }
   }
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && (favorites.size > 0 || loves.size > 0)) {
     setTimeout(migrateStoredData, 100)
   }
 
-  watch([favorites, loves, likes, following], persistToStorage, { deep: true })
+  const debouncedPersist = debounce(persistToStorage, 500)
+
+  watch(() => mapToJSON(favorites), debouncedPersist)
+  watch(() => mapToJSON(loves), debouncedPersist)
+  watch(() => mapToJSON(likes), debouncedPersist)
+  watch(() => mapToJSON(shares), debouncedPersist)
+  watch(() => mapToJSON(following), debouncedPersist)
+  watch(() => mapToJSON(counts), debouncedPersist)
   
   const favoritesVersion = ref(0)
   const lovesVersion = ref(0)
@@ -196,13 +206,20 @@ export const useInteractionStore = defineStore('interaction', () => {
   }
 
   const registerCount = (id: string, initial: Partial<ItemCounts>) => {
-    if (!counts.has(id)) {
+    const existing = counts.get(id)
+    if (existing) {
+      existing.likes = initial.likes ?? existing.likes
+      existing.views = initial.views ?? existing.views
+      existing.loves = initial.loves ?? existing.loves
+      existing.favorites = initial.favorites ?? existing.favorites
+      existing.shares = initial.shares ?? existing.shares
+    } else {
       counts.set(id, {
-        likes: initial.likes || 0,
-        views: initial.views || 0,
-        loves: initial.loves || 0,
-        favorites: initial.favorites || 0,
-        shares: initial.shares || 0,
+        likes: initial.likes ?? 0,
+        views: initial.views ?? 0,
+        loves: initial.loves ?? 0,
+        favorites: initial.favorites ?? 0,
+        shares: initial.shares ?? 0,
       })
     }
   }
@@ -368,14 +385,18 @@ export const useInteractionStore = defineStore('interaction', () => {
     return counts
   })
 
+  const followingVersion = ref(0)
+
   const followingCount = computed(() => following.size)
 
   const toggleFollow = (item: InteractionItem) => {
     if (following.has(item.id)) {
       following.delete(item.id)
+      followingVersion.value++
       return false
     } else {
       following.set(item.id, item)
+      followingVersion.value++
       return true
     }
   }
@@ -386,6 +407,7 @@ export const useInteractionStore = defineStore('interaction', () => {
     
     if (following.has(photographerId)) {
       following.delete(photographerId)
+      followingVersion.value++
       return false
     } else {
       if (photographer) {
@@ -405,17 +427,14 @@ export const useInteractionStore = defineStore('interaction', () => {
           rating: photographer.rating,
         }
         following.set(photographerId, item)
-      } else {
-        const existing = following.get(photographerId)
-        if (existing) {
-          following.set(photographerId, existing)
-        }
+        followingVersion.value++
       }
       return true
     }
   }
 
   const getFollowingPhotographerData = (): GlobalPhotographer[] => {
+    void followingVersion.value
     const dataStore = useLandscapeDataStore()
     const result: GlobalPhotographer[] = []
     for (const [id, item] of following) {
@@ -474,6 +493,7 @@ export const useInteractionStore = defineStore('interaction', () => {
     favoritesByTypeCount,
     lovesByTypeCount,
     followingCount,
+    followingVersion,
     toggleFollow,
     toggleFollowPhotographer,
     getFollowingPhotographerData,

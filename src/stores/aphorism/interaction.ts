@@ -1,33 +1,26 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Poem } from '@/typesOfPages/aphorism/poem'
+import type { Poem } from '@/types/aphorism/poem'
 
 const STORAGE_KEYS = {
   liked: 'aphorism_liked',
   loved: 'aphorism_loved',
   favorites: 'aphorism_favorites',
   recentViews: 'aphorism_recent_views',
+  searchHistory: 'aphorism_search_history',
 } as const
 
 const MAX_RECENT_VIEWS = 20
+const MAX_SEARCH_HISTORY = 20
 
-function loadFromStorage(key: string): Set<string> {
+function loadStringArrayFromStorage(key: string): string[] {
   try {
     const data = localStorage.getItem(key)
     if (data) {
-      return new Set<string>(JSON.parse(data))
-    }
-  } catch {
-    // ignore
-  }
-  return new Set<string>()
-}
-
-function loadArrayFromStorage(key: string): string[] {
-  try {
-    const data = localStorage.getItem(key)
-    if (data) {
-      return JSON.parse(data)
+      const parsed = JSON.parse(data)
+      if (Array.isArray(parsed)) {
+        return parsed.filter((s: unknown): s is string => typeof s === 'string')
+      }
     }
   } catch {
     // ignore
@@ -35,65 +28,96 @@ function loadArrayFromStorage(key: string): string[] {
   return []
 }
 
-function saveToStorage(key: string, set: Set<string>) {
-  localStorage.setItem(key, JSON.stringify([...set]))
+function saveStringArrayToStorage(key: string, arr: string[]) {
+  localStorage.setItem(key, JSON.stringify(arr))
 }
 
-function saveArrayToStorage(key: string, arr: string[]) {
+function loadArrayFromStorage(key: string): number[] {
+  try {
+    const data = localStorage.getItem(key)
+    if (data) {
+      // 确保所有 ID 都是数字类型
+      return JSON.parse(data).map((id: number) => Number(id))
+    }
+  } catch {
+    // ignore
+  }
+  return []
+}
+
+function saveArrayToStorage(key: string, arr: number[]) {
   localStorage.setItem(key, JSON.stringify(arr))
 }
 
 export const useAphorismInteractionStore = defineStore('aphorismInteraction', () => {
-  // 使用 Set 存储诗词 id，保证唯一性
-  const likedIds = ref<Set<string>>(loadFromStorage(STORAGE_KEYS.liked))
-  const lovedIds = ref<Set<string>>(loadFromStorage(STORAGE_KEYS.loved))
-  const favoriteIds = ref<Set<string>>(loadFromStorage(STORAGE_KEYS.favorites))
+  // 使用数组保持 Vue 3 ref 响应式，用 computed Set 镜像实现 O(1) 查找
+  const likedIds = ref<number[]>(loadArrayFromStorage(STORAGE_KEYS.liked))
+  const lovedIds = ref<number[]>(loadArrayFromStorage(STORAGE_KEYS.loved))
+  const favoriteIds = ref<number[]>(loadArrayFromStorage(STORAGE_KEYS.favorites))
+  const recentViewIds = ref<number[]>(loadArrayFromStorage(STORAGE_KEYS.recentViews))
+  const searchHistory = ref<string[]>(loadStringArrayFromStorage(STORAGE_KEYS.searchHistory))
 
-  // 最近浏览：有序数组（最新的在前）
-  const recentViewIds = ref<string[]>(loadArrayFromStorage(STORAGE_KEYS.recentViews))
+  // Set 镜像：O(1) 查找
+  const likedSet = computed(() => new Set(likedIds.value))
+  const lovedSet = computed(() => new Set(lovedIds.value))
+  const favoriteSet = computed(() => new Set(favoriteIds.value))
 
-  // ---- 点赞 ----
-  const toggleLike = (poemId: string) => {
-    if (likedIds.value.has(poemId)) {
-      likedIds.value.delete(poemId)
-    } else {
-      likedIds.value.add(poemId)
-    }
-    saveToStorage(STORAGE_KEYS.liked, likedIds.value)
+  // 防抖写 localStorage，避免频繁点击阻塞主线程
+  const storageTimers: Record<string, number | null> = {}
+  const debouncedSave = (key: string, value: unknown) => {
+    if (storageTimers[key]) clearTimeout(storageTimers[key])
+    storageTimers[key] = window.setTimeout(() => {
+      localStorage.setItem(key, JSON.stringify(value))
+      storageTimers[key] = null
+    }, 300)
   }
 
-  const isLiked = (poemId: string) => likedIds.value.has(poemId)
-
-  // ---- 喜爱 ----
-  const toggleLove = (poemId: string) => {
-    if (lovedIds.value.has(poemId)) {
-      lovedIds.value.delete(poemId)
+  const toggleLike = (poemId: number) => {
+    const index = likedIds.value.indexOf(poemId)
+    if (index > -1) {
+      likedIds.value.splice(index, 1)
     } else {
-      lovedIds.value.add(poemId)
+      likedIds.value.push(poemId)
     }
-    saveToStorage(STORAGE_KEYS.loved, lovedIds.value)
+    debouncedSave(STORAGE_KEYS.liked, likedIds.value)
   }
 
-  const isLoved = (poemId: string) => lovedIds.value.has(poemId)
+  const isLiked = (poemId: number) => likedSet.value.has(poemId)
 
-  // ---- 收藏 ----
-  const toggleFavorite = (poemId: string) => {
-    if (favoriteIds.value.has(poemId)) {
-      favoriteIds.value.delete(poemId)
+  const toggleLove = (poemId: number) => {
+    const index = lovedIds.value.indexOf(poemId)
+    if (index > -1) {
+      lovedIds.value.splice(index, 1)
     } else {
-      favoriteIds.value.add(poemId)
+      lovedIds.value.push(poemId)
     }
-    saveToStorage(STORAGE_KEYS.favorites, favoriteIds.value)
+    debouncedSave(STORAGE_KEYS.loved, lovedIds.value)
   }
 
-  const isFavorite = (poemId: string) => favoriteIds.value.has(poemId)
+  const isLoved = (poemId: number) => lovedSet.value.has(poemId)
 
-  // ---- 最近浏览 ----
-  const addRecentView = (poemId: string) => {
-    const arr = recentViewIds.value.filter((id) => id !== poemId)
-    arr.unshift(poemId)
-    recentViewIds.value = arr.slice(0, MAX_RECENT_VIEWS)
-    saveArrayToStorage(STORAGE_KEYS.recentViews, recentViewIds.value)
+  const toggleFavorite = (poemId: number) => {
+    const index = favoriteIds.value.indexOf(poemId)
+    if (index > -1) {
+      favoriteIds.value.splice(index, 1)
+    } else {
+      favoriteIds.value.push(poemId)
+    }
+    debouncedSave(STORAGE_KEYS.favorites, favoriteIds.value)
+  }
+
+  const isFavorite = (poemId: number) => favoriteSet.value.has(poemId)
+
+  const addRecentView = (poemId: number) => {
+    const index = recentViewIds.value.indexOf(poemId)
+    if (index > -1) {
+      recentViewIds.value.splice(index, 1)
+    }
+    recentViewIds.value.unshift(poemId)
+    if (recentViewIds.value.length > MAX_RECENT_VIEWS) {
+      recentViewIds.value.length = MAX_RECENT_VIEWS
+    }
+    debouncedSave(STORAGE_KEYS.recentViews, recentViewIds.value)
   }
 
   const clearRecentViews = () => {
@@ -101,15 +125,47 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     saveArrayToStorage(STORAGE_KEYS.recentViews, [])
   }
 
-  // ---- 获取各类别的诗词列表 ----
-  const getLikedPoems = (allPoems: Poem[]) =>
-    allPoems.filter((p) => likedIds.value.has(p.id))
+  const addSearchHistory = (keyword: string) => {
+    const trimmed = keyword.trim()
+    if (!trimmed) return
+    const index = searchHistory.value.indexOf(trimmed)
+    if (index > -1) {
+      searchHistory.value.splice(index, 1)
+    }
+    searchHistory.value.unshift(trimmed)
+    if (searchHistory.value.length > MAX_SEARCH_HISTORY) {
+      searchHistory.value.length = MAX_SEARCH_HISTORY
+    }
+    debouncedSave(STORAGE_KEYS.searchHistory, searchHistory.value)
+  }
 
-  const getLovedPoems = (allPoems: Poem[]) =>
-    allPoems.filter((p) => lovedIds.value.has(p.id))
+  const removeSearchHistory = (keyword: string) => {
+    const index = searchHistory.value.indexOf(keyword)
+    if (index > -1) {
+      searchHistory.value.splice(index, 1)
+    }
+    debouncedSave(STORAGE_KEYS.searchHistory, searchHistory.value)
+  }
 
-  const getFavoritePoems = (allPoems: Poem[]) =>
-    allPoems.filter((p) => favoriteIds.value.has(p.id))
+  const clearSearchHistory = () => {
+    searchHistory.value = []
+    saveStringArrayToStorage(STORAGE_KEYS.searchHistory, [])
+  }
+
+  const getLikedPoems = (allPoems: Poem[]) => {
+    const s = likedSet.value
+    return allPoems.filter((p) => s.has(p.id))
+  }
+
+  const getLovedPoems = (allPoems: Poem[]) => {
+    const s = lovedSet.value
+    return allPoems.filter((p) => s.has(p.id))
+  }
+
+  const getFavoritePoems = (allPoems: Poem[]) => {
+    const s = favoriteSet.value
+    return allPoems.filter((p) => s.has(p.id))
+  }
 
   const getRecentViewPoems = (allPoems: Poem[]): Poem[] => {
     const poemMap = new Map(allPoems.map((p) => [p.id, p]))
@@ -118,23 +174,27 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
       .filter((p): p is Poem => p !== undefined)
   }
 
-  // ---- 统计 ----
-  const likedCount = computed(() => likedIds.value.size)
-  const lovedCount = computed(() => lovedIds.value.size)
-  const favoriteCount = computed(() => favoriteIds.value.size)
+  const likedCount = computed(() => likedIds.value.length)
+  const lovedCount = computed(() => lovedIds.value.length)
+  const favoriteCount = computed(() => favoriteIds.value.length)
 
-  // 总互动数（喜爱 + 收藏）
   const totalInteractionCount = computed(
-    () => lovedIds.value.size + favoriteIds.value.size,
+    () => lovedIds.value.length + favoriteIds.value.length,
   )
 
-  // 从喜爱/收藏中提取诗人统计
+  // 合并 Set 避免重复构建
+  const interactedSet = computed(() => {
+    const s = new Set<number>(lovedIds.value)
+    for (const id of favoriteIds.value) s.add(id)
+    return s
+  })
+
   const getFavoritePoets = (allPoems: Poem[]) => {
-    const poemSet = new Set([...lovedIds.value, ...favoriteIds.value])
+    const s = interactedSet.value
     const poetMap = new Map<string, { name: string; dynasty: string; count: number }>()
 
     for (const poem of allPoems) {
-      if (poemSet.has(poem.id)) {
+      if (s.has(poem.id)) {
         const key = `${poem.author}-${poem.dynasty}`
         const existing = poetMap.get(key)
         if (existing) {
@@ -148,13 +208,12 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     return [...poetMap.values()].sort((a, b) => b.count - a.count)
   }
 
-  // 从喜爱/收藏中提取朝代分布
   const getDynastyDistribution = (allPoems: Poem[]) => {
-    const poemSet = new Set([...lovedIds.value, ...favoriteIds.value])
+    const s = interactedSet.value
     const dynastyMap = new Map<string, number>()
 
     for (const poem of allPoems) {
-      if (poemSet.has(poem.id)) {
+      if (s.has(poem.id)) {
         dynastyMap.set(poem.dynasty, (dynastyMap.get(poem.dynasty) || 0) + 1)
       }
     }
@@ -169,6 +228,7 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     lovedIds,
     favoriteIds,
     recentViewIds,
+    searchHistory,
     toggleLike,
     isLiked,
     toggleLove,
@@ -177,6 +237,9 @@ export const useAphorismInteractionStore = defineStore('aphorismInteraction', ()
     isFavorite,
     addRecentView,
     clearRecentViews,
+    addSearchHistory,
+    removeSearchHistory,
+    clearSearchHistory,
     getLikedPoems,
     getLovedPoems,
     getFavoritePoems,

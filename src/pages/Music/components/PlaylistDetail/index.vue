@@ -18,7 +18,7 @@
           <div class="creator-row">
             <span class="creator">{{ playlist.creator }}</span>
             <span class="divider">·</span>
-            <span class="count">{{ playlist.songCount }} 首歌曲</span>
+            <span class="count">{{ playlist.songCount }} 首歌�?/span>
           </div>
           <p v-if="playlist.description" class="description">
             {{ playlist.description }}
@@ -132,7 +132,7 @@
         <line x1="12" y1="8" x2="12" y2="12" />
         <line x1="12" y1="16" x2="12.01" y2="16" />
       </svg>
-      <p>歌单不存在</p>
+      <p>歌单不存�?/p>
     </div>
   </div>
 </template>
@@ -142,7 +142,7 @@
   import { useRoute } from 'vue-router';
   import { useMusicDataStore } from "@/stores/music";
   import { formatDuration } from '@/utils/music';
-  import type { Song } from '@/typesOfPages/music';
+  import type { Song } from '@/types/music';
 
   const musicStore = useMusicDataStore();
   const getPlaylistById = (id: number) => musicStore.getPlaylist(id);

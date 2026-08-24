@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { FilterParams } from '@/typesOfPages/landscape'
+import type { FilterParams } from '@/types/landscape'
 import { useLandscapeDataStore } from './data'
 import { useInteractionStore } from './interaction'
 import { parseCount } from '@/utils/landscape/format'
@@ -8,7 +8,7 @@ import { usePagination } from '@/composables/landscape/usePagination'
 
 export const usePhotographerStore = defineStore('landscape-photographer', () => {
   const dataStore = useLandscapeDataStore()
-  const photographers = ref(dataStore.getAllPhotographers())
+  const photographers = computed(() => dataStore.getAllPhotographers())
   const loading = ref(false)
   const selectedTag = ref('all')
   const searchQuery = ref('')
@@ -24,7 +24,7 @@ export const usePhotographerStore = defineStore('landscape-photographer', () => 
         if (existing) {
           existing.count++
         } else {
-          tagMap.set(tag, { id: tag, name: tag, icon: '🏷️', count: 1 })
+          tagMap.set(tag, { id: tag, name: tag, icon: '🏷�?, count: 1 })
         }
       })
     })
@@ -49,20 +49,30 @@ export const usePhotographerStore = defineStore('landscape-photographer', () => 
       )
     }
 
-    result.sort((a, b) => {
-      switch (sortBy.value) {
-        case 'popular':
-          return parseCount(b.followers) - parseCount(a.followers)
-        case 'works':
-          return parseCount(b.worksCount) - parseCount(a.worksCount)
-        case 'newest':
-          return new Date(b.joinDate || 0).getTime() - new Date(a.joinDate || 0).getTime()
-        case 'rating':
-          return (b.rating || 0) - (a.rating || 0)
-        default:
-          return 0
+    const sortFn = sortBy.value
+    if (sortFn === 'newest') {
+      const timeCache = new Map<string, number>()
+      result.sort((a, b) => {
+        let ta = timeCache.get(a.id)
+        if (ta === undefined) { ta = new Date(a.joinDate || 0).getTime(); timeCache.set(a.id, ta) }
+        let tb = timeCache.get(b.id)
+        if (tb === undefined) { tb = new Date(b.joinDate || 0).getTime(); timeCache.set(b.id, tb) }
+        return tb - ta
+      })
+    } else if (sortFn === 'popular' || sortFn === 'works') {
+      const numCache = new Map<string, number>()
+      const getNum = (p: typeof result[0]) => {
+        let v = numCache.get(p.id)
+        if (v === undefined) {
+          v = parseCount(sortFn === 'popular' ? p.followers : p.worksCount)
+          numCache.set(p.id, v)
+        }
+        return v
       }
-    })
+      result.sort((a, b) => getNum(b) - getNum(a))
+    } else if (sortFn === 'rating') {
+      result.sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    }
 
     return result
   })
@@ -94,7 +104,7 @@ export const usePhotographerStore = defineStore('landscape-photographer', () => 
   async function fetchPhotographers(params?: Partial<FilterParams>) {
     loading.value = true
     try {
-      await new Promise(resolve => setTimeout(resolve, 500))
+      await dataStore.ensureLoaded()
       if (params) {
         if (params.category) selectedTag.value = params.category
         if (params.search) searchQuery.value = params.search

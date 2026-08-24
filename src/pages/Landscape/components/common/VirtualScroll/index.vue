@@ -10,7 +10,7 @@
     >
       <div
         class="virtual-scroll-viewport"
-        :style="{ transform: `translateY(${offsetY}px)` }"
+        :style="{ transform: `translate3d(0, ${offsetY}px, 0)` }"
       >
         <div
           v-for="item in visibleItems"
@@ -81,15 +81,21 @@ const getItemKey = (item: Record<string, unknown>): PropertyKey => {
   return item._index as number
 }
 
+let rafId: number | null = null
+
 const handleScroll = () => {
-  if (!containerRef.value) return
+  if (!containerRef.value || rafId !== null) return
 
-  scrollTop.value = containerRef.value.scrollTop
+  rafId = requestAnimationFrame(() => {
+    rafId = null
+    if (!containerRef.value) return
+    scrollTop.value = containerRef.value.scrollTop
 
-  const scrollBottom = scrollTop.value + containerHeight.value
-  if (scrollBottom >= totalHeight.value - 100) {
-    emit('scroll-end')
-  }
+    const scrollBottom = scrollTop.value + containerHeight.value
+    if (scrollBottom >= totalHeight.value - 100) {
+      emit('scroll-end')
+    }
+  })
 }
 
 let resizeObserver: ResizeObserver | null = null
@@ -109,6 +115,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   resizeObserver?.disconnect()
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId)
+    rafId = null
+  }
 })
 
 watch(() => props.items.length, () => {

@@ -51,7 +51,7 @@
             <div class="modal-actions">
               <button class="action-btn primary" @click="$emit('toggle-like', item)">
                 <HeartIcon :stroke-width="2" :filled="item.liked" />
-                <span>{{ item.liked ? '已喜欢' : '喜欢' }}</span>
+                <span>{{ item.liked ? '已喜�? : '喜欢' }}</span>
               </button>
               <button class="action-btn" @click="$emit('share', item)">
                 <ShareIcon :stroke-width="2" />
@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 import CloseIcon from '../../../icon/common/CloseIcon.vue';
 import HeartIcon from '../../../icon/common/HeartIcon.vue';
 import ShareIcon from '../../../icon/common/ShareIcon.vue';

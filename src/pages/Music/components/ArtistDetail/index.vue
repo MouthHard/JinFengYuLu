@@ -98,7 +98,7 @@
         <line x1="12" y1="8" x2="12" y2="12"/>
         <line x1="12" y1="16" x2="12.01" y2="16"/>
       </svg>
-      <p>歌手不存在</p>
+      <p>歌手不存�?/p>
     </div>
   </div>
 </template>
@@ -108,7 +108,7 @@ import { computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import { useMusicDataStore } from "@/stores/music";
 import { formatPlayCount, formatDuration } from "@/utils/music";
-import type { Song } from "@/typesOfPages/music";
+import type { Song } from "@/types/music";
 
 const musicStore = useMusicDataStore();
 const getArtistDetailById = (id: number) => musicStore.getArtistDetail(id);

@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { HistoricalFigure } from '@/typesOfPages/history';
+  import type { HistoricalFigure } from '@/types/history';
   import { ref } from 'vue';
 
   const props = defineProps<{

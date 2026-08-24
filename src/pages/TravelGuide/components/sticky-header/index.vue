@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Tab } from '@/typesOfPages/travelGuide';
+  import type { Tab } from '@/types/travelGuide';
   import { getTagColorClass } from '@/utils/travelGuide';
 
   const props = defineProps<{

@@ -1,15 +1,24 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { LandscapeItem, Category } from '@/typesOfPages/landscape'
+import type { LandscapeItem, Category } from '@/types/landscape'
 import { usePagination } from '@/composables/landscape/usePagination'
 import { useLandscapeDataStore } from './data'
+
+function deterministicHeight(id: string, index: number): number {
+  let hash = 0
+  const str = String(id) + String(index)
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0
+  }
+  return 270 + (Math.abs(hash) % 150)
+}
 
 function buildItemsFromStore(): LandscapeItem[] {
   const dataStore = useLandscapeDataStore()
   const items: LandscapeItem[] = []
 
   const allImages = dataStore.getAllImages()
-  allImages.forEach(img => {
+  allImages.forEach((img, idx) => {
     const photographer = dataStore.getPhotographer(img.authorId)
     items.push({
       id: img.id,
@@ -23,7 +32,7 @@ function buildItemsFromStore(): LandscapeItem[] {
       category: img.category,
       tags: img.tags,
       categoryTags: img.categoryTags,
-      author: photographer?.name || img.author || '未知摄影师',
+      author: photographer?.name || img.author || '未知摄影�?,
       authorId: img.authorId,
       authorAvatar: photographer?.avatar,
       date: img.date || '',
@@ -34,12 +43,12 @@ function buildItemsFromStore(): LandscapeItem[] {
       shares: img.shares,
       bookmarks: img.favorites,
       liked: false,
-      height: 270 + Math.random() * 150,
+      height: deterministicHeight(img.id, idx),
     })
   })
 
   const allVideos = dataStore.getAllVideos()
-  allVideos.forEach(vid => {
+  allVideos.forEach((vid, idx) => {
     const photographer = dataStore.getPhotographer(vid.authorId || '')
     items.push({
       id: vid.id,
@@ -53,7 +62,7 @@ function buildItemsFromStore(): LandscapeItem[] {
       category: vid.category,
       tags: vid.tags || [vid.category],
       categoryTags: vid.categoryTags,
-      author: photographer?.name || vid.author || '未知摄影师',
+      author: photographer?.name || vid.author || '未知摄影�?,
       authorId: vid.authorId,
       authorAvatar: photographer?.avatar || vid.authorAvatar,
       date: vid.date || '',
@@ -64,13 +73,13 @@ function buildItemsFromStore(): LandscapeItem[] {
       shares: vid.shares,
       bookmarks: vid.bookmarks,
       liked: false,
-      height: 270 + Math.random() * 150,
+      height: deterministicHeight(vid.id, allImages.length + idx),
       duration: vid.duration,
     })
   })
 
   const allGuides = dataStore.getAllGuides()
-  allGuides.forEach(guide => {
+  allGuides.forEach((guide, idx) => {
     const photographer = dataStore.getPhotographer(guide.authorId)
     items.push({
       id: guide.id,
@@ -84,7 +93,7 @@ function buildItemsFromStore(): LandscapeItem[] {
       category: guide.category,
       tags: guide.tags,
       categoryTags: guide.categoryTags,
-      author: photographer?.name || guide.author || '未知摄影师',
+      author: photographer?.name || guide.author || '未知摄影�?,
       authorId: guide.authorId,
       authorAvatar: photographer?.avatar || guide.authorAvatar,
       date: guide.date || guide.publishDate || '',
@@ -95,7 +104,7 @@ function buildItemsFromStore(): LandscapeItem[] {
       shares: guide.shares,
       bookmarks: guide.bookmarks,
       liked: false,
-      height: 270 + Math.random() * 150,
+      height: deterministicHeight(guide.id, allImages.length + allVideos.length + idx),
       duration: guide.readTime ? `${guide.readTime}分钟` : undefined,
     })
   })
@@ -122,18 +131,21 @@ export const useCategoryStore = defineStore('landscape-category', () => {
       result = result.filter(item => item.type === selectedType.value)
     }
 
-    result.sort((a, b) => {
-      switch (sortBy.value) {
-        case 'popular':
-          return b.views - a.views
-        case 'newest':
-          return new Date(b.date).getTime() - new Date(a.date).getTime()
-        case 'likes':
-          return b.likes - a.likes
-        default:
-          return 0
-      }
-    })
+    const sortFn = sortBy.value
+    if (sortFn === 'newest') {
+      const timeCache = new Map<string | number, number>()
+      result.sort((a, b) => {
+        let ta = timeCache.get(a.id)
+        if (ta === undefined) { ta = new Date(a.date).getTime(); timeCache.set(a.id, ta) }
+        let tb = timeCache.get(b.id)
+        if (tb === undefined) { tb = new Date(b.date).getTime(); timeCache.set(b.id, tb) }
+        return tb - ta
+      })
+    } else if (sortFn === 'popular') {
+      result.sort((a, b) => b.views - a.views)
+    } else if (sortFn === 'likes') {
+      result.sort((a, b) => b.likes - a.likes)
+    }
 
     return result
   })
@@ -168,7 +180,6 @@ export const useCategoryStore = defineStore('landscape-category', () => {
   async function fetchItems() {
     loading.value = true
     try {
-      await new Promise(resolve => setTimeout(resolve, 300))
       if (items.value.length === 0) {
         items.value = buildItemsFromStore()
       }
@@ -178,13 +189,7 @@ export const useCategoryStore = defineStore('landscape-category', () => {
   }
 
   async function loadMore() {
-    if (loading.value) return
-    loading.value = true
-    try {
-      await new Promise(resolve => setTimeout(resolve, 300))
-    } finally {
-      loading.value = false
-    }
+    // 数据已全量加载，无需分页加载更多
   }
 
   return {

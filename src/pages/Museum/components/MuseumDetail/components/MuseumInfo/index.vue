@@ -1,25 +1,25 @@
 <template>
-  <!-- 博物馆介绍 -->
+  <!-- 博物馆介�?-->
   <MuseumIntroSection :museum="museum" />
 
-  <!-- 最新展览 -->
+  <!-- 最新展�?-->
   <ExhibitionsSection :museum="museum" />
 
-  <!-- 文物精选 -->
+  <!-- 文物精�?-->
   <ArtifactsSection :museum="museum" />
 
   <!-- 活动预告 -->
   <ActivitiesSection :museum="museum" />
 
-  <!-- 博物馆新闻 -->
+  <!-- 博物馆新�?-->
   <NewsSection :museum="museum" />
 
-  <!-- 沉浸式体验 -->
+  <!-- 沉浸式体�?-->
   <ImmersiveSection :museum="museum" />
 </template>
 
 <script setup lang="ts">
-  import type { Museum } from '@/typesOfPages/museum';
+  import type { Museum } from '@/types/museum';
   import MuseumIntroSection from './components/MuseumIntroSection/index.vue';
   import ExhibitionsSection from './components/ExhibitionsSection/index.vue';
   import ArtifactsSection from './components/ArtifactsSection/index.vue';

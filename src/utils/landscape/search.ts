@@ -1,19 +1,19 @@
-import type { GlobalImage, GlobalVideo, GlobalGuide, GlobalPhotographer } from '@/typesOfPages/landscape/data';
+import type { GlobalImage, GlobalVideo, GlobalGuide, GlobalPhotographer } from '@/types/landscape/data';
 import { parseCount } from './format';
 
 const categoryTagLabels: Record<string, string> = {
-  aurora: '极光', starry: '星空', mountain: '山峰', valley: '峡谷', skyline: '天际线',
+  aurora: '极光', starry: '星空', mountain: '山峰', valley: '峡谷', skyline: '天际�?,
   street: '街景', spring: '春季', forest: '森林', beach: '海滩', nightview: '夜景',
   architecture: '建筑', water: '水域',
-  timelapse: '延时', aerial: '航拍', panorama: '全景', 'low-angle': '低角度',
-  'long-exposure': '长曝光', 'rule-of-thirds': '三分法', 'leading-lines': '引导线',
+  timelapse: '延时', aerial: '航拍', panorama: '全景', 'low-angle': '低角�?,
+  'long-exposure': '长曝�?, 'rule-of-thirds': '三分�?, 'leading-lines': '引导�?,
   framing: '框架构图',
-  dramatic: '戏剧感', powerful: '震撼', peaceful: '宁静', romantic: '浪漫',
-  'cool-tone': '冷色调', 'warm-tone': '暖色调', vintage: '复古', vibrant: '鲜艳',
+  dramatic: '戏剧�?, powerful: '震撼', peaceful: '宁静', romantic: '浪漫',
+  'cool-tone': '冷色�?, 'warm-tone': '暖色�?, vintage: '复古', vibrant: '鲜艳',
   shadow: '光影', ice: '冰雪', rocks: '岩石', flowers: '花卉', reflection: '倒影',
   'architectural-detail': '建筑细节', 'single-tree': '孤树', silhouette: '剪影',
-  people: '人物', fog: '雾', mist: '薄雾',
-  '4k': '4K', '8k': '8K', hdr: 'HDR', slowmo: '慢动作', hyperlapse: '超延时',
+  people: '人物', fog: '�?, mist: '薄雾',
+  '4k': '4K', '8k': '8K', hdr: 'HDR', slowmo: '慢动�?, hyperlapse: '超延�?,
 };
 
 export type SearchResultItem = {
@@ -136,9 +136,9 @@ export function convertPhotographerToSearchResult(photographer: GlobalPhotograph
 }
 
 export function sanitizeKeyword(keyword: string): string {
-  let sanitized = keyword
+  const sanitized = keyword
     .replace(/[\s\t\n\r]+/g, ' ')
-    .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。！!？?、]/g, '')
+    .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s\-_.,，。！!�?、]/g, '')
     .trim()
     .substring(0, 50);
 
@@ -149,6 +149,19 @@ export function sortSearchResults(
   results: SearchResultItem[],
   sortBy: string
 ): SearchResultItem[] {
+  if (sortBy === 'latest') {
+    const timeCache = new Map<SearchResultItem, number>()
+    const getTime = (item: SearchResultItem) => {
+      let t = timeCache.get(item)
+      if (t === undefined) {
+        t = item.date ? new Date(item.date).getTime() : 0
+        timeCache.set(item, t)
+      }
+      return t
+    }
+    return [...results].sort((a, b) => getTime(b) - getTime(a))
+  }
+
   const getViews = (item: SearchResultItem) => Number(item.views || 0);
   const getLikes = (item: SearchResultItem) => Number(item.likes || 0);
   const getBookmarks = (item: SearchResultItem) => Number(item.bookmarks || 0);
@@ -157,10 +170,6 @@ export function sortSearchResults(
 
   return [...results].sort((a, b) => {
     switch (sortBy) {
-      case 'latest':
-        const dateA = a.date ? new Date(a.date).getTime() : 0;
-        const dateB = b.date ? new Date(b.date).getTime() : 0;
-        return dateB - dateA;
       case 'views':
         return getViews(b) - getViews(a);
       case 'likes':
@@ -181,25 +190,11 @@ export function sortSearchResults(
 
 export function filterSearchResults(
   results: SearchResultItem[],
-  keyword: string,
+  _keyword: string,
   type: string
 ): SearchResultItem[] {
-  let filtered = [...results];
-
   if (type !== 'all') {
-    filtered = filtered.filter(item => item.type === type);
+    return results.filter(item => item.type === type);
   }
-
-  if (keyword) {
-    const lowerQuery = keyword.toLowerCase();
-    filtered = filtered.filter(item =>
-      item.title.toLowerCase().includes(lowerQuery) ||
-      (item as any).name?.toLowerCase().includes(lowerQuery) ||
-      item.description.toLowerCase().includes(lowerQuery) ||
-      item.tags.some((tag: string) => tag.toLowerCase().includes(lowerQuery)) ||
-      (item as any).location?.toLowerCase().includes(lowerQuery)
-    );
-  }
-
-  return filtered;
+  return results;
 }

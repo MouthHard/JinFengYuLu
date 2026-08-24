@@ -147,6 +147,9 @@
 <script setup lang="ts">
   import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue';
   import { useRouter } from 'vue-router';
+  import { useHistoryDataStore } from '@/stores/history';
+
+  const historyStore = useHistoryDataStore();
 
   // 导入组件 - 异步懒加载
   const DynastiesTimeline = defineAsyncComponent(() => import('./components/Dynasties/index.vue'));
@@ -204,6 +207,7 @@
   // 生命周期钩子
   onMounted(() => {
     document.body.style.overflow = 'hidden';
+    historyStore.ensureLoaded();
   });
 
   onUnmounted(() => {

@@ -26,33 +26,31 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import type { Museum, ArtifactDetail } from '@/typesOfPages/museum';
+  import type { Museum, ArtifactDetail } from '@/types/museum';
   import {
     artifactTypes,
     periods,
     periodMap,
-    getArtifactsByMuseumId,
-    getArtifactDetailById,
-  } from '@/pages/Museum/data/artifacts';
+  } from '@/pages/Museum/constants/artifactFilters';
+  import { useMuseumDataStore } from '@/stores/museum';
   import FilterMenu from './components/FilterMenu/index.vue';
   import ArtifactContainer from './components/ArtifactContainer/index.vue';
   import ArtifactDetailModal from './components/ArtifactDetailModal/index.vue';
 
-  // 接收博物馆参数
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
-  // 筛选状态
-  const selectedTypes = ref<string>(artifactTypes[0]?.value || '');
+  // 筛选状�?  const selectedTypes = ref<string>(artifactTypes[0]?.value || '');
   const selectedPeriods = ref<string>(periods[0]?.value || '');
   const searchKeyword = ref('');
 
   // 获取当前博物馆的文物列表
   const museumArtifacts = computed(() => {
-    return getArtifactsByMuseumId(props.museum.id);
+    return store.getArtifactsByMuseumId(props.museum.id);
   });
 
   // 筛选逻辑
@@ -61,8 +59,7 @@
     const artifacts = museumArtifacts.value;
 
     return artifacts.filter((artifact) => {
-      // 类型筛选
-      if (
+      // 类型筛�?      if (
         selectedTypes.value &&
         selectedTypes.value !== 'all' &&
         selectedTypes.value !== artifact.category
@@ -70,16 +67,14 @@
         return false;
       }
 
-      // 年代筛选
-      if (selectedPeriods.value && selectedPeriods.value !== 'all') {
+      // 年代筛�?      if (selectedPeriods.value && selectedPeriods.value !== 'all') {
         const periodNames = periodMap[selectedPeriods.value] || [];
         if (!periodNames.includes(artifact.period)) {
           return false;
         }
       }
 
-      // 搜索筛选
-      if (searchKeyword.value) {
+      // 搜索筛�?      if (searchKeyword.value) {
         return artifact.name
           .toLowerCase()
           .includes(searchKeyword.value.toLowerCase());
@@ -89,14 +84,12 @@
     });
   });
 
-  // 状态管理
-  const selectedArtifact = ref<ArtifactDetail | null>(null);
+  // 状态管�?  const selectedArtifact = ref<ArtifactDetail | null>(null);
   const activeArtifactId = ref<number | null>(null);
 
   // 方法
-  const openArtifactDetail = (artifact: any) => {
-    // 获取文物详情
-    const detail = getArtifactDetailById(artifact.id);
+  const openArtifactDetail = async (artifact: any) => {
+    const detail = await store.getArtifactDetailById(artifact.id);
     if (detail) {
       selectedArtifact.value = detail;
       activeArtifactId.value = artifact.id;

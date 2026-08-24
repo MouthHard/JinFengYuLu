@@ -40,24 +40,66 @@
 
     <transition name="dropdown">
       <div v-if="showDropdown" class="search-dropdown">
-        <div class="dropdown-header">
-          <div class="diamond"></div>
-          <h4 class="section-title">热门探索</h4>
-          <div class="diamond"></div>
+        <!-- 搜索历史区域（顶部） -->
+        <div v-if="history.length > 0" class="history-section">
+          <div class="section-header">
+            <div class="diamond"></div>
+            <h4 class="section-title">搜索历史</h4>
+            <button class="clear-btn" @click.stop="clearHistory">清空</button>
+          </div>
+          <div class="history-tags" :class="{ expanded: showAllHistory }">
+            <button 
+              v-for="item in displayHistory" 
+              :key="item" 
+              class="history-tag"
+              @click.stop="handleHistoryClick(item)"
+            >
+              <span class="history-text">{{ item }}</span>
+            </button>
+            <button 
+              v-if="history.length > maxHistoryPerRow && !showAllHistory" 
+              class="more-btn"
+              @click.stop="showAllHistory = true"
+            >
+              <span>更多</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <button 
+              v-if="showAllHistory" 
+              class="more-btn"
+              @click.stop="showAllHistory = false"
+            >
+              <span>收起</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        
-        <div class="hot-tags">
-          <button 
-            v-for="(tag, index) in hotSearchTags" 
-            :key="tag.text" 
-            class="hot-tag"
-            :style="{ animationDelay: `${index * 0.06}s` }"
-            @click="handleTagClick(tag)"
-          >
-            <div class="tag-glow"></div>
-            <span class="tag-icon">{{ tag.icon }}</span>
-            <span class="tag-text">{{ tag.text }}</span>
-          </button>
+
+        <!-- 热门探索区域（底部，始终固定） -->
+        <div class="hot-section">
+          <div class="dropdown-header">
+            <div class="diamond"></div>
+            <h4 class="section-title">热门探索</h4>
+            <div class="diamond"></div>
+          </div>
+          
+          <div class="hot-tags">
+            <button 
+              v-for="(tag, index) in hotSearchTags" 
+              :key="tag.text" 
+              class="hot-tag"
+              :style="{ animationDelay: `${index * 0.06}s` }"
+              @click="handleTagClick(tag)"
+            >
+              <div class="tag-glow"></div>
+              <span class="tag-icon">{{ tag.icon }}</span>
+              <span class="tag-text">{{ tag.text }}</span>
+            </button>
+          </div>
         </div>
       </div>
     </transition>
@@ -65,24 +107,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import SearchIcon from '../../../icon/components/home/HeroSection/SearchIcon.vue';
 import CompassIcon from '../../../icon/header/CompassIcon.vue';
+import { useSearchHistory } from '@/composables/landscape/useSearchHistory';
+import { useHotTags } from '@/composables/landscape/useHotTags';
 
 const router = useRouter();
 const searchKeyword = ref('');
 const showDropdown = ref(false);
 const isFocused = ref(false);
+const showAllHistory = ref(false);
+const maxHistoryPerRow = 6;
 
-const hotSearchTags = [
-  { icon: '🌌', text: '冰岛极光' },
-  { icon: '🗻', text: '富士山日出' },
-  { icon: '✨', text: '星空摄影' },
-  { icon: '🏔️', text: '雪山风光' },
-  { icon: '🌊', text: '海浪日落' },
-  { icon: '🍂', text: '秋叶森林' }
-];
+const { history, addHistory, clearHistory } = useSearchHistory();
+const { hotSearchTags } = useHotTags();
+
+const displayHistory = computed(() => {
+  if (showAllHistory.value) return history.value;
+  return history.value.slice(0, maxHistoryPerRow);
+});
 
 const sanitizeKeyword = (keyword: string): string => {
   let sanitized = keyword
@@ -112,12 +157,14 @@ const handleBlur = () => {
   isFocused.value = false;
   setTimeout(() => {
     showDropdown.value = false;
+    showAllHistory.value = false;
   }, 200);
 };
 
 const handleSearch = () => {
   const keyword = sanitizeKeyword(searchKeyword.value);
   if (keyword && keyword.length >= 2) {
+    addHistory(keyword);
     router.push({
       path: '/landscape/search',
       query: { q: keyword }
@@ -129,6 +176,11 @@ const handleSearch = () => {
 
 const handleTagClick = (tag: { text: string }) => {
   searchKeyword.value = tag.text;
+  handleSearch();
+};
+
+const handleHistoryClick = (item: string) => {
+  searchKeyword.value = item;
   handleSearch();
 };
 </script>

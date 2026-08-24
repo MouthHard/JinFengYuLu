@@ -10,7 +10,7 @@
           </svg>
         </div>
         <div class="header-info">
-          <h1>最近播放</h1>
+          <h1>最近播�?/h1>
           <p>记录你的音乐足迹</p>
         </div>
       </div>
@@ -26,7 +26,7 @@
 
     <div class="timeline-section">
       <div class="section-header">
-        <h2>最近听过</h2>
+        <h2>最近听�?/h2>
       </div>
       
       <div class="timeline">
@@ -92,7 +92,7 @@
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
             </div>
-            <div class="card-badge">{{ playlist.songCount }}首</div>
+            <div class="card-badge">{{ playlist.songCount }}�?/div>
           </div>
           <div class="card-info">
             <h4>{{ playlist.name }}</h4>
@@ -108,7 +108,7 @@
 import { computed, inject } from "vue";
 import { recentPlayedData, recentPlaylistsData } from "@/stores/music";
 import { formatDuration } from "@/utils/music";
-import type { Song, MyPlaylist, PlayTimeInfo } from "@/typesOfPages/music";
+import type { Song, MyPlaylist, PlayTimeInfo } from "@/types/music";
 
 const playSong = inject<(song: Song) => void>("playSong");
 

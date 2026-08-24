@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
   import { computed, watch, ref, onMounted } from 'vue';
-  import { historicalEvents } from '../../../../data/events';
+  import { useHistoryDataStore } from '@/stores/history';
   import './index.scss';
   import { DynasticActiveIcon } from '@/pages/History/icons/index.ts';
 
@@ -44,6 +44,7 @@
     (e: 'go-to-event', index: number): void;
   }>();
 
+  const historyStore = useHistoryDataStore();
   const sidebarContentRef = ref<HTMLElement | null>(null);
 
   const categories = [
@@ -62,9 +63,9 @@
 
   const filteredEvents = computed(() => {
     if (props.activeCategory === 'all') {
-      return historicalEvents;
+      return historyStore.events;
     }
-    return historicalEvents.filter(
+    return historyStore.events.filter(
       (event) => event.category === props.activeCategory,
     );
   });
