@@ -22,29 +22,28 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted } from 'vue';
-  import { historicalFigures } from '../../data/figures';
+  import { useHistoryDataStore } from '@/stores/history';
   import CategoryFilterHeader from './components/CategoryFilterHeader/index.vue';
   import FigureCard from './components/FigureCard/index.vue';
   import FigureModal from './components/FigureModal/index.vue';
-  import type { HistoricalFigure } from '@/typesOfPages/history';
+  import type { HistoricalFigure } from '@/types/history';
 
+  const historyStore = useHistoryDataStore();
   const selectedFigure = ref<HistoricalFigure | null>(null);
 
   const activeCategory = ref('all');
   const searchQuery = ref('');
 
   const filteredFigures = computed(() => {
-    let result = historicalFigures;
+    let result = historyStore.figures;
     
-    // 按分类筛选
-    if (activeCategory.value !== 'all') {
+    // 按分类筛�?    if (activeCategory.value !== 'all') {
       result = result.filter(
         (f: HistoricalFigure) => f.category === activeCategory.value,
       );
     }
     
-    // 按搜索关键词筛选
-    if (searchQuery.value) {
+    // 按搜索关键词筛�?    if (searchQuery.value) {
       const query = searchQuery.value.toLowerCase();
       result = result.filter(
         (f: HistoricalFigure) => 
@@ -68,8 +67,7 @@
     document.body.style.overflow = '';
   };
 
-  // 键盘事件处理：ESC键关闭弹窗
-  const handleKeydown = (event: KeyboardEvent) => {
+  // 键盘事件处理：ESC键关闭弹�?  const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && selectedFigure.value) {
       closeDetail();
     }

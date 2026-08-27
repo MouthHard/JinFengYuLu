@@ -80,10 +80,7 @@ const switchTab = (tab: string) => {
 };
 
 const startVirtualTour = () => {
-  // 虚拟参观功能逻辑
-  console.log("开始虚拟参观");
-  // 这里可以添加虚拟参观的具体实现，比如跳转到虚拟参观页面
-  alert("开始虚拟参观");
+  emit("update:activeTab", "special");
 };
 </script>
 

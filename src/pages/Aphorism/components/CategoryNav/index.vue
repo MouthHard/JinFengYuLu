@@ -2,7 +2,7 @@
   <div class="category-nav">
     <!-- 主分类标签 -->
     <div class="category-tabs">
-      <button v-for="category in mainCategories" :key="category.id" class="category-tab"
+      <button v-for="category in categories" :key="category.id" class="category-tab"
         :class="{ active: activeCategory === category.id }" @click="selectCategory(category)">
         <span class="tab-icon">{{ category.icon }}</span>
         <span class="tab-name">{{ category.name }}</span>
@@ -22,73 +22,69 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import { mainCategories } from '@/constants/Aphorism';
-import type { Category } from '@/typesOfPages/aphorism/category';
+import { ref, computed, onMounted, watch } from 'vue';
+import { useAphorismDataStore } from '@/stores/aphorism';
+import type { CategoryGroup, CategoryChild } from '@/services/aphorism';
 import './index.scss';
 
-/**
- * 处理分类选择并触发事件
- */
+const emit = defineEmits<{
+  (e: 'category-change', categoryId: string, subCategoryId?: number): void;
+}>();
+
+const dataStore = useAphorismDataStore();
+const activeCategory = ref<string>('');
+const activeSubCategory = ref<number | null>(null);
+const hasAutoSelected = ref(false);
+
+const categories = computed<CategoryGroup[]>(() => dataStore.categories);
+
+const subCategories = computed<CategoryChild[]>(() => {
+  if (!activeCategory.value) return [];
+  const category = categories.value.find((c) => c.id === activeCategory.value);
+  return category?.children || [];
+});
+
 const handleCategorySelection = (
   categoryId: string,
-  subCategoryId?: string,
+  subCategoryId?: number,
 ) => {
   emit('category-change', categoryId, subCategoryId);
 };
 
-/**
- * 重置子分类选择
- */
-const resetSubCategorySelections = () => {
-  activeSubCategory.value = '';
-};
-
-const emit = defineEmits<{
-  (e: 'category-change', categoryId: string, subCategoryId?: string): void;
-}>();
-
-const activeCategory = ref<string>('dynasty');
-const activeSubCategory = ref<string>('');
-
-const initializeDefaultSelection = () => {
-  if (activeCategory.value !== 'all') {
-    const category = mainCategories.find(
-      (c) => c.id === activeCategory.value,
-    );
-    if (category && category.children && category.children.length > 0) {
-      const firstSubCategory = category.children[0];
-      activeSubCategory.value = firstSubCategory.id;
-      handleCategorySelection(activeCategory.value, firstSubCategory.id);
-    }
-  }
-};
-
-onMounted(() => {
-  initializeDefaultSelection();
-});
-
-const subCategories = computed(() => {
-  if (activeCategory.value === 'all') return [];
-  const category = mainCategories.find((c) => c.id === activeCategory.value);
-  return category?.children || [];
-});
-
-const selectCategory = (category: Category) => {
-  // 不允许取消选择，直接设置为选中的分类
+const selectCategory = (category: CategoryGroup) => {
+  hasAutoSelected.value = true;
   activeCategory.value = category.id;
-  resetSubCategorySelections();
-  const firstSubCategory = category.children?.[0];
-  if (firstSubCategory) {
-    activeSubCategory.value = firstSubCategory.id;
-    handleCategorySelection(activeCategory.value, firstSubCategory.id);
+  activeSubCategory.value = null;
+  const firstSub = category.children?.[0];
+  if (firstSub) {
+    activeSubCategory.value = firstSub.id;
+    const subId = firstSub.name === '全部诗词' ? undefined : firstSub.id;
+    handleCategorySelection(category.id, subId);
   } else {
-    handleCategorySelection(activeCategory.value);
+    handleCategorySelection(category.id);
   }
 };
 
-const selectSubCategory = (sub: Category) => {
+const selectSubCategory = (sub: CategoryChild) => {
+  hasAutoSelected.value = true;
   activeSubCategory.value = sub.id;
-  handleCategorySelection(activeCategory.value, sub.id);
+  const subId = sub.name === '全部诗词' ? undefined : sub.id;
+  handleCategorySelection(activeCategory.value, subId);
 };
+
+onMounted(async () => {
+  if (categories.value.length === 0) {
+    await dataStore.loadCategories();
+  }
+});
+
+watch(
+  () => [dataStore.poems.length, categories.value.length] as const,
+  ([poemLen, catLen]) => {
+    if (poemLen > 0 && catLen > 0 && !hasAutoSelected.value) {
+      selectCategory(categories.value[0]);
+    }
+  },
+  { immediate: true },
+);
 </script>

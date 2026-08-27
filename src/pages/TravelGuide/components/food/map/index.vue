@@ -73,8 +73,7 @@
               <div class="location-stats">
                 <span class="rating">⭐{{ location.rating }}</span>
                 <span class="food-count">
-                  🍽 {{ location.foods.length }} 种美食
-                </span>
+                  🍽 {{ location.foods.length }} 种美�?                </span>
               </div>
             </div>
           </article>
@@ -172,8 +171,7 @@
             <div class="default-icon">🍽</div>
             <h2 class="default-title">选择美食地点</h2>
             <p class="default-text">
-              从左侧选择一个美食地点，查看详细信息和特色美食
-            </p>
+              从左侧选择一个美食地点，查看详细信息和特色美�?            </p>
           </div>
         </div>
       </div>
@@ -183,7 +181,7 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-  import type { Food, FoodLocation } from '@/typesOfPages/travelGuide';
+  import type { Food, FoodLocation } from '@/types/travelGuide';
   import { MapBackground } from '@/pages/TravelGuide/icons/pages/food';
 
   // 接收props
@@ -198,7 +196,7 @@
   const activeCarouselIndex = ref(0);
   const isSelectOpen = ref(false);
   const selectOptions = ref([
-    { label: '所有类型', value: '' },
+    { label: '所有类�?, value: '' },
     { label: '城市', value: '城市' },
     { label: '小镇', value: '小镇' },
     { label: '景区', value: '景区' },
@@ -217,7 +215,7 @@
     const option = selectOptions.value.find(
       (opt) => opt.value === selectedType.value,
     );
-    return option ? option.label : '所有类型';
+    return option ? option.label : '所有类�?;
   };
 
   const handleClickOutside = (event: MouseEvent) => {

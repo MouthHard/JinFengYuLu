@@ -23,7 +23,7 @@
           <div class="activity-date">{{ activity.date }}</div>
           <div class="activity-location">
             <span class="location-icon">📍</span>
-            <span>故宫博物院 - 太和殿展厅</span>
+            <span>{{ activity.location || props.museum.name }}</span>
           </div>
           <div class="activity-actions">
             <button class="detail-button" @click="viewActivityDetail(activity)">
@@ -44,8 +44,8 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Museum, Activity } from '@/typesOfPages/museum';
-  import { getActivitiesByMuseumId } from '@/pages/Museum/data/activities';
+  import type { Museum, Activity } from '@/types/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
   import { CyberpunkBackground } from '@/pages/Museum/icon/pages';
 
   interface Props {
@@ -53,20 +53,19 @@
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const homeActivities = computed(() => {
     if (!props.museum) return [];
-    return getActivitiesByMuseumId(props.museum.id);
+    return store.getActivitiesByMuseumId(props.museum.id);
   });
 
-  const reserveActivity = (activity: Activity) => {
-    // 这里可以添加预约逻辑，比如跳转到预约页面或弹出预约表单
-    console.log('预约活动:', activity.title);
+  const reserveActivity = (_activity: Activity) => {
+    window.open(`/museum/${props.museum.id}?tab=exhibitions`, '_self');
   };
 
-  const viewActivityDetail = (activity: Activity) => {
-    // 这里可以添加查看详情的逻辑，比如跳转到详情页面
-    console.log('查看活动详情:', activity.title);
+  const viewActivityDetail = (_activity: Activity) => {
+    window.open(`/museum/${props.museum.id}?tab=exhibitions`, '_self');
   };
 </script>
 

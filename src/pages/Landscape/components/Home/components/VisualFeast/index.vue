@@ -16,7 +16,7 @@
     
     <div v-if="images.length > 0" class="masonry-grid">
       <div
-        v-for="(item, index) in images"
+        v-for="(item, index) in visibleImages"
         :key="item.id"
         class="masonry-item"
         :style="{ '--delay': `${index * 0.05}s`, '--card-height': getCardHeight(index) }"
@@ -90,7 +90,7 @@
         </svg>
       </div>
       <p class="empty-text">暂无图片内容</p>
-      <span class="empty-hint">精选图片即将呈现</span>
+      <span class="empty-hint">精选图片即将呈�?/span>
     </div>
 
     <!-- 图片预览模态框 -->
@@ -108,13 +108,13 @@
             <div class="nav-center">
               <span class="nav-current">{{ currentImageIndex + 1 }}</span>
               <span class="nav-separator">/</span>
-              <span class="nav-total">{{ filteredImages.length }}</span>
+              <span class="nav-total">{{ images.length }}</span>
             </div>
-            <button class="nav-btn next" :disabled="currentImageIndex >= filteredImages.length - 1" @click="navigateImage(1)">
+            <button class="nav-btn next" :disabled="currentImageIndex >= images.length - 1" @click="navigateImage(1)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
             <div class="nav-progress">
-              <div class="nav-progress-bar" :style="{ width: `${((currentImageIndex + 1) / filteredImages.length) * 100}%` }"></div>
+              <div class="nav-progress-bar" :style="{ width: `${((currentImageIndex + 1) / images.length) * 100}%` }"></div>
             </div>
           </div>
         </div>
@@ -193,17 +193,18 @@
         </div>
       </div>
     </div>
+    <div v-if="visibleImages.length < images.length" ref="loadMoreRef" class="load-more-sentinel"></div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onUnmounted, onMounted, watch } from 'vue';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useLandscapeDataStore } from '@/stores/landscape';
 import { formatNumber } from '@/utils/landscape/format';
 import { masonryCardHeights } from '@/utils/landscape/constants';
-import type { GlobalImage } from '@/typesOfPages/landscape/data';
+import type { GlobalImage } from '@/types/landscape/data';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
@@ -220,9 +221,33 @@ const handleMore = () => {
   console.log('查看更多');
 };
 
-const imagesData = dataStore.getAllImages();
-const images = ref(imagesData);
-const filteredImages = computed(() => images.value);
+const images = computed(() => dataStore.getAllImages());
+
+
+const BATCH_SIZE = 24;
+const visibleCount = ref(BATCH_SIZE);
+const loadMoreRef = ref<HTMLElement | null>(null);
+let loadMoreObserver: IntersectionObserver | null = null;
+
+const visibleImages = computed(() => images.value.slice(0, visibleCount.value));
+
+onMounted(() => {
+  loadMoreObserver = new IntersectionObserver((entries) => {
+    if (entries[0]?.isIntersecting && visibleCount.value < images.value.length) {
+      visibleCount.value = Math.min(visibleCount.value + BATCH_SIZE, images.value.length);
+    }
+  }, { rootMargin: '200px' });
+});
+
+watch(loadMoreRef, (el) => {
+  if (!loadMoreObserver) return;
+  loadMoreObserver.disconnect();
+  if (el) loadMoreObserver.observe(el);
+});
+
+onUnmounted(() => {
+  loadMoreObserver?.disconnect();
+});
 
 const getGlobalId = (id: string | number) => String(id);
 
@@ -230,14 +255,19 @@ const getCardHeight = (index: number) => {
   return `${masonryCardHeights[index % masonryCardHeights.length]}px`;
 };
 
-onMounted(() => {
-  interactionStore.registerBatch(
-    images.value.map((img: GlobalImage) => ({
-      id: getGlobalId(img.id),
-      counts: { likes: img.likes || 0, views: img.views || 0, loves: img.loves || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
-    }))
-  );
-});
+watch(
+  () => images.value.length,
+  (len) => {
+    if (len === 0) return;
+    interactionStore.registerBatch(
+      images.value.map((img: GlobalImage) => ({
+        id: getGlobalId(img.id),
+        counts: { likes: img.likes || 0, views: img.views || 0, loves: img.loves || 0, favorites: img.favorites || 0, shares: img.shares || 0 },
+      }))
+    );
+  },
+  { immediate: true },
+);
 
 const getImageCount = (id: string | number) => interactionStore.getCount(getGlobalId(id));
 

@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AlertIcon: typeof import('./../src/components/common/ErrorBoundary/icons/AlertIcon.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
@@ -20,6 +21,7 @@ declare module 'vue' {
     HomeIcon: typeof import('./../src/components/common/ErrorBoundary/icon/HomeIcon.vue')['default']
     LazyLoadWrapper: typeof import('./../src/components/common/LazyLoadWrapper/index.vue')['default']
     PageChange: typeof import('./../src/components/common/PageChange/index.vue')['default']
+    RefreshIcon: typeof import('./../src/components/common/ErrorBoundary/icons/RefreshIcon.vue')['default']
     RetryIcon: typeof import('./../src/components/common/ErrorBoundary/icon/RetryIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

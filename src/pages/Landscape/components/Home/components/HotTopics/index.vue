@@ -104,10 +104,10 @@
           <span>
             {{
               isLoading
-                ? '加载中...'
+                ? '加载�?..'
                 : hasMoreTopics
                   ? '加载更多主题'
-                  : '已加载全部'
+                  : '已加载全�?
             }}
           </span>
           <ChevronDownIcon
@@ -131,8 +131,8 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
   import { useRouter } from 'vue-router';
-  import type { Topic } from '@/typesOfPages/landscape/home';
-  import { hotTopics as hotTopicsData } from '@/utils/landscape/constants';
+  import type { Topic } from '@/types/landscape/home';
+  import { useLandscapeDataStore } from '@/stores/landscape';
   import TrendIcon from '@/pages/Landscape/icon/components/home/HotTopics/TrendIcon.vue';
   import PlayCircleIcon from '@/pages/Landscape/icon/components/home/HotTopics/PlayCircleIcon.vue';
   import SpinnerIcon from '@/pages/Landscape/icon/components/home/HotTopics/SpinnerIcon.vue';
@@ -145,8 +145,9 @@
   import CommentIcon from '@/pages/Landscape/icon/components/profile/VideoCard/CommentIcon.vue';
 
   const router = useRouter();
+  const dataStore = useLandscapeDataStore();
 
-  const hotTopics = ref(hotTopicsData);
+  const hotTopics = computed(() => dataStore.getAllHotTopics());
   const displayCount = ref(2);
   const isLoading = ref(false);
 
@@ -158,18 +159,13 @@
     return displayCount.value < hotTopics.value.length;
   });
 
-  const loadMoreTopics = async () => {
+  const loadMoreTopics = () => {
     if (isLoading.value || !hasMoreTopics.value) return;
-
-    isLoading.value = true;
-    await new Promise((resolve) => setTimeout(resolve, 800));
     displayCount.value += 2;
-    isLoading.value = false;
   };
 
   const openTopicDetail = (topic: Topic) => {
-    // 跳转到分类页面，并传递导航参数
-    if (topic.navigation) {
+    // 跳转到分类页面，并传递导航参�?    if (topic.navigation) {
       router.push({
         path: '/landscape/category',
         query: {

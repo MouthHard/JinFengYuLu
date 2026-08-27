@@ -25,20 +25,19 @@
 
 <script setup lang="ts">
   import { ref, computed, watch } from 'vue';
-  import { getExhibitionsByMuseumId } from '@/pages/Museum/data/exhibitions';
-  import type { Exhibition, Museum } from '@/typesOfPages/museum/index';
+  import { useMuseumDataStore } from '@/stores/museum';
+  import type { Exhibition, Museum } from '@/types/museum/index';
 
-  // 导入子组件
-  import ExhibitionHeader from './components/ExhibitionHeader/index.vue';
+  // 导入子组�?  import ExhibitionHeader from './components/ExhibitionHeader/index.vue';
   import ExhibitionCardList from './components/ExhibitionCardList/index.vue';
   import ExhibitionDetail from './components/ExhibitionDetail/index.vue';
 
-  // 接收博物馆参数
-  interface Props {
+  // 接收博物馆参�?  interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const statusFilter = ref('all');
   const themeFilter = ref('all');
@@ -55,74 +54,58 @@
     searchQuery.value = query;
   };
 
-  // 展览分类数据
-  const categories = ref([
-    {
-      id: 1,
-      name: '历史文化',
-      count: 12,
-      icon: '🏛️',
-    },
-    {
-      id: 2,
-      name: '艺术精品',
-      count: 8,
-      icon: '🎨',
-    },
-    {
-      id: 3,
-      name: '科技考古',
-      count: 5,
-      icon: '🔬',
-    },
-    {
-      id: 4,
-      name: '民俗风情',
-      count: 7,
-      icon: '🎭',
-    },
-  ]);
-
   // 获取当前博物馆的展览数据
   const allExhibitions = computed(() => {
-    return getExhibitionsByMuseumId(props.museum.id);
+    return store.getExhibitionsByMuseumId(props.museum.id);
   });
 
-  // 筛选后的展览
-  const filteredExhibitions = computed(() => {
+  // 展览分类数据（count 从当前博物馆真实展览数据统计�?  const categoryConfig = [
+      name: '历史文化',
+    { id: 2, name: '艺术精品', icon: '🎨' },
+    { id: 3, name: '科技考古', icon: '🔬' },
+    { id: 4, name: '民俗风情', icon: '🎭' },
+  ];
+
+  const categories = computed(() => {
+    return categoryConfig.map((cat) => ({
+      ...cat,
+      count: allExhibitions.value.filter(
+        (item) => item.category === cat.name,
+      ).length,
+    }));
+  });
+
+  // 筛选后的展�?  const filteredExhibitions = computed(() => {
     let result = allExhibitions.value;
 
-    // 状态筛选
-    if (statusFilter.value !== 'all') {
+    // 状态筛�?    if (statusFilter.value !== 'all') {
       switch (statusFilter.value) {
         case 'hot':
           result = result.filter((item) => (item as any).status === '热门');
           break;
         case 'latest':
-          result = result.filter((item) => (item as any).status === '最新');
+          result = result.filter((item) => (item as any).status === '最�?);
           break;
         case 'ending':
           result = result.filter((item) => (item as any).status === '即将结束');
           break;
         case 'planning':
-          result = result.filter((item) => (item as any).status === '筹备中');
+          result = result.filter((item) => (item as any).status === '筹备�?);
           break;
         case 'historical':
-          result = result.filter((item) => (item as any).status === '已结束');
+          result = result.filter((item) => (item as any).status === '已结�?);
           break;
       }
     }
 
-    // 主题筛选
-    if (themeFilter.value !== 'all') {
+    // 主题筛�?    if (themeFilter.value !== 'all') {
       const selectedCategoryName = categories.value.find(
         (cat) => cat.id.toString() === themeFilter.value,
       )?.name;
       result = result.filter((item) => item.category === selectedCategoryName);
     }
 
-    // 搜索筛选
-    if (searchQuery.value) {
+    // 搜索筛�?    if (searchQuery.value) {
       const query = searchQuery.value.toLowerCase();
       result = result.filter((item) => {
         return (
@@ -139,13 +122,11 @@
     return result;
   });
 
-  // 监听筛选结果变化，当结果为空时清空选中的展览详情
-  watch(filteredExhibitions, (newFilteredExhibitions) => {
+  // 监听筛选结果变化，当结果为空时清空选中的展览详�?  watch(filteredExhibitions, (newFilteredExhibitions) => {
     if (newFilteredExhibitions.length === 0) {
       selectedExhibition.value = null;
     } else {
-      // 如果当前选中的展览不在筛选结果中，也清空选中状态
-      if (selectedExhibition.value) {
+      // 如果当前选中的展览不在筛选结果中，也清空选中状�?      if (selectedExhibition.value) {
         const isSelectedInResults = newFilteredExhibitions.some(
           (exhibition) => exhibition.id === selectedExhibition.value?.id,
         );

@@ -93,7 +93,7 @@ import { rankingTabs } from '@/utils/landscape/constants';
 const activeRankingTab = ref('works');
 
 const { allPhotographers } = usePhotographersViewData();
-const photographers = ref(allPhotographers());
+const photographers = computed(() => allPhotographers());
 
 const parseCount = (value: string): number => {
   const num = parseFloat(value.replace(/[KMk]/gi, ''));

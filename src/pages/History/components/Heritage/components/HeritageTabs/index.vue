@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { culturalHeritage } from '../../../../data/heritage';
+  import { useHistoryDataStore } from '@/stores/history';
   import { CloudBg } from '@/pages/History/icons/index.ts';
 
   interface Tab {
@@ -30,6 +30,8 @@
     name: string;
     count: number;
   }
+
+  const historyStore = useHistoryDataStore();
 
   // 分类名称映射
   const categoryNameMap: Record<string, string> = {
@@ -47,14 +49,14 @@
   // 动态计算各分类数量
   const categoryCounts = computed(() => {
     const counts: Record<string, number> = {};
-    culturalHeritage.forEach((item) => {
+    historyStore.heritage.forEach((item) => {
       counts[item.category] = (counts[item.category] || 0) + 1;
     });
     return counts;
   });
 
   const tabs = computed<Tab[]>(() => [
-    { id: 'all', name: '全部遗产', count: culturalHeritage.length },
+    { id: 'all', name: '全部遗产', count: historyStore.heritage.length },
     ...Object.entries(categoryCounts.value).map(([id, count]) => ({
       id,
       name: categoryNameMap[id] || id,

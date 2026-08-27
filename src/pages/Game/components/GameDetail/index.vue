@@ -120,8 +120,6 @@
 <script setup lang="ts">
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
-import type { GameTag, GamePlatform } from '@/typesOfPages/game';
-import { games } from '../../data/index';
 import { useGameStore } from '@/stores/game';
 import { showMessage } from '@/components/common/InteractionMessage';
 
@@ -129,7 +127,7 @@ defineOptions({ name: 'GameDetail' });
 
 const route = useRoute();
 const gameStore = useGameStore();
-const game = computed(() => games.find(g => g.id === route.params.id));
+const game = computed(() => gameStore.getGameById(route.params.id as string));
 const activeSs = ref(0);
 const ssTrackRef = ref<HTMLElement | null>(null);
 
@@ -155,15 +153,15 @@ const onKeydown = (e: KeyboardEvent) => {
 };
 onMounted(() => { 
   window.addEventListener('keydown', onKeydown);
-  gameStore.initializeFromData(games);
+  gameStore.ensureDataLoaded();
 });
 onUnmounted(() => { window.removeEventListener('keydown', onKeydown); });
 
-const tagLabel = (tag: GameTag): string => {
+const tagLabel = (tag: string): string => {
   const map: Record<string, string> = { hot: '热门', new: '新作', sale: '特惠', coming: '即将推出', free: '免费', premium: '精品', 'editor-choice': '编辑精选', multiplayer: '多人' };
   return map[tag] || '';
 };
-const platformLabel = (p: GamePlatform): string => {
+const platformLabel = (p: string): string => {
   const map: Record<string, string> = { pc: 'PC', ps5: 'PS5', ps4: 'PS4', xbox: 'Xbox', switch: 'Nintendo Switch', mobile: '移动端' };
   return map[p] || p;
 };

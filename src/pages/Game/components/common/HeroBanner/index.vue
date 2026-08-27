@@ -47,18 +47,18 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-import type { GameBanner, GameTag } from '@/typesOfPages/game';
+import type { GameBannerItem } from '@/services/game';
 
-const props = defineProps<{ banners: GameBanner[] }>();
+const props = defineProps<{ banners: GameBannerItem[] }>();
 const interval = 6000;
 
 const current = ref(0);
 const paused = ref(false);
 let timer: number | null = null;
 
-const tagLabel = (tag: GameTag): string => {
+const tagLabel = (tag?: string): string => {
   const map: Record<string, string> = { hot: '热门', new: '新作', sale: '特惠', coming: '即将推出', free: '免费', premium: '精品', 'editor-choice': '编辑精选', multiplayer: '多人' };
-  return map[tag] || '';
+  return map[tag || ''] || '';
 };
 
 const next = () => { current.value = (current.value + 1) % props.banners.length; };

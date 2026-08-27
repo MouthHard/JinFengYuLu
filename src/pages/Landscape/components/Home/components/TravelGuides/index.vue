@@ -3,10 +3,10 @@
     <div class="section-header">
       <div class="header-left">
         <span class="title-label">EXPLORE</span>
-        <h2 class="section-title">行者手记</h2>
-        <p class="section-subtitle">发现世界的每一个角落</p>
+        <h2 class="section-title">行者手�?/h2>
+        <p class="section-subtitle">发现世界的每一个角�?/p>
       </div>
-      <button class="more-btn" @click="handleMore">更多 ☞</button>
+      <button class="more-btn" @click="handleMore">更多 �?/button>
     </div>
 
     <div class="editorial-layout">
@@ -224,10 +224,10 @@
   import MaximizeIcon from '@/pages/Landscape/icon/components/home/TravelGuides/MaximizeIcon.vue';
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
-  import type { InteractionItem } from '@/typesOfPages/landscape';
+  import type { InteractionItem } from '@/types/landscape';
   import { GUIDE_DEFAULTS, DATE_DEFAULTS, AUTHOR_DEFAULTS } from '@/utils/landscape/defaults';
-  import { typeToTravelMode } from '@/utils/landscape/constants';
-  import type { GlobalGuide } from '@/typesOfPages/landscape/data';
+
+  import type { GlobalGuide } from '@/types/landscape/data';
 
   const router = useRouter();
   const interactionStore = useInteractionStore();
@@ -236,7 +236,7 @@
   const scrollPosition = ref(0);
   const maxScroll = ref(0);
 
-  const guides = ref(dataStore.getAllGuides());
+  const guides = computed(() => dataStore.getAllGuides());
   const moreGuides = computed(() => guides.value.slice(4));
 
   const getGuideId = (id: string | number) => String(id);
@@ -250,7 +250,7 @@
       type: 'guide',
       title: guide.title,
       image: guide.cover,
-      location: guide.location || guide.tags?.[0] || '未知目的地',
+      location: guide.location || guide.tags?.[0] || '未知目的�?,
       category: guide.typeName,
       timestamp: Date.now(),
       likes: c.likes,
@@ -264,17 +264,17 @@
       authorVerified: true,
       difficulty: guide.difficulty || GUIDE_DEFAULTS.difficulty,
       rating: guide.rating || GUIDE_DEFAULTS.rating,
-      ratingCount: Math.floor(Math.random() * 100) + GUIDE_DEFAULTS.ratingCount,
+      ratingCount: GUIDE_DEFAULTS.ratingCount,
       readTime: guide.readTime || GUIDE_DEFAULTS.readTime,
       saves: c.favorites,
       comments: guide.comments || GUIDE_DEFAULTS.comments,
       date: guide.date || DATE_DEFAULTS.fallback,
       isEditorPick: guide.id === '1',
       season: guide.season || GUIDE_DEFAULTS.season,
-      duration: guide.duration || '7天',
+      duration: guide.duration || '7�?,
       transport: guide.transport || GUIDE_DEFAULTS.transport,
       budget: guide.budget || GUIDE_DEFAULTS.budget,
-      audience: guide.audience || '摄影爱好者、户外探险者',
+      audience: guide.audience || '摄影爱好者、户外探险�?,
       highlights: guide.highlights || ['极致自然风光', '独特地质景观', '丰富摄影机会', '深度文化体验'],
       accommodation: guide.accommodation || GUIDE_DEFAULTS.accommodation,
       language: guide.language || GUIDE_DEFAULTS.language,
@@ -286,23 +286,23 @@
         { label: '滤镜', value: 'ND减光镜' },
       ],
       gears: guide.gears || [
-        { name: '全画幅相机', required: true },
+        { name: '全画幅相�?, required: true },
         { name: '广角镜头', required: true },
-        { name: '三脚架', required: true },
-        { name: '减光镜', required: false },
+        { name: '三脚�?, required: true },
+        { name: '减光�?, required: false },
         { name: '备用电池', required: true },
       ],
       safety: guide.safety || [
-        { type: 'warning' as const, title: '天气预警', content: '关注当地天气预报，避免恶劣天气出行' },
-        { type: 'info' as const, title: '装备建议', content: '携带保暖衣物、防滑鞋、急救包' },
+        { type: 'warning' as const, title: '天气预警', content: '关注当地天气预报，避免恶劣天气出�? },
+        { type: 'info' as const, title: '装备建议', content: '携带保暖衣物、防滑鞋、急救�? },
       ],
       altitude: guide.altitude || GUIDE_DEFAULTS.altitude,
       temperature: guide.temperature || GUIDE_DEFAULTS.temperature,
       tips: guide.tips || [
         '建议提前至少3个月规划行程',
-        '热门景点需要提前预约门票',
-        '尊重当地文化和习俗',
-        '保护环境，不要留下垃圾',
+        '热门景点需要提前预约门�?,
+        '尊重当地文化和习�?,
+        '保护环境，不要留下垃�?,
       ],
     } as any;
   };
@@ -347,12 +347,10 @@
   };
 
   const handleCardClick = (guide: GlobalGuide) => {
-    const guideType = guide.type || '';
-    const travelMode = typeToTravelMode[guideType] || 'self-drive';
     router.push({
       path: '/landscape/guides',
       query: {
-        travelMode: travelMode,
+        q: guide.title,
       },
     });
   };

@@ -51,20 +51,26 @@ export function useVirtualScroll(
   })
 
   let scrollTimeout: number | null = null
+  let rafId: number | null = null
 
   const handleScroll = () => {
     if (!containerRef.value) return
 
-    scrollTop.value = containerRef.value.scrollTop
-    isScrolling.value = true
+    if (rafId !== null) return
 
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout)
-    }
+    rafId = requestAnimationFrame(() => {
+      rafId = null
+      scrollTop.value = containerRef.value!.scrollTop
+      isScrolling.value = true
 
-    scrollTimeout = window.setTimeout(() => {
-      isScrolling.value = false
-    }, 150)
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
+      }
+
+      scrollTimeout = window.setTimeout(() => {
+        isScrolling.value = false
+      }, 150)
+    })
   }
 
   let resizeObserver: ResizeObserver | null = null
@@ -92,6 +98,10 @@ export function useVirtualScroll(
     }
     if (scrollTimeout) {
       clearTimeout(scrollTimeout)
+    }
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId)
+      rafId = null
     }
   }
 

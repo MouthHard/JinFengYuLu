@@ -70,7 +70,7 @@
           </div>
           <div class="artist-info">
             <h3 class="artist-name">{{ artist.name }}</h3>
-            <p class="artist-songs">{{ artist.songCount }} 首歌曲</p>
+            <p class="artist-songs">{{ artist.songCount }} 首歌�?/p>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ import { ref, computed } from "vue";
 import { inject } from "vue";
 import { songs, artists, albums, mvs } from "@/stores/music";
 import { formatDuration } from "@/utils/music";
-import type { Song } from "@/typesOfPages/music";
+import type { Song } from "@/types/music";
 
 const playSong = inject<(song: Song) => void>("playSong");
 
@@ -213,7 +213,7 @@ const categoryTabs = [
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
   },
   {
-    label: '排行榜',
+    label: '排行�?,
     value: 'charts',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>'
   }
@@ -318,7 +318,7 @@ const radioData = [
   { id: 7, name: 'R&B音乐电台', description: '节奏布鲁斯，灵魂之声', cover: 'https://picsum.photos/seed/radio7/400/400', listeners: '5.3万', category: 'R&B' },
   { id: 8, name: '爵士音乐电台', description: '爵士风情，优雅格调', cover: 'https://picsum.photos/seed/radio8/400/400', listeners: '3.9万', category: '爵士' },
   { id: 9, name: '乡村音乐电台', description: '乡村民谣，自然纯真', cover: 'https://picsum.photos/seed/radio9/400/400', listeners: '4.5万', category: '乡村' },
-  { id: 10, name: '轻音乐电台', description: '舒缓放松，减压必备', cover: 'https://picsum.photos/seed/radio10/400/400', listeners: '9.2万', category: '轻音乐' },
+  { id: 10, name: '轻音乐电�?, description: '舒缓放松，减压必�?, cover: 'https://picsum.photos/seed/radio10/400/400', listeners: '9.2�?, category: '轻音�? },
   { id: 11, name: '世界音乐电台', description: '全球音乐，文化交融', cover: 'https://picsum.photos/seed/radio11/400/400', listeners: '3.6万', category: '世界音乐' },
   { id: 12, name: '儿童音乐电台', description: '儿歌童谣，陪伴成长', cover: 'https://picsum.photos/seed/radio12/400/400', listeners: '2.8万', category: '儿童音乐' },
   { id: 13, name: '有声读物电台', description: '精彩故事，用心聆听', cover: 'https://picsum.photos/seed/radio13/400/400', listeners: '6.4万', category: '有声读物' },
@@ -349,38 +349,38 @@ const chartsData = {
 
 const getChartName = (chartKey: any): string => {
   const chartNames: Record<string, string> = {
-    hot: '飙升榜',
-    new: '新歌榜',
-    pop: '流行指数榜',
-    shazam: '听歌识曲榜',
-    mv: 'MV榜',
-    region: '地区榜',
-    china: '内地榜',
-    'hk-tw': '港台榜',
-    western: '欧美榜',
-    japan: '日本榜',
-    korea: '韩国榜',
-    feature: '特色榜',
-    rap: '说唱榜',
-    edm: '电音榜',
-    rock: '摇滚榜',
-    folk: '民谣榜',
-    chinese: '国风榜',
-    global: '全球榜'
+    hot: '飙升�?,
+    new: '新歌�?,
+    pop: '流行指数�?,
+    shazam: '听歌识曲�?,
+    mv: 'MV�?,
+    region: '地区�?,
+    china: '内地�?,
+    'hk-tw': '港台�?,
+    western: '欧美�?,
+    japan: '日本�?,
+    korea: '韩国�?,
+    feature: '特色�?,
+    rap: '说唱�?,
+    edm: '电音�?,
+    rock: '摇滚�?,
+    folk: '民谣�?,
+    chinese: '国风�?,
+    global: '全球�?
   };
-  return chartNames[chartKey] || '排行榜';
+  return chartNames[chartKey] || '排行�?;
 };
 
 const getChartDescription = (chartKey: any): string => {
   const chartDescriptions: Record<string, string> = {
     hot: '实时热门歌曲',
-    new: '最新发布歌曲',
-    pop: '最受欢迎流行歌曲',
+    new: '最新发布歌�?,
+    pop: '最受欢迎流行歌�?,
     shazam: '最热门识别歌曲',
     mv: '热门音乐视频',
-    region: '各地区热门歌曲',
+    region: '各地区热门歌�?,
     china: '中国大陆热门歌曲',
-    'hk-tw': '港澳台地区热门歌曲',
+    'hk-tw': '港澳台地区热门歌�?,
     western: '欧美地区热门歌曲',
     japan: '日本地区热门歌曲',
     korea: '韩国地区热门歌曲',
@@ -389,10 +389,10 @@ const getChartDescription = (chartKey: any): string => {
     edm: '电子音乐热门歌曲',
     rock: '摇滚音乐热门歌曲',
     folk: '民谣音乐热门歌曲',
-    chinese: '中国风音乐热门歌曲',
+    chinese: '中国风音乐热门歌�?,
     global: '全球热门歌曲'
   };
-  return chartDescriptions[chartKey] || '发现热门音乐，追踪流行趋势';
+  return chartDescriptions[chartKey] || '发现热门音乐，追踪流行趋�?;
 };
 
 const filteredItems = computed(() => {

@@ -1,7 +1,7 @@
 <template>
   <div class="food-module">
     <template v-if="isLoading">
-      <div class="food-loading">加载中...</div>
+      <div class="food-loading">加载�?..</div>
     </template>
     <template v-else>
       <Popular :popular-foods="popularFoods" />
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from 'vue';
-  import type { Food, FoodItem, FoodLocation } from '@/typesOfPages/travelGuide/index.ts';
+  import type { Food, FoodItem, FoodLocation } from '@/types/travelGuide/index.ts';
   import { loadFoodDataByProvince, getLoadedFoodData, foodLocations } from '../../data/food/food.ts';
 
   import Popular from './popular/index.vue';

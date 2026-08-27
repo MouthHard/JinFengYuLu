@@ -10,7 +10,7 @@
         </div>
         <div class="header-info">
           <h1>我的收藏</h1>
-          <p>珍藏每一段感动</p>
+          <p>珍藏每一段感�?/p>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
             </div>
-            <div class="card-badge">{{ playlist.songCount }}首</div>
+            <div class="card-badge">{{ playlist.songCount }}�?/div>
           </div>
           <div class="card-info">
             <h4>{{ playlist.name }}</h4>
@@ -134,7 +134,7 @@
 import { ref, inject } from "vue";
 import { collectionSongsData, collectionPlaylistsData } from "@/stores/music";
 import { formatDuration } from "@/utils/music";
-import type { Song, MyPlaylist } from "@/typesOfPages/music";
+import type { Song, MyPlaylist } from "@/types/music";
 
 const playSong = inject<(song: Song) => void>("playSong");
 

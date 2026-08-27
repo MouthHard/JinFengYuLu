@@ -6,7 +6,7 @@
     </div>
 
     <div class="section-header">
-      <h3 class="section-title">🍽️ 美食分类</h3>
+      <h3 class="section-title">🍽�?美食分类</h3>
       <div class="categories-grid">
         <div v-for="(category, index) in foodCategories" :key="category.id" class="category-card" :class="{
           active: selectedCategory?.id === category.id,
@@ -36,11 +36,11 @@
           <img :src="food.image" :alt="food.name" class="food-card-horizontal-image" loading="lazy"
             @error="handleImageError" />
           <div v-if="!food.image" class="image-placeholder">
-            <span class="placeholder-icon">🍽️</span>
+            <span class="placeholder-icon">🍽�?/span>
             <span class="placeholder-text">暂无图片</span>
           </div>
           <div class="food-card-horizontal-rating-badge">
-            ⭐ {{ food.rating }}
+            �?{{ food.rating }}
           </div>
           <div v-if="food.price && Number(food.price) < 50" class="food-card-horizontal-discount">
             特价
@@ -59,15 +59,15 @@
               </div>
               <div class="recommendations-content">
                 <div class="recommendation-item">
-                  <span class="recommendation-label-pairings">搭配：</span>
+                  <span class="recommendation-label-pairings">搭配�?/span>
                   <span class="recommendation-value">
                     {{
-                      food.recommendations?.pairings?.join('、') || '暂无推荐'
+                      food.recommendations?.pairings?.join('�?) || '暂无推荐'
                     }}
                   </span>
                 </div>
                 <div class="recommendation-item">
-                  <span class="recommendation-label-eating">吃法：</span>
+                  <span class="recommendation-label-eating">吃法�?/span>
                   <span class="recommendation-value">
                     {{ food.recommendations?.eatingMethod || '暂无推荐' }}
                   </span>
@@ -97,7 +97,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import type { Food, FoodCategory } from '@/typesOfPages/travelGuide';
+import type { Food, FoodCategory } from '@/types/travelGuide';
 import { CategoriesBackground } from '@/pages/TravelGuide/icons/pages/food/index.ts';
 
 interface Props {

@@ -27,14 +27,14 @@
         </div>
 
         <div class="disc-info">
-          <div class="song-title">{{ currentSong?.name || '未播放歌曲' }}</div>
+          <div class="song-title">{{ currentSong?.name || '未播放歌�? }}</div>
           <div v-if="currentSong" class="song-meta">
             <div class="meta-item">
-              <span class="meta-label">专辑：</span>
+              <span class="meta-label">专辑�?/span>
               <span class="meta-value">{{ currentSong.album.name }}</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">歌手：</span>
+              <span class="meta-label">歌手�?/span>
               <span class="meta-value">{{ currentSong.artists.map(a => a.name).join(' / ') }}</span>
             </div>
           </div>
@@ -80,7 +80,7 @@
                   <circle cx="6" cy="18" r="3" />
                   <circle cx="18" cy="16" r="3" />
                 </svg>
-                <p>纯音乐，请欣赏</p>
+                <p>纯音乐，请欣�?/p>
               </div>
             </div>
             <div v-else-if="activeTab === 'info'" class="info-content">
@@ -134,7 +134,7 @@
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
 import { formatDuration } from "@/utils/music";
-import type { Song, LyricLine } from "@/typesOfPages/music";
+import type { Song, LyricLine } from "@/types/music";
 
 const props = defineProps<{
   currentSong: Song | null;

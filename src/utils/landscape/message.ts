@@ -143,4 +143,25 @@ export const showMessage = {
       });
     },
   },
+
+  error: (message: string) => {
+    showMessageWithHoverClose({
+      type: 'error',
+      message,
+    });
+  },
+
+  warning: (message: string) => {
+    showMessageWithHoverClose({
+      type: 'warning',
+      message,
+    });
+  },
+
+  info: (message: string) => {
+    showMessageWithHoverClose({
+      type: 'info',
+      message,
+    });
+  },
 };

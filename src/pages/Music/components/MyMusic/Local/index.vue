@@ -12,7 +12,7 @@
         </div>
         <div class="header-info">
           <h1>本地音乐</h1>
-          <p>存储在设备中的音乐文件</p>
+          <p>存储在设备中的音乐文�?/p>
         </div>
       </div>
       <div class="header-actions">
@@ -77,7 +77,7 @@
             </div>
             <div class="stat-content">
               <span class="stat-value">{{ localFoldersData.length }}</span>
-              <span class="stat-label">文件夹</span>
+              <span class="stat-label">文件�?/span>
             </div>
           </div>
           <div class="stat-item">
@@ -89,7 +89,7 @@
             </div>
             <div class="stat-content">
               <span class="stat-value">{{ totalSize }}</span>
-              <span class="stat-label">总大小</span>
+              <span class="stat-label">总大�?/span>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
           <div class="col">#</div>
           <div class="col cover">封面</div>
           <div class="col title">名称</div>
-          <div class="col artist">艺术家</div>
+          <div class="col artist">艺术�?/div>
           <div class="col album">专辑</div>
           <div class="col duration">时长</div>
           <div class="col size">大小</div>
@@ -203,7 +203,7 @@
             <span class="folder-path">{{ folder.path }}</span>
           </div>
           <div class="folder-meta">
-            <span class="song-count">{{ folder.songCount }} 首</span>
+            <span class="song-count">{{ folder.songCount }} �?/span>
             <button class="more-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="1"/>
@@ -222,7 +222,7 @@
 import { ref, computed, inject } from "vue";
 import { localSongsData, localFoldersData } from "@/stores/music";
 import { formatDuration } from "@/utils/music";
-import type { Song, LocalFolder } from "@/typesOfPages/music";
+import type { Song, LocalFolder } from "@/types/music";
 
 const playSong = inject<(song: Song) => void>("playSong");
 
@@ -237,7 +237,7 @@ const tabs = [
   },
   {
     key: 'folders',
-    label: '文件夹',
+    label: '文件�?,
     icon: 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'
   }
 ];

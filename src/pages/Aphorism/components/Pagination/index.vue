@@ -6,7 +6,7 @@
       title="上一页"
       @click="goToPage(currentPage - 1)"
     >
-      <span class="button-icon">‹</span>
+      <span class="button-icon"><ChevronLeftIcon /></span>
       <span class="button-text">上一页</span>
     </button>
 
@@ -30,7 +30,7 @@
       @click="goToPage(currentPage + 1)"
     >
       <span class="button-text">下一页</span>
-      <span class="button-icon">›</span>
+      <span class="button-icon"><ChevronRightIcon /></span>
     </button>
 
     <div class="pagination-info">
@@ -43,6 +43,8 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
+  import ChevronLeftIcon from '../../icons/common/ChevronLeftIcon.vue';
+  import ChevronRightIcon from '../../icons/common/ChevronRightIcon.vue';
   import './index.scss';
 
   const props = defineProps<{

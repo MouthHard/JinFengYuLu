@@ -24,8 +24,8 @@ export const provinceElevation: Record<string, number> = {
   河南省: 246,
   辽宁省: 224,
   山东省: 218,
-  香港特别行程程政区: 121,
-  澳门特别行程程政区: 27,
+  香港特别行政区: 121,
+  澳门特别行政区: 27,
   天津市: 22,
   江苏省: 15,
   上海市: 4,
@@ -66,8 +66,8 @@ export const provinceNameMap: Record<string, string> = {
   宁夏回族自治区: '宁夏',
   新疆维吾尔自治区: '新疆',
   台湾省: '台湾',
-  香港特别行程程政区: '香港',
-  澳门特别行程程政区: '澳门',
+  香港特别行政区: '香港',
+  澳门特别行政区: '澳门',
   南海诸岛: '海南', // 南海诸岛归属海南省
 };
 
@@ -468,7 +468,7 @@ export const getElevationTier = (provinceName: string): number => {
   ];
   if (tier3Provinces.includes(provinceName)) return 3;
 
-  // 第三梯队（500-1000米）：台湾、重庆、河北、福建、广西、北京、湖南、黑龙江、浙江、江西
+  // 第三梯队（500-1000米）：台湾、重庆、河北、福建、广西、北京、湖南、黑龙江、浙江、江西、湖北
   const tier2Provinces = [
     '台湾省',
     '重庆市',
@@ -480,6 +480,7 @@ export const getElevationTier = (provinceName: string): number => {
     '黑龙江省',
     '浙江省',
     '江西省',
+    '湖北省',
   ];
   if (tier2Provinces.includes(provinceName)) return 2;
 

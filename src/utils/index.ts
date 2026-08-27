@@ -9,9 +9,6 @@ export * as HistoryUtils from "./history";
 // Museum 页面工具（按需导入）
 export { formatNumber, generateMuseumRoute } from "./museum";
 
-// Poetry 页面工具（按需导入）
-export { searchPoems, filterPoemsByCategory, getSubCategories } from "./poetry";
-
 // TravelGuide 页面工具（通过命名空间导出）
 export * as TravelGuideUtils from "./travelGuide";
 

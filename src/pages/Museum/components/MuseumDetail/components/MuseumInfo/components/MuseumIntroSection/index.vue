@@ -18,7 +18,7 @@
             <span class="meta-item">
               <span class="meta-label">文物数量</span>
               <span class="meta-value">
-                {{ formatNumber(museum.artifacts) }}
+                {{ museum.artifacts > 0 ? formatNumber(museum.artifacts) : '暂无数据' }}
               </span>
             </span>
             <span class="meta-item">
@@ -28,7 +28,7 @@
             <span class="meta-item">
               <span class="meta-label">年访问量</span>
               <span class="meta-value">
-                {{ formatNumber(museum.visitors) }}
+                {{ museum.visitors > 0 ? formatNumber(museum.visitors) : '暂无数据' }}
               </span>
             </span>
           </div>
@@ -36,32 +36,32 @@
         <div class="museum-visit">
           <h3 class="visit-title">参观信息</h3>
           <div class="visit-info">
-            <!-- 开放时间 -->
+            <!-- 开放时�?-->
             <p>
-              <span class="visit-label">开放时间</span>
+              <span class="visit-label">开放时�?/span>
               <template v-if="museumDetails?.visitInfo">
                 {{
                   typeof museumDetails.visitInfo.openTime === 'string'
                     ? museumDetails.visitInfo.openTime
                     : museumDetails.visitInfo.openTime?.regularTime ||
-                      '周二至周日 9:00-17:00'
+                      '周二至周�?9:00-17:00'
                 }}
               </template>
-              <template v-else>周二至周日 9:00-17:00</template>
+              <template v-else>周二至周�?9:00-17:00</template>
             </p>
 
-            <!-- 闭馆日 -->
+            <!-- 闭馆�?-->
             <p>
-              <span class="visit-label">闭馆日</span>
+              <span class="visit-label">闭馆�?/span>
               <template v-if="museumDetails?.visitInfo">
                 {{
                   typeof museumDetails.visitInfo.openTime === 'string'
                     ? museumDetails.visitInfo.openTime
                     : museumDetails.visitInfo.openTime?.closeDay ||
-                      '周一闭馆（法定节假日除外）'
+                      '周一闭馆（法定节假日除外�?
                 }}
               </template>
-              <template v-else>周一闭馆（法定节假日除外）</template>
+              <template v-else>周一闭馆（法定节假日除外�?/template>
             </p>
 
             <!-- 门票 -->
@@ -73,11 +73,11 @@
                     ? museumDetails.visitInfo.ticket
                     : (museumDetails.visitInfo.ticket?.price || '免费') +
                       (museumDetails.visitInfo.ticket?.needReservation
-                        ? '（需提前预约）'
+                        ? '（需提前预约�?
                         : '')
                 }}
               </template>
-              <template v-else>免费（需提前预约）</template>
+              <template v-else>免费（需提前预约�?/template>
             </p>
 
             <!-- 地址 -->
@@ -133,7 +133,7 @@
 
       <div class="right-column">
         <div class="museum-description">
-          <h3 class="description-title">博物馆介绍</h3>
+          <h3 class="description-title">博物馆介�?/h3>
           <p>{{ museum.description }}</p>
         </div>
         <div class="museum-history">
@@ -141,7 +141,7 @@
           <p>
             {{
               museumDetails?.history ||
-              '博物馆历史悠久，收藏丰富，是重要的文化机构。'
+              '博物馆历史悠久，收藏丰富，是重要的文化机构�?
             }}
           </p>
         </div>
@@ -150,7 +150,7 @@
           <p>
             {{
               museumDetails?.architecture ||
-              '博物馆建筑风格独特，融合传统与现代元素，为观众提供良好的参观环境。'
+              '博物馆建筑风格独特，融合传统与现代元素，为观众提供良好的参观环境�?
             }}
           </p>
         </div>
@@ -159,7 +159,7 @@
           <p>
             {{
               museumDetails?.highlights ||
-              '馆藏文物丰富，包括历史文物、艺术珍品等，是了解当地历史文化的重要窗口。'
+              '馆藏文物丰富，包括历史文物、艺术珍品等，是了解当地历史文化的重要窗口�?
             }}
           </p>
         </div>
@@ -168,7 +168,7 @@
           <p>
             {{
               museumDetails?.education ||
-              '开展丰富的公众教育活动，包括专题讲座、文化体验、研学旅行等，传播历史文化知识。'
+              '开展丰富的公众教育活动，包括专题讲座、文化体验、研学旅行等，传播历史文化知识�?
             }}
           </p>
         </div>
@@ -177,24 +177,30 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import type { Museum } from '@/typesOfPages/museum';
-  import { getMuseumDetailsById } from '@/pages/Museum/data/museum-details';
+  import { ref, watch } from 'vue';
+  import type { Museum, MuseumDetailInfo } from '@/types/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const formatNumber = (num: number): string => {
     return num.toLocaleString();
   };
 
-  // 获取博物馆详细信息
-  const museumDetails = computed(() => {
-    return getMuseumDetailsById(props.museum.id);
-  });
+  const museumDetails = ref<MuseumDetailInfo | null>(null);
+
+  watch(
+    () => props.museum.id,
+    async (id) => {
+      museumDetails.value = await store.getMuseumDetailsById(id);
+    },
+    { immediate: true },
+  );
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>

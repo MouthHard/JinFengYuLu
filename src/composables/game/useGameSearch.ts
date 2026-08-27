@@ -1,5 +1,5 @@
 import { ref, computed, type Ref } from 'vue';
-import type { GameItem, GameCategory, GameTag, GamePlatform } from '@/typesOfPages/game';
+import type { GameItem, GameCategory, GameTag, GamePlatform } from '@/types/game';
 
 interface SearchFilters {
   category: GameCategory | 'all';

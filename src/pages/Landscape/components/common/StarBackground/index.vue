@@ -122,7 +122,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted, computed } from 'vue';
+  import { shallowRef, onMounted, onUnmounted, computed } from 'vue';
 
   interface Star {
     id: number;
@@ -156,10 +156,10 @@
     active: boolean;
   }
 
-  const stars = ref<Star[]>([]);
-  const brightStars = ref<Star[]>([]);
-  const nebulae = ref<Nebula[]>([]);
-  const meteors = ref<Meteor[]>([]);
+  const stars = shallowRef<Star[]>([]);
+  const brightStars = shallowRef<Star[]>([]);
+  const nebulae = shallowRef<Nebula[]>([]);
+  const meteors = shallowRef<Meteor[]>([]);
   // 生成星星
   const generateStars = () => {
     const newStars: Star[] = [];

@@ -49,9 +49,9 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
-import type { Poem } from '@/typesOfPages/aphorism/poem';
+import type { Poem } from '@/types/aphorism/poem';
 import CloseIcon from '../../../../icons/common/CloseIcon.vue';
-import { usePoemBackground } from '../../../../composables/usePoemBackground';
+import { usePoemBackground } from '../../../../../../composables/aphorism/usePoemBackground';
 import './index.scss';
 
 const props = defineProps<{
@@ -61,7 +61,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'click', poem: Poem, backgroundImage: string): void;
-  (e: 'remove', poemId: string): void;
+  (e: 'remove', poemId: number): void;
 }>();
 
 const previewLines = computed(() => props.poem.content.slice(0, 6));

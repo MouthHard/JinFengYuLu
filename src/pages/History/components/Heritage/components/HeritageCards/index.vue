@@ -2,9 +2,9 @@
   <div class="heritage-cards">
     <CloudBack />
     <div class="carousel-container">
-      <!-- 左侧上下控制区 -->
+      <!-- 左侧上下控制�?-->
       <div class="carousel-controls">
-        <button class="control-btn prev" @click="prevCard">︽</button>
+        <button class="control-btn prev" @click="prevCard">�?/button>
         <div class="control-dots">
           <span
             v-for="i in Math.min(filteredHeritages.length, 10)"
@@ -14,7 +14,7 @@
             @click="goToRealIndex(i - 1)"
           ></span>
         </div>
-        <button class="control-btn next" @click="nextCard">︾</button>
+        <button class="control-btn next" @click="nextCard">�?/button>
       </div>
       <div ref="containerRef" class="cards-wrapper">
         <div
@@ -46,14 +46,13 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-  import {
-    culturalHeritage,
-    type CulturalHeritageItem,
-  } from '../../../../data/heritage';
+  import { useHistoryDataStore } from '@/stores/history';
+  import type { CulturalHeritageItem } from '@/types/history';
 import { CloudBack } from '@/pages/History/icons/index.ts';
 
-  // 动态计算卡片尺寸和偏移量
-  const containerHeight = ref(window.innerHeight - 120);
+  const historyStore = useHistoryDataStore();
+
+  // 动态计算卡片尺寸和偏移�?  const containerHeight = ref(window.innerHeight - 120);
   const containerRef = ref<HTMLElement | null>(null);
   const containerWidth = ref(500);
   const cardH = computed(() =>
@@ -74,25 +73,22 @@ import { CloudBack } from '@/pages/History/icons/index.ts';
     activeTab: string;
   }>();
 
-  // 响应式数据
-  const virtualIndex = ref<number>(0);
+  // 响应式数�?  const virtualIndex = ref<number>(0);
 
-  // 真实索引（映射到数组范围）
-  const realIndex = computed(() => {
+  // 真实索引（映射到数组范围�?  const realIndex = computed(() => {
     const len = filteredHeritages.value.length;
     if (len === 0) return 0;
     return ((virtualIndex.value % len) + len) % len;
   });
 
-  // 计算属性
-  const filteredHeritages = computed(() => {
+  // 计算属�?  const filteredHeritages = computed(() => {
     if (props.activeTab === 'all') {
-      return culturalHeritage;
+      return historyStore.heritage;
     }
-    return culturalHeritage.filter((item) => item.category === props.activeTab);
+    return historyStore.heritage.filter((item) => item.category === props.activeTab);
   });
 
-  // 视觉上显示3张：当前 ±1
+  // 视觉上显�?张：当前 ±1
   const MAX_VISIBLE = 1;
 
   // 生成可见槽位
@@ -128,20 +124,17 @@ import { CloudBack } from '@/pages/History/icons/index.ts';
     goToVirtualIndex(virtualIndex.value + 1);
   };
 
-  // 通过真实索引跳转（dots 点击）
-  const goToRealIndex = (ri: number) => {
+  // 通过真实索引跳转（dots 点击�?  const goToRealIndex = (ri: number) => {
     const len = filteredHeritages.value.length;
     const base = virtualIndex.value;
     const current = ((base % len) + len) % len;
     let diff = ri - current;
-    // 取最短路径
-    if (diff > len / 2) diff -= len;
+    // 取最短路�?    if (diff > len / 2) diff -= len;
     if (diff < -len / 2) diff += len;
     goToVirtualIndex(base + diff);
   };
 
-  // offset 为相对当前的偏移量（范围 -1~+1）
-  const getCardScale = (offset: number) => {
+  // offset 为相对当前的偏移量（范围 -1~+1�?  const getCardScale = (offset: number) => {
     const d = Math.abs(offset);
     if (d === 0) return 1;
     if (d === 1) return 0.88;
@@ -170,13 +163,11 @@ import { CloudBack } from '@/pages/History/icons/index.ts';
     'select-heritage': [heritage: CulturalHeritageItem];
   }>();
 
-  // 监听 activeTab 变化，重置索引
-  watch(
+  // 监听 activeTab 变化，重置索�?  watch(
     () => props.activeTab,
     () => {
       virtualIndex.value = 0;
-      // 自动选择第一个文物
-      if (filteredHeritages.value.length > 0) {
+      // 自动选择第一个文�?      if (filteredHeritages.value.length > 0) {
         emit('select-heritage', filteredHeritages.value[0]);
       }
     },
@@ -189,8 +180,7 @@ import { CloudBack } from '@/pages/History/icons/index.ts';
     if (containerRef.value) {
       containerWidth.value = containerRef.value.offsetWidth;
     }
-    // 初始化时选择第一个文物
-    if (filteredHeritages.value.length > 0) {
+    // 初始化时选择第一个文�?    if (filteredHeritages.value.length > 0) {
       emit('select-heritage', filteredHeritages.value[0]);
     }
   });

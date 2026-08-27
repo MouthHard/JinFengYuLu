@@ -51,9 +51,9 @@
       <div class="card-body">
         <div class="terms-list">
           <div 
-            class="terms-item" 
             v-for="(item, index) in termsItems" 
-            :key="index"
+            :key="index" 
+            class="terms-item"
             @click="showToast"
           >
             <div class="terms-icon">

@@ -25,12 +25,21 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
-import HeroSection from './components/HeroSection/index.vue';
-import FeaturedCarousel from './components/FeaturedCarousel/index.vue';
-import HotTopics from './components/HotTopics/index.vue';
-import PopularDestinations from './components/PopularDestinations/index.vue';
+import type { LandscapeItem } from '@/types/landscape';
 import LazyLoadWrapper from '@/components/common/LazyLoadWrapper/index.vue';
+
+const HeroSection = defineAsyncComponent(() =>
+  import('./components/HeroSection/index.vue')
+);
+const FeaturedCarousel = defineAsyncComponent(() =>
+  import('./components/FeaturedCarousel/index.vue')
+);
+const HotTopics = defineAsyncComponent(() =>
+  import('./components/HotTopics/index.vue')
+);
+const PopularDestinations = defineAsyncComponent(() =>
+  import('./components/PopularDestinations/index.vue')
+);
 
 const TravelGuides = defineAsyncComponent(() =>
   import('./components/TravelGuides/index.vue')

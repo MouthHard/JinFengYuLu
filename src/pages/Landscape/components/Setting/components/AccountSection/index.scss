@@ -82,10 +82,9 @@
             linear-gradient(135deg, rgba(254, 249, 195, 0.1) 0%, transparent 50%);
           border-color: rgba(254, 249, 195, 0.55);
           color: #fef9c3;
-          transform: translateY(-2px);
-          box-shadow: 
+          box-shadow:
             0 6px 16px rgba(0, 0, 0, 0.4),
-            0 0 14px rgba(254, 249, 195, 0.08),
+            0 0 18px rgba(254, 249, 195, 0.12),
             inset 0 1px 0 rgba(255, 250, 230, 0.12),
             inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 
@@ -97,7 +96,7 @@
         }
 
         &:active {
-          transform: translateY(-1px);
+
         }
       }
     }
@@ -144,10 +143,9 @@
               linear-gradient(165deg, rgba(22, 30, 50, 0.95), rgba(12, 18, 32, 0.98)),
               linear-gradient(135deg, rgba(254, 249, 195, 0.08) 0%, transparent 50%);
             border-color: rgba(56, 189, 248, 0.45);
-            transform: translateY(-1px);
-            box-shadow: 
-              0 6px 14px rgba(0, 0, 0, 0.35),
-              0 0 14px rgba(56, 189, 248, 0.08);
+            box-shadow:
+              0 4px 14px rgba(0, 0, 0, 0.35),
+              0 0 18px rgba(56, 189, 248, 0.12);
 
             .info-icon {
               border-color: rgba(56, 189, 248, 0.5);
@@ -213,11 +211,7 @@
 
         &:last-child {
           border-bottom: none;
-          padding-bottom: 0;
-        }
 
-        &:first-child {
-          padding-top: 0;
         }
 
         .item-info {

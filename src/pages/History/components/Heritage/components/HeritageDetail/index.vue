@@ -93,12 +93,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import {
-  culturalHeritage,
-  type CulturalHeritageItem,
-} from '../../../../data/heritage';
+import { useHistoryDataStore } from '@/stores/history';
+import type { CulturalHeritageItem } from '@/types/history';
 import { CloudBackground } from '@/pages/History/icons';
-// 分类名称映射
+
+const historyStore = useHistoryDataStore();
 const categoryNameMap: Record<string, string> = {
   site: '文化遗址',
   building: '古建筑',
@@ -106,17 +105,15 @@ const categoryNameMap: Record<string, string> = {
   intangible: '非遗',
 };
 
-// Props
 const props = defineProps<{
   selectedHeritage: CulturalHeritageItem | null;
 }>();
 
-// 相关推荐
 const relatedHeritage = computed(() => {
   if (!props.selectedHeritage?.relatedItems) {
     return [];
   }
-  return culturalHeritage.filter((item) =>
+  return historyStore.heritage.filter((item) =>
     props.selectedHeritage?.relatedItems?.includes(item.id),
   );
 });

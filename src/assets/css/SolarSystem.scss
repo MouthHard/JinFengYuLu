@@ -12,6 +12,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  background-image: url('/App/bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .trajectory {
     z-index: 0;
@@ -270,6 +274,8 @@
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  z-index: 1;
+  pointer-events: none;
 
   .needle {
     background-image: linear-gradient(to bottom, #519bdc, #ffffff);
@@ -353,6 +359,8 @@
   font-weight: bolder;
   font-family: "LiSu";
   transition: 0.5s;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @keyframes rotate {

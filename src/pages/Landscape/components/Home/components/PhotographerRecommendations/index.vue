@@ -86,10 +86,10 @@
               <button class="btn-follow" :class="{ followed: isFollowing(currentArtist.id) }"
                 @click="toggleFollow(currentArtist.id)">
                 <span class="btn-icon">
-                  {{ isFollowing(currentArtist.id) ? '✓' : '+' }}
+                  {{ isFollowing(currentArtist.id) ? '�? : '+' }}
                 </span>
                 <span>
-                  {{ isFollowing(currentArtist.id) ? '已关注' : '关注' }}
+                  {{ isFollowing(currentArtist.id) ? '已关�? : '关注' }}
                 </span>
               </button>
               <button class="btn-icon-only" :class="{ liked: isArtistLiked(currentArtist.id) }"
@@ -109,7 +109,7 @@
                   "
                 class="content-tab" :class="{ active: activeTab === tab.key }" @click="activeTab = tab.key">
                 <span class="tab-label">{{ tab.label }}</span>
-                <span class="tab-count">{{ getTabCount(tab.key) }}</span>
+                <span class="tab-count">{{ tabCounts[tab.key] || 0 }}</span>
               </button>
             </div>
           </div>
@@ -198,7 +198,7 @@
         <div v-else class="empty-state">
           <div class="empty-icon">📷</div>
           <h3>暂无作品</h3>
-          <p>该摄影师还没有上传作品</p>
+          <p>该摄影师还没有上传作�?/p>
         </div>
       </div>
     </div>
@@ -238,7 +238,7 @@ import { useHomeViewData } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { parseCount, formatNumber } from '@/utils/landscape/format';
 import { convertWorkToInteractionItem as buildWorkInteractionItem } from '@/utils/landscape/interaction';
-import type { InteractionItem } from '@/typesOfPages/landscape';
+import type { InteractionItem } from '@/types/landscape';
 import StarIcon from '@/pages/Landscape/icon/common/StarIcon.vue';
 import LocationIcon from '@/pages/Landscape/icon/common/LocationIcon.vue';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
@@ -258,28 +258,35 @@ import BookDetailIcon from '@/pages/Landscape/icon/components/home/PhotographerR
 
 const interactionStore = useInteractionStore();
 const { photographerRecommendations } = useHomeViewData();
-const photographersData = photographerRecommendations();
-const photographers = ref(photographersData);
+const photographers = computed(() => photographerRecommendations());
 
 const getArtistId = (id: string) => `pho-${id}`;
 const getWorkId = (id: string) => id;
 
-interactionStore.registerBatch(
-  photographersData.flatMap(artist => 
-    artist.works.map(work => ({
-      id: getWorkId(work.id),
-      counts: {
-        likes: parseCount(work.likes || '0'),
-        views: parseCount(work.views || '0'),
-        loves: parseCount(work.loves || '0'),
-        favorites: parseCount(work.bookmarks || '0'),
-        shares: parseCount(work.shares || '0'),
-      },
-    }))
-  )
+watch(
+  () => photographers.value.length,
+  (len) => {
+    if (len > 0) {
+      interactionStore.registerBatch(
+        photographers.value.flatMap(artist =>
+          artist.works.map(work => ({
+            id: getWorkId(work.id),
+            counts: {
+              likes: parseCount(work.likes || '0'),
+              views: parseCount(work.views || '0'),
+              loves: parseCount(work.loves || '0'),
+              favorites: parseCount(work.bookmarks || '0'),
+              shares: parseCount(work.shares || '0'),
+            },
+          }))
+        )
+      );
+    }
+  },
+  { immediate: true },
 );
 
-type WorkItem = typeof photographersData[0]['works'][0];
+type WorkItem = ReturnType<typeof photographerRecommendations>[number]['works'][number];
 
 const activeIndex = ref(0);
 const activeTab = ref('all');
@@ -310,11 +317,14 @@ const filteredWorks = computed(() => {
   return works.filter((w) => w.type === activeTab.value);
 });
 
-const getTabCount = (tabKey: string): number => {
+const tabCounts = computed<Record<string, number>>(() => {
   const works = currentArtist.value.works;
-  if (tabKey === 'all') return works.length;
-  return works.filter((w) => w.type === tabKey).length;
-};
+  const counts: Record<string, number> = { all: works.length };
+  for (const w of works) {
+    counts[w.type] = (counts[w.type] || 0) + 1;
+  }
+  return counts;
+});
 
 const switchArtist = (direction: number) => {
   activeTab.value = 'all';
@@ -442,23 +452,19 @@ const isWorkLoved = (id: string) => interactionStore.isLoved(getWorkId(id));
 const isWorkFavorited = (id: string) => interactionStore.isFavorited(getWorkId(id));
 
 const getWorkDisplayLikes = (work: WorkItem): string => {
-  const count = interactionStore.getCount(getWorkId(work.id));
-  return formatNumber(count.likes);
+  return formatNumber(interactionStore.getCount(getWorkId(work.id)).likes);
 };
 
 const getWorkDisplayLoves = (work: WorkItem): string => {
-  const count = interactionStore.getCount(getWorkId(work.id));
-  return formatNumber(count.loves);
+  return formatNumber(interactionStore.getCount(getWorkId(work.id)).loves);
 };
 
 const getWorkDisplayBookmarks = (work: WorkItem): string => {
-  const count = interactionStore.getCount(getWorkId(work.id));
-  return formatNumber(count.favorites);
+  return formatNumber(interactionStore.getCount(getWorkId(work.id)).favorites);
 };
 
 const getWorkDisplayShares = (work: WorkItem): string => {
-  const count = interactionStore.getCount(getWorkId(work.id));
-  return formatNumber(count.shares);
+  return formatNumber(interactionStore.getCount(getWorkId(work.id)).shares);
 };
 </script>
 

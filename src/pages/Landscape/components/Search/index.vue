@@ -1,7 +1,7 @@
 <template>
   <div class="search-page">
     <div class="search-header">
-      <div class="search-input-wrapper">
+      <div ref="searchHeaderRef" class="search-input-wrapper" :class="{ focused: isSearchFocused }">
         <SearchIcon class="search-icon" :stroke-width="2" />
         <input
           v-model="searchKeyword"
@@ -9,11 +9,63 @@
           class="search-input"
           placeholder="搜索风景、摄影师、攻略..."
           @input="handleInput"
+          @focus="isSearchFocused = true; showSearchDropdown = true"
+          @blur="handleSearchBlur"
           @keyup.enter="handleSearch"
         />
         <button class="search-btn" @click="handleSearch">
           搜索
         </button>
+
+        <transition name="search-dropdown">
+          <div v-if="showSearchDropdown" class="search-dropdown">
+            <div v-if="searchHistory.length > 0" class="history-section">
+              <div class="section-header">
+                <h4 class="section-title">搜索历史</h4>
+                <button class="clear-btn" @click.stop="clearHistory">清空</button>
+              </div>
+              <div class="history-tags" :class="{ expanded: showAllHistory }">
+                <button
+                  v-for="item in displayHistory"
+                  :key="item"
+                  class="history-tag"
+                  @click.stop="handleHistoryClick(item)"
+                >
+                  {{ item }}
+                </button>
+                <button
+                  v-if="searchHistory.length > 6 && !showAllHistory"
+                  class="more-btn"
+                  @click.stop="showAllHistory = true"
+                >
+                  更多 ▼
+                </button>
+                <button
+                  v-if="showAllHistory"
+                  class="more-btn"
+                  @click.stop="showAllHistory = false"
+                >
+                  收起 ▲
+                </button>
+              </div>
+            </div>
+
+            <div class="hot-section">
+              <h4 class="section-title">热门探索</h4>
+              <div class="hot-tags">
+                <button
+                  v-for="tag in hotSearchTags"
+                  :key="tag.text"
+                  class="hot-tag"
+                  @click.stop="handleTagClick(tag)"
+                >
+                  <span class="tag-icon">{{ tag.icon }}</span>
+                  <span>{{ tag.text }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
 
@@ -80,12 +132,14 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Search' });
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, onActivated, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SearchIcon from '../../icon/components/home/HeroSection/SearchIcon.vue'
 import SearchResultCard from './components/SearchResultCard/index.vue'
 import { useSearchViewData } from '@/composables/landscape'
 import { useInteractionStore } from '@/stores/landscape'
+import { useSearchHistory } from '@/composables/landscape/useSearchHistory'
+import { useHotTags } from '@/composables/landscape/useHotTags'
 import { typeFilters, SearchPhotographerSortOptions, SearchContentSortOptions } from '@/utils/landscape/constants'
 import {
   convertImageToSearchResult,
@@ -98,6 +152,7 @@ import {
   showMessage,
   createSimpleInteractionItem,
 } from '@/utils/landscape'
+import { debounce } from '@/utils/landscape/debounce'
 import type { SearchResultItem } from '@/utils/landscape'
 
 const photographerSortOptions = SearchPhotographerSortOptions
@@ -111,11 +166,44 @@ const currentSortOptions = computed(() => {
 const route = useRoute()
 const router = useRouter()
 const interactionStore = useInteractionStore()
+const { history: searchHistory, addHistory, clearHistory } = useSearchHistory()
+const { hotSearchTags } = useHotTags()
 
 const searchKeyword = ref('')
+const debouncedKeyword = ref('')
 const selectedType = ref('image')
 const selectedSort = ref('relevance')
 const gridColumns = ref(3)
+
+watch(searchKeyword, debounce((val: string) => {
+  debouncedKeyword.value = val
+}, 200))
+const showSearchDropdown = ref(false)
+const isSearchFocused = ref(false)
+const showAllHistory = ref(false)
+
+const displayHistory = computed(() => {
+  if (showAllHistory.value) return searchHistory.value
+  return searchHistory.value.slice(0, 6)
+})
+
+const handleSearchBlur = () => {
+  isSearchFocused.value = false
+  setTimeout(() => {
+    showSearchDropdown.value = false
+    showAllHistory.value = false
+  }, 200)
+}
+
+const handleTagClick = (tag: { text: string }) => {
+  searchKeyword.value = tag.text
+  handleSearch()
+}
+
+const handleHistoryClick = (item: string) => {
+  searchKeyword.value = item
+  handleSearch()
+}
 
 const hasGuideCards = computed(() => {
   return filteredResults.value.some(item => item.type === 'guide')
@@ -134,7 +222,7 @@ const handleInput = (event: Event) => {
 };
 
 const mockSearchResults = computed<SearchResultItem[]>(() => {
-  const keyword = searchKeyword.value || ''
+  const keyword = debouncedKeyword.value || ''
   const images = searchImages(keyword).map(convertImageToSearchResult)
   const videos = searchVideos(keyword).map(convertVideoToSearchResult)
   const guides = searchGuides(keyword).map(convertGuideToSearchResult)
@@ -143,10 +231,15 @@ const mockSearchResults = computed<SearchResultItem[]>(() => {
   return [...images, ...videos, ...guides, ...photographers]
 })
 
-const getTypeCount = (type: string) => {
-  if (type === 'all') return mockSearchResults.value.length
-  return mockSearchResults.value.filter(item => item.type === type).length
-}
+const typeCounts = computed(() => {
+  const counts: Record<string, number> = { all: mockSearchResults.value.length }
+  for (const item of mockSearchResults.value) {
+    counts[item.type] = (counts[item.type] || 0) + 1
+  }
+  return counts
+})
+
+const getTypeCount = (type: string) => typeCounts.value[type] || 0
 
 const filteredResults = computed(() => {
   let results = filterSearchResults(mockSearchResults.value, searchKeyword.value, selectedType.value)
@@ -159,6 +252,11 @@ const handleSearch = () => {
     searchKeyword.value = keyword;
   }
   
+  if (keyword && keyword.length >= 2) {
+    addHistory(keyword);
+    showSearchDropdown.value = false;
+  }
+
   const query: Record<string, string> = {}
   if (keyword && keyword.length >= 2) query.q = keyword
   if (selectedType.value !== 'all') query.type = selectedType.value
@@ -214,8 +312,14 @@ const handleShare = (id: string) => {
 const handleFollow = (id: string) => {
   const item = getItemById(id)
   if (!item || item.type !== 'photographer') return
-  
-  showMessage.follow.success((item as any).name || item.title)
+
+  const wasFollowing = interactionStore.isFollowing(id)
+  const isAdded = interactionStore.toggleFollowPhotographer(id)
+  if (!wasFollowing && isAdded) {
+    showMessage.follow.success((item as any).name || item.title)
+  } else if (wasFollowing && !isAdded) {
+    showMessage.follow.cancel((item as any).name || item.title)
+  }
 }
 
 const updateGridColumns = () => {
@@ -232,17 +336,6 @@ const updateGridColumns = () => {
   }
 }
 
-let searchTimer: ReturnType<typeof setTimeout> | null = null;
-
-const debouncedSearch = () => {
-  if (searchTimer) {
-    clearTimeout(searchTimer);
-  }
-  searchTimer = setTimeout(() => {
-    handleSearch();
-    searchTimer = null;
-  }, 300);
-};
 
 const loadFromQuery = () => {
   const { q, type, sort } = route.query
@@ -260,16 +353,46 @@ onMounted(() => {
   window.addEventListener('resize', updateGridColumns)
 })
 
+onActivated(() => {
+  loadFromQuery()
+})
+
+const debouncedRegister = (() => {
+  let timer: ReturnType<typeof setTimeout> | null = null
+  return (results: any[]) => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      interactionStore.registerBatch(
+        results.map((item: any) => ({
+          id: String(item.id),
+          counts: {
+            likes: item.likes || 0,
+            loves: item.loves || 0,
+            views: item.views || 0,
+            favorites: item.bookmarks || 0,
+            shares: item.shares || 0,
+          },
+        }))
+      )
+      timer = null
+    }, 200)
+  }
+})()
+
+watch(mockSearchResults, (results) => {
+  if (results.length > 0) {
+    debouncedRegister(results)
+  }
+}, { immediate: true })
+
 onUnmounted(() => {
   window.removeEventListener('resize', updateGridColumns)
 })
 
-watch([searchKeyword, selectedType, selectedSort], () => {
-  debouncedSearch()
-})
-
-watch(selectedType, () => {
-  selectedSort.value = 'relevance'
+watch([selectedType, selectedSort], () => {
+  if (selectedType.value !== route.query.type as string) {
+    handleSearch()
+  }
 })
 
 watch(hasGuideCards, () => {

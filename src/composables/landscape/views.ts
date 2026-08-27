@@ -1,5 +1,5 @@
 import { useLandscapeDataStore } from '@/stores/landscape'
-import type { HomePhotographerRecommendation, FeaturedSlide, VideoShowcase } from '@/typesOfPages/landscape'
+import type { HomePhotographerRecommendation, FeaturedSlide, VideoShowcase } from '@/types/landscape'
 import { parseCount, formatNumber } from '@/utils/landscape/format'
 
 
@@ -157,7 +157,7 @@ export function useHomeViewData() {
       id: img.id,
       image: img.url,
       category: img.category,
-      icon: ['🏔️', '🌌', '🏖️', '🏛️', '🌃'][idx % 5],
+      icon: ['🏔', '🌌', '🏖', '🏛', '🌃'][idx % 5],
       title: img.title,
       location: img.location,
       likes: img.likes,
@@ -167,7 +167,7 @@ export function useHomeViewData() {
       shares: img.shares,
       mediaType: idx % 2 === 0 ? 'image' : 'video',
       quality: ['4K', 'HDR', '1080P'][idx % 3],
-      duration: idx % 2 === 1 ? Math.floor(Math.random() * 300 + 60) : null,
+      duration: idx % 2 === 1 ? 60 + (idx * 37) % 300 : null,
     }))
   }
 
@@ -278,10 +278,15 @@ export function useSearchViewData() {
     const images = dataStore.getAllImages()
     if (!query) return images
     const q = query.toLowerCase()
-    return images.filter(img => 
+    return images.filter(img =>
       img.title.toLowerCase().includes(q) ||
       img.location.toLowerCase().includes(q) ||
-      img.tags.some(t => t.toLowerCase().includes(q))
+      img.category.toLowerCase().includes(q) ||
+      (img.author || '').toLowerCase().includes(q) ||
+      (img.camera || '').toLowerCase().includes(q) ||
+      (img.date || '').toLowerCase().includes(q) ||
+      img.tags.some(t => t.toLowerCase().includes(q)) ||
+      (img.categoryTags || []).some(ct => (ct.subCategory || ct.category || '').toLowerCase().includes(q))
     )
   }
 
@@ -289,10 +294,16 @@ export function useSearchViewData() {
     const videos = dataStore.getAllVideos()
     if (!query) return videos
     const q = query.toLowerCase()
-    return videos.filter(v => 
+    return videos.filter(v =>
       v.title.toLowerCase().includes(q) ||
       v.location.toLowerCase().includes(q) ||
-      v.category.toLowerCase().includes(q)
+      v.category.toLowerCase().includes(q) ||
+      (v.author || '').toLowerCase().includes(q) ||
+      (v.authorTitle || '').toLowerCase().includes(q) ||
+      (v.resolution || '').toLowerCase().includes(q) ||
+      (v.date || '').toLowerCase().includes(q) ||
+      (v.tags || []).some(t => t.toLowerCase().includes(q)) ||
+      (v.categoryTags || []).some(ct => (ct.subCategory || ct.category || '').toLowerCase().includes(q))
     )
   }
 
@@ -300,11 +311,22 @@ export function useSearchViewData() {
     const guides = dataStore.getAllGuides()
     if (!query) return guides
     const q = query.toLowerCase()
-    return guides.filter(g => 
+    return guides.filter(g =>
       g.title.toLowerCase().includes(q) ||
       g.excerpt.toLowerCase().includes(q) ||
       g.location.toLowerCase().includes(q) ||
-      g.tags.some(t => t.toLowerCase().includes(q))
+      g.category.toLowerCase().includes(q) ||
+      (g.author || '').toLowerCase().includes(q) ||
+      g.difficulty.toLowerCase().includes(q) ||
+      (g.season || '').toLowerCase().includes(q) ||
+      (g.bestTime || '').toLowerCase().includes(q) ||
+      (g.travelMode || '').toLowerCase().includes(q) ||
+      (g.sceneryTheme || '').toLowerCase().includes(q) ||
+      (g.content || '').toLowerCase().includes(q) ||
+      (g.transport || '').toLowerCase().includes(q) ||
+      (g.audience || '').toLowerCase().includes(q) ||
+      g.tags.some(t => t.toLowerCase().includes(q)) ||
+      (g.highlights || []).some(h => h.toLowerCase().includes(q))
     )
   }
 
@@ -312,10 +334,15 @@ export function useSearchViewData() {
     const photographers = dataStore.getAllPhotographers()
     if (!query) return photographers
     const q = query.toLowerCase()
-    return photographers.filter(p => 
+    return photographers.filter(p =>
       p.name.toLowerCase().includes(q) ||
       p.title.toLowerCase().includes(q) ||
+      p.specialty.toLowerCase().includes(q) ||
+      p.bio.toLowerCase().includes(q) ||
       p.location.toLowerCase().includes(q) ||
+      (p.category || '').toLowerCase().includes(q) ||
+      (p.experience || '').toLowerCase().includes(q) ||
+      (p.awards || []).some(a => a.toLowerCase().includes(q)) ||
       p.tags.some(t => t.toLowerCase().includes(q))
     )
   }

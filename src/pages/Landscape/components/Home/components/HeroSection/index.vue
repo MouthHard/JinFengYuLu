@@ -41,7 +41,27 @@
 </template>
 
 <script setup lang="ts">
-  import { heroStats as stats, heroTitle, heroSubtitleWords } from '@/utils/landscape/constants';
+  import { computed } from 'vue';
+  import { heroTitle, heroSubtitleWords } from '@/utils/landscape/constants';
+  import { useLandscapeDataStore } from '@/stores/landscape';
+  import { formatNumber } from '@/utils/landscape/format';
+
+  const dataStore = useLandscapeDataStore();
+
+  const stats = computed(() => {
+    const images = dataStore.getAllImages();
+    const videos = dataStore.getAllVideos();
+    const photographerCount = dataStore.getAllPhotographers().length;
+    const locations = new Set<string>();
+    images.forEach(img => { if (img.location) locations.add(img.location); });
+    videos.forEach(vid => { if (vid.location) locations.add(vid.location); });
+
+    return [
+      { icon: '📸', number: formatNumber(images.length + videos.length), label: '精选作品' },
+      { icon: '👤', number: formatNumber(photographerCount), label: '摄影师' },
+      { icon: '🌍', number: formatNumber(locations.size), label: '拍摄地' },
+    ];
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss" />

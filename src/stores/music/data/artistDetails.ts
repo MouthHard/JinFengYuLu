@@ -1,26 +1,26 @@
-import type { ArtistDetail } from "@/typesOfPages/music";
+import type { ArtistDetail } from "@/types/music";
 import { songs, albums } from "./artists";
 
 export const artistDetails: ArtistDetail[] = [
   {
     id: 1,
-    name: "周杰伦",
+    name: "周杰�?,
     avatar: "https://picsum.photos/seed/jay/300/300",
     alias: "Jay Chou",
-    description: "华语乐坛天王，集歌手、词曲创作人、编曲、制作人、导演、演员于一身。他的音乐融合了中西方元素，开创了独特的华语流行音乐风格，影响了整整一代人。",
+    description: "华语乐坛天王，集歌手、词曲创作人、编曲、制作人、导演、演员于一身。他的音乐融合了中西方元素，开创了独特的华语流行音乐风格，影响了整整一代人�?,
     songCount: 286,
     albumCount: 15,
     fanCount: 58234000,
-    tags: ["华语", "流行", "R&B", "中国风"],
+    tags: ["华语", "流行", "R&B", "中国�?],
     hotSongs: [songs[0], songs[2], songs[3], songs[4], songs[1]],
     albums: [albums[0]],
   },
   {
     id: 2,
-    name: "林俊杰",
+    name: "林俊�?,
     avatar: "https://picsum.photos/seed/jj/300/300",
     alias: "JJ Lin",
-    description: "新加坡华语流行音乐男歌手、词曲创作者、音乐制作人。以独特的嗓音和出色的创作才华著称，被誉为华语乐坛的行走的CD。",
+    description: "新加坡华语流行音乐男歌手、词曲创作者、音乐制作人。以独特的嗓音和出色的创作才华著称，被誉为华语乐坛的行走的CD�?,
     songCount: 234,
     albumCount: 14,
     fanCount: 32156000,
@@ -30,10 +30,10 @@ export const artistDetails: ArtistDetail[] = [
   },
   {
     id: 3,
-    name: "陈奕迅",
+    name: "陈奕�?,
     avatar: "https://picsum.photos/seed/eason/300/300",
     alias: "Eason Chan",
-    description: "香港著名男歌手及演员，被公认为香港流行音乐新时代的指标人物之一。他以深情的嗓音和极具感染力的演唱风格闻名。",
+    description: "香港著名男歌手及演员，被公认为香港流行音乐新时代的指标人物之一。他以深情的嗓音和极具感染力的演唱风格闻名�?,
     songCount: 312,
     albumCount: 22,
     fanCount: 45678000,
@@ -43,10 +43,10 @@ export const artistDetails: ArtistDetail[] = [
   },
   {
     id: 4,
-    name: "邓紫棋",
+    name: "邓紫�?,
     avatar: "https://picsum.photos/seed/gem/300/300",
     alias: "G.E.M.",
-    description: "中国香港创作型女歌手，以强大的唱功和创作才华著称。她是华语乐坛最具影响力的新生代女歌手之一。",
+    description: "中国香港创作型女歌手，以强大的唱功和创作才华著称。她是华语乐坛最具影响力的新生代女歌手之一�?,
     songCount: 156,
     albumCount: 8,
     fanCount: 38901000,

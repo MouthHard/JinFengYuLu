@@ -84,7 +84,7 @@
 
 <script setup lang="ts">
   import { ref, watch, onMounted } from 'vue';
-  import type { SceneryData } from '@/typesOfPages/travelGuide';
+  import type { SceneryData } from '@/types/travelGuide';
   import {
     StatsIcon,
     StarIcon,
@@ -120,10 +120,8 @@
     return indices;
   };
 
-  // 初始化数据
-  const initData = () => {
-    // 重置所有数据为默认空状态
-    stats.value = [];
+  // 初始化数�?  const initData = () => {
+    // 重置所有数据为默认空状�?    stats.value = [];
     extendedAttractions.value = [];
     detailedSeasons.value = [];
     colorIndices.value = [];
@@ -141,8 +139,7 @@
       extendedAttractions.value = (overview.topAttractions || []).map(
         (attraction) => attraction.name,
       );
-      // 为每个热门景点生成随机颜色索引
-      colorIndices.value = generateRandomColorIndices(
+      // 为每个热门景点生成随机颜色索�?      colorIndices.value = generateRandomColorIndices(
         extendedAttractions.value.length,
       );
 
@@ -164,17 +161,17 @@
           },
           {
             name: '夏季',
-            description: '阳光明媚，绿树成林',
+            description: '阳光明媚，绿树成�?,
             activities: ['避暑', '游泳', '露营'],
           },
           {
             name: '秋季',
-            description: '秋高气爽，层林尽叶',
+            description: '秋高气爽，层林尽�?,
             activities: ['赏秋', '登山', '采摘'],
           },
           {
             name: '冬季',
-            description: '银装素裹，冰天雪地',
+            description: '银装素裹，冰天雪�?,
             activities: ['滑雪', '温泉', '赏雪'],
           },
         ];
@@ -189,25 +186,24 @@
         },
         {
           name: '夏季',
-          description: '阳光明媚，绿树成林',
+          description: '阳光明媚，绿树成�?,
           activities: ['避暑', '游泳', '露营'],
         },
         {
           name: '秋季',
-          description: '秋高气爽，层林尽叶',
+          description: '秋高气爽，层林尽�?,
           activities: ['赏秋', '登山', '采摘'],
         },
         {
           name: '冬季',
-          description: '银装素裹，冰天雪地',
+          description: '银装素裹，冰天雪�?,
           activities: ['滑雪', '温泉', '赏雪'],
         },
       ];
     }
   };
 
-  // 监听sceneryData变化，实时更新数据
-  watch(
+  // 监听sceneryData变化，实时更新数�?  watch(
     () => props.sceneryData,
     (newData) => {
       // 只有当sceneryData真正变化时才更新
@@ -218,8 +214,7 @@
     { deep: true },
   );
 
-  // 初始化数据
-  onMounted(() => {
+  // 初始化数�?  onMounted(() => {
     initData();
   });
 </script>

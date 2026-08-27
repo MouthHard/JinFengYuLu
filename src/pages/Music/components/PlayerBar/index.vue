@@ -36,7 +36,7 @@
           </svg>
         </button>
 
-        <button class="ctrl-btn" title="上一首" @click="$emit('prev')">
+        <button class="ctrl-btn" title="上一�? @click="$emit('prev')">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
           </svg>
@@ -51,7 +51,7 @@
           </svg>
         </button>
 
-        <button class="ctrl-btn" title="下一首" @click="$emit('next')">
+        <button class="ctrl-btn" title="下一�? @click="$emit('next')">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
           </svg>
@@ -127,7 +127,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { formatDuration } from "@/utils/music";
-import type { Song, PlayMode } from "@/typesOfPages/music";
+import type { Song, PlayMode } from "@/types/music";
 
 const props = defineProps<{
   currentSong: Song | null;

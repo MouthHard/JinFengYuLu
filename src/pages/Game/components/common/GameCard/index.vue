@@ -54,19 +54,19 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { GameItem, GamePlatform } from '@/typesOfPages/game';
+import type { GameItemResponse } from '@/services/game';
 import { useGameStore } from '@/stores/game';
 
-const props = defineProps<{ game: GameItem }>();
+const props = defineProps<{ game: GameItemResponse }>();
 const emit = defineEmits<{ 
-  click: [game: GameItem];
-  'toggle-wishlist': [game: GameItem];
+  click: [game: GameItemResponse];
+  'toggle-wishlist': [game: GameItemResponse];
 }>();
 
 const gameStore = useGameStore();
 
 const tagLabels: Record<string, string> = { hot: '热门', new: '新作', sale: '特惠', coming: '即将推出', free: '免费', 'editor-choice': '精选', multiplayer: '多人' };
-const displayTags = computed(() => props.game.tags.slice(0, 2).map(t => tagLabels[t] || t));
+const displayTags = computed(() => (props.game.tags ?? []).slice(0, 2).map(t => tagLabels[t] || t));
 
 const reviewSummary = computed(() => {
   const r = props.game.rating;
@@ -83,12 +83,12 @@ const reviewClass = computed(() => {
   return 'game-card__hover-review--negative';
 });
 
-const platformIcon = (p: GamePlatform) => {
+const platformIcon = (p: string) => {
   const map: Record<string, string> = { pc: '🖥', ps5: '5', ps4: '4', xbox: 'X', switch: 'N', mobile: '📱' };
   return map[p] || p;
 };
 
-const platformFullName = (p: GamePlatform) => {
+const platformFullName = (p: string) => {
   const map: Record<string, string> = { pc: 'PC', ps5: 'PS5', ps4: 'PS4', xbox: 'Xbox', switch: 'Nintendo Switch', mobile: '移动端' };
   return map[p] || p;
 };

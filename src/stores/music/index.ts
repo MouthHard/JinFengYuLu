@@ -4,7 +4,7 @@ import type {
   Song, Artist, Album, Playlist, MV, LyricLine, 
   Toplist, SearchHot, RecommendPlaylist, NewSong, BannerImage,
   ArtistDetail, MyPlaylist, LocalFolder, PlayTimeInfo, LocalSong 
-} from '@/typesOfPages/music'
+} from '@/types/music'
 import { 
   artists, albums, songs, mvs, 
   playlists, 

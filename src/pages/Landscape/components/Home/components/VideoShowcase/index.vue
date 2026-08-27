@@ -4,7 +4,7 @@
       <div class="header-left">
         <span class="title-label">CINEMA</span>
         <h2 class="section-title">流光掠影</h2>
-        <p class="section-subtitle">用镜头记录世界</p>
+        <p class="section-subtitle">用镜头记录世�?/p>
       </div>
       <button class="more-btn" @click="handleMore">
         <span>更多</span>
@@ -27,7 +27,7 @@
           :key="video.id"
           :video="video"
           :is-active="activeIndex === index"
-          :slide-style="getSlideStyle(index)"
+          :slide-style="slideStyles[index]"
           :counts="getVideoCount(video.id)"
           :is-liked="isVideoLiked(video.id)"
           :is-loved="isVideoLoved(video.id)"
@@ -76,11 +76,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
 import { showMessage, createSimpleInteractionItem } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import { useHomeViewData } from '@/composables/landscape';
-import type { GlobalVideo } from '@/typesOfPages/landscape/data';
+import type { GlobalVideo } from '@/types/landscape/data';
 import ArrowRightIcon from '@/pages/Landscape/icon/common/ArrowRightIcon.vue';
 import VideoSlide from './components/VideoSlide/index.vue';
 import VideoFrame from './components/VideoFrame/index.vue';
@@ -96,25 +96,30 @@ const videoModalRef = ref<{ videoPlayer: HTMLVideoElement | null } | null>(null)
 const emptyCounts = { views: 0, likes: 0, loves: 0, favorites: 0, shares: 0 };
 
 const { videoShowcase } = useHomeViewData();
-const videosData = videoShowcase();
-const videos = ref(videosData);
+const videos = computed(() => videoShowcase());
 
 const getVideoGlobalId = (id: string | number) => String(id);
 
-onMounted(() => {
-  interactionStore.registerBatch(
-    videos.value.map((v: GlobalVideo) => ({
-      id: getVideoGlobalId(v.id),
-      counts: {
-        likes: v.likes || 0,
-        views: v.views || 0,
-        loves: v.loves || 0,
-        favorites: v.bookmarks || 0,
-        shares: v.shares || 0,
-      },
-    })),
-  );
-});
+watch(
+  () => videos.value.length,
+  (len) => {
+    if (len > 0) {
+      interactionStore.registerBatch(
+        videos.value.map((v: GlobalVideo) => ({
+          id: getVideoGlobalId(v.id),
+          counts: {
+            likes: v.likes || 0,
+            views: v.views || 0,
+            loves: v.loves || 0,
+            favorites: v.bookmarks || 0,
+            shares: v.shares || 0,
+          },
+        })),
+      );
+    }
+  },
+  { immediate: true },
+);
 
 const getVideoCount = (id: string | number) =>
   interactionStore.getCount(getVideoGlobalId(id));
@@ -195,24 +200,27 @@ const toggleVideoShare = (video: GlobalVideo | null) => {
   showMessage.share.success(video.title);
 };
 
-const getSlideStyle = (index: number) => {
-  const offset = index - activeIndex.value;
-  const absOffset = Math.abs(offset);
-  const isLeft = offset < 0;
-  const translateX = offset * 280;
-  const translateZ = -absOffset * 200;
-  const rotateY = isLeft ? 45 : offset > 0 ? -45 : 0;
-  const scale = Math.max(1 - absOffset * 0.15, 0.6);
-  const opacity = Math.max(1 - absOffset * 0.3, 0.3);
-  const zIndex = 100 - absOffset;
+const slideStyles = computed(() => {
+  const cur = activeIndex.value;
+  return videos.value.map((_, index) => {
+    const offset = index - cur;
+    const absOffset = Math.abs(offset);
+    const isLeft = offset < 0;
+    const translateX = offset * 280;
+    const translateZ = -absOffset * 200;
+    const rotateY = isLeft ? 45 : offset > 0 ? -45 : 0;
+    const scale = Math.max(1 - absOffset * 0.15, 0.6);
+    const opacity = Math.max(1 - absOffset * 0.3, 0.3);
+    const zIndex = 100 - absOffset;
 
-  return {
-    transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
-    opacity: opacity,
-    zIndex: zIndex,
-    transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
-  };
-};
+    return {
+      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+      opacity: opacity,
+      zIndex: zIndex,
+      transition: 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)',
+    };
+  });
+});
 
 const setActive = (index: number) => {
   activeIndex.value = index;
@@ -248,11 +256,11 @@ const openVideoModal = (video: any) => {
   selectedVideo.value = video;
   showVideoModal.value = true;
   document.body.style.overflow = 'hidden';
-  setTimeout(() => {
+  nextTick(() => {
     if (videoModalRef.value?.videoPlayer) {
       videoModalRef.value.videoPlayer.play();
     }
-  }, 100);
+  });
 };
 
 const closeVideoModal = () => {

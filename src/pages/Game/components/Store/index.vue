@@ -104,9 +104,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import type { GameItem } from '@/typesOfPages/game';
-import { games, gameBanners } from '../../data/index';
 import { useGameStore } from '@/stores/game';
+import type { GameItemResponse } from '@/services/game';
 import { showMessage } from '@/components/common/InteractionMessage';
 import HeroBanner from '../common/HeroBanner/index.vue';
 import GameCard from '../common/GameCard/index.vue';
@@ -115,7 +114,7 @@ defineOptions({ name: 'GameStore' });
 
 const router = useRouter();
 const gameStore = useGameStore();
-const banners = gameBanners;
+const banners = computed(() => gameStore.banners);
 const shelfRef = ref<HTMLElement | null>(null);
 const saleRef = ref<HTMLElement | null>(null);
 const newRef = ref<HTMLElement | null>(null);
@@ -132,23 +131,26 @@ const activeTab = ref<TabKey>('hot');
 
 const currentTab = computed(() => tabs.find(t => t.key === activeTab.value) || tabs[0]);
 
+const allGames = computed(() => gameStore.games);
+
 const tabGames = computed(() => {
+  const games = allGames.value;
   switch (activeTab.value) {
-    case 'hot': return games.filter(g => g.tags.includes('hot')).slice(0, 8);
+    case 'hot': return games.filter(g => g.tags?.includes('hot')).slice(0, 8);
     case 'top': return [...games].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 8);
-    case 'editor': return games.filter(g => g.tags.includes('editor-choice')).slice(0, 8);
+    case 'editor': return games.filter(g => g.tags?.includes('editor-choice')).slice(0, 8);
     case 'free': return games.filter(g => g.price === 0).slice(0, 8);
     default: return games.slice(0, 8);
   }
 });
 
-const saleGames = computed(() => games.filter(g => g.discount).sort((a, b) => (b.discount || 0) - (a.discount || 0)).slice(0, 8));
-const newGames = computed(() => games.filter(g => g.tags.includes('new')).slice(0, 8));
-const topSellers = computed(() => [...games].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 10));
+const saleGames = computed(() => allGames.value.filter(g => g.discount).sort((a, b) => (b.discount || 0) - (a.discount || 0)).slice(0, 8));
+const newGames = computed(() => allGames.value.filter(g => g.tags?.includes('new')).slice(0, 8));
+const topSellers = computed(() => [...allGames.value].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 10));
 
-const navigateToDetail = (game: GameItem) => { router.push(`/game/detail/${game.id}`); };
+const navigateToDetail = (game: GameItemResponse) => { router.push(`/game/detail/${game.id}`); };
 
-const handleToggleWishlist = (game: GameItem) => {
+const handleToggleWishlist = (game: GameItemResponse) => {
   const added = gameStore.toggleWishlist(game.id);
   if (added) {
     showMessage.favorite.success(game.title, 'game');
@@ -166,7 +168,7 @@ const scrollTrack = (el: HTMLElement | null, dir: number) => {
 };
 
 onMounted(() => {
-  gameStore.initializeFromData(games);
+  gameStore.ensureDataLoaded();
 });
 </script>
 

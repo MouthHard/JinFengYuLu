@@ -29,7 +29,7 @@
     <div class="section">
       <div class="section-header">
         <h3>推荐歌单</h3>
-        <span class="more-link">查看更多 →</span>
+        <span class="more-link">查看更多 �?/span>
       </div>
       <div class="playlist-grid">
         <div
@@ -61,7 +61,7 @@
 
     <div class="section">
       <div class="section-header">
-        <h3>新歌速递</h3>
+        <h3>新歌速�?/h3>
         <div class="tab-switch">
           <span
             v-for="(tab, idx) in newSongTabs"
@@ -102,7 +102,7 @@
 
     <div class="section">
       <div class="section-header">
-        <h3>排行榜</h3>
+        <h3>排行�?/h3>
       </div>
       <div class="toplist-grid">
         <div
@@ -140,8 +140,7 @@
       <div class="section-header">
         <h3>热门歌手</h3>
         <span class="more-link" @click="showAllArtists = !showAllArtists">
-          {{ showAllArtists ? '收起' : '查看更多' }} →
-        </span>
+          {{ showAllArtists ? '收起' : '查看更多' }} �?        </span>
       </div>
       <div class="artist-grid">
         <div
@@ -200,7 +199,7 @@
     <div class="section">
       <div class="section-header">
         <h3>热门电台</h3>
-        <span class="more-link">查看更多 →</span>
+        <span class="more-link">查看更多 �?/span>
       </div>
       <div class="radio-grid">
         <div
@@ -233,7 +232,7 @@
     <div class="section">
       <div class="section-header">
         <h3>为你推荐</h3>
-        <span class="more-link">更多推荐 →</span>
+        <span class="more-link">更多推荐 �?/span>
       </div>
       <div class="personalized-grid">
         <div
@@ -259,8 +258,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
-              {{ formatPlayCount(playlist.playCount) }} 次播放
-            </div>
+              {{ formatPlayCount(playlist.playCount) }} 次播�?            </div>
           </div>
         </div>
       </div>
@@ -274,7 +272,7 @@ import { useRouter } from "vue-router";
 import { inject } from "vue";
 import { bannerImages, recommendPlaylists, newSongs, toplists, artists } from "@/stores/music";
 import { formatPlayCount, formatDuration } from "@/utils/music";
-import type { Song } from "@/typesOfPages/music";
+import type { Song } from "@/types/music";
 
 const router = useRouter();
 const playSong = inject<(song: Song) => void>("playSong");
@@ -305,16 +303,16 @@ const displayArtists = computed(() => {
 const featuredMVs = [
   {
     id: 1,
-    title: "最伟大的作品",
-    artist: "周杰伦",
+    title: "最伟大的作�?,
+    artist: "周杰�?,
     cover: "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/music/mv/greatest.webp",
     playCount: 8567234,
     duration: "4:32"
   },
   {
     id: 2,
-    title: "孤勇者",
-    artist: "陈奕迅",
+    title: "孤勇�?,
+    artist: "陈奕�?,
     cover: "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/music/mv/hero.webp",
     playCount: 6234567,
     duration: "4:22"
@@ -322,7 +320,7 @@ const featuredMVs = [
   {
     id: 3,
     title: "光年之外",
-    artist: "邓紫棋",
+    artist: "邓紫�?,
     cover: "https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/music/mv/lightyear.webp",
     playCount: 4567890,
     duration: "3:55"
@@ -343,47 +341,47 @@ const popularRadio = [
     name: '流行音乐电台',
     description: '最新流行音乐，让你紧跟时尚潮流',
     cover: 'https://picsum.photos/seed/radio1/400/400',
-    listeners: '12.5万',
+    listeners: '12.5�?,
     category: '流行'
   },
   {
     id: 2,
     name: '摇滚音乐电台',
-    description: '摇滚不死，激情无限',
+    description: '摇滚不死，激情无�?,
     cover: 'https://picsum.photos/seed/radio2/400/400',
-    listeners: '8.3万',
+    listeners: '8.3�?,
     category: '摇滚'
   },
   {
     id: 3,
     name: '电子音乐电台',
-    description: '电音舞曲，嗨翻全场',
+    description: '电音舞曲，嗨翻全�?,
     cover: 'https://picsum.photos/seed/radio3/400/400',
-    listeners: '6.7万',
+    listeners: '6.7�?,
     category: '电子'
   },
   {
     id: 4,
     name: '古典音乐电台',
-    description: '经典名曲，陶冶情操',
+    description: '经典名曲，陶冶情�?,
     cover: 'https://picsum.photos/seed/radio4/400/400',
-    listeners: '4.2万',
+    listeners: '4.2�?,
     category: '古典'
   },
   {
     id: 5,
     name: '民谣音乐电台',
-    description: '清新民谣，温暖人心',
+    description: '清新民谣，温暖人�?,
     cover: 'https://picsum.photos/seed/radio5/400/400',
-    listeners: '5.8万',
+    listeners: '5.8�?,
     category: '民谣'
   },
   {
     id: 6,
     name: '嘻哈音乐电台',
-    description: '说唱文化，街头潮流',
+    description: '说唱文化，街头潮�?,
     cover: 'https://picsum.photos/seed/radio6/400/400',
-    listeners: '7.1万',
+    listeners: '7.1�?,
     category: '嘻哈'
   },
   {
@@ -391,15 +389,15 @@ const popularRadio = [
     name: 'R&B音乐电台',
     description: '节奏布鲁斯，灵魂之声',
     cover: 'https://picsum.photos/seed/radio7/400/400',
-    listeners: '5.3万',
+    listeners: '5.3�?,
     category: 'R&B'
   },
   {
     id: 8,
     name: '爵士音乐电台',
-    description: '爵士风情，优雅格调',
+    description: '爵士风情，优雅格�?,
     cover: 'https://picsum.photos/seed/radio8/400/400',
-    listeners: '3.9万',
+    listeners: '3.9�?,
     category: '爵士'
   },
 ];

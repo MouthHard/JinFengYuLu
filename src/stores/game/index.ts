@@ -1,15 +1,38 @@
 import { defineStore } from 'pinia';
-import type { GameItem } from '@/typesOfPages/game';
+import {
+  fetchGames,
+  fetchGameBanners,
+  fetchGameCategories,
+} from '@/services/game';
+import type {
+  GameItemResponse,
+  GameBannerItem,
+  GameCategoryItem,
+} from '@/services/game';
 
 interface CartItem {
   gameId: string;
   addedAt: number;
 }
 
+/** 游戏 Store 最小接口——只要包含 id 和 price 即可 */
+interface GameLike {
+  id: string;
+  price: number;
+}
+
+/** 初始已拥有游戏 id（迁移自静态数据 isOwned 演示状态） */
+const INITIAL_OWNED_IDS = ['stardew-valley-remake', 'iron-tides', 'pixel-kingdom'];
+
 interface GameState {
   wishlist: Set<string>;
   cart: CartItem[];
   owned: Set<string>;
+  games: GameItemResponse[];
+  banners: GameBannerItem[];
+  categories: GameCategoryItem[];
+  dataLoaded: boolean;
+  dataLoading: boolean;
 }
 
 export const useGameStore = defineStore('game', {
@@ -17,6 +40,11 @@ export const useGameStore = defineStore('game', {
     wishlist: new Set(),
     cart: [],
     owned: new Set(),
+    games: [],
+    banners: [],
+    categories: [],
+    dataLoaded: false,
+    dataLoading: false,
   }),
 
   getters: {
@@ -38,9 +66,56 @@ export const useGameStore = defineStore('game', {
     wishlistItems: (state) => Array.from(state.wishlist),
     
     ownedItems: (state) => Array.from(state.owned),
+
+    categoryLabelMap: (state): Record<string, string> =>
+      state.categories.reduce((map, c) => {
+        map[c.key] = c.label;
+        return map;
+      }, {} as Record<string, string>),
+
+    getGameById: (state) => (gameId: string) =>
+      state.games.find(g => g.id === gameId),
+
   },
 
   actions: {
+    async loadGames(): Promise<void> {
+      const res = await fetchGames({ limit: 100 });
+      this.games = res.items;
+      if (this.owned.size === 0) {
+        INITIAL_OWNED_IDS.forEach(id => this.owned.add(id));
+      }
+    },
+
+    async loadBanners(): Promise<void> {
+      this.banners = await fetchGameBanners();
+    },
+
+    async loadCategories(): Promise<void> {
+      this.categories = await fetchGameCategories();
+    },
+
+    async loadAll(): Promise<void> {
+      if (this.dataLoaded || this.dataLoading) return;
+      this.dataLoading = true;
+      try {
+        await Promise.all([
+          this.loadGames(),
+          this.loadBanners(),
+          this.loadCategories(),
+        ]);
+        this.dataLoaded = true;
+      } finally {
+        this.dataLoading = false;
+      }
+    },
+
+    async ensureDataLoaded(): Promise<void> {
+      if (!this.dataLoaded) {
+        await this.loadAll();
+      }
+    },
+
     toggleWishlist(gameId: string): boolean {
       if (this.wishlist.has(gameId)) {
         this.wishlist.delete(gameId);
@@ -116,35 +191,24 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    initializeFromData(games: GameItem[]): void {
-      games.forEach(game => {
-        if (game.isWishlisted) {
-          this.wishlist.add(game.id);
-        }
-        if (game.isOwned) {
-          this.owned.add(game.id);
-        }
-      });
-    },
-
-    getCartTotal(games: GameItem[]): number {
+    getCartTotal<T extends GameLike>(games: T[]): number {
       return this.cart.reduce((total, item) => {
         const game = games.find(g => g.id === item.gameId);
         return total + (game?.price || 0);
       }, 0);
     },
 
-    getCartGames(games: GameItem[]): GameItem[] {
+    getCartGames<T extends GameLike>(games: T[]): T[] {
       return this.cart
         .map(item => games.find(g => g.id === item.gameId))
-        .filter((g): g is GameItem => g !== undefined);
+        .filter((g): g is T => g !== undefined);
     },
 
-    getWishlistGames(games: GameItem[]): GameItem[] {
+    getWishlistGames<T extends GameLike>(games: T[]): T[] {
       return games.filter(g => this.wishlist.has(g.id));
     },
 
-    getOwnedGames(games: GameItem[]): GameItem[] {
+    getOwnedGames<T extends GameLike>(games: T[]): T[] {
       return games.filter(g => this.owned.has(g.id));
     },
   },

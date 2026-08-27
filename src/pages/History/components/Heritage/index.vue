@@ -19,16 +19,15 @@
 
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import {
-    culturalHeritage,
-    type CulturalHeritageItem,
-  } from '../../data/heritage';
+  import { useHistoryDataStore } from '@/stores/history';
+  import type { CulturalHeritageItem } from '@/types/history';
   import HeritageTabs from './components/HeritageTabs/index.vue';
   import HeritageCards from './components/HeritageCards/index.vue';
   import HeritageDetail from './components/HeritageDetail/index.vue';
 
-  // 响应式数据
-  const activeTab = ref<string>('all');
+  const historyStore = useHistoryDataStore();
+
+  // 响应式数�?  const activeTab = ref<string>('all');
   const selectedHeritage = ref<CulturalHeritageItem | null>(null);
 
   // 方法
@@ -38,18 +37,17 @@
 
   const handleSelectRelatedHeritage = (id: string) => {
     // 使用find方法查找遗产，性能更优
-    const heritage = culturalHeritage.find((item) => item.id === id);
+    const heritage = historyStore.heritage.find((item) => item.id === id);
     if (heritage) {
       selectedHeritage.value = heritage;
-      // 同时更新activeTab到对应分类
-      activeTab.value = heritage.category || 'all';
+      // 同时更新activeTab到对应分�?      activeTab.value = heritage.category || 'all';
     }
   };
 
   // 生命周期
   onMounted(() => {
-    if (culturalHeritage.length > 0) {
-      selectedHeritage.value = culturalHeritage[0];
+    if (historyStore.heritage.length > 0) {
+      selectedHeritage.value = historyStore.heritage[0];
     }
   });
 </script>

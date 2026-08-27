@@ -1,6 +1,6 @@
 <template>
   <div class="image-card" :style="{ '--delay': delay }">
-    <!-- 挂钩系统：钉+D环 -->
+    <!-- 挂钩系统：钉+D�?-->
     <div class="hanger">
       <span class="hanger-nail"></span>
       <span class="hanger-wire"></span>
@@ -9,15 +9,15 @@
 
     <!-- 外框（实木相框） -->
     <div class="frame-outer">
-      <!-- 木纹层：主纹理 -->
+      <!-- 木纹层：主纹�?-->
       <div class="frame-grain-primary"></div>
       <!-- 木纹层：横向细纹 -->
       <div class="frame-grain-secondary"></div>
-      <!-- 木纹层：节疤不规则 -->
+      <!-- 木纹层：节疤不规�?-->
       <div class="frame-grain-knots"></div>
-      <!-- 外斜面高光 -->
+      <!-- 外斜面高�?-->
       <div class="frame-bevel-outer"></div>
-      <!-- 内斜面阴影 -->
+      <!-- 内斜面阴�?-->
       <div class="frame-bevel-inner"></div>
       <!-- 内凹深槽 -->
       <div class="frame-rabbet"></div>
@@ -71,7 +71,7 @@
           </div>
         </div>
 
-        <!-- 卡纸底部信息区 -->
+        <!-- 卡纸底部信息�?-->
         <div class="mat-info">
           <div class="info-top">
             <h3 class="info-title">{{ item.title }}</h3>
@@ -119,7 +119,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { showMessage } from '@/utils/landscape';
-import type { ImageItem } from '@/typesOfPages/landscape';
+import type { ImageItem } from '@/types/landscape';
 import { useFormatNumber } from '@/composables/landscape';
 import { useInteractionStore } from '@/stores/landscape';
 import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';

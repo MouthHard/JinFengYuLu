@@ -47,19 +47,19 @@
         <div class="action-buttons">
           <button class="action-btn like" :class="{ active: isLiked, 'sort-highlighted': !isLikeDimmed && sortMode !== 'relevance', 'sort-dimmed': isLikeDimmed }" @click="handleLike">
             <HeartIcon :stroke-width="2" />
-            <span>{{ formatCount(item.likes) }}</span>
+            <span>{{ formatCount(getCounts().likes) }}</span>
           </button>
           <button class="action-btn bookmark" :class="{ active: isBookmarked, 'sort-highlighted': !isBookmarkDimmed && sortMode !== 'relevance', 'sort-dimmed': isBookmarkDimmed }" @click="handleBookmark">
             <BookmarkIcon :stroke-width="2" />
-            <span>{{ formatCount(item.bookmarks) }}</span>
+            <span>{{ formatCount(getCounts().favorites) }}</span>
           </button>
           <button class="action-btn share" :class="{ 'sort-highlighted': !isShareDimmed && sortMode !== 'relevance', 'sort-dimmed': isShareDimmed }" @click="handleShare">
             <ShareIcon :stroke-width="2" />
-            <span>{{ formatCount(item.shares) }}</span>
+            <span>{{ formatCount(getCounts().shares) }}</span>
           </button>
           <div class="action-btn views" :class="{ 'sort-highlighted': !isViewsDimmed && sortMode !== 'relevance', 'sort-dimmed': isViewsDimmed }">
             <EyeIcon :stroke-width="2" />
-            <span>{{ formatCount(item.views) }}</span>
+            <span>{{ formatCount(getCounts().views) }}</span>
           </div>
         </div>
         <div class="author-info">
@@ -77,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import BookIcon from '../../../../icon/common/BookIcon.vue'
 import LocationIcon from '../../../../icon/common/LocationIcon.vue'
 import CalendarIcon from '../../../../icon/common/CalendarIcon.vue'
@@ -88,6 +88,7 @@ import ShareIcon from '../../../../icon/common/ShareIcon.vue'
 import EyeIcon from '../../../../icon/common/EyeIcon.vue'
 
 import type { SearchResultItem } from '@/utils/landscape'
+import { useInteractionStore } from '@/stores/landscape'
 
 interface Props {
   item: SearchResultItem
@@ -102,8 +103,10 @@ const emit = defineEmits<{
   share: [id: string]
 }>()
 
-const isLiked = ref(false)
-const isBookmarked = ref(false)
+const interactionStore = useInteractionStore()
+const isLiked = computed(() => interactionStore.isLiked(String(props.item.id)))
+const isBookmarked = computed(() => interactionStore.isFavorited(String(props.item.id)))
+const getCounts = () => interactionStore.getCount(String(props.item.id))
 
 const isDateDimmed = computed(() => {
   const mode = props.sortMode
@@ -147,12 +150,10 @@ const formatCount = (count: number) => {
 }
 
 const handleLike = () => {
-  isLiked.value = !isLiked.value
   emit('like', String(props.item.id))
 }
 
 const handleBookmark = () => {
-  isBookmarked.value = !isBookmarked.value
   emit('bookmark', String(props.item.id))
 }
 

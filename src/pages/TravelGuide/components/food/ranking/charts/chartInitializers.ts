@@ -1,6 +1,6 @@
 import { graphic } from 'echarts/core';
 const { RadialGradient } = graphic;
-import type { Food } from '@/typesOfPages/travelGuide';
+import type { Food } from '@/types/travelGuide';
 import {
   createTooltipConfig,
   createGridConfig,
@@ -13,8 +13,7 @@ import {
 import { calculatePriceRanges, calculateCategoryCounts, groupPriceRatingData } from './dataProcessors';
 
 /**
- * 初始化评分对比图表
- * @param popularFoods 热门美食数据
+ * 初始化评分对比图�? * @param popularFoods 热门美食数据
  * @param chartContainer 图表容器
  * @returns 图表配置
  */
@@ -154,8 +153,7 @@ export const initRatingChart = (popularFoods: Food[] = [], chartContainer: HTMLE
 
 /**
  * 初始化价格分布环形图
- * @param allFoods 所有美食数据
- * @param chartContainer 图表容器
+ * @param allFoods 所有美食数�? * @param chartContainer 图表容器
  * @returns 图表配置
  */
 export const initPriceChart = (allFoods: Food[] = [], chartContainer: HTMLElement | null) => {
@@ -166,7 +164,7 @@ export const initPriceChart = (allFoods: Food[] = [], chartContainer: HTMLElemen
   const totalCount = allFoods.length;
 
   return {
-    tooltip: createTooltipConfig('item', '{a} <br/>{b}: {c}种美食 ({d}%)'),
+    tooltip: createTooltipConfig('item', '{a} <br/>{b}: {c}种美�?({d}%)'),
     legend: {
       orient: 'vertical',
       right: 20,
@@ -240,8 +238,7 @@ export const initPriceChart = (allFoods: Food[] = [], chartContainer: HTMLElemen
 
 /**
  * 初始化分类数量水平柱状图
- * @param allFoods 所有美食数据
- * @param chartContainer 图表容器
+ * @param allFoods 所有美食数�? * @param chartContainer 图表容器
  * @returns 图表配置
  */
 export const initCategoryChart = (allFoods: Food[] = [], chartContainer: HTMLElement | null) => {
@@ -257,7 +254,7 @@ export const initCategoryChart = (allFoods: Food[] = [], chartContainer: HTMLEle
   const categoryValues = sortedCategories.map((item) => item.value);
 
   return {
-    tooltip: createTooltipConfig('axis', '{b}: {c}种美食'),
+    tooltip: createTooltipConfig('axis', '{b}: {c}种美�?),
     grid: createGridConfig({
       left: '18%',
       right: '12%',
@@ -277,7 +274,7 @@ export const initCategoryChart = (allFoods: Food[] = [], chartContainer: HTMLEle
       },
       minInterval: 1,
       axisLabel: {
-        formatter: '{value}种',
+        formatter: '{value}�?,
         color: '#f0f0f0',
         fontSize: 14,
         fontWeight: 'bold',
@@ -363,7 +360,7 @@ export const initCategoryChart = (allFoods: Food[] = [], chartContainer: HTMLEle
           position: 'inside',
           fontSize: 12,
           fontWeight: 'bold',
-          formatter: '{c}种',
+          formatter: '{c}�?,
           color: '#fff',
           textShadowBlur: 3,
           textShadowColor: 'rgba(0, 0, 0, 0.8)',
@@ -386,9 +383,7 @@ export const initCategoryChart = (allFoods: Food[] = [], chartContainer: HTMLEle
 };
 
 /**
- * 初始化价格-评分关系气泡图
- * @param allFoods 所有美食数据
- * @param chartContainer 图表容器
+ * 初始化价�?评分关系气泡�? * @param allFoods 所有美食数�? * @param chartContainer 图表容器
  * @returns 图表配置
  */
 export const initPriceRatingChart = (allFoods: Food[] = [], chartContainer: HTMLElement | null) => {
@@ -568,7 +563,7 @@ export const initPriceRatingChart = (allFoods: Food[] = [], chartContainer: HTML
         },
       },
       {
-        name: '趋势线',
+        name: '趋势�?,
         type: 'line',
         data: [
           [0, 3.5],

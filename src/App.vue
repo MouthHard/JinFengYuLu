@@ -20,25 +20,18 @@
       <!-- 轨迹星图 -->
       <div class="trajectory">
         <template v-for="value in routeArr" :key="value.routeId">
-          <p
-            @click="jumpToRouter(value.routeName)"
-            @mouseover="mouseOverPages(value.routeName)"
-            @mouseout="curPageName = ''"
-          >
-            <button
-              type="button"
-              class="planet-btn"
-              :style="{ backgroundImage: `url(${value.bg})` }"
-              :aria-label="value.pageName"
-            ></button>
+          <p @click="jumpToRouter(value.routeName)" @mouseover="mouseOverPages(value.routeName)"
+            @mouseout="curPageName = ''">
+            <button type="button" class="planet-btn" :style="{ backgroundImage: `url(${value.bg})` }"
+              :aria-label="value.pageName"></button>
           </p>
         </template>
       </div>
     </div>
 
     <div id="tabContainer" ref="tabContainer">
-      <!-- 主要这里的 v-slot={Component}只能是Component而不能是其他变量名如componentA或者componentB，估计是Vue内定的变量名;
-				并且要求和<component>标签中的:is绑定的变量名一致 -->
+      <!-- 主要这里v-slot={Component}只能是Component而不能是其他变量名如componentA或者componentB，估计是Vue内定的变量名;
+				并且要求 component>标签中的:is绑定的变量名一 ?-->
       <router-view v-slot="{ Component }">
         <Transition name="page-switch" mode="out-in">
           <ErrorBoundary>
@@ -50,175 +43,175 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { onMounted, onUnmounted, ref, watch } from 'vue';
-  import { useRouter } from 'vue-router';
-  import { scale, formatTime, formatDate } from '@/utils/common';
-  import type { RouteItem } from '@/typesOfPages/common';
-  import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import { scale, formatTime, formatDate } from '@/utils/common';
+import type { RouteItem } from '@/types/common';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 
-  const router = useRouter();
-  const curPageName = ref<string>('');
-  const timer = ref<number>();
+const router = useRouter();
+const curPageName = ref<string>('');
+const timer = ref<number>();
 
-  // DOM 引用
-  const tabContainer = ref<HTMLElement>();
-  const hourEl = ref<HTMLElement>();
-  const minuteEl = ref<HTMLElement>();
-  const secondEl = ref<HTMLElement>();
-  const timeEl = ref<HTMLElement>();
-  const dateEl = ref<HTMLElement>();
+// DOM 引用
+const tabContainer = ref<HTMLElement>();
+const hourEl = ref<HTMLElement>();
+const minuteEl = ref<HTMLElement>();
+const secondEl = ref<HTMLElement>();
+const timeEl = ref<HTMLElement>();
+const dateEl = ref<HTMLElement>();
 
-  const routeArr: RouteItem[] = [
-    {
-      routeId: '1',
-      routeName: '/music',
-      pageName: '音乐',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Saturn.png',
-    },
-    {
-      routeId: '2',
-      routeName: '/game',
-      pageName: '游戏',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Venus.png',
-    },
-    {
-      routeId: '3',
-      routeName: '/aphorism',
-      pageName: '诗词',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/earth.png',
-    },
-    {
-      routeId: '4',
-      routeName: '/history',
-      pageName: '历史',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mars.png',
-    },
-    {
-      routeId: '5',
-      routeName: '/travel-guide',
-      pageName: '旅游',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Jupiter.png',
-    },
-    {
-      routeId: '6',
-      routeName: '/museum',
-      pageName: '博物馆',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mercury.png',
-    },
-    {
-      routeId: '7',
-      routeName: '/landscape',
-      pageName: '风景',
-      bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Uranus.png',
-    },
-  ];
+const routeArr: RouteItem[] = [
+  {
+    routeId: '1',
+    routeName: '/music',
+    pageName: '音乐',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Saturn.png',
+  },
+  {
+    routeId: '2',
+    routeName: '/game',
+    pageName: '游戏',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Venus.png',
+  },
+  {
+    routeId: '3',
+    routeName: '/aphorism',
+    pageName: '诗词',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/earth.png',
+  },
+  {
+    routeId: '4',
+    routeName: '/history',
+    pageName: '历史',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mars.png',
+  },
+  {
+    routeId: '5',
+    routeName: '/travel-guide',
+    pageName: '旅游',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Jupiter.png',
+  },
+  {
+    routeId: '6',
+    routeName: '/museum',
+    pageName: '博物',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Mercury.png',
+  },
+  {
+    routeId: '7',
+    routeName: '/landscape',
+    pageName: '风景',
+    bg: 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/app/Uranus.png',
+  },
+];
 
-  const jumpToRouter = (route: string): void => {
-    router.push(route);
-  };
+const jumpToRouter = (route: string): void => {
+  router.push(route);
+};
 
-  const mouseOverPages = (add: string): void => {
-    const obj = routeArr.find((value) => value.routeName === add);
-    if (obj) {
-      curPageName.value = obj.pageName;
-    }
-  };
+const mouseOverPages = (add: string): void => {
+  const obj = routeArr.find((value) => value.routeName === add);
+  if (obj) {
+    curPageName.value = obj.pageName;
+  }
+};
 
-  // 监听路由变化
-  watch(
-    () => router.currentRoute.value.path,
-    (newPath: string) => {
-      if (tabContainer.value) {
-        if (newPath === '/') {
-          tabContainer.value.style.display = 'none';
-        } else {
-          tabContainer.value.style.display = 'block';
-          tabContainer.value.style.zIndex = '5';
-        }
-      }
-    },
-  );
-
-  // 生命周期钩子
-  onMounted(() => {
-    // 页面路由跳转后切换场景
+// 监听路由变化
+watch(
+  () => router.currentRoute.value.path,
+  (newPath: string) => {
     if (tabContainer.value) {
-      if (router.currentRoute.value.path === '/') {
+      if (newPath === '/') {
         tabContainer.value.style.display = 'none';
       } else {
         tabContainer.value.style.display = 'block';
         tabContainer.value.style.zIndex = '5';
       }
     }
+  },
+);
 
-    // 时钟
-    let lastSecond = -1;
+// 生命周期钩子
+onMounted(() => {
+  // 页面路由跳转后切换场景  
+  if (tabContainer.value) {
+    if (router.currentRoute.value.path === '/') {
+      tabContainer.value.style.display = 'none';
+    } else {
+      tabContainer.value.style.display = 'block';
+      tabContainer.value.style.zIndex = '5';
+    }
+  }
 
-    function setTime(): void {
-      const time = new Date();
-      const seconds = time.getSeconds();
+  // 时钟
+  let lastSecond = -1;
 
-      if (seconds !== lastSecond) {
-        lastSecond = seconds;
-        const hours = time.getHours();
-        const minutes = time.getMinutes();
+  function setTime(): void {
+    const time = new Date();
+    const seconds = time.getSeconds();
 
-        if (hourEl.value) {
-          hourEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            hours,
-            0,
-            12,
-            0,
-            360,
-          )}deg)`;
-        }
+    if (seconds !== lastSecond) {
+      lastSecond = seconds;
+      const hours = time.getHours();
+      const minutes = time.getMinutes();
 
-        if (minuteEl.value) {
-          minuteEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            minutes,
-            0,
-            60,
-            0,
-            360,
-          )}deg)`;
-        }
+      if (hourEl.value) {
+        hourEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
+          hours,
+          0,
+          12,
+          0,
+          360,
+        )}deg)`;
+      }
 
-        if (secondEl.value) {
-          secondEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
-            seconds,
-            0,
-            60,
-            0,
-            360,
-          )}deg)`;
-        }
+      if (minuteEl.value) {
+        minuteEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
+          minutes,
+          0,
+          60,
+          0,
+          360,
+        )}deg)`;
+      }
 
-        if (timeEl.value) {
-          timeEl.value.innerHTML = formatTime(time);
-        }
+      if (secondEl.value) {
+        secondEl.value.style.transform = `translate(-50%, -100%) rotate(${scale(
+          seconds,
+          0,
+          60,
+          0,
+          360,
+        )}deg)`;
+      }
 
-        if (dateEl.value) {
-          dateEl.value.innerHTML = formatDate(time);
-        }
+      if (timeEl.value) {
+        timeEl.value.innerHTML = formatTime(time);
+      }
+
+      if (dateEl.value) {
+        dateEl.value.innerHTML = formatDate(time);
       }
     }
+  }
 
-    function tick(): void {
-      if (!document.hidden) {
-        setTime();
-      }
-      timer.value = window.requestAnimationFrame(tick) as unknown as number;
+  function tick(): void {
+    if (!document.hidden) {
+      setTime();
     }
-
-    setTime();
     timer.value = window.requestAnimationFrame(tick) as unknown as number;
-  });
+  }
 
-  onUnmounted(() => {
-    if (timer.value) {
-      window.cancelAnimationFrame(timer.value);
-      timer.value = undefined;
-    }
-  });
+  setTime();
+  timer.value = window.requestAnimationFrame(tick) as unknown as number;
+});
+
+onUnmounted(() => {
+  if (timer.value) {
+    window.cancelAnimationFrame(timer.value);
+    timer.value = undefined;
+  }
+});
 </script>
 <style scoped lang="scss" src="@/assets/css/SolarSystem.scss" />

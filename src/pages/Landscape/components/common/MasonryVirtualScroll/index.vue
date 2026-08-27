@@ -155,9 +155,9 @@ onUnmounted(() => {
   resizeObserver?.disconnect()
 })
 
-watch(() => props.items, () => {
+watch(() => props.items.length, () => {
   nextTick(calculateLayout)
-}, { deep: true })
+})
 
 watch(() => props.columns, () => {
   nextTick(calculateLayout)

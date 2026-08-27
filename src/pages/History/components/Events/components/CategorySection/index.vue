@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-  import { historicalEvents } from '../../../../data/events';
+  import { useHistoryDataStore } from '@/stores/history';
   import './index.scss';
 
   const props = defineProps<{
@@ -34,6 +34,8 @@
   const emit = defineEmits<{
     (e: 'switch-category', categoryId: string): void;
   }>();
+
+  const historyStore = useHistoryDataStore();
 
   const categories = [
     { id: 'all', name: '全部', icon: '📚' },
@@ -45,9 +47,9 @@
 
   const getCategoryCount = (categoryId: string) => {
     if (categoryId === 'all') {
-      return historicalEvents.length;
+      return historyStore.events.length;
     }
-    return historicalEvents.filter((event) => event.category === categoryId)
+    return historyStore.events.filter((event) => event.category === categoryId)
       .length;
   };
 

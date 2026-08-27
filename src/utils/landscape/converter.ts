@@ -1,5 +1,13 @@
-import type { GlobalImage, GlobalVideo } from '@/typesOfPages/landscape/data';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { GlobalImage, GlobalVideo } from '@/types/landscape/data';
+import type { LandscapeItem } from '@/types/landscape';
+
+function deterministicHeight(id: string): number {
+  let hash = 0
+  for (let i = 0; i < id.length; i++) {
+    hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0
+  }
+  return 300 + (Math.abs(hash) % 100)
+}
 
 export function convertToLandscapeItem(item: GlobalImage | GlobalVideo): LandscapeItem {
   const base: LandscapeItem = {
@@ -23,7 +31,7 @@ export function convertToLandscapeItem(item: GlobalImage | GlobalVideo): Landsca
     shares: item.shares,
     bookmarks: (item as GlobalImage).favorites || (item as GlobalVideo).bookmarks || 0,
     liked: false,
-    height: 300 + Math.floor(Math.random() * 100),
+    height: deterministicHeight(item.id),
   };
 
   if ('duration' in item) {

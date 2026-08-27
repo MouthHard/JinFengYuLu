@@ -214,7 +214,7 @@
                 <div class="meta-item">
                   <span class="meta-label">标签</span>
                   <span class="meta-value">{{
-                    currentEvent.tags.join("、")
+                    (currentEvent.tags || []).join("、")
                   }}</span>
                 </div>
               </div>
@@ -229,7 +229,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { historicalEvents } from "../../../../data/events";
+import { useHistoryDataStore } from "@/stores/history";
 import "./index.scss";
 
 const props = defineProps<{
@@ -245,6 +245,7 @@ const emit = defineEmits<{
   (e: "change-category", category: string): void;
 }>();
 
+const historyStore = useHistoryDataStore();
 const isCoverHovered = ref(false);
 
 const categories = [
@@ -263,9 +264,9 @@ const currentCategory = computed(() => {
 
 const filteredEvents = computed(() => {
   if (props.activeCategory === "all") {
-    return historicalEvents;
+    return historyStore.events;
   }
-  return historicalEvents.filter(
+  return historyStore.events.filter(
     (event) => event.category === props.activeCategory,
   );
 });

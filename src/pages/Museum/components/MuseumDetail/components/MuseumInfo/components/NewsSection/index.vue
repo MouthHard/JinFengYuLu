@@ -1,7 +1,7 @@
 <template>
   <section class="news-section">
     <div class="section-header">
-      <h2 class="section-title">博物馆新闻</h2>
+      <h2 class="section-title">博物馆新�?/h2>
       <button class="more-button">更多</button>
     </div>
     <div class="news-container">
@@ -23,18 +23,19 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Museum } from '@/typesOfPages/museum';
-  import { getNewsByMuseumId } from '@/pages/Museum/data/news';
+  import type { Museum } from '@/types/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
 
   interface Props {
     museum: Museum;
   }
 
   const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
   const homeNews = computed(() => {
     if (!props.museum) return [];
-    return getNewsByMuseumId(props.museum.id);
+    return store.getNewsByMuseumId(props.museum.id);
   });
 </script>
 

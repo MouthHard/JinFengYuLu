@@ -85,7 +85,7 @@ import { formatNumber } from '@/utils/landscape/format';
 import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
 import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
 import BookmarkIcon from '@/pages/Landscape/icon/common/BookmarkIcon.vue';
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 
 interface Props {
   items: LandscapeItem[];

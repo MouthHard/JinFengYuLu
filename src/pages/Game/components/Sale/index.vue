@@ -56,7 +56,7 @@
           <div class="sale-card__left">
             <h3 class="sale-card__title">{{ game.title }}</h3>
             <div class="sale-card__tags">
-              <span v-for="tag in game.tags.slice(0, 2)" :key="tag" class="sale-card__tag">{{ tagLabelMap[tag] || tag }}</span>
+              <span v-for="tag in (game.tags || []).slice(0, 2)" :key="tag" class="sale-card__tag">{{ tagLabelMap[tag] || tag }}</span>
             </div>
           </div>
           <div class="sale-card__price-block">
@@ -80,14 +80,15 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
-import type { GameItem } from '@/typesOfPages/game';
-import { games } from '../../data/index';
+import { useGameStore } from '@/stores/game';
+import type { GameItemResponse } from '@/services/game';
 
 defineOptions({ name: 'GameSale' });
 
 const router = useRouter();
-const saleGames = computed(() => games.filter(g => g.discount).sort((a, b) => (b.discount || 0) - (a.discount || 0)));
-const navigateToDetail = (game: GameItem) => { router.push(`/game/detail/${game.id}`); };
+const gameStore = useGameStore();
+const saleGames = computed(() => gameStore.games.filter(g => g.discount).sort((a, b) => (b.discount || 0) - (a.discount || 0)));
+const navigateToDetail = (game: GameItemResponse) => { router.push(`/game/detail/${game.id}`); };
 
 const maxDiscount = computed(() => Math.max(...saleGames.value.map(g => g.discount || 0)));
 
@@ -138,7 +139,7 @@ const updateCountdown = () => {
   countdownSecs.value = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
 };
 
-onMounted(() => { updateCountdown(); timer = window.setInterval(updateCountdown, 1000); });
+onMounted(() => { updateCountdown(); timer = window.setInterval(updateCountdown, 1000); gameStore.ensureDataLoaded(); });
 onUnmounted(() => { if (timer) clearInterval(timer); });
 </script>
 

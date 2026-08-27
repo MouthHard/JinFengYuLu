@@ -10,7 +10,7 @@
           ref="searchInput"
           v-model="keyword"
           type="text"
-          placeholder="搜索歌曲、歌手、专辑"
+          placeholder="搜索歌曲、歌手、专�?
           @keyup.enter="doSearch"
         />
         <button v-if="keyword" class="clear-btn" @click="clearSearch">
@@ -22,7 +22,7 @@
     </div>
 
     <div v-if="!hasSearched" class="hot-section">
-      <div class="section-title">热搜榜</div>
+      <div class="section-title">热搜�?/div>
       <div class="hot-list">
         <div
           v-for="(hot, index) in searchHots"
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div v-else class="no-results">
-          <p>未找到相关歌曲</p>
+          <p>未找到相关歌�?/p>
         </div>
       </div>
 
@@ -100,7 +100,7 @@
           </div>
         </div>
         <div v-else class="no-results">
-          <p>未找到相关歌手</p>
+          <p>未找到相关歌�?/p>
         </div>
       </div>
 
@@ -117,12 +117,12 @@
             </div>
             <div class="playlist-result-info">
               <div class="playlist-result-name" v-html="highlightText(pl.name)"></div>
-              <div class="playlist-result-count">{{ pl.songCount }} 首歌曲</div>
+              <div class="playlist-result-count">{{ pl.songCount }} 首歌�?/div>
             </div>
           </div>
         </div>
         <div v-else class="no-results">
-          <p>未找到相关歌单</p>
+          <p>未找到相关歌�?/p>
         </div>
       </div>
 
@@ -130,7 +130,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <p>未找到相关结果</p>
+        <p>未找到相关结�?/p>
         <span>试试其他关键词吧</span>
       </div>
     </div>
@@ -143,7 +143,8 @@ import { useRoute, useRouter } from "vue-router";
 import { inject } from "vue";
 import { searchHots, songs, artists, playlists } from "@/stores/music";
 import { formatPlayCount, formatDuration } from "@/utils/music";
-import type { Song, Artist, Playlist } from "@/typesOfPages/music";
+import { highlightSearchMatch } from "@/utils/common";
+import type { Song, Artist, Playlist } from "@/types/music";
 
 const route = useRoute();
 const router = useRouter();
@@ -219,9 +220,7 @@ const goPlaylist = (id: number) => {
 };
 
 const highlightText = (text: string): string => {
-  if (!searchedKeyword.value) return text;
-  const regex = new RegExp(`(${searchedKeyword.value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-  return text.replace(regex, '<mark>$1</mark>');
+  return highlightSearchMatch(text, searchedKeyword.value);
 };
 
 watch(() => route.query.q, (newQ) => {

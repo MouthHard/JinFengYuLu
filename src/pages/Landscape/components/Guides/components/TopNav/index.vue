@@ -43,18 +43,21 @@
               <span class="section-title">搜索历史</span>
               <button class="clear-history-btn" @click="clearSearchHistory">清除</button>
             </div>
-            <div class="history-list">
+            <div class="history-tags">
               <button
-                v-for="(item, index) in searchHistory"
+                v-for="(item, index) in visibleHistory"
                 :key="index"
-                class="history-item"
+                class="history-tag"
                 @mousedown="selectHistoryItem(item)"
               >
-                <svg class="history-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                <span class="history-text">{{ item }}</span>
+                {{ item }}
+              </button>
+              <button
+                v-if="hasMoreHistory"
+                class="more-history-btn"
+                @mousedown.prevent="toggleShowAllHistory"
+              >
+                {{ showAllHistory ? '收起' : '更多' }}
               </button>
             </div>
           </div>
@@ -82,18 +85,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { hotTags } from '@/utils/landscape/constants';
+import { debounce } from '@/utils/landscape/debounce';
+
+const props = defineProps<{
+  initialKeyword?: string;
+}>();
 
 const searchKeyword = ref('');
 const isSearchFocused = ref(false);
 const searchHistory = ref<string[]>([]);
 const searchInput = ref<HTMLInputElement | null>(null);
+const showAllHistory = ref(false);
 
 const emit = defineEmits<{
   (e: 'update:searchKeyword', value: string): void;
   (e: 'search'): void;
 }>();
+
+const visibleHistory = computed(() => {
+  if (showAllHistory.value) {
+    return searchHistory.value;
+  }
+  return searchHistory.value.slice(0, 3);
+});
+
+const hasMoreHistory = computed(() => searchHistory.value.length > 3);
 
 // 从localStorage加载搜索历史
 const loadSearchHistory = () => {
@@ -134,6 +152,7 @@ const saveSearchHistory = (keyword: string) => {
 
 const handleFocus = () => {
   isSearchFocused.value = true;
+  showAllHistory.value = false;
 };
 
 const handleBlur = () => {
@@ -143,14 +162,17 @@ const handleBlur = () => {
   }, 200);
 };
 
-const handleSearch = () => {
-  emit('update:searchKeyword', searchKeyword.value);
+const debouncedSearch = debounce((val: unknown) => {
+  const value = val as string;
+  emit('update:searchKeyword', value);
   emit('search');
-
-  // 如果搜索内容不为空，保存到历史记录
-  if (searchKeyword.value.trim()) {
-    saveSearchHistory(searchKeyword.value);
+  if (value.trim()) {
+    saveSearchHistory(value);
   }
+}, 300);
+
+const handleSearch = () => {
+  debouncedSearch(searchKeyword.value);
 };
 
 const clearSearch = () => {
@@ -175,6 +197,10 @@ const selectHotTag = (tag: string) => {
   isSearchFocused.value = false;
 };
 
+const toggleShowAllHistory = () => {
+  showAllHistory.value = !showAllHistory.value;
+};
+
 const clearSearchHistory = () => {
   searchHistory.value = [];
   localStorage.removeItem('guideSearchHistory');
@@ -182,6 +208,11 @@ const clearSearchHistory = () => {
 
 onMounted(() => {
   loadSearchHistory();
+  if (props.initialKeyword) {
+    searchKeyword.value = props.initialKeyword;
+    emit('update:searchKeyword', props.initialKeyword);
+    emit('search');
+  }
 });
 </script>
 

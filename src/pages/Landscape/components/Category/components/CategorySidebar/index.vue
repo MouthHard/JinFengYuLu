@@ -123,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LandscapeItem } from '@/typesOfPages/landscape';
+import type { LandscapeItem } from '@/types/landscape';
 import type { Category } from '@/utils/landscape/categories';
 import { categoryGroups } from '@/utils/landscape/categories';
 import { computed } from 'vue';
@@ -162,7 +162,7 @@ const getCategories = (dimId: string) => {
   return group?.categories || [];
 };
 
-// 获取数据在该维度的第一个 tag（避免重复计数）
+// 获取数据在该维度的第一 tag（避免重复计数）
 const getFirstTagInDimension = (item: LandscapeItem, dimId: string) => {
   if (!item.categoryTags || item.categoryTags.length === 0) {
     return null;
@@ -170,7 +170,7 @@ const getFirstTagInDimension = (item: LandscapeItem, dimId: string) => {
   return item.categoryTags.find((tag) => tag.dimension === dimId) || null;
 };
 
-// 三类计数：只匹配该维度的第一个 tag
+// 三类计数：只匹配该维度的第一 tag
 const getCategoryCount = (dimId: string, catId: string, childId: string) => {
   return props.items.filter((item) => {
     const firstTag = getFirstTagInDimension(item, dimId);
@@ -182,7 +182,7 @@ const getCategoryCount = (dimId: string, catId: string, childId: string) => {
   }).length;
 };
 
-// 二类计数：只匹配该维度的第一个 tag 的 category
+// 二类计数：只匹配该维度的第一 tag  category
 const getCategoryCountSum = (
   dimId: string,
   catId: string,

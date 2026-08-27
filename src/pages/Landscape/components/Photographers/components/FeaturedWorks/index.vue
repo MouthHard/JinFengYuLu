@@ -161,7 +161,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue';
+  import { ref, computed, onMounted, onUnmounted } from 'vue';
   import { workTypeIcons } from '@/utils/landscape/constants';
   import { useLandscapeDataStore } from '@/stores/landscape';
   import { useInteractionStore } from '@/stores/landscape';
@@ -176,29 +176,30 @@
   const getWorkTypeIcon = (type?: string) =>
     workTypeIcons[type || 'photo'] || '🖼️';
 
-  const featuredWorksData = dataStore
-    .getAllImages()
-    .slice(0, 20)
-    .map((img) => {
-      const photographer = dataStore.getPhotographer(img.authorId)
-      return {
-        id: img.id,
-        image: img.thumbnail || img.url,
-        title: img.title,
-        author: photographer?.name || img.author || '未知摄影师',
-        authorId: img.authorId,
-        authorAvatar: photographer?.avatar,
-        location: img.location,
-        category: img.category,
-        type: 'image',
-        likes: img.likes,
-        views: img.views,
-        loves: img.loves,
-        favorites: img.favorites || 0,
-        shares: img.shares,
-      }
-    });
-  const featuredWorks = ref(featuredWorksData);
+  const featuredWorks = computed(() =>
+    dataStore
+      .getAllImages()
+      .slice(0, 20)
+      .map((img) => {
+        const photographer = dataStore.getPhotographer(img.authorId)
+        return {
+          id: img.id,
+          image: img.thumbnail || img.url,
+          title: img.title,
+          author: photographer?.name || img.author || '未知摄影师',
+          authorId: img.authorId,
+          authorAvatar: photographer?.avatar,
+          location: img.location,
+          category: img.category,
+          type: 'image',
+          likes: img.likes,
+          views: img.views,
+          loves: img.loves,
+          favorites: img.favorites || 0,
+          shares: img.shares,
+        }
+      })
+  );
 
   const scrollContainerRef = ref<HTMLElement | null>(null);
 

@@ -17,16 +17,21 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, onMounted, computed } from 'vue';
   import HeroSection from './components/HeroSection/index.vue';
   import MapSection from './components/MapSection/index.vue';
   import MuseumList from './components/MuseumList/index.vue';
-  import { museums } from './data/museums';
+  import { useMuseumDataStore } from '@/stores/museum';
 
-  // 状态管理
+  const store = useMuseumDataStore();
   const selectedProvince = ref('');
 
-  // 方法
+  const museums = computed(() => store.museums);
+
+  onMounted(() => {
+    store.ensureLoaded();
+  });
+
   const selectProvince = (province: string) => {
     selectedProvince.value = province;
   };

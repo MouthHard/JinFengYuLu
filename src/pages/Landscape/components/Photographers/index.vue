@@ -10,16 +10,16 @@
     <!-- 页面头部 -->
     <PageHeader />
 
-    <!-- 精选作品展示 -->
+    <!-- 精选作品展�?-->
     <FeaturedWorks @preview="openWorkPreview" />
 
-    <!-- 推荐摄影师 -->
+    <!-- 推荐摄影�?-->
     <FeaturedPhotographers 
       @preview="openWorkPreview"
       @toggle-follow="toggleFollow"
     />
 
-    <!-- 新晋摄影师 -->
+    <!-- 新晋摄影�?-->
     <NewPhotographers 
       @preview="openWorkPreview"
       @toggle-follow="toggleFollow"
@@ -44,7 +44,7 @@ import { ref } from 'vue';
 defineOptions({ name: 'Photographers' });
 import { showMessage } from '@/utils/landscape';
 import { useInteractionStore } from '@/stores/landscape';
-import type { Photographer } from '@/typesOfPages/landscape';
+import type { Photographer } from '@/types/landscape';
 
 import PageHeader from './components/PageHeader/index.vue';
 import FeaturedWorks from './components/FeaturedWorks/index.vue';

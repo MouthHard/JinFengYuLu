@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <!-- 右侧：数据统计 -->
+      <!-- 右侧：数据统�?-->
       <div class="stats-cosmos">
         <div v-for="(stat, index) in stats" :key="stat.label" class="stat-card" :style="{ '--delay': `${index * 0.1}s` }">
           <div class="stat-content">
@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import { ref, type VNode } from 'vue';
 import EditProfileModal from './components/EditProfileModal/index.vue';
-import type { User } from '@/typesOfPages/landscape';
+import type { User } from '@/types/landscape';
 
 interface Stat {
   label: string;

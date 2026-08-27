@@ -3,7 +3,7 @@
     <RankingBackground />
 
     <header class="grid-area-header">
-      <div class="header-title">🏆 美食排行榜</div>
+      <div class="header-title">🏆 美食排行�?/div>
 
       <div class="header-controls">
         <div class="filters-group">
@@ -53,7 +53,7 @@
                 <div v-for="option in ratingOptions" :key="option.value" class="select-option"
                   :class="{ selected: selectedRatingFilter === option.value }"
                   @click="selectOption('rating', option.value)">
-                  <span class="option-icon">⭐</span>
+                  <span class="option-icon">�?/span>
                   <span class="option-text">{{ option.text }}</span>
                   <EcgBackground v-if="selectedRatingFilter === option.value" />
                 </div>
@@ -73,7 +73,7 @@
               <div v-if="openSelect === 'category'" class="select-options">
                 <div class="select-option" :class="{ selected: selectedCategoryFilter === 'all' }"
                   @click="selectOption('category', 'all')">
-                  <span class="option-icon">🍽️</span>
+                  <span class="option-icon">🍽�?/span>
                   <span class="option-text">全部</span>
                   <EcgBackground v-if="selectedCategoryFilter === 'all'" />
                 </div>
@@ -106,7 +106,7 @@
                     option.value === 'ranking'
                       ? '🏆'
                       : option.value === 'rating'
-                        ? '⭐'
+                        ? '�?
                         : option.value === 'price-asc'
                           ? '↗️'
                           : option.value === 'price-desc'
@@ -145,9 +145,9 @@
     <div class="grid-area-ranking">
       <div v-if="filteredAndSortedFoods.length === 0" class="empty-results">
         <div class="empty-icon">🔍</div>
-        <h4 class="empty-title">没有找到匹配的美食</h4>
-        <p class="empty-description">尝试调整筛选条件，或者查看其他推荐</p>
-        <button class="reset-button" @click="resetFilters">重置筛选条件</button>
+        <h4 class="empty-title">没有找到匹配的美�?/h4>
+        <p class="empty-description">尝试调整筛选条件，或者查看其他推�?/p>
+        <button class="reset-button" @click="resetFilters">重置筛选条�?/button>
       </div>
 
       <div v-else class="foods-container">
@@ -190,7 +190,7 @@
                   <el-rate :model-value="food.rating" :disabled="true" :max="5" :precision="1" show-score
                     class="custom-element-rate" />
                   <span class="rating-count">
-                    ({{ (food as any).reviewCount || 0 }}条评价)
+                    ({{ (food as any).reviewCount || 0 }}条评�?
                   </span>
                 </div>
               </div>
@@ -210,7 +210,7 @@
         </article>
 
         <div v-if="filteredAndSortedFoods.length > 4" class="more-container">
-          <button class="more-button">查看更多 ➣</button>
+          <button class="more-button">查看更多 �?/button>
         </div>
       </div>
     </div>
@@ -227,7 +227,7 @@ import {
   nextTick,
   shallowRef,
 } from 'vue';
-import type { Food } from '@/typesOfPages/travelGuide';
+import type { Food } from '@/types/travelGuide';
 import {
   RankingBackground,
   SciFiArrow,
@@ -248,16 +248,14 @@ const selectedSort = ref<string>('ranking');
 // 使用 shallowRef 优化数组操作，因为我们只需要监听数组的引用变化
 const favoriteFoods = shallowRef<Food[]>([]);
 
-// 自定义下拉菜单状态管理
-const openSelect = ref<string | null>(null);
+// 自定义下拉菜单状态管�?const openSelect = ref<string | null>(null);
 
 // 切换下拉菜单
 const toggleSelect = (type: string) => {
   openSelect.value = openSelect.value === type ? null : type;
 };
 
-//下拉菜单选中什么值则将展示在下拉框的值更新为这个值
-const selectOption = (type: string, value: string) => {
+//下拉菜单选中什么值则将展示在下拉框的值更新为这个�?const selectOption = (type: string, value: string) => {
   switch (type) {
     case 'price':
       selectedPriceFilter.value = value;
@@ -291,8 +289,7 @@ const handleClickOutside = (event: MouseEvent) => {
   }
 };
 
-// 获取选中的文本
-const getSelectedText = (
+// 获取选中的文�?const getSelectedText = (
   options: Array<{ value: string; text: string }>,
   value: string,
   placeholder: string,
@@ -301,8 +298,7 @@ const getSelectedText = (
   return option ? option.text : placeholder;
 };
 
-// 获取选中的分类文本
-const getSelectedCategoryText = () => {
+// 获取选中的分类文�?const getSelectedCategoryText = () => {
   if (selectedCategoryFilter.value === 'all') {
     return '全部';
   }
@@ -334,8 +330,7 @@ const sortOptions = [
   { value: 'reviews', text: '按评价数量' },
 ];
 
-// 重置所有筛选条件
-const resetFilters = () => {
+// 重置所有筛选条�?const resetFilters = () => {
   selectedPriceFilter.value = 'all';
   selectedRatingFilter.value = 'all';
   selectedCategoryFilter.value = 'all';
@@ -356,8 +351,7 @@ const uniqueCategories = computed(() => {
 // 筛选和排序工具函数
 const applyFilters = (foods: Food[]) => {
   return foods.filter((food: Food) => {
-    // 价格筛选
-    if (selectedPriceFilter.value !== 'all') {
+    // 价格筛�?    if (selectedPriceFilter.value !== 'all') {
       const [min, max] = selectedPriceFilter.value.split('-');
       const numPrice = food.price ? Number(food.price) : 0;
       if (max === undefined) {
@@ -372,8 +366,7 @@ const applyFilters = (foods: Food[]) => {
       }
     }
 
-    // 评分筛选
-    if (selectedRatingFilter.value !== 'all') {
+    // 评分筛�?    if (selectedRatingFilter.value !== 'all') {
       const ratingValue = selectedRatingFilter.value;
       if (ratingValue === '4.5+') {
         if (food.rating < 4.5) return false;
@@ -383,8 +376,7 @@ const applyFilters = (foods: Food[]) => {
       }
     }
 
-    // 分类筛选
-    if (selectedCategoryFilter.value !== 'all') {
+    // 分类筛�?    if (selectedCategoryFilter.value !== 'all') {
       if (food.category !== selectedCategoryFilter.value) return false;
     }
 
@@ -458,8 +450,7 @@ const activeTab = ref('rating');
 // 图表容器ref
 const chartContainer = ref<HTMLElement | null>(null);
 
-// 图表管理器实例
-let chartManager: ChartManager | null = null;
+// 图表管理器实�?let chartManager: ChartManager | null = null;
 
 // Tab切换方法
 const switchChartTab = (tabId: string) => {

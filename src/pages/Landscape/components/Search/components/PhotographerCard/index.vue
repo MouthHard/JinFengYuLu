@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import UserIcon from '../../../../icon/common/UserIcon.vue'
 import CheckIcon from '../../../../icon/common/CheckIcon.vue'
 import CalendarIcon from '../../../../icon/common/CalendarIcon.vue'
@@ -95,6 +95,7 @@ import TwitterIcon from '../../../../icon/common/TwitterIcon.vue'
 import YoutubeIcon from '../../../../icon/common/YoutubeIcon.vue'
 
 import type { SearchResultItem } from '@/utils/landscape'
+import { useInteractionStore } from '@/stores/landscape'
 
 interface Props {
   item: SearchResultItem
@@ -108,7 +109,8 @@ const emit = defineEmits<{
   like: [id: string]
 }>()
 
-const isFollowing = ref(false)
+const interactionStore = useInteractionStore()
+const isFollowing = computed(() => interactionStore.isFollowing(String(props.item.id)))
 
 const isDateDimmed = computed(() => {
   const mode = props.sortMode
@@ -138,7 +140,7 @@ const formatCount = (count: number) => {
 }
 
 const handleFollow = () => {
-  isFollowing.value = !isFollowing.value
+
   emit('follow', String(props.item.id))
 }
 </script>

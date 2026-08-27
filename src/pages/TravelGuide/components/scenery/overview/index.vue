@@ -2,7 +2,7 @@
   <div class="scenery-overview">
     <div v-if="loading" class="loading-state">
       <div class="loading-spinner"></div>
-      <p>加载中...</p>
+      <p>加载�?..</p>
     </div>
 
     <template v-else-if="sceneryData">
@@ -27,7 +27,7 @@
   import ControlPanel from './control-panel/index.vue';
   import RouteRecommendation from './route-recommendation/index.vue';
   import { loadProvinceData } from '../../../data/dataLoader';
-  import type { SceneryData } from '@/typesOfPages/travelGuide';
+  import type { SceneryData } from '@/types/travelGuide';
 
   const props = defineProps<{
     provinceId: string;

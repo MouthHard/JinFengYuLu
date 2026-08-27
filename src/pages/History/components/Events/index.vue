@@ -41,12 +41,14 @@
 
 <script setup lang="ts">
   import { ref, computed, onMounted, onUnmounted } from 'vue';
-  import { historicalEvents } from '../../data/events';
+  import { useHistoryDataStore } from '@/stores/history';
   import CategorySection from './components/CategorySection/index.vue';
   import Sidebar from './components/Sidebar/index.vue';
   import BookSection from './components/BookSection/index.vue';
   import ControlsSection from './components/ControlsSection/index.vue';
   import './index.scss';
+
+  const historyStore = useHistoryDataStore();
 
   const activeCategory = ref('all');
   const currentEventIndex = ref(0);
@@ -54,9 +56,9 @@
 
   const filteredEvents = computed(() => {
     if (activeCategory.value === 'all') {
-      return historicalEvents;
+      return historyStore.events;
     }
-    return historicalEvents.filter(
+    return historyStore.events.filter(
       (event) => event.category === activeCategory.value,
     );
   });

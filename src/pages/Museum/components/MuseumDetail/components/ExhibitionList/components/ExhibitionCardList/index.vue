@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
   import { ref } from 'vue';
-  import type { Exhibition } from '@/typesOfPages/museum/index';
+  import type { Exhibition } from '@/types/museum/index';
 
   // Props
   const props = defineProps({
@@ -59,26 +59,22 @@
   // Emits
   const emit = defineEmits(['selectExhibition']);
 
-  // 动态导入整个文件夹的图片
-  const backgroundImages = import.meta.glob(
+  // 动态导入整个文件夹的图�?  const backgroundImages = import.meta.glob(
     '@/assets/image/Museum/ExhibitionCardBg/*.webp',
     { eager: true, import: 'default' },
   );
   const backgroundImageArray = Object.values(backgroundImages);
 
-  // 存储每个展览的背景图片索引
-  const exhibitionBackgrounds = ref<Record<number, number>>({});
+  // 存储每个展览的背景图片索�?  const exhibitionBackgrounds = ref<Record<number, number>>({});
 
-  // 获取展览的背景图片
-  const getExhibitionBackground = (exhibitionId: number) => {
+  // 获取展览的背景图�?  const getExhibitionBackground = (exhibitionId: number) => {
     // 如果该展览还没有背景图片索引，生成一个并存储
     if (!exhibitionBackgrounds.value[exhibitionId]) {
       exhibitionBackgrounds.value[exhibitionId] = Math.floor(
         Math.random() * backgroundImageArray.length,
       );
     }
-    // 返回存储的背景图片
-    return backgroundImageArray[exhibitionBackgrounds.value[exhibitionId]];
+    // 返回存储的背景图�?    return backgroundImageArray[exhibitionBackgrounds.value[exhibitionId]];
   };
 
   // 根据状态获取背景渐变色
@@ -86,13 +82,13 @@
     switch (status) {
       case '热门':
         return 'linear-gradient(135deg, #8B0000 0%, #A0522D 100%)';
-      case '最新':
+      case '最�?:
         return 'linear-gradient(135deg, #1E3A8A 0%, #312E81 100%)';
       case '即将结束':
         return 'linear-gradient(135deg, #78350F 0%, #92400E 100%)';
-      case '筹备中':
+      case '筹备�?:
         return 'linear-gradient(135deg, #064E3B 0%, #065F46 100%)';
-      case '已结束':
+      case '已结�?:
         return 'linear-gradient(135deg, #4338CA 0%, #4F46E5 100%)';
       default:
         return 'linear-gradient(135deg, #306d47 0%, #245e38 50%, #174e29 100%)';

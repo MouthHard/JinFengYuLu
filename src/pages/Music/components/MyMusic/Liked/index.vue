@@ -10,7 +10,7 @@
         </div>
         <div class="hero-info">
           <h1>我喜欢的音乐</h1>
-          <p>{{ likedSongsData.length }} 首歌曲 · {{ totalDuration }}</p>
+          <p>{{ likedSongsData.length }} 首歌�?· {{ totalDuration }}</p>
         </div>
       </div>
       <div class="hero-actions">
@@ -153,7 +153,7 @@
 import { computed, inject } from "vue";
 import { likedSongsData } from "@/stores/music";
 import { formatDuration } from "@/utils/music";
-import type { Song } from "@/typesOfPages/music";
+import type { Song } from "@/types/music";
 
 const playSong = inject<(song: Song) => void>("playSong");
 

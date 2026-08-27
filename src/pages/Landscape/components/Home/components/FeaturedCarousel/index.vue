@@ -215,7 +215,7 @@
         </div>
 
         <div class="carousel-controls">
-          <button class="control-btn prev" @click="prevSlide">➢</button>
+          <button class="control-btn prev" @click="prevSlide">�?/button>
           <div class="slide-counter">
             <span class="current">
               {{ String(currentSlide + 1).padStart(2, '0') }}
@@ -225,12 +225,12 @@
               {{ String(totalSlides).padStart(2, '0') }}
             </span>
           </div>
-          <button class="control-btn next" @click="nextSlide">➢</button>
+          <button class="control-btn next" @click="nextSlide">�?/button>
         </div>
       </div>
       <div v-else class="empty-state">
         <div class="empty-icon">🎬</div>
-        <h3>暂无精选影像</h3>
+        <h3>暂无精选影�?/h3>
         <p>敬请期待精彩内容</p>
       </div>
     </div>
@@ -256,7 +256,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue';
+  import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
   import { useHomeViewData } from '@/composables/landscape';
   import { useInteractionStore } from '@/stores/landscape';
   import {
@@ -266,10 +266,11 @@
   import { convertSlideToInteractionItem } from '@/utils/landscape/interaction';
 
   const { featuredSlides } = useHomeViewData();
-  const slides = featuredSlides();
-  const totalSlides = slides.length;
+  const slides = computed(() => featuredSlides());
+  const totalSlides = computed(() => slides.value.length);
+  type Slide = ReturnType<typeof featuredSlides>[number];
   import ShareMenu from '../../../common/ShareMenu/index.vue';
-  import type { InteractionItem } from '@/typesOfPages/landscape';
+  import type { InteractionItem } from '@/types/landscape';
   import { showMessage } from '@/utils/landscape';
   import ThumbUpIcon from '@/pages/Landscape/icon/common/ThumbUpIcon.vue';
   import HeartIcon from '@/pages/Landscape/icon/common/HeartIcon.vue';
@@ -289,16 +290,16 @@
   const currentSlide = ref(0);
   let autoPlayTimer: number | null = null;
   const showShareMenu = ref(false);
-  const currentShareSlide = ref<(typeof slides)[0] | null>(null);
+  const currentShareSlide = ref<Slide | null>(null);
 
   const prevSlide = () => {
     currentSlide.value =
-      currentSlide.value > 0 ? currentSlide.value - 1 : totalSlides - 1;
+      currentSlide.value > 0 ? currentSlide.value - 1 : totalSlides.value - 1;
   };
 
   const nextSlide = () => {
     currentSlide.value =
-      currentSlide.value < totalSlides - 1 ? currentSlide.value + 1 : 0;
+      currentSlide.value < totalSlides.value - 1 ? currentSlide.value + 1 : 0;
   };
 
   const goToSlide = (index: number) => {
@@ -331,7 +332,7 @@
   const getSlideId = (id: string) => `fc-${id}`;
 
   const convertToInteractionItem = (
-    slide: (typeof slides)[0],
+    slide: Slide,
   ): InteractionItem => {
     return convertSlideToInteractionItem(
       slide,
@@ -340,7 +341,7 @@
     );
   };
 
-  const handleToggleFavorite = (slide: (typeof slides)[0]) => {
+  const handleToggleFavorite = (slide: Slide) => {
     const item = convertToInteractionItem(slide);
     const isAdded = interactionStore.toggleFavorite(item);
     const mediaType = slide.mediaType === 'video' ? 'video' : 'image';
@@ -351,7 +352,7 @@
     }
   };
 
-  const handleToggleLove = (slide: (typeof slides)[0]) => {
+  const handleToggleLove = (slide: Slide) => {
     const item = convertToInteractionItem(slide);
     const isAdded = interactionStore.toggleLove(item);
     const mediaType = slide.mediaType === 'video' ? 'video' : 'image';
@@ -362,7 +363,7 @@
     }
   };
 
-  const handleToggleLike = (slide: (typeof slides)[0]) => {
+  const handleToggleLike = (slide: Slide) => {
     const item = convertToInteractionItem(slide);
     const isAdded = interactionStore.toggleLike(item);
     if (isAdded) {
@@ -372,7 +373,7 @@
     }
   };
 
-  const handleShare = (slide: (typeof slides)[0]) => {
+  const handleShare = (slide: Slide) => {
     currentShareSlide.value = slide;
     showShareMenu.value = true;
   };
@@ -390,7 +391,7 @@
     }
   };
 
-  const handleDownload = async (slide: (typeof slides)[0]) => {
+  const handleDownload = async (slide: Slide) => {
     try {
       const response = await fetch(slide.image);
       const blob = await response.blob();
@@ -412,19 +413,29 @@
 
   onMounted(() => {
     startAutoPlay();
-    interactionStore.registerBatch(
-      slides.map((s) => ({
-        id: getSlideId(s.id),
-        counts: {
-          likes: s.likes || 0,
-          views: s.views || 0,
-          loves: s.loves || 0,
-          favorites: s.favorites || 0,
-          shares: s.shares || 0,
-        },
-      })),
-    );
   });
+
+  watch(
+    () => slides.value.length,
+    (len) => {
+      if (len > 0) {
+        interactionStore.registerBatch(
+          slides.value.map((s) => ({
+            id: getSlideId(s.id),
+            counts: {
+              likes: s.likes || 0,
+              views: s.views || 0,
+              loves: s.loves || 0,
+              favorites: s.favorites || 0,
+              shares: s.shares || 0,
+            },
+          })),
+        );
+        startAutoPlay();
+      }
+    },
+    { immediate: true },
+  );
 
   onUnmounted(() => {
     pauseAutoPlay();

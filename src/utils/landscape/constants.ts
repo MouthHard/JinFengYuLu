@@ -1,6 +1,16 @@
-import type { Category } from '@/typesOfPages/landscape';
+import type { Category } from '@/types/landscape';
 
 export const OSS = 'https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape'
+
+export function ossThumbnail(url: string, width = 400): string {
+  if (!url || !url.includes('aliyuncs.com')) return url
+  return `${url}?x-oss-process=image/resize,w_${width},m_lfit/format,webp`
+}
+
+export function ossPreview(url: string, width = 800): string {
+  if (!url || !url.includes('aliyuncs.com')) return url
+  return `${url}?x-oss-process=image/resize,w_${width},m_lfit/format,webp`
+}
 
 export const dimensions = [
   { id: 'theme', name: '主题', icon: '🎨' },
@@ -172,10 +182,10 @@ export const mainNavs = [
 ]
 
 export const contentTabs = [
-  { key: 'all', label: '全部', icon: '⊞' },
-  { key: 'photo', label: '图片', icon: '⊡' },
-  { key: 'video', label: '视频', icon: '▶' },
-  { key: 'guide', label: '攻略', icon: '⊞' },
+  { key: 'all', label: '全部', icon: '🌟' },
+  { key: 'photo', label: '图片', icon: '🖼️' },
+  { key: 'video', label: '视频', icon: '🎥' },
+  { key: 'guide', label: '攻略', icon: '📖' },
 ]
 
 export const filterTags = [
@@ -208,7 +218,7 @@ export const rankingTabs = [
   { value: 'works', label: '作品数', icon: '📸' },
   { value: 'followers', label: '粉丝数', icon: '👥' },
   { value: 'likes', label: '点赞数', icon: '❤️' },
-  { value: 'views', label: '浏览量', icon: '👁️' }
+  { value: 'views', label: '浏览数', icon: '👁️' }
 ]
 
 export const hotTags = [
@@ -260,7 +270,7 @@ export const userProfile = {
 
 export const profileTabs = [
   { key: 'favorites', name: '我的收藏', icon: '❤️' },
-  { key: 'likes', name: '我的喜欢', icon: '⭐' },
+  { key: 'likes', name: '我的喜欢', icon: '❤️' },
   { key: 'uploads', name: '我的上传', icon: '📤' },
   { key: 'following', name: '我的关注', icon: '👤' },
 ]
@@ -269,7 +279,7 @@ export const profileCategories = [
   { id: 'image', name: '图片', icon: '🖼️' },
   { id: 'video', name: '视频', icon: '🎬' },
   { id: 'guide', name: '攻略', icon: '📖' },
-  { id: 'photographer', name: '摄影师', icon: '👤' },
+
 ]
 
 export const seasonMap: Record<string, string> = {
@@ -303,8 +313,8 @@ export const workTypeConfigs: Record<string, { icon: string; name: string; forma
   panorama: { icon: '🌅', name: '全景', format: 'JPG' },
   timelapse: { icon: '⏱️', name: '延时', format: 'MP4' },
   aerial: { icon: '🚁', name: '航拍', format: 'JPG' },
-  longexp: { icon: '✨', name: '长曝光', format: 'JPG' },
-  startrail: { icon: '⭐', name: '星轨', format: 'JPG' },
+  longexp: { icon: '⏱️', name: '长曝光', format: 'JPG' },
+  startrail: { icon: '🌟', name: '星轨', format: 'JPG' },
   hdr: { icon: '🌈', name: 'HDR', format: 'JPG' },
 }
 
@@ -323,7 +333,7 @@ export const travelModes = [
   { id: 'hiking', label: '徒步游', icon: '🥾', count: 0 },
   { id: 'cycling', label: '骑行游', icon: '🚴', count: 0 },
   { id: 'backpacking', label: '背包游', icon: '🎒', count: 0 },
-  { id: 'photography-tour', label: '摄影团', icon: '📸', count: 0 },
+  { id: 'photography-tour', label: '摄影游', icon: '📸', count: 0 },
   { id: 'cruise', label: '邮轮游', icon: '🚢', count: 0 },
   { id: 'rv-camping', label: '房车游', icon: '🚐', count: 0 },
   { id: 'train-travel', label: '火车游', icon: '🚄', count: 0 },
@@ -417,9 +427,9 @@ export const durations = [
 ]
 
 export const budgetRanges = [
-  { id: 'budget', label: '经济型 (¥0-3000)', icon: '💰', count: 0 },
+  { id: 'budget', label: '经济型(¥0-3000)', icon: '💰', count: 0 },
   { id: 'moderate', label: '舒适型 (¥3000-8000)', icon: '💵', count: 0 },
-  { id: 'luxury', label: '豪华型 (¥8000-20000)', icon: '💎', count: 0 },
+  { id: 'luxury', label: '豪华型(¥8000-20000)', icon: '💎', count: 0 },
   { id: 'premium', label: '顶级体验 (¥20000+)', icon: '👑', count: 0 },
 ]
 
@@ -451,7 +461,7 @@ export const photographyThemes = [
 export const specialExperiences = [
   { id: 'camping', label: '露营体验', icon: '⛺', count: 0 },
   { id: 'sunrise-chase', label: '追光之旅', icon: '🌅', count: 0 },
-  { id: 'star-watching', label: '观星之旅', icon: '⭐', count: 0 },
+  { id: 'star-watching', label: '观星之旅', icon: '🔭', count: 0 },
   { id: 'wildlife-safari', label: '野生动物', icon: '🦁', count: 0 },
   { id: 'cultural-immersion', label: '文化沉浸', icon: '🎭', count: 0 },
   { id: 'photography-workshop', label: '摄影工作坊', icon: '📸', count: 0 },
@@ -477,7 +487,7 @@ export const guideTypes = [
 ]
 
 export const ratingFilters = [
-  { id: 'top-rated', label: '高分精选', icon: '⭐⭐⭐⭐⭐', count: 0 },
+  { id: 'top-rated', label: '高分精选', icon: '⭐⭐⭐⭐', count: 0 },
   { id: 'popular', label: '热门推荐', icon: '🔥', count: 0 },
   { id: 'trending', label: '新晋热门', icon: '📈', count: 0 },
   { id: 'classic', label: '经典攻略', icon: '📚', count: 0 },
@@ -486,10 +496,10 @@ export const ratingFilters = [
 
 export const contentStyles = [
   { id: 'practical', label: '实用干货', icon: '📋', count: 0 },
-  { id: 'inspirational', label: '灵感美图', icon: '✨', count: 0 },
+  { id: 'inspirational', label: '灵感美图', icon: '💡', count: 0 },
   { id: 'storytelling', label: '游记故事', icon: '📖', count: 0 },
   { id: 'professional', label: '专业教程', icon: '🎓', count: 0 },
-  { id: 'quick-tips', label: '速查手册', icon: '⚡', count: 0 },
+  { id: 'quick-tips', label: '速查手册', icon: '📋', count: 0 },
 ]
 
 export const seasonalEvents = [
@@ -519,13 +529,13 @@ export const photographyTechniques = [
   { id: 'long-exposure', label: '长曝光', icon: '⏱️', count: 0 },
   { id: 'hdr', label: 'HDR', icon: '🌈', count: 0 },
   { id: 'panorama', label: '全景接片', icon: '🔄', count: 0 },
-  { id: 'timelapse', label: '延时摄影', icon: '⏳', count: 0 },
-  { id: 'star-trail', label: '星轨拍摄', icon: '⭐', count: 0 },
+  { id: 'timelapse', label: '延时摄影', icon: '🎥', count: 0 },
+  { id: 'star-trail', label: '星轨拍摄', icon: '🌟', count: 0 },
   { id: 'light-painting', label: '光绘摄影', icon: '💡', count: 0 },
   { id: 'aerial', label: '航拍技巧', icon: '🚁', count: 0 },
   { id: 'macro', label: '微距拍摄', icon: '🔬', count: 0 },
   { id: 'night', label: '夜景拍摄', icon: '🌃', count: 0 },
-  { id: 'golden-hour', label: '黄金时刻', icon: '✨', count: 0 },
+  { id: 'golden-hour', label: '黄金时刻', icon: '🌅', count: 0 },
 ]
 
 export const guideModeMap: Record<string, string> = {
@@ -535,7 +545,7 @@ export const guideModeMap: Record<string, string> = {
   'hiking': '徒步游',
   'cycling': '骑行游',
   'backpacking': '背包游',
-  'photography-tour': '摄影团',
+  'photography-tour': '摄影游',
   'cruise': '邮轮游',
   'rv-camping': '房车游',
   'train-travel': '火车游',
@@ -669,7 +679,7 @@ export const SearchContentSortOptions = [
 ] as const
 
 export const CopyrightOptions = [
-  { label: '保留所有权利', value: '保留所有权利' },
+  { label: '保留所有权', value: '保留所有权' },
   { label: 'CC BY', value: 'CC BY' },
   { label: 'CC BY-SA', value: 'CC BY-SA' },
   { label: 'CC BY-NC', value: 'CC BY-NC' },
@@ -698,6 +708,6 @@ export const UploadQualityOptions = [
 
 export const UploadPrivacyOptions = [
   { label: '公开', value: 'public' },
-  { label: '仅关注者', value: 'followers' },
+  { label: '仅关注', value: 'followers' },
   { label: '私有', value: 'private' },
 ] as const
