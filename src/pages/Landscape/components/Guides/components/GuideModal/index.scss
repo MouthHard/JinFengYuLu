@@ -1,0 +1,296 @@
+.guide-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 15, 0.92);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  .guide-modal {
+    background: linear-gradient(160deg, rgba(6, 12, 22, 0.97) 0%, rgba(4, 8, 16, 0.95) 50%, rgba(2, 4, 10, 0.97) 100%);
+    backdrop-filter: blur(40px) saturate(200%);
+    border-radius: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    max-height: 85vh;
+    height: 85vh;
+    overflow: hidden;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    box-shadow:
+      0 40px 80px -20px rgba(0, 0, 0, 0.85),
+      0 0 100px rgba(6, 182, 212, 0.12),
+      0 0 200px rgba(6, 182, 212, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(6, 182, 212, 0.7) 15%,
+        rgba(6, 182, 212, 0.8) 35%,
+        rgba(34, 197, 94, 0.6) 55%,
+        rgba(6, 182, 212, 0.7) 75%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: modalAurora 5s linear infinite;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      max-width: 880px;
+      height: auto;
+      max-height: 85vh;
+    }
+
+    @media (max-width: 768px) {
+      max-height: 92vh;
+      height: auto;
+      border-radius: 1.25rem;
+    }
+
+    &.mode-self-drive {
+      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(37, 99, 235, 0.15),
+        0 0 200px rgba(37, 99, 235, 0.06);
+    }
+
+    &.mode-free-travel {
+      border-color: rgba(34, 197, 94, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(34, 197, 94, 0.15),
+        0 0 200px rgba(34, 197, 94, 0.06);
+    }
+
+    &.mode-group-travel {
+      border-color: rgba(239, 68, 68, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(239, 68, 68, 0.15),
+        0 0 200px rgba(239, 68, 68, 0.06);
+    }
+
+    &.mode-photo-travel {
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(6, 182, 212, 0.15),
+        0 0 200px rgba(6, 182, 212, 0.06);
+    }
+
+    &.mode-hiking {
+      border-color: rgba(146, 64, 14, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(146, 64, 14, 0.15),
+        0 0 200px rgba(146, 64, 14, 0.06);
+    }
+
+    &.mode-camping {
+      border-color: rgba(21, 128, 61, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(21, 128, 61, 0.15),
+        0 0 200px rgba(21, 128, 61, 0.06);
+    }
+
+    &.mode-cruise {
+      border-color: rgba(3, 105, 161, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(3, 105, 161, 0.15),
+        0 0 200px rgba(3, 105, 161, 0.06);
+    }
+
+    &.mode-cycling {
+      border-color: rgba(234, 88, 12, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(234, 88, 12, 0.15),
+        0 0 200px rgba(234, 88, 12, 0.06);
+    }
+
+    &.mode-rv-travel {
+      border-color: rgba(120, 53, 15, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(120, 53, 15, 0.15),
+        0 0 200px rgba(120, 53, 15, 0.06);
+    }
+
+    &.mode-backpacking {
+      border-color: rgba(51, 65, 85, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(51, 65, 85, 0.15),
+        0 0 200px rgba(51, 65, 85, 0.06);
+    }
+
+    &.mode-family-travel {
+      border-color: rgba(236, 72, 153, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(236, 72, 153, 0.15),
+        0 0 200px rgba(236, 72, 153, 0.06);
+    }
+
+    &.mode-honeymoon {
+      border-color: rgba(244, 114, 182, 0.3);
+      box-shadow:
+        0 40px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 100px rgba(244, 114, 182, 0.15),
+        0 0 200px rgba(244, 114, 182, 0.06);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(6, 12, 22, 0.95), rgba(4, 8, 16, 0.9));
+      border: 1.5px solid rgba(6, 182, 212, 0.25);
+      border-radius: 50%;
+      font-size: 1.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 10;
+      box-shadow:
+        inset 0 3px 6px rgba(0, 0, 0, 0.5),
+        inset 0 -2px 4px rgba(6, 182, 212, 0.08),
+        0 4px 15px rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        background: linear-gradient(145deg, rgba(239, 68, 68, 0.8), rgba(220, 38, 38, 0.7));
+        border-color: rgba(239, 68, 68, 0.5);
+        transform: rotate(90deg) scale(1.1);
+        box-shadow:
+          0 8px 25px rgba(239, 68, 68, 0.4),
+          0 0 40px rgba(239, 68, 68, 0.2),
+          inset 0 2px 4px rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+
+      &:active {
+        transform: rotate(90deg) scale(0.95);
+      }
+    }
+
+    .modal-layout {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      gap: 0;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+      }
+    }
+
+    .modal-left {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      background: rgba(4, 8, 16, 0.3);
+      border-right: 1px solid rgba(6, 182, 212, 0.08);
+
+      @media (max-width: 900px) {
+        border-right: none;
+        border-bottom: 1px solid rgba(6, 182, 212, 0.08);
+        flex: none;
+        max-height: 50vh;
+      }
+    }
+
+    .modal-left-content {
+      flex: 1;
+      padding: 2rem 2.5rem;
+      overflow-y: auto;
+      min-height: 0;
+
+      @media (max-width: 768px) {
+        padding: 1.5rem;
+      }
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .modal-right {
+      width: 420px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+
+  .guide-modal {
+    transform: scale(0.9) translateY(20px);
+  }
+}
+
+.modal-enter-to,
+.modal-leave-from {
+  opacity: 1;
+
+  .guide-modal {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalAurora {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

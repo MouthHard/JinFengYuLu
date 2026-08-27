@@ -24,3 +24,31 @@ pnpm-debug.log*
 
 # Build output
 dist
+
+# Deployment packages
+*.tar.gz
+deploy-*.tar.gz
+server-dist-*.tar.gz
+
+# Temporary files
+temp/
+tmp-*/
+
+# Environment files (use .env.example as template)
+.env.production
+.env.gh-pages
+
+
+# SSH keys and secrets
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.ppk
+
+# Database backups and dumps
+*.sql.bak
+*.dump
+*.sql.gz
+backup*/
+db-backup*/

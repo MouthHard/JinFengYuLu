@@ -1,0 +1,400 @@
+﻿@keyframes flare-breathe {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+}
+
+@keyframes streak-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes prism-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spectrum-slide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.optics-filter {
+  margin-bottom: 28px;
+  padding: 0 40px;
+
+  .filter-carousel {
+    position: relative;
+    padding: 5px;
+    background: linear-gradient(180deg,
+      rgba(12, 20, 36, 0.5) 0%,
+      rgba(8, 14, 28, 0.4) 100%
+    );
+    border: 1px solid rgba(120, 170, 240, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(120, 180, 255, 0.2) 30%,
+        rgba(160, 200, 255, 0.3) 50%,
+        rgba(120, 180, 255, 0.2) 70%,
+        transparent 100%
+      );
+    }
+
+    .carousel-track {
+      position: relative;
+      display: flex;
+      gap: 0;
+      padding: 0;
+
+      .sliding-indicator {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(180deg,
+          rgba(70, 120, 220, 0.25) 0%,
+          rgba(50, 90, 190, 0.2) 100%
+        );
+        border: 1px solid rgba(120, 170, 255, 0.3);
+        border-top-color: rgba(150, 195, 255, 0.35);
+        border-radius: 15px;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+          0 0 16px rgba(80, 130, 230, 0.12),
+          inset 0 1px 0 rgba(150, 195, 255, 0.15),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+
+        .indicator-flare {
+          position: absolute;
+          inset: 0;
+          border-radius: 15px;
+          background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(160, 210, 255, 0.08) 40%,
+            rgba(200, 230, 255, 0.12) 50%,
+            rgba(160, 210, 255, 0.08) 60%,
+            transparent 100%
+          );
+          animation: flare-breathe 2.5s ease-in-out infinite;
+        }
+
+        .indicator-streak {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40%;
+          height: 100%;
+          background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(200, 230, 255, 0.1) 50%,
+            transparent 100%
+          );
+          animation: streak-shimmer 2s ease-in-out infinite;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 20%;
+          right: 20%;
+          height: 2px;
+          background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(120, 180, 255, 0.5) 30%,
+            rgba(160, 210, 255, 0.6) 50%,
+            rgba(120, 180, 255, 0.5) 70%,
+            transparent 100%
+          );
+          box-shadow: 0 0 6px rgba(120, 180, 255, 0.2);
+        }
+      }
+
+      .filter-cell {
+        --mx: 50%;
+        --my: 50%;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        color: rgba(180, 205, 240, 0.5);
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: color 0.35s ease;
+        overflow: visible;
+        flex-shrink: 0;
+
+        .cell-prism {
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          width: 12px;
+          height: 12px;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg,
+              rgba(255, 80, 80, 0.5) 0deg,
+              rgba(255, 200, 50, 0.5) 60deg,
+              rgba(50, 255, 100, 0.5) 120deg,
+              rgba(50, 150, 255, 0.5) 180deg,
+              rgba(150, 50, 255, 0.5) 240deg,
+              rgba(255, 80, 80, 0.5) 360deg
+            );
+            animation: prism-rotate 4s linear infinite;
+            filter: blur(1px);
+          }
+        }
+
+        .cell-glass {
+          position: relative;
+          width: 28px;
+          height: 28px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%,
+            rgba(70, 110, 190, 0.1) 0%,
+            rgba(30, 50, 90, 0.12) 60%,
+            rgba(15, 25, 50, 0.15) 100%
+          );
+          border: 1px solid rgba(120, 170, 240, 0.1);
+          transition: all 0.4s ease;
+
+          .glass-coating {
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg,
+              rgba(120, 180, 255, 0.0) 0deg,
+              rgba(120, 180, 255, 0.05) 60deg,
+              rgba(160, 210, 255, 0.07) 120deg,
+              rgba(120, 180, 255, 0.0) 180deg,
+              rgba(100, 160, 240, 0.04) 240deg,
+              rgba(120, 180, 255, 0.0) 360deg
+            );
+            transition: all 0.4s ease;
+          }
+
+          .glass-arc {
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            width: 55%;
+            height: 30%;
+            border-radius: 50%;
+            background: linear-gradient(180deg,
+              rgba(180, 210, 255, 0.07) 0%,
+              transparent 100%
+            );
+            transform: rotate(-25deg);
+            transition: all 0.4s ease;
+          }
+
+          .glass-icon {
+            position: relative;
+            z-index: 1;
+            font-size: 13px;
+            transition: all 0.35s ease;
+          }
+        }
+
+        .cell-label {
+          transition: color 0.3s ease;
+          white-space: nowrap;
+        }
+
+        .cell-count {
+          padding: 2px 6px;
+          background: rgba(100, 150, 230, 0.08);
+          border: 1px solid rgba(120, 170, 240, 0.06);
+          border-radius: 8px;
+          font-size: 10px;
+          font-weight: 700;
+          color: rgba(150, 190, 245, 0.45);
+          transition: all 0.3s ease;
+        }
+
+        .cell-spectrum {
+          position: absolute;
+          bottom: 2px;
+          left: 20%;
+          right: 20%;
+          height: 2px;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+          background: linear-gradient(90deg,
+            rgba(255, 80, 80, 0.4) 0%,
+            rgba(255, 200, 50, 0.4) 25%,
+            rgba(50, 255, 100, 0.4) 50%,
+            rgba(50, 150, 255, 0.4) 75%,
+            rgba(150, 50, 255, 0.4) 100%
+          );
+          background-size: 200% 100%;
+          border-radius: 1px;
+          filter: blur(0.5px);
+        }
+
+        &:hover {
+          color: rgba(210, 225, 250, 0.85);
+
+          .cell-glass {
+            border-color: rgba(120, 170, 240, 0.2);
+            box-shadow: 0 0 10px rgba(100, 150, 230, 0.08);
+
+            .glass-coating {
+              background: conic-gradient(from 0deg,
+                rgba(120, 180, 255, 0.0) 0deg,
+                rgba(120, 180, 255, 0.09) 60deg,
+                rgba(160, 210, 255, 0.11) 120deg,
+                rgba(120, 180, 255, 0.0) 180deg,
+                rgba(100, 160, 240, 0.07) 240deg,
+                rgba(120, 180, 255, 0.0) 360deg
+              );
+            }
+
+            .glass-icon {
+              filter: drop-shadow(0 0 4px rgba(120, 180, 255, 0.25));
+            }
+          }
+
+          .cell-count {
+            background: rgba(100, 150, 230, 0.14);
+            border-color: rgba(120, 170, 240, 0.12);
+            color: rgba(170, 205, 250, 0.75);
+          }
+
+          .cell-spectrum {
+            opacity: 0.5;
+            animation: spectrum-slide 2s linear infinite;
+          }
+        }
+
+        &.active {
+          color: rgba(230, 240, 255, 1);
+
+          .cell-prism { opacity: 1; }
+
+          .cell-glass {
+            border-color: rgba(140, 190, 255, 0.4);
+            background: radial-gradient(circle at 35% 35%,
+              rgba(100, 150, 240, 0.25) 0%,
+              rgba(60, 90, 170, 0.2) 60%,
+              rgba(30, 50, 100, 0.22) 100%
+            );
+            box-shadow:
+              0 0 16px rgba(100, 160, 240, 0.15),
+              inset 0 0 8px rgba(140, 190, 255, 0.08);
+
+            .glass-coating {
+              background: conic-gradient(from 0deg,
+                rgba(120, 180, 255, 0.0) 0deg,
+                rgba(150, 200, 255, 0.14) 60deg,
+                rgba(180, 220, 255, 0.18) 120deg,
+                rgba(120, 180, 255, 0.0) 180deg,
+                rgba(100, 170, 245, 0.1) 240deg,
+                rgba(120, 180, 255, 0.0) 360deg
+              );
+            }
+
+            .glass-arc {
+              background: linear-gradient(180deg,
+                rgba(200, 225, 255, 0.15) 0%,
+                transparent 100%
+              );
+            }
+
+            .glass-icon {
+              filter: drop-shadow(0 0 6px rgba(140, 190, 255, 0.45));
+              transform: scale(1.12);
+            }
+          }
+
+          .cell-label {
+            color: rgba(235, 242, 255, 1);
+            text-shadow: 0 0 8px rgba(120, 180, 255, 0.2);
+          }
+
+          .cell-count {
+            background: linear-gradient(180deg,
+              rgba(120, 170, 250, 0.3) 0%,
+              rgba(100, 150, 230, 0.22) 100%
+            );
+            border-color: rgba(140, 190, 255, 0.25);
+            color: rgba(180, 215, 255, 1);
+          }
+
+          .cell-spectrum {
+            opacity: 1;
+            height: 2px;
+            animation: spectrum-slide 1.5s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .optics-filter {
+    padding: 0 20px;
+
+    .filter-carousel {
+      padding: 4px;
+      border-radius: 16px;
+
+      .carousel-track {
+        .sliding-indicator {
+          border-radius: 12px;
+        }
+
+        .filter-cell {
+          padding: 6px 12px;
+          border-radius: 12px;
+          gap: 6px;
+
+          .cell-glass {
+            width: 24px;
+            height: 24px;
+
+            .glass-icon {
+              font-size: 11px;
+            }
+          }
+
+          .cell-label {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

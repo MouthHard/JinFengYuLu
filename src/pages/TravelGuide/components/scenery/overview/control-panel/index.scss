@@ -1,347 +1,339 @@
-@use "sass:list";
+@use 'sass:list';
 
 .control-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 25% auto;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  .panel-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
 
-    .panel-section {
-      position: relative;
-      padding: 1rem;
-      border: 1px solid rgba(100, 255, 255, 0.2);
-      border-radius: 16px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
+  .panel-section {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(100, 255, 255, 0.2);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 
-      .panel-title {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.1rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-        color: #ffffff;
-        margin: 0;
-        .panel-icon {
-          font-size: 2rem;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          svg {
-            filter: drop-shadow(0 0 4px currentColor);
-          }
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin: 0;
+      .panel-icon {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        svg {
+          filter: drop-shadow(0 0 4px currentColor);
         }
       }
+    }
+    &:hover {
+      border-color: rgba(100, 255, 255, 0.4);
+      transform: translateY(-2px) scale(1.01);
+    }
+    &.stats-section {
+      min-height: 100px;
+      background: linear-gradient(
+        145deg,
+        rgb(26, 1, 49) 0%,
+        rgb(31, 59, 116) 50%,
+        rgba(10, 20, 40, 1) 100%
+      );
+      border-color: rgba(100, 180, 255, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
       &:hover {
-        border-color: rgba(100, 255, 255, 0.4);
-        transform: translateY(-2px) scale(1.01);
+        border-color: rgba(100, 180, 255, 1);
       }
-      &.stats-section {
-        min-height: 150px;
-        background: linear-gradient(
-          145deg,
-          rgb(26, 1, 49) 0%,
-          rgb(31, 59, 116) 50%,
-          rgba(10, 20, 40, 1) 100%
-        );
-        border-color: rgba(100, 180, 255, 0.2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-        &:hover {
-          border-color: rgba(100, 180, 255, 1);
-        }
 
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-          gap: 0.75rem;
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.5rem;
 
-          .stat-item {
-            border: 1px solid;
-            border-radius: 10px;
-            padding: 1rem;
-            cursor: pointer;
+        .stat-item {
+          border: 1px solid;
+          border-radius: 10px;
+          padding: 0.3rem 1rem;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+
+          &:hover {
+            transform: translateY(-2px) scale(1.02);
+          }
+
+          .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow:
+              0 0 20px currentColor,
+              0 2px 4px rgba(0, 0, 0, 0.5);
             transition: all 0.4s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+          }
 
+          .stat-label {
+            font-size: 0.8rem;
+            color: #f5f5f5;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+          }
+
+          &:nth-child(1) {
+            background: linear-gradient(
+              90deg,
+              rgba(30, 30, 30, 1) 0%,
+              rgba(80, 200, 255, 0.3) 10%,
+              rgba(255, 255, 255, 0.3) 20%,
+              rgba(80, 200, 255, 0.2) 30%,
+              rgba(30, 30, 30, 1) 100%
+            );
+            border-color: rgba(100, 220, 255, 0.4);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
             &:hover {
-              transform: translateY(-2px) scale(1.02);
+              border-color: rgba(100, 220, 255, 1);
+              box-shadow: 0 0 12px rgba(100, 220, 255, 0.6);
             }
-
             .stat-value {
-              font-size: 1.5rem;
-              font-weight: bold;
-              margin-bottom: 0.2rem;
-              text-shadow:
-                0 0 20px currentColor,
-                0 2px 4px rgba(0, 0, 0, 0.5);
-              transition: all 0.4s ease;
+              color: #b3e7ff;
             }
+          }
 
-            .stat-label {
-              font-size: 0.9rem;
-              color: #f5f5f5;
-              font-weight: bold;
-              letter-spacing: 2px;
-              transition: all 0.4s ease;
+          &:nth-child(2) {
+            background: linear-gradient(
+              90deg,
+              rgba(30, 30, 30, 1) 0%,
+              rgba(80, 255, 150, 0.3) 10%,
+              rgba(255, 255, 255, 0.3) 20%,
+              rgba(80, 255, 150, 0.2) 30%,
+              rgba(30, 30, 30, 1) 100%
+            );
+            border-color: rgba(100, 255, 180, 0.4);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            &:hover {
+              border-color: rgba(100, 255, 180, 1);
+              box-shadow: 0 0 12px rgba(100, 255, 180, 0.6);
             }
-
-            &:nth-child(1) {
-              background: linear-gradient(
-                90deg,
-                rgba(30, 30, 30, 1) 0%,
-                rgba(80, 200, 255, 0.3) 10%,
-                rgba(255, 255, 255, 0.3) 20%,
-                rgba(80, 200, 255, 0.2) 30%,
-                rgba(30, 30, 30, 1) 100%
-              );
-              border-color: rgba(100, 220, 255, 0.4);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-              &:hover {
-                border-color: rgba(100, 220, 255, 1);
-                box-shadow: 0 0 12px rgba(100, 220, 255, 0.6);
-              }
-              .stat-value {
-                color: #b3e7ff;
-              }
+            .stat-value {
+              color: #72ffa6;
             }
+          }
 
-            &:nth-child(2) {
-              background: linear-gradient(
-                90deg,
-                rgba(30, 30, 30, 1) 0%,
-                rgba(80, 255, 150, 0.3) 10%,
-                rgba(255, 255, 255, 0.3) 20%,
-                rgba(80, 255, 150, 0.2) 30%,
-                rgba(30, 30, 30, 1) 100%
-              );
-              border-color: rgba(100, 255, 180, 0.4);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-              &:hover {
-                border-color: rgba(100, 255, 180, 1);
-                box-shadow: 0 0 12px rgba(100, 255, 180, 0.6);
-              }
-              .stat-value {
-                color: #72ffa6;
-              }
+          &:nth-child(3) {
+            background: linear-gradient(
+              90deg,
+              rgba(30, 30, 30, 1) 0%,
+              rgba(255, 220, 80, 0.3) 10%,
+              rgba(255, 255, 255, 0.3) 20%,
+              rgba(247, 208, 52, 0.3) 30%,
+              rgba(30, 30, 30, 1) 100%
+            );
+            border-color: rgba(255, 240, 100, 0.4);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            &:hover {
+              border-color: rgba(255, 240, 100, 1);
+              box-shadow: 0 0 12px rgba(255, 240, 100, 0.6);
             }
-
-            &:nth-child(3) {
-              background: linear-gradient(
-                90deg,
-                rgba(30, 30, 30, 1) 0%,
-                rgba(255, 220, 80, 0.3) 10%,
-                rgba(255, 255, 255, 0.3) 20%,
-                rgba(247, 208, 52, 0.3) 30%,
-                rgba(30, 30, 30, 1) 100%
-              );
-              border-color: rgba(255, 240, 100, 0.4);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-              &:hover {
-                border-color: rgba(255, 240, 100, 1);
-                box-shadow: 0 0 12px rgba(255, 240, 100, 0.6);
-              }
-              .stat-value {
-                color: #fddd8e;
-              }
+            .stat-value {
+              color: #fddd8e;
             }
+          }
 
-            &:nth-child(4) {
-              background: linear-gradient(
-                90deg,
-                rgba(30, 30, 30, 1) 0%,
-                rgba(255, 120, 80, 0.3) 10%,
-                rgba(255, 255, 255, 0.3) 20%,
-                rgba(255, 120, 80, 0.2) 30%,
-                rgba(30, 30, 30, 1) 100%
-              );
-              border-color: rgba(255, 140, 100, 0.4);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-              &:hover {
-                border-color: rgba(255, 140, 100, 1);
-                box-shadow: 0 0 24px rgba(255, 140, 100, 0.6);
-              }
-              .stat-value {
-                color: #ffa861;
-              }
+          &:nth-child(4) {
+            background: linear-gradient(
+              90deg,
+              rgba(30, 30, 30, 1) 0%,
+              rgba(255, 120, 80, 0.3) 10%,
+              rgba(255, 255, 255, 0.3) 20%,
+              rgba(255, 120, 80, 0.2) 30%,
+              rgba(30, 30, 30, 1) 100%
+            );
+            border-color: rgba(255, 140, 100, 0.4);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            &:hover {
+              border-color: rgba(255, 140, 100, 1);
+              box-shadow: 0 0 24px rgba(255, 140, 100, 0.6);
+            }
+            .stat-value {
+              color: #ffa861;
             }
           }
         }
       }
-      &.highlights-section {
-        background: linear-gradient(
-          145deg,
-          rgb(30, 21, 0) 0%,
-          rgba(80, 40, 20, 1) 50%,
-          rgb(60, 21, 2) 100%
-        );
-        backdrop-filter: blur(10px);
-        flex: 1;
-        border-color: rgba(255, 180, 100, 0.2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+    &.highlights-section {
+      background: linear-gradient(
+        145deg,
+        rgb(30, 21, 0) 0%,
+        rgba(80, 40, 20, 1) 50%,
+        rgb(60, 21, 2) 100%
+      );
+      backdrop-filter: blur(10px);
+      border-color: rgba(255, 180, 100, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 
-        &:hover {
-          border-color: rgba(255, 180, 100, 1);
-        }
+      &:hover {
+        border-color: rgba(255, 180, 100, 1);
+      }
 
-        .highlights-scroll {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
+      .highlights-scroll {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
 
-          overflow: hidden;
-          padding: 0.5rem;
+        overflow: hidden;
+        padding: 0.5rem;
 
-          .highlight-item {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
+        .highlight-item {
+          display: inline-block;
+          padding: 0.3rem 1rem;
+          border-radius: 24px;
+          font-size: 0.9rem;
+          font-weight: bolder;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: visible;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+          background: transparent;
+
+          // 立体效果 - 使用多层伪元素和边框
+          &::before,
+          &::after,
+          &::first-letter {
+            content: '';
+            position: absolute;
             border-radius: 24px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: visible;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-            background: transparent;
+            pointer-events: none;
+          }
 
-            // 立体效果 - 使用多层伪元素和边框
-            &::before,
-            &::after,
-            &::first-letter {
-              content: "";
-              position: absolute;
-              border-radius: 24px;
-              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-              pointer-events: none;
-            }
+          &::before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -3;
+          }
 
-            &::before {
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              z-index: -3;
-            }
+          &::after {
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            border-radius: 23px;
+            z-index: -2;
+          }
 
-            &::after {
-              top: 1px;
-              left: 1px;
-              right: 1px;
-              bottom: 1px;
-              border-radius: 23px;
-              z-index: -2;
-            }
+          &:hover {
+            transform: translateY(-2px) scale(1.05) rotate(1deg);
+          }
 
-            // 额外的阴影层
-            &:hover {
-              transform: translateY(-2px) scale(1.05) rotate(1deg);
-            }
+          &:active {
+            transform: translateY(-2px) scale(0.98);
+            transition: all 0.1s ease;
+          }
 
-            &:active {
-              transform: translateY(-2px) scale(0.98);
-              transition: all 0.1s ease;
-            }
+          @for $i from 1 through 8 {
+            &.highlight-#{$i} {
+              $border-colors: (
+                rgba(255, 105, 180, 0.9),
+                // 粉红
+                rgba(255, 165, 0, 0.9),
+                // 橙色
+                rgba(255, 215, 0, 0.9),
+                // 金色
+                rgba(144, 238, 144, 0.9),
+                // 浅绿
+                rgba(135, 206, 235, 0.9),
+                // 天蓝
+                rgba(100, 149, 237, 0.9),
+                // cornflower蓝
+                rgba(186, 85, 211, 0.9),
+                // mediumorchid
+                rgba(221, 160, 221, 0.9) // plum
+              );
+              $text-colors: (
+                rgba(255, 182, 193, 0.9),
+                rgba(255, 218, 185, 0.9),
+                rgba(255, 236, 139, 0.9),
+                rgba(193, 255, 193, 0.9),
+                rgba(176, 224, 230, 0.9),
+                rgba(173, 216, 230, 0.9),
+                rgba(218, 112, 214, 0.9),
+                rgba(238, 130, 238, 0.9)
+              );
+              $shadow-colors: (
+                rgba(255, 105, 180, 0.4),
+                rgba(255, 165, 0, 0.4),
+                rgba(255, 215, 0, 0.4),
+                rgba(144, 238, 144, 0.4),
+                rgba(135, 206, 235, 0.4),
+                rgba(100, 149, 237, 0.4),
+                rgba(186, 85, 211, 0.4),
+                rgba(221, 160, 221, 0.4)
+              );
+              $dark_shadow: rgba(0, 0, 0, 0.6);
 
-            @for $i from 1 through 8 {
-              &.highlight-#{$i} {
-                $border-colors: (
-                  rgba(255, 105, 180, 0.9),
-                  // 粉红
-                  rgba(255, 165, 0, 0.9),
-                  // 橙色
-                  rgba(255, 215, 0, 0.9),
-                  // 金色
-                  rgba(144, 238, 144, 0.9),
-                  // 浅绿
-                  rgba(135, 206, 235, 0.9),
-                  // 天蓝
-                  rgba(100, 149, 237, 0.9),
-                  // cornflower蓝
-                  rgba(186, 85, 211, 0.9),
-                  // mediumorchid
-                  rgba(221, 160, 221, 0.9) // plum
+              $border-color: list.nth($border-colors, $i);
+              $text-color: list.nth($text-colors, $i);
+              $shadow-color: list.nth($shadow-colors, $i);
+
+              // 加粗边框 - 多层边框效果
+              border: 2px solid $border-color;
+              box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 3px 6px rgba(0, 0, 0, 0.5);
+              color: $text-color;
+
+              // 立体效果 - 多层伪元素
+              &::before {
+                background: linear-gradient(
+                  135deg,
+                  $shadow-color 0%,
+                  $dark_shadow 100%
                 );
-                $text-colors: (
-                  rgba(255, 182, 193, 0.9),
-                  rgba(255, 218, 185, 0.9),
-                  rgba(255, 236, 139, 0.9),
-                  rgba(193, 255, 193, 0.9),
-                  rgba(176, 224, 230, 0.9),
-                  rgba(173, 216, 230, 0.9),
-                  rgba(218, 112, 214, 0.9),
-                  rgba(238, 130, 238, 0.9)
-                );
-                $shadow-colors: (
-                  rgba(255, 105, 180, 0.4),
-                  rgba(255, 165, 0, 0.4),
-                  rgba(255, 215, 0, 0.4),
-                  rgba(144, 238, 144, 0.4),
-                  rgba(135, 206, 235, 0.4),
-                  rgba(100, 149, 237, 0.4),
-                  rgba(186, 85, 211, 0.4),
-                  rgba(221, 160, 221, 0.4)
-                );
-                $dark_shadow: rgba(0, 0, 0, 0.6);
-
-                $border-color: list.nth($border-colors, $i);
-                $text-color: list.nth($text-colors, $i);
-                $shadow-color: list.nth($shadow-colors, $i);
-
-                // 加粗边框 - 多层边框效果
-                border: 2px solid $border-color;
+                transform: translate(6px, 6px);
+                opacity: 0.5;
                 box-shadow:
-                  inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-                  0 3px 6px rgba(0, 0, 0, 0.5);
-                color: $text-color;
+                  0 6px 12px rgba(0, 0, 0, 0.7),
+                  0 3px 6px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(0, 0, 0, 0.3);
+              }
 
-                // 立体效果 - 多层伪元素
+              &::after {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+              }
+
+              &:hover {
+                border-color: rgba(255, 255, 255, 0.6);
+                box-shadow:
+                  inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+                  0 6px 12px rgba(0, 0, 0, 0.7);
+
                 &::before {
-                  background: linear-gradient(
-                    135deg,
-                    $shadow-color 0%,
-                    $dark_shadow 100%
-                  );
-                  transform: translate(6px, 6px);
-                  opacity: 0.5;
+                  transform: translate(8px, 8px);
+                  opacity: 0.7;
                   box-shadow:
-                    0 6px 12px rgba(0, 0, 0, 0.7),
-                    0 3px 6px rgba(0, 0, 0, 0.5),
-                    0 0 20px rgba(0, 0, 0, 0.3);
+                    0 10px 20px rgba(0, 0, 0, 0.9),
+                    0 5px 10px rgba(0, 0, 0, 0.7),
+                    0 0 35px $shadow-color,
+                    0 0 15px rgba(0, 0, 0, 0.5);
                 }
 
                 &::after {
-                  background: rgba(255, 255, 255, 0.05);
-                  border: 1px solid rgba(255, 255, 255, 0.3);
-                  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-                }
-
-                &:hover {
-                  border-color: rgba(255, 255, 255, 0.6);
+                  border-color: rgba(255, 255, 255, 0.5);
                   box-shadow:
-                    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-                    0 6px 12px rgba(0, 0, 0, 0.7);
-
-                  &::before {
-                    transform: translate(8px, 8px);
-                    opacity: 0.7;
-                    box-shadow:
-                      0 10px 20px rgba(0, 0, 0, 0.9),
-                      0 5px 10px rgba(0, 0, 0, 0.7),
-                      0 0 35px $shadow-color,
-                      0 0 15px rgba(0, 0, 0, 0.5);
-                  }
-
-                  &::after {
-                    border-color: rgba(255, 255, 255, 0.5);
-                    box-shadow:
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                      inset 0 0 5px rgba(255, 255, 255, 0.1);
-                  }
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    inset 0 0 5px rgba(255, 255, 255, 0.1);
                 }
               }
             }
@@ -357,323 +349,322 @@
           }
         }
       }
+    }
 
-      &.seasons-section {
-        background: linear-gradient(
-          145deg,
-          rgba(40, 10, 30, 0.98) 0%,
-          rgba(80, 20, 60, 0.95) 50%,
-          rgba(40, 10, 30, 0.98) 100%
-        );
-        border-color: rgba(255, 150, 200, 0.2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        &:hover {
-          border-color: rgba(255, 150, 200, 1);
-        }
+    &.seasons-section {
+      grid-row: 1 / span 2;
+      grid-column: 2 / 3;
+      background: linear-gradient(
+        145deg,
+        rgba(40, 10, 30, 0.98) 0%,
+        rgba(80, 20, 60, 0.95) 50%,
+        rgba(40, 10, 30, 0.98) 100%
+      );
+      border-color: rgba(255, 150, 200, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        border-color: rgba(255, 150, 200, 1);
+      }
 
-        .seasons-detail {
-          flex: 1;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 1.5rem;
+      .seasons-detail {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
 
-          .season-detail-item {
-            padding: 1.5rem;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        .season-detail-item {
+          padding: 0.75rem 1.5rem;
+          border-radius: 16px;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
 
-            animation: seasonCardFadeIn 0.8s ease-out forwards;
-            animation-delay: calc(var(--index, 0) * 0.2s);
+          animation: seasonCardFadeIn 0.8s ease-out forwards;
+          animation-delay: calc(var(--index, 0) * 0.2s);
+          opacity: 0;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.3) 0%,
+              rgba(255, 255, 255, 0.1) 40%,
+              transparent 70%
+            );
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
             opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 0;
+          }
 
-            // 新的背景特效 - 脉冲光效
+          &:hover {
+            transform: translateY(-4px) scale(1.03);
             &::before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 0;
-              height: 0;
-              background: radial-gradient(
-                circle,
-                rgba(255, 255, 255, 0.3) 0%,
-                rgba(255, 255, 255, 0.1) 40%,
-                transparent 70%
-              );
-              border-radius: 50%;
-              transform: translate(-50%, -50%);
-              opacity: 0;
-              transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-              pointer-events: none;
-              z-index: 0;
+              width: 300px;
+              height: 300px;
+              opacity: 1;
+              animation: pulseEffect 2s ease-in-out infinite;
             }
-
-            &:hover {
-              transform: translateY(-4px) scale(1.03);
-              &::before {
-                width: 300px;
-                height: 300px;
-                opacity: 1;
-                animation: pulseEffect 2s ease-in-out infinite;
-              }
-              .season-name {
-                transform: translateY(-2px);
-
-                &::after {
-                  width: 100%;
-                }
-              }
-              .season-description {
-                transform: translateY(-2px);
-              }
-              .activity-tag {
-                opacity: 1;
-                transform: translateY(-2px) scale(1.05);
-                box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-
-                &::before {
-                  left: 100%;
-                }
-              }
-            }
-
-            // 脉冲光效动画
-            @keyframes pulseEffect {
-              0% {
-                transform: translate(-50%, -50%) scale(0.8);
-                opacity: 0.7;
-              }
-              50% {
-                transform: translate(-50%, -50%) scale(1.1);
-                opacity: 0.3;
-              }
-              100% {
-                transform: translate(-50%, -50%) scale(0.8);
-                opacity: 0.7;
-              }
-            }
-
             .season-name {
-              font-size: 1.3rem;
-              font-weight: 700;
-              margin-bottom: 0.5rem;
-              color: #ffffff;
-              transition: all 0.4s ease;
-              position: relative;
-              display: inline-block;
+              transform: translateY(-2px);
 
               &::after {
-                content: "";
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: currentColor;
-                transition: width 0.3s ease;
+                width: 100%;
               }
             }
-
             .season-description {
-              margin-bottom: 1rem;
-              line-height: 1.6;
-              color: #f5f5f5;
-              font-size: 0.9rem;
-              transition: all 0.4s ease;
+              transform: translateY(-2px);
             }
+            .activity-tag {
+              opacity: 1;
+              transform: translateY(-2px) scale(1.05);
+              box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 
-            .season-activities {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 0.5rem;
-
-              .activity-tag {
-                display: inline-block;
-                padding: 0.3rem 0.8rem;
-                border-radius: 12px;
-                font-size: 0.8rem;
-                font-weight: 500;
-                opacity: 0.8;
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-
-                &::before {
-                  content: "";
-                  position: absolute;
-                  top: 0;
-                  left: -100%;
-                  width: 100%;
-                  height: 100%;
-                  background: linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.3),
-                    transparent
-                  );
-                  transition: left 0.6s ease;
-                }
-              }
-            }
-
-            // 卡片进入动画
-            @keyframes seasonCardFadeIn {
-              0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.9);
-              }
-              100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
+              &::before {
+                left: 100%;
               }
             }
           }
 
-          // 春季卡片样式
-          .season-detail-item:nth-child(1),
-          .season-detail-item[data-season="春季"] {
-            background: linear-gradient(
-              135deg,
-              rgba(0, 0, 0, 0.9) 0%,
-              rgba(255, 182, 193, 0.2) 50%,
-              rgba(0, 0, 0, 0.9) 100%
-            );
-            border: 1px solid rgba(255, 182, 193, 0.4);
-            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
-            &:hover {
-              border-color: rgba(255, 182, 193, 1);
-              box-shadow: 0 0 15px rgba(255, 182, 193, 1);
+          @keyframes pulseEffect {
+            0% {
+              transform: translate(-50%, -50%) scale(0.8);
+              opacity: 0.7;
             }
-
-            .activity-tag {
-              background: rgba(255, 182, 193, 0.2);
-              color: rgba(254, 219, 226, 1);
-              border: 1px solid rgba(255, 182, 193, 0.4);
+            50% {
+              transform: translate(-50%, -50%) scale(1.1);
+              opacity: 0.3;
             }
-
-            &:hover .activity-tag {
-              background: rgba(255, 182, 193, 0.3);
-              border-color: rgba(255, 182, 193, 1);
-              color: rgb(253, 253, 253);
+            100% {
+              transform: translate(-50%, -50%) scale(0.8);
+              opacity: 0.7;
             }
           }
 
-          // 夏季卡片样式
-          .season-detail-item:nth-child(2),
-          .season-detail-item[data-season="夏季"] {
-            background: linear-gradient(
-              135deg,
-              rgba(0, 0, 0, 0.9) 0%,
-              rgba(7, 155, 7, 0.35) 50%,
-              rgba(0, 0, 0, 0.9) 100%
-            );
-            border: 1px solid rgba(34, 139, 34, 0.5);
-            box-shadow: 0 0 10px rgba(34, 139, 34, 0.3);
+          .season-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.25rem 0;
+            color: #ffffff;
+            transition: all 0.4s ease;
+            position: relative;
+            display: inline-block;
 
-            &:hover {
-              border-color: rgba(34, 139, 34, 1);
-              box-shadow: 0 0 15px rgb(85, 221, 85);
-            }
-
-            .activity-tag {
-              background: rgba(34, 139, 34, 0.25);
-              color: rgba(183, 255, 183, 1);
-              border: 1px solid rgba(34, 139, 34, 0.5);
-            }
-
-            &:hover .activity-tag {
-              background: rgba(34, 139, 34, 0.35);
-              border-color: rgba(34, 139, 34, 1);
-              color: rgb(255, 255, 255);
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              width: 0;
+              height: 2px;
+              background: currentColor;
+              transition: width 0.3s ease;
             }
           }
 
-          // 秋季卡片样式
-          .season-detail-item:nth-child(3),
-          .season-detail-item[data-season="秋季"] {
-            background: linear-gradient(
-              135deg,
-              rgba(0, 0, 0, 0.9) 0%,
-              rgba(255, 165, 0, 0.2) 50%,
-              rgba(0, 0, 0, 0.9) 100%
-            );
-            border: 1px solid rgba(255, 165, 0, 0.4);
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
-
-            &:hover {
-              border-color: rgba(255, 165, 0, 0.8);
-              box-shadow: 0 0 15px rgba(255, 165, 0, 1);
-            }
-
-            .activity-tag {
-              background: rgba(255, 165, 0, 0.2);
-              color: rgba(253, 218, 155, 0.9);
-              border: 1px solid rgba(255, 165, 0, 0.4);
-            }
-
-            &:hover .activity-tag {
-              background: rgba(255, 165, 0, 0.3);
-              border-color: rgba(255, 165, 0, 0.6);
-              color: rgb(255, 255, 255);
-            }
+          .season-description {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+            color: #f5f5f5;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
           }
 
-          // 冬季卡片样式
-          .season-detail-item:nth-child(4),
-          .season-detail-item[data-season="冬季"] {
-            background: linear-gradient(
-              135deg,
-              rgba(0, 0, 0, 0.9) 0%,
-              rgba(30, 144, 255, 0.35) 50%,
-              rgba(0, 0, 0, 0.9) 100%
-            );
-            border: 1px solid rgba(30, 144, 255, 0.5);
-            box-shadow: 0 0 10px rgba(30, 144, 255, 0.25);
-
-            &:hover {
-              border-color: rgba(30, 144, 255, 1);
-              box-shadow: 0 0 15px rgba(30, 144, 255, 1);
-            }
+          .season-activities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
 
             .activity-tag {
-              background: rgba(30, 144, 255, 0.25);
-              color: rgba(170, 221, 253, 1);
-              border: 1px solid rgba(30, 144, 255, 0.5);
-            }
-
-            &:hover .activity-tag {
-              background: rgba(30, 144, 255, 0.35);
-              border-color: rgba(30, 144, 255, 1);
-              color: rgb(255, 255, 255);
-            }
-          }
-
-          .empty-seasons {
-            text-align: center;
-            padding: 3rem;
-            color: rgba(255, 255, 255, 0.5);
-
-            .empty-icon {
-              font-size: 3rem;
-              margin-bottom: 1rem;
-            }
-
-            .empty-title {
-              font-size: 1.2rem;
-              font-weight: 600;
-              margin-bottom: 0.5rem;
-            }
-
-            .empty-description {
-              font-size: 1rem;
+              display: inline-block;
+              padding: 0.3rem 0.8rem;
+              border-radius: 12px;
+              font-size: 0.8rem;
+              font-weight: 500;
               opacity: 0.8;
+              transition: all 0.3s ease;
+              position: relative;
+              overflow: hidden;
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                  90deg,
+                  transparent,
+                  rgba(255, 255, 255, 0.3),
+                  transparent
+                );
+                transition: left 0.6s ease;
+              }
             }
+          }
+
+          // 卡片进入动画
+          @keyframes seasonCardFadeIn {
+            0% {
+              opacity: 0;
+              transform: translateY(20px) scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+        }
+
+        // 春季卡片样式
+        .season-detail-item:nth-child(1),
+        .season-detail-item[data-season='春季'] {
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 182, 193, 0.2) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(255, 182, 193, 0.4);
+          box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+          &:hover {
+            border-color: rgba(255, 182, 193, 1);
+            box-shadow: 0 0 15px rgba(255, 182, 193, 1);
+          }
+
+          .activity-tag {
+            background: rgba(255, 182, 193, 0.2);
+            color: rgba(254, 219, 226, 1);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(255, 182, 193, 0.3);
+            border-color: rgba(255, 182, 193, 1);
+            color: rgb(253, 253, 253);
+          }
+        }
+
+        // 夏季卡片样式
+        .season-detail-item:nth-child(2),
+        .season-detail-item[data-season='夏季'] {
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(7, 155, 7, 0.35) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(34, 139, 34, 0.5);
+          box-shadow: 0 0 10px rgba(34, 139, 34, 0.3);
+
+          &:hover {
+            border-color: rgba(34, 139, 34, 1);
+            box-shadow: 0 0 15px rgb(85, 221, 85);
+          }
+
+          .activity-tag {
+            background: rgba(34, 139, 34, 0.25);
+            color: rgba(183, 255, 183, 1);
+            border: 1px solid rgba(34, 139, 34, 0.5);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(34, 139, 34, 0.35);
+            border-color: rgba(34, 139, 34, 1);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        // 秋季卡片样式
+        .season-detail-item:nth-child(3),
+        .season-detail-item[data-season='秋季'] {
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 165, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(255, 165, 0, 0.4);
+          box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+
+          &:hover {
+            border-color: rgba(255, 165, 0, 0.8);
+            box-shadow: 0 0 15px rgba(255, 165, 0, 1);
+          }
+
+          .activity-tag {
+            background: rgba(255, 165, 0, 0.2);
+            color: rgba(253, 218, 155, 0.9);
+            border: 1px solid rgba(255, 165, 0, 0.4);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(255, 165, 0, 0.3);
+            border-color: rgba(255, 165, 0, 0.6);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        // 冬季卡片样式
+        .season-detail-item:nth-child(4),
+        .season-detail-item[data-season='冬季'] {
+          background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(30, 144, 255, 0.35) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          );
+          border: 1px solid rgba(30, 144, 255, 0.5);
+          box-shadow: 0 0 10px rgba(30, 144, 255, 0.25);
+
+          &:hover {
+            border-color: rgba(30, 144, 255, 1);
+            box-shadow: 0 0 15px rgba(30, 144, 255, 1);
+          }
+
+          .activity-tag {
+            background: rgba(30, 144, 255, 0.25);
+            color: rgba(170, 221, 253, 1);
+            border: 1px solid rgba(30, 144, 255, 0.5);
+          }
+
+          &:hover .activity-tag {
+            background: rgba(30, 144, 255, 0.35);
+            border-color: rgba(30, 144, 255, 1);
+            color: rgb(255, 255, 255);
+          }
+        }
+
+        .empty-seasons {
+          text-align: center;
+          padding: 3rem;
+          color: rgba(255, 255, 255, 0.5);
+
+          .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          .empty-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          .empty-description {
+            font-size: 1rem;
+            opacity: 0.8;
           }
         }
       }

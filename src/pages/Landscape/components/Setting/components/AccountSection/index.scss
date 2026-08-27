@@ -1,0 +1,252 @@
+.section-content {
+  animation: slideUpFade 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #38bdf8;
+    margin: 0 0 16px;
+    letter-spacing: -0.3px;
+  }
+
+  .setting-card {
+    margin-bottom: 16px;
+
+    .card-header {
+      padding: 10px 16px;
+      gap: 12px;
+
+      .card-icon {
+        width: 40px;
+        height: 40px;
+
+        svg {
+          width: 19px;
+          height: 19px;
+        }
+      }
+
+      .card-title {
+        font-size: 16px;
+        margin-bottom: 2px;
+      }
+
+      .card-desc {
+        font-size: 12px;
+      }
+
+      .edit-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: 
+          linear-gradient(165deg, rgba(35, 28, 22, 0.92), rgba(18, 14, 10, 0.98)),
+          linear-gradient(135deg, rgba(254, 249, 195, 0.06) 0%, transparent 45%);
+        border: 1.5px solid rgba(254, 249, 195, 0.32);
+        border-radius: 14px;
+        color: rgba(254, 249, 195, 0.88);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 
+          0 4px 10px rgba(0, 0, 0, 0.35),
+          inset 0 1px 0 rgba(255, 250, 230, 0.08),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 8%;
+          right: 8%;
+          height: 40%;
+          background: linear-gradient(180deg, 
+            rgba(254, 249, 195, 0.07) 0%, 
+            transparent 100%);
+          border-radius: 12px 12px 0 0;
+          pointer-events: none;
+        }
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+
+        &:hover {
+          background: 
+            linear-gradient(165deg, rgba(42, 34, 26, 0.95), rgba(22, 18, 13, 0.98)),
+            linear-gradient(135deg, rgba(254, 249, 195, 0.1) 0%, transparent 50%);
+          border-color: rgba(254, 249, 195, 0.55);
+          color: #fef9c3;
+          box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.4),
+            0 0 18px rgba(254, 249, 195, 0.12),
+            inset 0 1px 0 rgba(255, 250, 230, 0.12),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+
+          &::before {
+            background: linear-gradient(180deg, 
+              rgba(254, 249, 195, 0.11) 0%, 
+              transparent 100%);
+          }
+        }
+
+        &:active {
+
+        }
+      }
+    }
+
+    .card-body {
+      padding: 16px 20px;
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        .info-card {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 16px;
+          background: 
+            linear-gradient(165deg, rgba(15, 20, 35, 0.95), rgba(8, 12, 22, 0.98)),
+            linear-gradient(135deg, rgba(254, 249, 195, 0.05) 0%, transparent 50%);
+          border: 1.5px solid rgba(254, 249, 195, 0.25);
+          border-radius: 12px;
+          transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          position: relative;
+          overflow: hidden;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+              transparent 0%, 
+              rgba(254, 249, 195, 0.3) 30%, 
+              rgba(56, 189, 248, 0.4) 50%,
+              rgba(254, 249, 195, 0.3) 70%, 
+              transparent 100%);
+          }
+
+          &:hover {
+            background: 
+              linear-gradient(165deg, rgba(22, 30, 50, 0.95), rgba(12, 18, 32, 0.98)),
+              linear-gradient(135deg, rgba(254, 249, 195, 0.08) 0%, transparent 50%);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow:
+              0 4px 14px rgba(0, 0, 0, 0.35),
+              0 0 18px rgba(56, 189, 248, 0.12);
+
+            .info-icon {
+              border-color: rgba(56, 189, 248, 0.5);
+              background: linear-gradient(150deg, rgba(56, 189, 248, 0.25), rgba(34, 211, 238, 0.15));
+
+              svg {
+                color: #38bdf8;
+              }
+            }
+          }
+
+          .info-icon {
+            width: 32px;
+            height: 32px;
+            background: 
+              linear-gradient(150deg, rgba(252, 211, 77, 0.22), rgba(251, 191, 36, 0.12)),
+              linear-gradient(135deg, rgba(254, 243, 199, 0.1) 0%, transparent 50%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(252, 211, 77, 0.32);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+
+            svg {
+              width: 15px;
+              height: 15px;
+              color: rgba(254, 249, 195, 0.85);
+              transition: all 0.3s ease;
+            }
+          }
+
+          .info-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            .info-label {
+              font-size: 12px;
+              color: rgba(252, 211, 77, 0.75);
+              font-weight: 500;
+              letter-spacing: 0.3px;
+            }
+
+            .info-value {
+              font-size: 14px;
+              color: #fefce8;
+              font-weight: 600;
+              line-height: 1.4;
+              text-shadow: 0 0 12px rgba(254, 243, 199, 0.2);
+            }
+          }
+        }
+      }
+
+      .setting-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(252, 211, 77, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+
+        }
+
+        .item-info {
+          .item-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fefce8;
+            display: block;
+            margin-bottom: 3px;
+          }
+
+          .item-desc {
+            font-size: 12px;
+            color: rgba(252, 211, 77, 0.65);
+          }
+        }
+
+        .action-btn {
+          padding: 10px 20px;
+          font-size: 13px;
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

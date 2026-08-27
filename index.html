@@ -5,7 +5,14 @@
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="/logo.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="preconnect" href="https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com" />
+    <link rel="dns-prefetch" href="https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com" />
+    <link rel="preload" as="image" href="/App/bg.webp" />
+    <link rel="preload" as="image" href="/App/Sun.webp" />
+    <link rel="preload" as="image" href="/App/Earth.webp" />
+    <meta name="description" content="个人展示网站 - 人民万岁，包含音乐、游戏、诗词、历史、旅游、博物馆、风景等主题" />
     <title>人民万岁</title>
     <style>
       html,
@@ -29,39 +36,6 @@
       >
     </noscript>
     <div id="app"></div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const bgUrl =
-          "https://images-pc.oss-cn-hongkong.aliyuncs.com/app/bg.png";
-        const img = new Image();
-        let loaded = false;
-
-        // 5秒超时控制
-        const timer = setTimeout(() => {
-          if (!loaded) {
-            document.body.style.background = "black";
-            img.onload = img.onerror = null; // 清除事件监听
-          }
-        }, 5000);
-
-        // 图片加载成功
-        img.onload = function () {
-          loaded = true;
-          clearTimeout(timer);
-          document.body.style.background = `url(${bgUrl}) no-repeat center center/cover`;
-        };
-
-        // 图片加载失败
-        img.onerror = function () {
-          loaded = true;
-          clearTimeout(timer);
-          document.body.style.background = "black";
-        };
-
-        img.src = bgUrl;
-      });
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

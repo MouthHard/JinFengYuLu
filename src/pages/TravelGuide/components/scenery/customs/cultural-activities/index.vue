@@ -17,8 +17,7 @@
           {{ activity.name }}
         </div>
         <div class="activity-image-wrapper">
-          <img
-            :src="activity.image"
+          <img loading="lazy"             :src="activity.image"
             :alt="activity.name"
             class="activity-image"
           />
@@ -55,7 +54,20 @@
         </div>
       </div>
       <div v-if="activities.length === 0" class="empty-state">
-        <p>暂无文化活动数据</p>
+        <div class="empty-background">
+          <div class="empty-orb orb-1"></div>
+          <div class="empty-orb orb-2"></div>
+          <div class="empty-orb orb-3"></div>
+        </div>
+        <div class="empty-icon-wrapper">
+          <span class="empty-icon">🎭</span>
+        </div>
+        <h4 class="empty-title">暂无文化活动</h4>
+        <p class="empty-desc">该地区的特色文化活动正在采集中</p>
+        <div class="empty-hint">
+          <span class="hint-dot"></span>
+          <span>敬请期待更多精彩内容</span>
+        </div>
       </div>
     </div>
   </section>

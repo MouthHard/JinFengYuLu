@@ -1,11 +1,8 @@
 <template>
   <div class="search-filter-section">
     <div class="filter-layout">
-      <!-- 搜索框 -->
       <div class="search-box">
-        <div class="search-icon-wrapper">
-          <SearchIcon />
-        </div>
+        <div class="search-icon-wrapper">🔍</div>
         <input
           v-model="localSearchQuery"
           type="text"
@@ -15,7 +12,6 @@
         />
       </div>
 
-      <!-- 筛选容器 -->
       <div class="filter-container">
         <div class="filter-options">
           <div
@@ -36,37 +32,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { cultureThemes } from "../../../../data/scenery";
-import { SearchIcon } from "../../../../icons";
+  import { ref, watch } from 'vue';
+  import { cultureThemes } from '../../../../data/scenery';
 
-const props = defineProps<{
-  searchQuery: string;
-  selectedTheme: string;
-  getThemeCount: (theme: string) => number;
-}>();
+  const props = defineProps<{
+    searchQuery: string;
+    selectedTheme: string;
+    getThemeCount: (theme: string) => number;
+  }>();
 
-const emit = defineEmits<{
-  searchQuery: [value: string];
-  selectedTheme: [value: string];
-}>();
+  const emit = defineEmits<{
+    searchQuery: [value: string];
+    selectedTheme: [value: string];
+  }>();
 
-const localSearchQuery = ref(props.searchQuery);
+  const localSearchQuery = ref(props.searchQuery);
 
-watch(
-  () => props.searchQuery,
-  (newValue) => {
-    localSearchQuery.value = newValue;
-  },
-);
+  watch(
+    () => props.searchQuery,
+    (newValue) => {
+      localSearchQuery.value = newValue;
+    },
+  );
 
-const updateSearchQuery = () => {
-  emit("searchQuery", localSearchQuery.value);
-};
+  const updateSearchQuery = () => {
+    emit('searchQuery', localSearchQuery.value);
+  };
 
-const selectTheme = (theme: string) => {
-  emit("selectedTheme", theme);
-};
+  const selectTheme = (theme: string) => {
+    emit('selectedTheme', theme);
+  };
 </script>
 
 <style scoped src="./index.scss" />

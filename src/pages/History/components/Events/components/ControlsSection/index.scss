@@ -1,0 +1,217 @@
+/* 竹简风格控制按钮样式 */
+.controls-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(90deg, #d4b98a, #e6d3a8, #d4b98a);
+  border: 2px solid #8b6e4a;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 0 auto;
+  /* 竹简纹理 */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 110, 74, 0.1) 3px,
+      rgba(139, 110, 74, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(139, 110, 74, 0.05) 1px,
+      rgba(139, 110, 74, 0.05) 2px
+    );
+  /* 竹简边缘效果 */
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.2),
+    inset 0 0 15px rgba(139, 110, 74, 0.2);
+
+  /* 竹简绑绳效果 */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8b6e4a, #a68a64, #8b6e4a);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8b6e4a, #a68a64, #8b6e4a);
+    box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .control-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(90deg, #e3cfaa, #d9c28a, #f6ead4);
+    border: 2px solid #8b6e4a;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    /* 竹简效果 */
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(139, 110, 74, 0.2);
+
+    /* 竹简绑绳效果 */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #8b6e4a, #a68a64, #8b6e4a);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover:not(:disabled) {
+ 
+      border-color: #7d5d3a;
+      color: #4a3018;
+      transform: translateY(-4px) rotateX(3deg);
+      box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(139, 110, 74, 0.4),
+        inset 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(-2px) rotateX(1deg);
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(139, 110, 74, 0.3);
+    }
+
+    .control-glow {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: controlGlow 2s infinite;
+      z-index: -1;
+    }
+
+    .control-icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    }
+
+    &:hover .control-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+  }
+
+  .page-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(90deg, #b88b5a, #f7dfa3, #b88b5a);
+    border: 2px solid #8b6e4a;
+    border-radius: 4px;
+    /* 竹简风格 */
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(139, 110, 74, 0.2);
+    animation: pageIndicatorPulse 3s infinite;
+    transition: all 0.3s ease;
+ 
+    font-weight: bold;
+ 
+    /* 竹简绑绳效果 */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #8b6e4a, #a68a64, #8b6e4a);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .current-page,
+    .total-pages {
+      font-size: 18px;
+      font-family: 'SimSun', monospace;
+      letter-spacing: 2px;
+      color: #341e07;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .page-separator {
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      margin: 0 8px;
+    }
+  }
+}
+
+/* 新增动画定义 */
+@keyframes controlGlow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes pageIndicatorPulse {
+  0% {
+    transform: scale(1);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(139, 110, 74, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow:
+      0 6px 12px rgba(139, 110, 74, 0.4),
+      inset 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      inset 0 0 10px rgba(139, 110, 74, 0.2);
+  }
+}

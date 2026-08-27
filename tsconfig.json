@@ -1,32 +1,132 @@
+/**
+ * ============================================================================
+ * TypeScript 主编译配置 - tsconfig.json
+ * ============================================================================
+ * 【前端同学必读】
+ * 本文件是 TypeScript 编译器的核心配置，控制整个项目的类型检查和编译行为。
+ *
+ * 【关键概念】
+ * - TypeScript 编译器（tsc）根据此配置决定如何检查类型、解析模块、输出代码
+ * - Vite 使用 esbuild 做实际的代码转译（比 tsc 快 10-30 倍），
+ *   tsc 在本项目中只负责类型检查（npx vue-tsc --noEmit）
+ * - 本配置适用于 src/ 下的应用代码（浏览器环境），
+ *   vite.config.ts 等构建工具代码由 tsconfig.node.json 单独管理
+ *
+ * 【配置分区】
+ * 1. 编译目标与模块系统：target/module/moduleResolution 等
+ * 2. 打包工具模式：isolatedModules/noEmit 等（Vite 专用）
+ * 3. 严格类型检查：strict/noUnusedLocals 等
+ * 4. 路径别名：baseUrl/paths（@/ → src/）
+ * 5. 文件范围：include/allowJs/references
+ *
+ * ============================================================================
+ */
 {
   "compilerOptions": {
+    // 编译目标 — 指定编译后的 JavaScript 版本
+    // ES2020 支持：可选链(?.)、空值合并(??)、BigInt 等现代语法
+    // Vite 会用 esbuild 进一步转译以兼容目标浏览器
     "target": "ES2020",
+
+    // 类字段定义方式 — 使用 define 语义（更符合现代标准）
+    // true: class Foo { x = 1 } 编译为 Object.defineProperty(this, 'x', ...)
+    // false: class Foo { x = 1 } 编译为 this.x = 1
     "useDefineForClassFields": true,
+
+    // 模块系统 — 使用最新的 ES 模块规范
+    // ESNext 表示 import/export 语法不做转换，由打包工具（Vite）处理
     "module": "ESNext",
+
+    // 包含的库类型声明 — 告诉 TypeScript 有哪些全局 API 可用
+    // ES2020: Promise、Array.prototype.flatMap 等 ES2020 API
+    // DOM: document、window、HTMLElement 等浏览器 DOM API
+    // DOM.Iterable: NodeList.forEach、HTMLCollection 迭代等
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // 跳过库类型检查 — 不检查 node_modules 中的 .d.ts 文件
+    // 开启可加快编译速度，避免第三方库类型冲突
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* === 打包工具模式 === */
+
+    // 模块解析策略 — bundler 模式专为 Vite/Webpack 等打包工具优化
+    // 与 node 模式的区别：支持 package.json 的 exports 字段，
+    // 允许导入 .ts/.tsx 文件时不写扩展名
     "moduleResolution": "bundler",
+
+    // 允许导入 .ts 扩展名的文件
+    // bundler 模式下开启，让 TypeScript 识别 import './foo.ts' 语法
+    // 实际运行时 Vite 会自动处理扩展名
     "allowImportingTsExtensions": true,
+
+    // 解析 JSON 模块 — 允许 import config from './config.json'
+    // 项目中如果有 JSON 配置文件需要导入时使用
     "resolveJsonModule": true,
+
+    // 隔离模块 — 每个文件作为独立模块处理
+    // 开启后 tsc 会确保每个文件可以独立编译，不依赖其他文件的类型信息
+    // 这是 Vite（使用 esbuild）的要求，因为 esbuild 逐文件编译
     "isolatedModules": true,
+
+    // 不输出编译文件 — tsc 只做类型检查，不生成 .js 文件
+    // 因为 Vite 使用 esbuild 编译 TypeScript，速度比 tsc 快 10-30 倍
+    // tsc 的职责仅限于类型检查（npx vue-tsc --noEmit）
     "noEmit": true,
+
+    // JSX 处理方式 — preserve 表示保留 JSX 不转换
+    // Vue 的 JSX 转换由 @vitejs/plugin-vue 插件处理
+    // React 项目会设置为 "react-jsx"
     "jsx": "preserve",
 
-    /* Linting */
+    /* === 严格类型检查 === */
+
+    // 严格模式 — 开启所有严格类型检查选项
+    // 包含：noImplicitAny, strictNullChecks, strictFunctionTypes 等
+    // 建议始终开启，避免运行时因类型不安全导致的错误
     "strict": true,
+
+    // 禁止未使用的局部变量 — 检测声明但未使用的变量
+    // 帮助清理冗余代码，减少包体积
     "noUnusedLocals": true,
+
+    // 禁止未使用的函数参数 — 检测声明但未使用的参数
+    // 如果需要忽略某个参数，可用下划线前缀：_unused
     "noUnusedParameters": true,
+
+    // switch 穿透检查 — 禁止 switch case 不经 break/return 穿透
+    // 防止忘记写 break 导致的逻辑错误
     "noFallthroughCasesInSwitch": true,
 
-    /* Path aliases */
+    /* === 路径别名 === */
+
+    // 基础路径 — 用于 paths 的相对路径计算
+    // "." 表示项目根目录
     "baseUrl": ".",
+
+    // 路径别名映射 — 让 import 路径更简洁
+    // "@/*" → "./src/*"
+    // 使用前：import { Foo } from '../../../components/Foo'
+    // 使用后：import { Foo } from '@/components/Foo'
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js", "tests/**/*.ts", "tests/**/*.spec.ts"],
+
+  // 包含的文件 — 指定 TypeScript 需要检查的文件范围
+  // src/**/*.ts: src 下所有 .ts 文件
+  // types/**/*.d.ts: 自定义类型声明文件
+  // src/**/*.tsx: React JSX 的 .tsx 文件
+  // src/**/*.vue: Vue 单文件组件
+  // src/**/*.js: 允许 JS 文件（allowJs 开启时）
+  // tests/**/*.ts / tests/**/*.spec.ts: 测试文件
+  "include": ["src/**/*.ts", "types/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js", "tests/**/*.ts", "tests/**/*.spec.ts"],
+
+  // 允许 JS 文件 — 允许在 TypeScript 项目中导入 .js 文件
+  // 开启后 tsc 会对 JS 文件做最低限度的类型检查
   "allowJs": true,
+
+  // 项目引用 — 引用 tsconfig.node.json 处理构建工具代码
+  // 实现应用代码（src/）和构建代码（vite.config.ts）的类型隔离
+  // 每个引用项目有独立的编译上下文，互不影响
   "references": [{ "path": "./tsconfig.node.json" }]
 }

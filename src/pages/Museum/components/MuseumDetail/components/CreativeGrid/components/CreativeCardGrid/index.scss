@@ -1,4 +1,3 @@
-// 分类筛选
 .category-filter {
   margin-bottom: 2.5rem;
   position: relative;
@@ -6,10 +5,9 @@
   .filter-title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #8b4513;
+    color: #5b2803;
     margin-bottom: 1.5rem;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.2);
     position: relative;
     z-index: 1;
   }
@@ -23,7 +21,7 @@
 
     .filter-btn {
       padding: 0.75rem 1.5rem;
-      background: linear-gradient(135deg, #ffffff, #f9f3e9);
+      background: linear-gradient(135deg, #ffffff, #f6daac);
       border: 2px solid #f4a460;
       border-radius: 16px;
       font-weight: 600;
@@ -37,8 +35,7 @@
       transform-style: preserve-3d;
 
       &:hover {
-        border-color: #d2691e;
-        color: #d2691e;
+        border-color: #a74601;
         transform: perspective(1000px) rotateX(0deg) translateZ(10px);
         box-shadow:
           0 6px 12px rgba(139, 69, 19, 0.3),
@@ -46,7 +43,7 @@
       }
 
       &.active {
-        background: linear-gradient(135deg, #d2691e, #f4a460);
+        background: linear-gradient(135deg, #ab3a01, #e6b96b);
         color: white;
         border-color: #d2691e;
         transform: perspective(1000px) rotateX(0deg) translateZ(15px);
@@ -58,7 +55,6 @@
   }
 }
 
-// 文创产品网格
 .creative-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -66,7 +62,7 @@
 
   position: relative;
   width: 70%;
-  margin: 4rem auto;
+  margin: 5rem auto;
 
   .creative-card-wrapper {
     position: relative;
@@ -78,7 +74,7 @@
         135deg,
         #f5e8d3 0%,
         #e6c8a0 50%,
-        #d2b48c 100%
+        #d09870 100%
       );
       border-radius: 16px;
       overflow: visible;
@@ -96,7 +92,7 @@
         inset 0 -1px 0 rgba(139, 69, 19, 0.2);
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -165,7 +161,7 @@
           justify-content: center;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             width: 18px;
             height: 18px;
@@ -202,27 +198,28 @@
       }
 
       .creative-info {
-        padding: 1.5rem;
+        padding: 0.5rem 1.5rem;
         position: relative;
         z-index: 2;
         background: linear-gradient(
           135deg,
-          rgba(245, 232, 211, 0.95),
-          rgba(230, 200, 160, 0.9)
+          rgba(245, 232, 211, 1),
+          rgb(246, 190, 147)
         );
         border-top: 1px solid rgba(244, 164, 96, 0.3);
         border-radius: 0 0 12px 12px;
-        box-shadow: 0 -6px 6px rgba(0, 0, 0, 1);
+        box-shadow: 0 -6px 12px rgba(0, 0, 0, 1);
 
         .creative-category {
           display: inline-block;
-          padding: 0.25rem 0.75rem;
-          background: rgba(139, 69, 19, 0.2);
-          color: #8b4513;
+          padding: 0.5rem 0.75rem;
+          background:  linear-gradient(25deg,   #ffffff, #fd974e);
+          color: #713103;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
           border-radius: 8px;
           font-size: 0.8rem;
           font-weight: 600;
-          margin-bottom: 0.75rem;
+          margin: 0;
         }
 
         .creative-name {
@@ -233,10 +230,10 @@
         }
 
         .creative-desc {
-          font-size: 0.9rem;
-          color: #8b4513;
+          font-size: 1rem;
+          color: #652d04;
           line-height: 1.5;
-          margin-bottom: 1rem;
+          margin: 1rem 0;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           overflow: hidden;
@@ -246,16 +243,79 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: 0.5rem;
 
           .creative-price {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #6b3410;
+            margin: 0.5rem;
+          }
+
+          .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+
+            .action-btn {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s ease;
+              padding: 0;
+
+              svg {
+                width: 16px;
+                height: 16px;
+                stroke: white;
+                stroke-width: 2;
+              }
+
+              &:hover {
+                transform: scale(1.1);
+              }
+
+              &:active {
+                transform: scale(0.95);
+              }
+            }
+
+            .like-btn {
+              background: linear-gradient(135deg, #f4a460, #ff8c00);
+              box-shadow: 0 2px 6px rgba(255, 140, 0, 1);
+
+              &:hover {
+                box-shadow: 0 2px 6px rgb(0, 0, 0);
+              }
+            }
+
+            .star-btn {
+              background: linear-gradient(135deg, #8b4513, #a0522d);
+              box-shadow: 0 2px 6px rgba(139, 69, 19, 1);
+
+              &:hover {
+                box-shadow: 0 2px 6px rgb(0, 0, 0);
+              }
+            }
+
+            .share-btn {
+              background: linear-gradient(135deg, #4682b4, #5f9ea0);
+              box-shadow: 0 2px 6px rgba(70, 130, 180, 1);
+
+              &:hover {
+                box-shadow: 0 2px 6px rgb(0, 0, 0);
+              }
+            }
           }
 
           .buy-btn {
             padding: 0.5rem 1rem;
-            background: #8b4513;
+            background: linear-gradient(45deg, #883a02, #c67e5d, #8b3113);
             color: white;
             border: none;
             border-radius: 12px;
@@ -264,7 +324,7 @@
             transition: all 0.3s ease;
 
             &:hover {
-              background: #a0522d;
+              background: #943306;
               transform: translateY(-2px);
               box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
             }

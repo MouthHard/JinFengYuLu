@@ -52,33 +52,6 @@ export const debounce = <T extends (...args: any[]) => any>(
 };
 
 /**
- * 节流函数：限制函数执行频率，在指定时间内只执行一次
- *
- * @param func - 需要节流的函数
- * @param limit - 时间限制（毫秒）
- * @returns 节流后的函数
- * @example
- * ```typescript
- * const throttledScroll = throttle(handleScroll, 100);
- * window.addEventListener('scroll', throttledScroll);
- * ```
- */
-export const throttle = <T extends (...args: any[]) => any>(
-  func: T,
-  limit: number,
-): ((...args: Parameters<T>) => void) => {
-  let inThrottle: boolean;
-
-  return (...args: Parameters<T>) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
-
-/**
  * 时间格式化函数：将 Date 对象格式化为 HH : MM : SS
  *
  * @param date - 需要格式化的日期对象
@@ -139,22 +112,72 @@ export const formatDate = (date: Date): string => {
 };
 
 /**
- * 数字格式化函数：将大数字格式化为更易读的形式
- *
- * @param num - 需要格式化的数字
- * @returns 格式化后的字符串
- * @example
- * ```typescript
- * formatNumber(150000000); // "1.5亿"
- * formatNumber(15000); // "1.5万"
- * formatNumber(1234); // "1,234"
- * ```
+ * 根据字符串生成颜色
+ * @param str 输入字符串
+ * @returns 颜色样式对象
  */
+export const getColorByString = (str: string): { backgroundColor: string } => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash % 360);
+  return { backgroundColor: `hsl(${hue}, 70%, 45%)` };
+};
+
+export const throttle = <T extends (...args: any[]) => any>(
+  func: T,
+  limit: number,
+): ((...args: Parameters<T>) => void) => {
+  let inThrottle = false;
+
+  return (...args: Parameters<T>) => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+};
+
 export const formatNumber = (num: number): string => {
   if (num >= 100000000) {
-    return (num / 100000000).toFixed(1) + "亿";
-  } else if (num >= 10000) {
-    return (num / 10000).toFixed(1) + "万";
+    return `${(num / 100000000).toFixed(1)}亿`;
+  }
+  if (num >= 10000) {
+    return `${(num / 10000).toFixed(1)}万`;
   }
   return num.toLocaleString();
+};
+
+/**
+ * HTML 特殊字符转义，防止 XSS
+  */
+export const escapeHtml = (str: string): string => {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+};
+
+/**
+ * 转义正则表达式特殊字符
+ */
+const escapeRegExp = (str: string): string => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+/**
+ * 安全地高亮搜索关键词：先转义 HTML，再用 <mark> 包裹匹配项
+ */
+export const highlightSearchMatch = (text: string, keyword: string): string => {
+  const escapedText = escapeHtml(text);
+  if (!keyword) return escapedText;
+  const escapedKeyword = escapeRegExp(escapeHtml(keyword));
+  const regex = new RegExp(`(${escapedKeyword})`, 'gi');
+  return escapedText.replace(regex, '<mark>$1</mark>');
 };

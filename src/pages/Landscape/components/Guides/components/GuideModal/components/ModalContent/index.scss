@@ -1,0 +1,1384 @@
+.modal-content-wrapper {
+  margin-bottom: 1.75rem;
+}
+
+.modal-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+  padding: 1.125rem 1.375rem;
+  background: linear-gradient(145deg, rgba(6, 182, 212, 0.06), rgba(6, 182, 212, 0.04));
+  border-left: 3px solid rgba(6, 182, 212, 0.4);
+  border-radius: 0 0.75rem 0.75rem 0;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.25rem;
+    left: 0.75rem;
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    color: rgba(6, 182, 212, 0.2);
+    line-height: 1;
+  }
+
+  &.mode-self-drive {
+    border-left-color: rgba(37, 99, 235, 0.5);
+    background: linear-gradient(145deg, rgba(37, 99, 235, 0.08), rgba(29, 78, 216, 0.06));
+  }
+
+  &.mode-free-travel {
+    border-left-color: rgba(34, 197, 94, 0.5);
+    background: linear-gradient(145deg, rgba(34, 197, 94, 0.08), rgba(22, 163, 74, 0.06));
+  }
+
+  &.mode-group-travel {
+    border-left-color: rgba(239, 68, 68, 0.5);
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.06));
+  }
+
+  &.mode-photo-travel {
+    border-left-color: rgba(6, 182, 212, 0.5);
+    background: linear-gradient(145deg, rgba(6, 182, 212, 0.08), rgba(20, 184, 166, 0.06));
+  }
+
+  &.mode-hiking {
+    border-left-color: rgba(146, 64, 14, 0.5);
+    background: linear-gradient(145deg, rgba(146, 64, 14, 0.08), rgba(120, 53, 15, 0.06));
+  }
+
+  &.mode-camping {
+    border-left-color: rgba(21, 128, 61, 0.5);
+    background: linear-gradient(145deg, rgba(21, 128, 61, 0.08), rgba(16, 185, 129, 0.06));
+  }
+
+  &.mode-cruise {
+    border-left-color: rgba(3, 105, 161, 0.5);
+    background: linear-gradient(145deg, rgba(3, 105, 161, 0.08), rgba(2, 132, 199, 0.06));
+  }
+
+  &.mode-cycling {
+    border-left-color: rgba(234, 88, 12, 0.5);
+    background: linear-gradient(145deg, rgba(234, 88, 12, 0.08), rgba(217, 70, 23, 0.06));
+  }
+
+  &.mode-rv-travel {
+    border-left-color: rgba(120, 53, 15, 0.5);
+    background: linear-gradient(145deg, rgba(120, 53, 15, 0.08), rgba(92, 37, 13, 0.06));
+  }
+
+  &.mode-backpacking {
+    border-left-color: rgba(51, 65, 85, 0.5);
+    background: linear-gradient(145deg, rgba(51, 65, 85, 0.08), rgba(30, 41, 59, 0.06));
+  }
+
+  &.mode-family-travel {
+    border-left-color: rgba(236, 72, 153, 0.5);
+    background: linear-gradient(145deg, rgba(236, 72, 153, 0.08), rgba(219, 39, 119, 0.06));
+  }
+
+  &.mode-honeymoon {
+    border-left-color: rgba(244, 114, 182, 0.5);
+    background: linear-gradient(145deg, rgba(244, 114, 182, 0.08), rgba(236, 72, 153, 0.06));
+  }
+}
+
+.modal-content {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: #e2e8f0;
+  margin-bottom: 1.75rem;
+
+  :deep(h2) {
+    font-family: 'Playfair Display', 'Songti SC', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+    text-shadow: 0 2px 8px rgba(6, 182, 212, 0.15);
+  }
+
+  :deep(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 1.25rem 0 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid rgba(6, 182, 212, 0.4);
+  }
+
+  :deep(p) {
+    margin-bottom: 0.85rem;
+  }
+
+  :deep(ul) {
+    margin: 0.75rem 0;
+    padding-left: 1.75rem;
+
+    li {
+      margin-bottom: 0.4rem;
+      color: #cbd5e1;
+
+      &::marker {
+        color: #22d3ee;
+      }
+    }
+  }
+}
+
+.travel-mode-section {
+  margin-bottom: 1.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, rgba(6, 12, 22, 0.5), rgba(4, 8, 16, 0.4));
+  border-radius: 1rem;
+  border: 1px solid rgba(6, 182, 212, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.3), rgba(6, 182, 212, 0.2), transparent);
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  &.mode-self-drive {
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+
+  &.mode-free-travel {
+    border-color: rgba(34, 197, 94, 0.2);
+  }
+
+  &.mode-group-travel {
+    border-color: rgba(239, 68, 68, 0.2);
+  }
+
+  &.mode-photo-travel {
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  &.mode-hiking {
+    border-color: rgba(146, 64, 14, 0.2);
+  }
+
+  &.mode-camping {
+    border-color: rgba(21, 128, 61, 0.2);
+  }
+
+  &.mode-cruise {
+    border-color: rgba(3, 105, 161, 0.2);
+  }
+
+  &.mode-cycling {
+    border-color: rgba(234, 88, 12, 0.2);
+  }
+
+  &.mode-rv-travel {
+    border-color: rgba(120, 53, 15, 0.2);
+  }
+
+  &.mode-backpacking {
+    border-color: rgba(51, 65, 85, 0.2);
+  }
+
+  &.mode-family-travel {
+    border-color: rgba(236, 72, 153, 0.2);
+  }
+
+  &.mode-honeymoon {
+    border-color: rgba(244, 114, 182, 0.2);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      transition: all 300ms;
+
+      &.mode-self-drive {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(29, 78, 216, 0.15));
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+      }
+
+      &.mode-free-travel {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(22, 163, 74, 0.15));
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+      }
+
+      &.mode-group-travel {
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.15));
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+      }
+
+      &.mode-photo-travel {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(20, 184, 166, 0.15));
+        box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+      }
+
+      &.mode-hiking {
+        background: linear-gradient(135deg, rgba(146, 64, 14, 0.25), rgba(120, 53, 15, 0.15));
+        box-shadow: 0 0 20px rgba(146, 64, 14, 0.15);
+      }
+
+      &.mode-camping {
+        background: linear-gradient(135deg, rgba(21, 128, 61, 0.25), rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(21, 128, 61, 0.15);
+      }
+
+      &.mode-cruise {
+        background: linear-gradient(135deg, rgba(3, 105, 161, 0.25), rgba(2, 132, 199, 0.15));
+        box-shadow: 0 0 20px rgba(3, 105, 161, 0.15);
+      }
+
+      &.mode-cycling {
+        background: linear-gradient(135deg, rgba(234, 88, 12, 0.25), rgba(217, 70, 23, 0.15));
+        box-shadow: 0 0 20px rgba(234, 88, 12, 0.15);
+      }
+
+      &.mode-rv-travel {
+        background: linear-gradient(135deg, rgba(120, 53, 15, 0.25), rgba(92, 37, 13, 0.15));
+        box-shadow: 0 0 20px rgba(120, 53, 15, 0.15);
+      }
+
+      &.mode-backpacking {
+        background: linear-gradient(135deg, rgba(51, 65, 85, 0.25), rgba(30, 41, 59, 0.15));
+        box-shadow: 0 0 20px rgba(51, 65, 85, 0.15);
+      }
+
+      &.mode-family-travel {
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(219, 39, 119, 0.15));
+        box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
+      }
+
+      &.mode-honeymoon {
+        background: linear-gradient(135deg, rgba(244, 114, 182, 0.25), rgba(236, 72, 153, 0.15));
+        box-shadow: 0 0 20px rgba(244, 114, 182, 0.15);
+      }
+    }
+
+    .section-title-group {
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0 0 0.25rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin: 0;
+      }
+    }
+  }
+
+  .mode-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+
+    .info-card {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 0.875rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 300ms ease;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(6, 182, 212, 0.3), rgba(6, 182, 212, 0.2));
+        transform: scaleY(0);
+        transition: transform 300ms;
+        border-radius: 0 2px 2px 0;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+        &::before {
+          transform: scaleY(1);
+        }
+      }
+
+      .info-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        transition: all 300ms;
+      }
+
+      &:hover .info-icon {
+        transform: scale(1.15) rotate(5deg);
+      }
+
+      .info-content {
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0 0 0.25rem;
+        }
+
+        p {
+          font-size: 0.8rem;
+          color: #94a3b8;
+          margin: 0;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    &.self-drive .info-card {
+      border-color: rgba(37, 99, 235, 0.12);
+
+      h4 {
+        color: #60a5fa;
+      }
+
+      .info-card::before {
+        background: linear-gradient(180deg, rgba(37, 99, 235, 0.4), rgba(6, 182, 212, 0.2));
+      }
+    }
+
+    &.free-travel .info-card {
+      border-color: rgba(34, 197, 94, 0.12);
+
+      h4 {
+        color: #4ade80;
+      }
+    }
+
+    &.group-travel .info-card {
+      border-color: rgba(239, 68, 68, 0.12);
+
+      h4 {
+        color: #f87171;
+      }
+    }
+
+    &.photo-travel .info-card {
+      border-color: rgba(6, 182, 212, 0.12);
+
+      h4 {
+        color: #22d3ee;
+      }
+    }
+
+    &.hiking .info-card {
+      border-color: rgba(146, 64, 14, 0.12);
+
+      h4 {
+        color: #f97316;
+      }
+    }
+
+    &.camping .info-card {
+      border-color: rgba(21, 128, 61, 0.12);
+
+      h4 {
+        color: #34d399;
+      }
+    }
+
+    &.cruise .info-card {
+      border-color: rgba(3, 105, 161, 0.12);
+
+      h4 {
+        color: #38bdf8;
+      }
+    }
+
+    &.cycling .info-card {
+      border-color: rgba(234, 88, 12, 0.12);
+
+      h4 {
+        color: #fb923c;
+      }
+    }
+
+    &.rv-travel .info-card {
+      border-color: rgba(120, 53, 15, 0.12);
+
+      h4 {
+        color: #d97706;
+      }
+    }
+
+    &.backpacking .info-card {
+      border-color: rgba(51, 65, 85, 0.12);
+
+      h4 {
+        color: #94a3b8;
+      }
+    }
+
+    &.family-travel .info-card {
+      border-color: rgba(236, 72, 153, 0.12);
+
+      h4 {
+        color: #f472b6;
+      }
+    }
+
+    &.honeymoon .info-card {
+      border-color: rgba(244, 114, 182, 0.12);
+
+      h4 {
+        color: #f9a8d4;
+      }
+    }
+  }
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+
+  .tag {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+
+    $tag-colors: (
+      1: (bg: rgba(6, 182, 212, 0.2), bg-hover: rgba(6, 182, 212, 0.35), border: rgba(6, 182, 212, 0.4), text: #22d3ee, glow: rgba(6, 182, 212, 0.4)),
+      2: (bg: rgba(139, 92, 246, 0.2), bg-hover: rgba(139, 92, 246, 0.35), border: rgba(139, 92, 246, 0.4), text: #a78bfa, glow: rgba(139, 92, 246, 0.4)),
+      3: (bg: rgba(236, 72, 153, 0.2), bg-hover: rgba(236, 72, 153, 0.35), border: rgba(236, 72, 153, 0.4), text: #f472b6, glow: rgba(236, 72, 153, 0.4)),
+      4: (bg: rgba(34, 197, 94, 0.2), bg-hover: rgba(34, 197, 94, 0.35), border: rgba(34, 197, 94, 0.4), text: #4ade80, glow: rgba(34, 197, 94, 0.4)),
+      5: (bg: rgba(245, 158, 11, 0.2), bg-hover: rgba(245, 158, 11, 0.35), border: rgba(245, 158, 11, 0.4), text: #fbbf24, glow: rgba(245, 158, 11, 0.4)),
+      6: (bg: rgba(59, 130, 246, 0.2), bg-hover: rgba(59, 130, 246, 0.35), border: rgba(59, 130, 246, 0.4), text: #60a5fa, glow: rgba(59, 130, 246, 0.4)),
+    );
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        $colors: map-get($tag-colors, $i);
+        background: linear-gradient(145deg, map-get($colors, bg), rgba(0, 0, 0, 0.15));
+        border: 1px solid map-get($colors, border);
+        color: map-get($colors, text);
+        box-shadow:
+          0 3px 10px rgba(0, 0, 0, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 15px map-get($colors, glow);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
+          border-radius: 999px 999px 0 0;
+        }
+
+        &:hover {
+          background: linear-gradient(145deg, map-get($colors, bg-hover), rgba(0, 0, 0, 0.2));
+          transform: translateY(-3px) scale(1.05);
+          box-shadow:
+            0 6px 20px rgba(0, 0, 0, 0.35),
+            0 0 25px map-get($colors, glow),
+            inset 0 2px 0 rgba(255, 255, 255, 0.12);
+        }
+      }
+    }
+
+    &.mode-self-drive,
+    &.mode-free-travel,
+    &.mode-group-travel,
+    &.mode-photo-travel,
+    &.mode-hiking,
+    &.mode-camping,
+    &.mode-cruise,
+    &.mode-cycling,
+    &.mode-rv-travel,
+    &.mode-backpacking,
+    &.mode-family-travel,
+    &.mode-honeymoon {
+      &:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
+    }
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 40px;
+  background: linear-gradient(180deg, rgba(6, 12, 22, 0.98) 0%, rgba(4, 8, 16, 0.99) 100%);
+  border-top: 2px solid rgba(6, 182, 212, 0.2);
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.5);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), rgba(6, 182, 212, 0.3), transparent);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 16px 24px;
+  }
+
+  &.mode-self-drive {
+    border-top-color: rgba(37, 99, 235, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), rgba(37, 99, 235, 0.3), transparent);
+    }
+  }
+
+  &.mode-free-travel {
+    border-top-color: rgba(34, 197, 94, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.5), rgba(34, 197, 94, 0.3), transparent);
+    }
+  }
+
+  &.mode-group-travel {
+    border-top-color: rgba(239, 68, 68, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.5), rgba(239, 68, 68, 0.3), transparent);
+    }
+  }
+
+  &.mode-photo-travel {
+    border-top-color: rgba(6, 182, 212, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), rgba(6, 182, 212, 0.3), transparent);
+    }
+  }
+
+  &.mode-hiking {
+    border-top-color: rgba(146, 64, 14, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(146, 64, 14, 0.5), rgba(146, 64, 14, 0.3), transparent);
+    }
+  }
+
+  &.mode-camping {
+    border-top-color: rgba(21, 128, 61, 0.25);
+
+    &::before {
+      background: linear-gradient(90deg, transparent, rgba(21, 128, 61, 0.5), rgba(21, 128, 61, 0.3), transparent);
+    }
+  }
+
+  .action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(145deg, rgba(20, 30, 40, 0.9), rgba(12, 20, 28, 0.85));
+    border: 2px solid rgba(6, 182, 212, 0.25);
+    border-top-color: rgba(6, 182, 212, 0.35);
+    border-bottom-color: rgba(4, 100, 140, 0.2);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.05),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 600ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: all 500ms;
+      border-radius: 50%;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.5;
+      position: relative;
+      z-index: 1;
+      transition: all 300ms;
+    }
+
+    .btn-content {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+
+      .btn-label {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .btn-count {
+        font-size: 13px;
+        font-weight: 600;
+        opacity: 0.8;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(6, 182, 212, 0.15),
+        inset 0 2px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+      &::before {
+        left: 150%;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(0.98);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 3px 8px rgba(0, 0, 0, 0.4),
+        inset 0 -1px 2px rgba(6, 182, 212, 0.15);
+    }
+
+    &.like {
+      &:hover {
+        background: linear-gradient(145deg, rgba(239, 68, 68, 0.65), rgba(220, 38, 38, 0.55));
+        border-color: rgba(239, 68, 68, 0.5);
+        border-top-color: rgba(252, 165, 165, 0.6);
+        color: #fff;
+        box-shadow:
+          0 10px 30px rgba(239, 68, 68, 0.35),
+          0 0 40px rgba(239, 68, 68, 0.2),
+          inset 0 2px 0 rgba(255, 255, 255, 0.15),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+        svg {
+          stroke: #fff;
+          filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.8));
+          transform: scale(1.15);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(145deg, rgba(239, 68, 68, 0.75), rgba(220, 38, 38, 0.65));
+        border-color: rgba(239, 68, 68, 0.6);
+        color: #fff;
+        box-shadow:
+          0 8px 25px rgba(239, 68, 68, 0.45),
+          0 0 30px rgba(239, 68, 68, 0.3),
+          inset 0 2px 0 rgba(255, 255, 255, 0.2);
+
+        svg {
+          stroke: #fff;
+          fill: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    &.love {
+      &:hover {
+        background: linear-gradient(145deg, rgba(236, 72, 153, 0.65), rgba(219, 39, 119, 0.55));
+        border-color: rgba(236, 72, 153, 0.5);
+        border-top-color: rgba(251, 207, 232, 0.6);
+        color: #fff;
+        box-shadow:
+          0 10px 30px rgba(236, 72, 153, 0.35),
+          0 0 40px rgba(236, 72, 153, 0.2),
+          inset 0 2px 0 rgba(255, 255, 255, 0.15),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+        svg {
+          stroke: #fff;
+          filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.8));
+          transform: scale(1.15);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(145deg, rgba(236, 72, 153, 0.75), rgba(219, 39, 119, 0.65));
+        border-color: rgba(236, 72, 153, 0.6);
+        color: #fff;
+        box-shadow:
+          0 8px 25px rgba(236, 72, 153, 0.45),
+          0 0 30px rgba(236, 72, 153, 0.3),
+          inset 0 2px 0 rgba(255, 255, 255, 0.2);
+
+        svg {
+          stroke: #fff;
+          fill: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    &.bookmark {
+      &:hover {
+        background: linear-gradient(145deg, rgba(245, 158, 11, 0.65), rgba(234, 88, 12, 0.55));
+        border-color: rgba(245, 158, 11, 0.5);
+        border-top-color: rgba(252, 211, 77, 0.6);
+        color: #fff;
+        box-shadow:
+          0 10px 30px rgba(245, 158, 11, 0.35),
+          0 0 40px rgba(245, 158, 11, 0.2),
+          inset 0 2px 0 rgba(255, 255, 255, 0.15),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+        svg {
+          stroke: #fff;
+          filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.8));
+          transform: scale(1.15);
+        }
+      }
+
+      &.active {
+        background: linear-gradient(145deg, rgba(245, 158, 11, 0.75), rgba(234, 88, 12, 0.65));
+        border-color: rgba(245, 158, 11, 0.6);
+        color: #fff;
+        box-shadow:
+          0 8px 25px rgba(245, 158, 11, 0.45),
+          0 0 30px rgba(245, 158, 11, 0.3),
+          inset 0 2px 0 rgba(255, 255, 255, 0.2);
+
+        svg {
+          stroke: #fff;
+          fill: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    &.share:hover {
+      background: linear-gradient(145deg, rgba(6, 182, 212, 0.65), rgba(20, 184, 166, 0.55));
+      border-color: rgba(6, 182, 212, 0.5);
+      border-top-color: rgba(103, 232, 249, 0.6);
+      color: #fff;
+      box-shadow:
+        0 10px 30px rgba(6, 182, 212, 0.35),
+        0 0 40px rgba(6, 182, 212, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+      svg {
+        stroke: #fff;
+        filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.8));
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+.content-sections {
+  margin-bottom: 1.75rem;
+
+  .section-block {
+    margin-bottom: 1.5rem;
+    padding: 1.35rem;
+    background: linear-gradient(145deg, rgba(6, 12, 22, 0.55), rgba(4, 8, 16, 0.45));
+    border-radius: 1rem;
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.5), rgba(139, 92, 246, 0.5), rgba(236, 72, 153, 0.5));
+      border-radius: 4px 0 0 4px;
+    }
+
+    $section-colors: (
+      1: (title: #22d3ee, marker: #22d3ee, border: rgba(6, 182, 212, 0.25)),
+      2: (title: #a78bfa, marker: #a78bfa, border: rgba(139, 92, 246, 0.25)),
+      3: (title: #f472b6, marker: #f472b6, border: rgba(236, 72, 153, 0.25)),
+      4: (title: #4ade80, marker: #4ade80, border: rgba(34, 197, 94, 0.25)),
+    );
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        $colors: map-get($section-colors, $i);
+        border-color: map-get($colors, border);
+
+        .section-title {
+          color: map-get($colors, title);
+        }
+
+        .section-items li::marker {
+          color: map-get($colors, marker);
+        }
+      }
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0 0 0.85rem;
+      padding-bottom: 0.6rem;
+      padding-left: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-items {
+      margin: 0;
+      padding-left: 1.25rem;
+
+      li {
+        margin-bottom: 0.55rem;
+        color: #cbd5e1;
+        line-height: 1.65;
+        padding-left: 0.25rem;
+
+        &::marker {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+.equipments-section {
+  margin-bottom: 1.75rem;
+
+  .equipments-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .equipments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+
+    .equipment-card {
+      padding: 1.15rem;
+      background: linear-gradient(145deg, rgba(6, 12, 22, 0.55), rgba(4, 8, 16, 0.45));
+      border-radius: 1rem;
+      border: 1px solid rgba(6, 182, 212, 0.12);
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+        border-radius: 1rem 1rem 0 0;
+      }
+
+      $equip-colors: (
+        1: (border: rgba(6, 182, 212, 0.25), title: #22d3ee, icon-shadow: rgba(6, 182, 212, 0.3)),
+        2: (border: rgba(139, 92, 246, 0.25), title: #a78bfa, icon-shadow: rgba(139, 92, 246, 0.3)),
+        3: (border: rgba(245, 158, 11, 0.25), title: #fbbf24, icon-shadow: rgba(245, 158, 11, 0.3)),
+      );
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          $colors: map-get($equip-colors, $i);
+          border-color: map-get($colors, border);
+
+          .equipment-header .equipment-title-text {
+            color: map-get($colors, title);
+          }
+
+          .equipment-header .equipment-icon {
+            text-shadow: 0 0 15px map-get($colors, icon-shadow);
+          }
+
+          &:hover {
+            border-color: map-get($colors, border);
+            box-shadow:
+              0 8px 25px rgba(0, 0, 0, 0.3),
+              0 0 20px map-get($colors, icon-shadow);
+          }
+        }
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      .equipment-header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.85rem;
+
+        .equipment-icon {
+          font-size: 1.35rem;
+          transition: all 300ms;
+        }
+
+        .equipment-title-text {
+          font-size: 0.95rem;
+          font-weight: 600;
+          transition: all 300ms;
+        }
+      }
+
+      &:hover .equipment-header .equipment-icon {
+        transform: scale(1.15) rotate(5deg);
+      }
+
+      .equipment-items {
+        margin: 0;
+        padding-left: 1rem;
+
+        li {
+          margin-bottom: 0.4rem;
+          font-size: 0.85rem;
+          color: #94a3b8;
+          line-height: 1.55;
+
+          &::marker {
+            color: #64748b;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tips-section {
+  margin-bottom: 1.75rem;
+
+  .tips-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .tip-card {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 300ms;
+
+      .tip-icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+
+      .tip-content {
+        flex: 1;
+
+        .tip-title {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0 0 0.35rem;
+        }
+
+        .tip-text {
+          font-size: 0.85rem;
+          color: #94a3b8;
+          margin: 0;
+          line-height: 1.5;
+        }
+      }
+
+      &.tip-info {
+        background: linear-gradient(145deg, rgba(6, 182, 212, 0.08), rgba(6, 182, 212, 0.04));
+        border-color: rgba(6, 182, 212, 0.15);
+      }
+
+      &.tip-tip {
+        background: linear-gradient(145deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.04));
+        border-color: rgba(34, 197, 94, 0.15);
+
+        .tip-title {
+          color: #4ade80;
+        }
+      }
+
+      &.tip-warning {
+        background: linear-gradient(145deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.04));
+        border-color: rgba(245, 158, 11, 0.15);
+
+        .tip-title {
+          color: #fbbf24;
+        }
+      }
+
+      &:hover {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+.extra-info-section {
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, rgba(6, 12, 22, 0.5), rgba(4, 8, 16, 0.4));
+  border-radius: 1rem;
+  border: 1px solid rgba(6, 182, 212, 0.12);
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      flex-shrink: 0;
+      width: 80px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #22d3ee;
+    }
+
+    .info-value {
+      flex: 1;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+  }
+}
+
+.safety-section {
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.04));
+  border-radius: 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+
+  .safety-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f87171;
+    margin: 0 0 0.75rem;
+  }
+
+  .safety-list {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+
+      &::marker {
+        color: #f87171;
+      }
+    }
+  }
+}
+
+.route-section {
+  margin-bottom: 1.75rem;
+
+  .route-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .route-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(180deg,
+        rgba(6, 182, 212, 0.4),
+        rgba(139, 92, 246, 0.4),
+        rgba(236, 72, 153, 0.4),
+        rgba(34, 197, 94, 0.4),
+        rgba(245, 158, 11, 0.4)
+      );
+      border-radius: 2px;
+    }
+
+    .route-point {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+
+      $route-colors: (
+        1: (bg: rgba(6, 182, 212, 0.2), border: rgba(6, 182, 212, 0.4), text: #22d3ee, glow: rgba(6, 182, 212, 0.35)),
+        2: (bg: rgba(139, 92, 246, 0.2), border: rgba(139, 92, 246, 0.4), text: #a78bfa, glow: rgba(139, 92, 246, 0.35)),
+        3: (bg: rgba(236, 72, 153, 0.2), border: rgba(236, 72, 153, 0.4), text: #f472b6, glow: rgba(236, 72, 153, 0.35)),
+        4: (bg: rgba(34, 197, 94, 0.2), border: rgba(34, 197, 94, 0.4), text: #4ade80, glow: rgba(34, 197, 94, 0.35)),
+        5: (bg: rgba(245, 158, 11, 0.2), border: rgba(245, 158, 11, 0.4), text: #fbbf24, glow: rgba(245, 158, 11, 0.35)),
+      );
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          $colors: map-get($route-colors, $i);
+
+          .route-marker {
+            background: linear-gradient(135deg, map-get($colors, bg), rgba(0, 0, 0, 0.15));
+            border-color: map-get($colors, border);
+            color: map-get($colors, text);
+            box-shadow: 0 0 12px map-get($colors, glow);
+          }
+
+          .route-text {
+            border-color: map-get($colors, border);
+
+            &:hover {
+              border-color: map-get($colors, border);
+              box-shadow: 0 0 15px map-get($colors, glow);
+            }
+          }
+        }
+      }
+
+      .route-marker {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 0.85rem;
+        font-weight: 600;
+        flex-shrink: 0;
+        z-index: 1;
+        transition: all 300ms;
+      }
+
+      .route-text {
+        flex: 1;
+        font-size: 0.9rem;
+        color: #cbd5e1;
+        padding: 0.85rem 1.15rem;
+        background: linear-gradient(145deg, rgba(6, 12, 22, 0.5), rgba(4, 8, 16, 0.4));
+        border-radius: 0.75rem;
+        border: 1px solid rgba(6, 182, 212, 0.08);
+        transition: all 300ms;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        &:hover {
+          transform: translateX(4px);
+          background: linear-gradient(145deg, rgba(6, 12, 22, 0.6), rgba(4, 8, 16, 0.5));
+        }
+      }
+    }
+  }
+}
+
+.gear-section {
+  margin-bottom: 1.75rem;
+
+  .gear-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .gear-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    .gear-tag {
+      padding: 0.45rem 1.1rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+
+      $gear-colors: (
+        1: (bg: rgba(6, 182, 212, 0.18), bg-hover: rgba(6, 182, 212, 0.3), border: rgba(6, 182, 212, 0.35), text: #67e8f9, glow: rgba(6, 182, 212, 0.35)),
+        2: (bg: rgba(34, 197, 94, 0.18), bg-hover: rgba(34, 197, 94, 0.3), border: rgba(34, 197, 94, 0.35), text: #86efac, glow: rgba(34, 197, 94, 0.35)),
+        3: (bg: rgba(245, 158, 11, 0.18), bg-hover: rgba(245, 158, 11, 0.3), border: rgba(245, 158, 11, 0.35), text: #fcd34d, glow: rgba(245, 158, 11, 0.35)),
+        4: (bg: rgba(139, 92, 246, 0.18), bg-hover: rgba(139, 92, 246, 0.3), border: rgba(139, 92, 246, 0.35), text: #c4b5fd, glow: rgba(139, 92, 246, 0.35)),
+        5: (bg: rgba(236, 72, 153, 0.18), bg-hover: rgba(236, 72, 153, 0.3), border: rgba(236, 72, 153, 0.35), text: #f9a8d4, glow: rgba(236, 72, 153, 0.35)),
+      );
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          $colors: map-get($gear-colors, $i);
+          background: linear-gradient(145deg, map-get($colors, bg), rgba(0, 0, 0, 0.12));
+          border: 1px solid map-get($colors, border);
+          color: map-get($colors, text);
+          box-shadow:
+            0 3px 8px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 12px map-get($colors, glow);
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+            border-radius: 0.5rem 0.5rem 0 0;
+          }
+
+          &:hover {
+            background: linear-gradient(145deg, map-get($colors, bg-hover), rgba(0, 0, 0, 0.18));
+            transform: translateY(-2px);
+            box-shadow:
+              0 5px 15px rgba(0, 0, 0, 0.3),
+              0 0 20px map-get($colors, glow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.processing-section {
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.08), rgba(139, 92, 246, 0.04));
+  border-radius: 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+
+  .processing-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a78bfa;
+    margin: 0 0 0.75rem;
+  }
+
+  .processing-list {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+
+      &::marker {
+        color: #a78bfa;
+      }
+    }
+  }
+}

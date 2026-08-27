@@ -1,0 +1,16 @@
+<template>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7.5 19l-4 1 1-4L16.5 3.5z"/>
+  </svg>
+</template>
+<script setup lang="ts">
+import type { CSSProperties } from 'vue';
+interface Props {
+  fill?: string;
+  strokeWidth?: number | string;
+  class?: string;
+  style?: CSSProperties;
+}
+withDefaults(defineProps<Props>(), { fill: 'none', strokeWidth: 2 });
+</script>

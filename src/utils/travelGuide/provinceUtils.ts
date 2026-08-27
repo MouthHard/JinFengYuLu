@@ -1,4 +1,4 @@
-import type { Province } from "@/pages/TravelGuide/data/provinces";
+import type { Province } from "@/types/travelGuide";
 
 export const TAG_COLOR_CLASSES = [
   "tag-blue",
@@ -11,13 +11,11 @@ export const TAG_COLOR_CLASSES = [
 export const DEFAULT_TAB_ID = "food";
 export const DEFAULT_REGION = "全部";
 
-// 获取标签颜色类
-export function getTagColorClass(index: number): string {
+// 获取标签颜色�?export function getTagColorClass(index: number): string {
   return TAG_COLOR_CLASSES[index % TAG_COLOR_CLASSES.length];
 }
 
-// 筛选省份
-export function filterProvinces(
+// 筛选省�?export function filterProvinces(
   provinces: Province[],
   region: string,
   searchQuery: string,
@@ -67,8 +65,7 @@ export function getProvinceStats(provinces: Province[]) {
   };
 }
 
-// 按地区分组省份
-export function groupProvincesByRegion(
+// 按地区分组省�?export function groupProvincesByRegion(
   provinces: Province[],
 ): Record<string, Province[]> {
   return provinces.reduce(
@@ -84,8 +81,7 @@ export function groupProvincesByRegion(
   );
 }
 
-// 搜索省份（支持拼音首字母搜索）
-export function searchProvinces(
+// 搜索省份（支持拼音首字母搜索�?export function searchProvinces(
   provinces: Province[],
   query: string,
 ): Province[] {
@@ -93,14 +89,11 @@ export function searchProvinces(
   if (!lowerQuery) return provinces;
 
   return provinces.filter((province) => {
-    // 按名称搜索
-    if (province.name.includes(query)) return true;
+    // 按名称搜�?    if (province.name.includes(query)) return true;
     // 按ID搜索
     if (province.id.includes(lowerQuery)) return true;
-    // 按缩写搜索
-    if (province.abbreviation.includes(query)) return true;
-    // 按标签搜索
-    if (province.tags?.some((tag) => tag.includes(query))) return true;
+    // 按缩写搜�?    if (province.abbreviation.includes(query)) return true;
+    // 按标签搜�?    if (province.tags?.some((tag) => tag.includes(query))) return true;
     return false;
   });
 }

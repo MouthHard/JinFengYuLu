@@ -1,7 +1,6 @@
-// 数据加载工具
-// 支持按需加载各个省份的风光数据
+ 
 
-import { SceneryData } from "./scenery";
+import type { SceneryData } from "@/types/travelGuide";
 
 // 省份数据映射
 const provinceDataMap: Record<string, () => Promise<SceneryData>> = {
@@ -42,8 +41,7 @@ const provinceDataMap: Record<string, () => Promise<SceneryData>> = {
 };
 
 /**
- * 加载指定省份的风光数据
- * @param province 省份名称
+ * 加载指定省份的风光数�? * @param province 省份名称
  * @returns 省份风光数据
  */
 export const loadProvinceData = async (
@@ -53,7 +51,7 @@ export const loadProvinceData = async (
     if (provinceDataMap[province]) {
       return await provinceDataMap[province]();
     }
-    console.warn(`未找到${province}的风光数据`);
+    console.warn(`未找�?{province}的风光数据`);
     return null;
   } catch (error) {
     console.error(`加载${province}数据失败:`, error);
@@ -62,8 +60,7 @@ export const loadProvinceData = async (
 };
 
 /**
- * 加载指定省份的风光数据（别名函数）
- * @param provinceId 省份ID
+ * 加载指定省份的风光数据（别名函数�? * @param provinceId 省份ID
  * @returns 省份风光数据
  */
 export const loadSceneryData = async (
@@ -75,15 +72,13 @@ export const loadSceneryData = async (
 /**
  * 检查指定省份是否有数据
  * @param province 省份名称
- * @returns 是否有数据
- */
+ * @returns 是否有数�? */
 export const hasProvinceData = (province: string): boolean => {
   return province in provinceDataMap;
 };
 
 /**
- * 获取所有有数据的省份列表
- * @returns 省份列表
+ * 获取所有有数据的省份列�? * @returns 省份列表
  */
 export const getAvailableProvinces = (): string[] => {
   return Object.keys(provinceDataMap);

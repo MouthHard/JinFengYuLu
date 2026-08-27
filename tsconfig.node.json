@@ -1,10 +1,70 @@
+/**
+ * ============================================================================
+ * TypeScript Node 端编译配置 - tsconfig.node.json
+ * ============================================================================
+ * 【前端同学必读】
+ * 本文件是 TypeScript 编译器的 Node 端配置，专门用于构建工具代码
+ * （如 vite.config.ts），与主配置 tsconfig.json 隔离。
+ *
+ * 【为什么需要单独的配置？】
+ * - 主配置 tsconfig.json：适用于 src/ 下的应用代码（浏览器环境）
+ * - 本配置 tsconfig.node.json：适用于 vite.config.ts 等构建工具代码（Node.js 环境）
+ *
+ * 两者的运行环境不同：
+ * - 应用代码运行在浏览器中，需要 DOM API（document、window 等）
+ * - 构建工具代码运行在 Node.js 中，需要 Node API（fs、path 等）
+ *
+ * 所以需要分开配置，避免构建代码误用浏览器 API，或应用代码误用 Node API。
+ *
+ * 【被引用关系】
+ * tsconfig.json 通过 "references": [{ "path": "./tsconfig.node.json" }] 引用本文件，
+ * TypeScript 会为每个引用项目创建独立的编译上下文。
+ *
+ * ============================================================================
+ */
 {
   "compilerOptions": {
+    /**
+     * 复合项目标记 — 声明此配置是一个可被引用的子项目
+     * 开启后 TypeScript 会生成 .tsbuildinfo 文件，记录编译状态
+     * 支持增量编译，只重新编译有变化的部分，加快构建速度
+     */
     "composite": true,
+
+    /**
+     * 跳过库类型检查 — 不检查 node_modules 中的 .d.ts 文件
+     * 与主配置保持一致，加快编译速度
+     */
     "skipLibCheck": true,
+
+    /**
+     * 模块系统 — 使用最新的 ES 模块规范
+     * Vite 的配置文件使用 ES 模块语法（import/export）
+     */
     "module": "ESNext",
+
+    /**
+     * 模块解析策略 — bundler 模式
+     * 与主配置保持一致，支持 package.json 的 exports 字段
+     */
     "moduleResolution": "bundler",
+
+    /**
+     * 允许合成默认导入 — 即使模块没有 default 导出，也可以用 import foo from 'foo'
+     * 
+     * 【为什么需要这个？】
+     * 某些 Node.js 模块（如 CommonJS 格式）只有 module.exports = xxx，
+     * 没有 export default。开启此选项后，TypeScript 允许用 import 语法导入，
+     * 编译时会自动处理兼容性。
+     *
+     * 例如：import vite from 'vite' 即使 vite 没有默认导出也能工作
+     */
     "allowSyntheticDefaultImports": true
   },
+
+  /**
+   * 包含的文件 — 只检查 vite.config.ts
+   * 这个范围很小，因为 Node 端配置只用于构建工具代码
+   */
   "include": ["vite.config.ts"]
 }

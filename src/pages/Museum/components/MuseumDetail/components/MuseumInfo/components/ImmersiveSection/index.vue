@@ -1,20 +1,20 @@
 <template>
   <section class="immersive-section">
     <div class="section-header">
-      <h2 class="section-title">沉浸式体验</h2>
+      <h2 class="section-title">沉浸式体�?/h2>
       <button class="more-button">更多</button>
     </div>
     <div class="immersive-content">
       <div
-        class="immersive-item"
         v-for="(item, index) in immersiveExperiences"
         :key="index"
+        class="immersive-item"
       >
         <div class="immersive-image">
-          <img v-if="item.image" :src="item.image" />
+          <img v-if="item.image" loading="lazy" :src="item.image" />
         </div>
         <div class="immersive-info">
-          <h3 class="immersive-title">{{ item.title }}</h3>
+          <h3 class="immersive-title">�?{{ item.title }}</h3>
           <p class="immersive-description">{{ item.description }}</p>
           <div class="immersive-actions">
             <button class="immersive-button">体验详情</button>
@@ -36,20 +36,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import type { Museum } from "@/types/museum";
-import { getImmersiveExperiencesByMuseumId } from "@/pages/Museum/data";
+  import { computed } from 'vue';
+  import type { Museum } from '@/types/museum';
+  import { useMuseumDataStore } from '@/stores/museum';
 
-interface Props {
-  museum: Museum;
-}
+  interface Props {
+    museum: Museum;
+  }
 
-const props = defineProps<Props>();
+  const props = defineProps<Props>();
+  const store = useMuseumDataStore();
 
-const immersiveExperiences = computed(() => {
-  if (!props.museum) return [];
-  return getImmersiveExperiencesByMuseumId(props.museum.id);
-});
+  const immersiveExperiences = computed(() => {
+    if (!props.museum) return [];
+    return store.getImmersiveByMuseumId(props.museum.id);
+  });
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>

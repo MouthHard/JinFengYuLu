@@ -16,7 +16,6 @@
       >
         <div class="heritage-card" :class="heritage.level">
           <div class="card-background"></div>
-          <div class="card-glow"></div>
 
           <div class="card-visual">
             <img :src="heritage.image" class="card-image" loading="lazy" />
@@ -93,23 +92,23 @@
             <div class="stats-row">
               <div class="stat-item">
                 <span class="stat-emoji">👁️</span>
-                <span class="stat-number">{{
-                  formatNumber(heritage.views || 0)
-                }}</span>
+                <span class="stat-number">
+                  {{ formatNumber(heritage.views || 0) }}
+                </span>
               </div>
               <div class="stat-divider"></div>
               <div class="stat-item">
                 <span class="stat-emoji">❤️</span>
-                <span class="stat-number">{{
-                  formatNumber(heritage.likes || 0)
-                }}</span>
+                <span class="stat-number">
+                  {{ formatNumber(heritage.likes || 0) }}
+                </span>
               </div>
               <div class="stat-divider"></div>
               <div class="stat-item">
                 <span class="stat-emoji">⭐</span>
-                <span class="stat-number">{{
-                  (heritage.rating || 0).toFixed(1)
-                }}</span>
+                <span class="stat-number">
+                  {{ (heritage.rating || 0).toFixed(1) }}
+                </span>
               </div>
             </div>
           </div>
@@ -117,73 +116,99 @@
       </div>
 
       <div v-if="heritages.length === 0" class="empty-state">
-        <div class="empty-icon">🏮</div>
+        <div class="empty-bg-effects">
+          <div class="empty-particle p-1"></div>
+          <div class="empty-particle p-2"></div>
+          <div class="empty-particle p-3"></div>
+          <div class="empty-particle p-4"></div>
+          <div class="empty-glow-ring"></div>
+        </div>
+        <div class="empty-icon-container">
+          <span class="empty-icon">🏮</span>
+          <div class="icon-ring"></div>
+        </div>
         <h4 class="empty-title">暂无非物质文化遗产数据</h4>
         <p class="empty-desc">该地区的非物质文化遗产信息正在更新中</p>
+        <div class="empty-actions">
+          <span class="action-chip">
+            <span class="chip-icon">✨</span>
+            文化传承
+          </span>
+          <span class="action-chip">
+            <span class="chip-icon">📜</span>
+            历史记忆
+          </span>
+          <span class="action-chip">
+            <span class="chip-icon">🎨</span>
+            匠心技艺
+          </span>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import type { IntangibleHeritage } from "./types";
+  import { ref } from 'vue';
+  import type { IntangibleHeritage } from './types';
 
-const props = defineProps<{
-  heritages: IntangibleHeritage[];
-}>();
+  const props = defineProps<{
+    heritages: IntangibleHeritage[];
+  }>();
 
-const favorites = ref<Set<string>>(new Set());
+  const favorites = ref<Set<string>>(new Set());
 
-const levelLabels: Record<string, string> = {
-  national: "国家级",
-  provincial: "省级",
-  municipal: "市级",
-};
-
-const getLevelIcon = (level: string) => {
-  const icons: Record<string, string> = {
-    national: "👑",
-    provincial: "🎖️",
-    municipal: "🏅",
+  const levelLabels: Record<string, string> = {
+    national: '国家级',
+    provincial: '省级',
+    municipal: '市级',
   };
-  return icons[level] || "🏆";
-};
 
-const handleMoreClick = () => {
-  console.log("更多按钮被点击");
-};
+  const getLevelIcon = (level: string) => {
+    const icons: Record<string, string> = {
+      national: '👑',
+      provincial: '🎖️',
+      municipal: '🏅',
+    };
+    return icons[level] || '🏆';
+  };
 
-const isFavorite = (id: string) => favorites.value.has(id);
+  const handleMoreClick = () => {
+    console.log('更多按钮被点击');
+  };
 
-const toggleFavorite = (id: string) => {
-  if (favorites.value.has(id)) {
-    favorites.value.delete(id);
-  } else {
-    favorites.value.add(id);
-  }
-};
+  const isFavorite = (id: string) => favorites.value.has(id);
 
-const shareHeritage = (heritage: IntangibleHeritage) => {
-  if (navigator.share) {
-    navigator.share({
-      title: heritage.name,
-      text: heritage.description,
-      url: window.location.href,
-    });
-  } else {
-    navigator.clipboard.writeText(`${heritage.name}: ${heritage.description}`);
-  }
-};
+  const toggleFavorite = (id: string) => {
+    if (favorites.value.has(id)) {
+      favorites.value.delete(id);
+    } else {
+      favorites.value.add(id);
+    }
+  };
 
-const formatNumber = (num: number) => {
-  if (num >= 10000) {
-    return (num / 10000).toFixed(1) + "w";
-  } else if (num >= 1000) {
-    return (num / 1000).toFixed(1) + "k";
-  }
-  return num.toString();
-};
+  const shareHeritage = (heritage: IntangibleHeritage) => {
+    if (navigator.share) {
+      navigator.share({
+        title: heritage.name,
+        text: heritage.description,
+        url: window.location.href,
+      });
+    } else {
+      navigator.clipboard.writeText(
+        `${heritage.name}: ${heritage.description}`,
+      );
+    }
+  };
+
+  const formatNumber = (num: number) => {
+    if (num >= 10000) {
+      return (num / 10000).toFixed(1) + 'w';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'k';
+    }
+    return num.toString();
+  };
 </script>
 
 <style scoped src="./index.scss" />

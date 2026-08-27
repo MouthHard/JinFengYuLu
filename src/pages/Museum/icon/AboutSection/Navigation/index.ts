@@ -1,0 +1,9 @@
+export { default as MapIcon } from './MapIcon.vue';
+export { default as OpenTimeIcon } from './OpenTimeIcon.vue';
+export { default as ClockIcon } from './ClockIcon.vue';
+export { default as CalendarIcon } from './CalendarIcon.vue';
+export { default as QuickLinkIcon } from './QuickLinkIcon.vue';
+export { default as LinkIcon } from './LinkIcon.vue';
+export { default as HomeIcon } from './HomeIcon.vue';
+export { default as ExhibitionIcon } from './ExhibitionIcon.vue';
+export { default as TicketIcon } from './TicketIcon.vue';

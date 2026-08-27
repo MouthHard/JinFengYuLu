@@ -91,6 +91,25 @@
           </svg>
         </div>
       </div>
+
+      <div v-if="!elements || elements.length === 0" class="empty-state">
+        <div class="empty-decorations">
+          <div class="deco-line line-1"></div>
+          <div class="deco-line line-2"></div>
+          <div class="deco-circle c-1"></div>
+          <div class="deco-circle c-2"></div>
+        </div>
+        <div class="empty-icon-box">
+          <span class="empty-icon">🎪</span>
+        </div>
+        <h4 class="empty-title">暂无民俗风情数据</h4>
+        <p class="empty-desc">该地区的独特民俗文化正在整理中</p>
+        <div class="empty-tag-list">
+          <span class="e-tag">传统习俗</span>
+          <span class="e-tag">民间艺术</span>
+          <span class="e-tag">地域特色</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>

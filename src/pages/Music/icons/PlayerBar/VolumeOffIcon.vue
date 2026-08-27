@@ -1,0 +1,23 @@
+<template>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <line x1="23" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="23" y2="15"/>
+  </svg>
+</template>
+
+<script setup lang="ts">
+import type { CSSProperties } from 'vue';
+
+interface Props {
+  fill?: string;
+  strokeWidth?: number | string;
+  class?: string;
+  style?: CSSProperties;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  fill: 'none',
+  strokeWidth: 2,
+});
+</script>

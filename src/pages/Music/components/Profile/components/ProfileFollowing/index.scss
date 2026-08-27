@@ -1,0 +1,522 @@
+.profile-following {
+  .following-header {
+    margin-bottom: 32px;
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        border-radius: 2px;
+      }
+    }
+
+    .following-count {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+
+      .count-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .count-value {
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .count-unit {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+  }
+
+  .following-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .artist-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.1);
+
+      .card-glow {
+        opacity: 1;
+      }
+
+      .artist-avatar {
+        transform: scale(1.05);
+      }
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card-glow {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(240, 147, 251, 0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+  }
+
+  .artist-avatar-wrapper {
+    position: relative;
+    margin-bottom: 16px;
+
+    .artist-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .avatar-placeholder {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      .avatar-icon {
+        font-size: 40px;
+        opacity: 0.6;
+      }
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0a0a0f;
+      box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+      animation: badgePulse 2s ease-in-out infinite;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: #fff;
+      }
+    }
+  }
+
+  .artist-info {
+    width: 100%;
+
+    .artist-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .artist-meta {
+      margin-bottom: 12px;
+
+      .fans-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+
+        .meta-icon {
+          width: 14px;
+          height: 14px;
+          color: #ff6b9d;
+        }
+      }
+    }
+
+    .recent-song {
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      text-align: left;
+
+      .recent-label {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.4);
+        display: block;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .recent-title {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .following-btn {
+      width: 100%;
+      padding: 11px 20px;
+      background: linear-gradient(145deg,
+        rgba(34, 197, 94, 0.9) 0%,
+        rgba(22, 163, 74, 0.8) 100%
+      );
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:
+        0 6px 20px rgba(34, 197, 94, 0.4),
+        0 0 15px rgba(22, 163, 74, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 12px 32px rgba(34, 197, 94, 0.5),
+          0 0 25px rgba(22, 163, 74, 0.4),
+          inset 0 2px 0 rgba(255, 255, 255, 0.4);
+
+        &::before {
+          left: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+        box-shadow:
+          0 6px 16px rgba(34, 197, 94, 0.4),
+          0 0 10px rgba(22, 163, 74, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-text {
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+      }
+    }
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+
+    .empty-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .empty-text {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-following {
+    .following-header {
+      margin-bottom: 24px;
+
+      .page-title {
+        font-size: 20px;
+      }
+
+      .following-count {
+        padding: 10px 16px;
+
+        .count-value {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .artist-card {
+      .card-inner {
+        padding: 20px;
+      }
+
+      .artist-avatar-wrapper {
+        .artist-avatar,
+        .avatar-placeholder {
+          width: 80px;
+          height: 80px;
+
+          .avatar-icon {
+            font-size: 32px;
+          }
+        }
+
+        .verified-badge {
+          width: 24px;
+          height: 24px;
+
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+
+      .artist-info {
+        .artist-name {
+          font-size: 16px;
+        }
+
+        .recent-song {
+          padding: 8px 10px;
+
+          .recent-label {
+            font-size: 10px;
+          }
+
+          .recent-title {
+            font-size: 12px;
+          }
+        }
+
+        .following-btn {
+          padding: 8px 16px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .empty-state {
+      padding: 60px 20px;
+
+      .empty-icon {
+        font-size: 64px;
+      }
+
+      .empty-text {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-following {
+    .artist-card {
+      .card-inner {
+        padding: 16px;
+      }
+
+      .artist-avatar-wrapper {
+        .artist-avatar,
+        .avatar-placeholder {
+          width: 72px;
+          height: 72px;
+
+          .avatar-icon {
+            font-size: 28px;
+          }
+        }
+
+        .verified-badge {
+          width: 22px;
+          height: 22px;
+          bottom: 2px;
+          right: 2px;
+
+          svg {
+            width: 12px;
+            height: 12px;
+          }
+        }
+      }
+
+      .artist-info {
+        .artist-name {
+          font-size: 15px;
+          margin-bottom: 6px;
+        }
+
+        .artist-meta {
+          margin-bottom: 10px;
+
+          .fans-count {
+            font-size: 12px;
+            padding: 5px 10px;
+
+            .meta-icon {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+
+        .recent-song {
+          margin-bottom: 12px;
+          padding: 8px;
+
+          .recent-label {
+            font-size: 9px;
+            margin-bottom: 2px;
+          }
+
+          .recent-title {
+            font-size: 11px;
+          }
+        }
+
+        .following-btn {
+          padding: 8px 14px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

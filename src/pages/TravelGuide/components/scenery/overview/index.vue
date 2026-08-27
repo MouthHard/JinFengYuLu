@@ -2,18 +2,15 @@
   <div class="scenery-overview">
     <div v-if="loading" class="loading-state">
       <div class="loading-spinner"></div>
-      <p>加载中...</p>
+      <p>加载�?..</p>
     </div>
 
-    <template v-else-if="currentSceneryData">
-      <!-- 风光画廊 - 轮播图 -->
-      <Gallery :scenery-data="currentSceneryData" />
+    <template v-else-if="sceneryData">
+      <Gallery :scenery-data="sceneryData" />
 
-      <!-- 主控面板 -->
-      <ControlPanel :scenery-data="currentSceneryData" />
+      <ControlPanel :scenery-data="sceneryData" />
 
-      <!-- 路线推荐 -->
-      <RouteRecommendation :scenery-data="currentSceneryData" />
+      <RouteRecommendation :scenery-data="sceneryData" />
     </template>
 
     <!-- 数据加载失败 -->
@@ -25,46 +22,41 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
-import Gallery from "./gallery/index.vue";
-import ControlPanel from "./control-panel/index.vue";
-import RouteRecommendation from "./route-recommendation/index.vue";
-import { loadProvinceData } from "../../../data/dataLoader";
-import { SceneryData } from "../../../data/scenery";
+  import { ref, onMounted, watch } from 'vue';
+  import Gallery from './gallery/index.vue';
+  import ControlPanel from './control-panel/index.vue';
+  import RouteRecommendation from './route-recommendation/index.vue';
+  import { loadProvinceData } from '../../../data/dataLoader';
+  import type { SceneryData } from '@/types/travelGuide';
 
-const props = defineProps<{
-  provinceId: string;
-}>();
+  const props = defineProps<{
+    provinceId: string;
+  }>();
 
-const sceneryData = ref<SceneryData | null>(null);
-const loading = ref(false);
+  const sceneryData = ref<SceneryData | null>(null);
+  const loading = ref(false);
 
-// 加载省份数据
-const loadData = async (province: string) => {
-  loading.value = true;
-  const data = await loadProvinceData(province);
-  sceneryData.value = data;
-  loading.value = false;
-};
+  // 加载省份数据
+  const loadData = async (province: string) => {
+    loading.value = true;
+    const data = await loadProvinceData(province);
+    sceneryData.value = data;
+    loading.value = false;
+  };
 
-// 监听省份变化
-watch(
-  () => props.provinceId,
-  (newProvince) => {
-    loadData(newProvince);
-  },
-  { immediate: true },
-);
+  // 监听省份变化
+  watch(
+    () => props.provinceId,
+    (newProvince) => {
+      loadData(newProvince);
+    },
+    { immediate: true },
+  );
 
-// 初始加载
-onMounted(() => {
-  loadData(props.provinceId);
-});
-
-// 根据省份ID获取风光数据
-const currentSceneryData = computed(() => {
-  return sceneryData.value || null;
-});
+  // 初始加载
+  onMounted(() => {
+    loadData(props.provinceId);
+  });
 </script>
 
 <style scoped lang="scss" src="./index.scss"></style>

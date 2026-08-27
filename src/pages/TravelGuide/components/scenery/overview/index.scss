@@ -1,23 +1,19 @@
-// 主容器
 .scenery-overview {
   color: #ffffff;
   position: relative;
   overflow-x: hidden;
-
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   box-sizing: border-box;
   &::-webkit-scrollbar {
     display: none;
   }
-
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-  // 加载状态
   .loading-state {
     position: absolute;
     top: 50%;
@@ -44,7 +40,6 @@
     }
   }
 
-  // 错误状态
   .error-state {
     position: absolute;
     top: 50%;
@@ -76,7 +71,6 @@
     }
   }
 
-  // 动画
   @keyframes spin {
     0% {
       transform: rotate(0deg);

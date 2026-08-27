@@ -22,15 +22,15 @@
         ></div>
       </div>
       <div class="calendar-header">
-        <button class="calendar-nav-btn" @click="changeMonth(-1)">◀<</button>
+        <button class="calendar-nav-btn" @click="changeMonth(-1)">➪</button>
         <h4 class="current-month">{{ currentMonthYear }}</h4>
-        <button class="calendar-nav-btn" @click="changeMonth(1)">>▶</button>
+        <button class="calendar-nav-btn" @click="changeMonth(1)">➪</button>
       </div>
       <div class="calendar-grid">
         <div class="weekday-header">
-          <span v-for="day in weekdays" :key="day.value" class="weekday">{{
-            day.label
-          }}</span>
+          <span v-for="day in weekdays" :key="day.value" class="weekday">
+            {{ day.label }}
+          </span>
         </div>
         <div class="calendar-body">
           <div
@@ -59,17 +59,35 @@
       </div>
     </div>
     <div class="festivals-list">
+      <div v-if="festivalsByMonth.length === 0" class="empty-state">
+        <div class="empty-cosmos">
+          <div class="cosmic-star cs-1"></div>
+          <div class="cosmic-star cs-2"></div>
+          <div class="cosmic-star cs-3"></div>
+          <div class="cosmic-star cs-4"></div>
+          <div class="cosmic-ring"></div>
+        </div>
+        <div class="empty-icon-wrap">
+          <span class="empty-icon">🌌</span>
+        </div>
+        <h4 class="empty-title">暂无节庆数据</h4>
+        <p class="empty-desc">该地区的特色节庆活动正在收录中</p>
+        <div class="empty-calendar-hint">
+          <span class="cal-icon">📅</span>
+          <span>期待更多精彩节日</span>
+        </div>
+      </div>
       <div
         v-for="(monthData, monthIndex) in festivalsByMonth"
         :key="monthIndex"
         class="month-section"
       >
         <div class="month-header">
-          <span class="month-icon">🌟</span>
+          <span class="month-icon">📅</span>
           <h4 class="month-name">{{ monthData.month }}</h4>
-          <span class="festival-count"
-            >{{ monthData.festivals.length }}个节庆</span
-          >
+          <span class="festival-count">
+            {{ monthData.festivals.length }}个节庆
+          </span>
         </div>
         <div class="month-festivals">
           <div
@@ -84,9 +102,9 @@
               <div class="festival-name-row">
                 <h5 class="festival-name">{{ festival.name }}</h5>
                 <div class="festival-badge">
-                  <span v-if="festival.isUnique" class="badge unique"
-                    >特色</span
-                  >
+                  <span v-if="festival.isUnique" class="badge unique">
+                    特色
+                  </span>
                   <span v-else class="badge traditional">传统</span>
                 </div>
               </div>
@@ -101,145 +119,145 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+  import { computed, ref } from 'vue';
 
-const props = defineProps<{
-  festivals: any[];
-}>();
+  const props = defineProps<{
+    festivals: any[];
+  }>();
 
-const emit = defineEmits<{
-  selectDay: [day: any];
-}>();
+  const emit = defineEmits<{
+    selectDay: [day: any];
+  }>();
 
-const currentDate = ref(new Date());
-const selectedDay = ref<any>(null);
-const weekdays = [
-  { value: "sun", label: "日" },
-  { value: "mon", label: "一" },
-  { value: "tue", label: "二" },
-  { value: "wed", label: "三" },
-  { value: "thu", label: "四" },
-  { value: "fri", label: "五" },
-  { value: "sat", label: "六" },
-];
-
-const currentMonthYear = computed(() => {
-  const year = currentDate.value.getFullYear();
-  const month = currentDate.value.getMonth() + 1;
-  return `${year}年${month}月`;
-});
-
-const calendarDays = computed(() => {
-  const year = currentDate.value.getFullYear();
-  const month = currentDate.value.getMonth();
-  const today = new Date();
-
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const startDay = firstDay.getDay();
-  const totalDays = lastDay.getDate();
-  const currentMonthStr = `${month + 1}月`;
-
-  const days = [];
-
-  for (let i = 0; i < startDay; i++) {
-    days.push({
-      day: "",
-      isToday: false,
-      isOtherMonth: true,
-      hasFestival: false,
-    });
-  }
-
-  for (let i = 1; i <= totalDays; i++) {
-    // 匹配当前月份的节日，处理"1日"格式的日期
-    const festival = props.festivals.find((f: any) => {
-      if (f.month !== currentMonthStr) return false;
-      // 提取日期数字部分，移除"日"字
-      const festivalDay = parseInt(f.day.replace("日", ""));
-      return festivalDay === i;
-    });
-
-    const isToday =
-      i === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear();
-
-    days.push({
-      day: i,
-      isToday,
-      isOtherMonth: false,
-      hasFestival: !!festival,
-      festivalName: festival ? festival.name : "",
-      festival: festival || null,
-    });
-  }
-
-  return days;
-});
-
-const changeMonth = (delta: number) => {
-  const newDate = new Date(currentDate.value);
-  newDate.setMonth(newDate.getMonth() + delta);
-  currentDate.value = newDate;
-  selectedDay.value = null;
-};
-
-const selectDay = (day: any) => {
-  if (!day.isOtherMonth && day.day) {
-    selectedDay.value = day;
-    emit("selectDay", day);
-  }
-};
-
-// 生成星空背景的星星
-const stars = ref(
-  Array.from({ length: 80 }, () => ({
-    id: Math.random(),
-    size: Math.random() * 2 + 1,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    opacity: Math.random() * 0.7 + 0.3,
-    animationDelay: Math.random() * 3,
-    animationDuration: Math.random() * 2 + 2,
-  })),
-);
-
-const festivalsByMonth = computed(() => {
-  if (!props.festivals || props.festivals.length === 0) return [];
-
-  const monthOrder = [
-    "1月",
-    "2月",
-    "3月",
-    "4月",
-    "5月",
-    "6月",
-    "7月",
-    "8月",
-    "9月",
-    "10月",
-    "11月",
-    "12月",
+  const currentDate = ref(new Date());
+  const selectedDay = ref<any>(null);
+  const weekdays = [
+    { value: 'sun', label: '日' },
+    { value: 'mon', label: '一' },
+    { value: 'tue', label: '二' },
+    { value: 'wed', label: '三' },
+    { value: 'thu', label: '四' },
+    { value: 'fri', label: '五' },
+    { value: 'sat', label: '六' },
   ];
 
-  const grouped: any = {};
-
-  props.festivals.forEach((festival: any) => {
-    const month = festival.month;
-    if (!grouped[month]) {
-      grouped[month] = [];
-    }
-    grouped[month].push(festival);
+  const currentMonthYear = computed(() => {
+    const year = currentDate.value.getFullYear();
+    const month = currentDate.value.getMonth() + 1;
+    return `${year}年${month}月`;
   });
 
-  return monthOrder
-    .filter((month) => grouped[month] && grouped[month].length > 0)
-    .map((month) => ({
-      month,
-      festivals: grouped[month],
-    }));
-});
+  const calendarDays = computed(() => {
+    const year = currentDate.value.getFullYear();
+    const month = currentDate.value.getMonth();
+    const today = new Date();
+
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDay = firstDay.getDay();
+    const totalDays = lastDay.getDate();
+    const currentMonthStr = `${month + 1}月`;
+
+    const days = [];
+
+    for (let i = 0; i < startDay; i++) {
+      days.push({
+        day: '',
+        isToday: false,
+        isOtherMonth: true,
+        hasFestival: false,
+      });
+    }
+
+    for (let i = 1; i <= totalDays; i++) {
+      // 匹配当前月份的节日，处理"1日"格式的日期
+      const festival = props.festivals.find((f: any) => {
+        if (f.month !== currentMonthStr) return false;
+        // 提取日期数字部分，移除"日"字
+        const festivalDay = parseInt(f.day.replace('日', ''));
+        return festivalDay === i;
+      });
+
+      const isToday =
+        i === today.getDate() &&
+        month === today.getMonth() &&
+        year === today.getFullYear();
+
+      days.push({
+        day: i,
+        isToday,
+        isOtherMonth: false,
+        hasFestival: !!festival,
+        festivalName: festival ? festival.name : '',
+        festival: festival || null,
+      });
+    }
+
+    return days;
+  });
+
+  const changeMonth = (delta: number) => {
+    const newDate = new Date(currentDate.value);
+    newDate.setMonth(newDate.getMonth() + delta);
+    currentDate.value = newDate;
+    selectedDay.value = null;
+  };
+
+  const selectDay = (day: any) => {
+    if (!day.isOtherMonth && day.day) {
+      selectedDay.value = day;
+      emit('selectDay', day);
+    }
+  };
+
+  // 生成星空背景的星星
+  const stars = ref(
+    Array.from({ length: 80 }, () => ({
+      id: Math.random(),
+      size: Math.random() * 2 + 1,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.7 + 0.3,
+      animationDelay: Math.random() * 3,
+      animationDuration: Math.random() * 2 + 2,
+    })),
+  );
+
+  const festivalsByMonth = computed(() => {
+    if (!props.festivals || props.festivals.length === 0) return [];
+
+    const monthOrder = [
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月',
+    ];
+
+    const grouped: any = {};
+
+    props.festivals.forEach((festival: any) => {
+      const month = festival.month;
+      if (!grouped[month]) {
+        grouped[month] = [];
+      }
+      grouped[month].push(festival);
+    });
+
+    return monthOrder
+      .filter((month) => grouped[month] && grouped[month].length > 0)
+      .map((month) => ({
+        month,
+        festivals: grouped[month],
+      }));
+  });
 </script>
 
 <style scoped src="./index.scss" />

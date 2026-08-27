@@ -1,0 +1,21 @@
+.virtual-scroll-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  will-change: transform;
+
+  .virtual-scroll-content {
+    position: relative;
+    width: 100%;
+
+    .virtual-scroll-viewport {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+
+      .virtual-scroll-item {
+        box-sizing: border-box;
+      }
+    }
+  }
+}

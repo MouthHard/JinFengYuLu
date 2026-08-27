@@ -1,7 +1,6 @@
 import type { Artifact, ArtifactDetail } from "@/types/museum/index";
 
-// 导出常量和映射
-export { artifactTypes, periods, periodMap } from "./constants";
+// 导出常量和映�?export { artifactTypes, periods, periodMap } from "./constants";
 
 // 导出文物列表数据
 export { artifacts } from "./artifactData";

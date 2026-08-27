@@ -1,5 +1,21 @@
 {
   "tabWidth": 2,
   "useTabs": false,
-  "printWidth": 80
+  "printWidth": 80,
+  "semi": true,
+  "singleQuote": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "embeddedLanguageFormatting": "auto",
+  "vueIndentScriptAndStyle": true,
+  "overrides": [
+    {
+      "files": "*.vue",
+      "options": {
+        "tabWidth": 2,
+        "useTabs": false,
+        "htmlWhitespaceSensitivity": "ignore",
+        "embeddedLanguageFormatting": "auto"
+      }
+    }
+  ]
 }

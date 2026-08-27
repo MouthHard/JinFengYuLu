@@ -1,0 +1,16 @@
+id	title	location	locationId	season	duration	travelMode	sceneryTheme
+guide-1	西藏星空摄影完全指南	西藏阿里	china	春季	1-3天	摄影团	星空
+guide-10	城市夜景长曝光技巧	上海	europe	全年	30天以上	摄影团	冰川
+guide-11	野生动物摄影入门	云南	asia	春季	1-3天	自驾游	峡谷
+guide-12	街头摄影技巧大全	上海	north-america	夏季	4-7天	徒步游	极光
+guide-13	西藏风光摄影深度指南	西藏	south-america	秋季	8-14天	向导游	星空
+guide-14	人像摄影布光技巧	北京	africa	冬季	15-30天	骑行游	山岳
+guide-15	成都街头人文之旅	成都	oceania	全年	30天以上	背包游	森林
+guide-2	冰岛极光摄影终极攻略	冰岛	europe	夏季	4-7天	自驾游	极光
+guide-3	巴塔哥尼亚风光摄影深度游	巴塔哥尼亚	asia	秋季	8-14天	徒步游	山岳
+guide-4	日本樱花季摄影全攻略	日本	north-america	冬季	15-30天	向导游	森林
+guide-5	城市夜景延时摄影技巧	全国城市	south-america	全年	30天以上	骑行游	都市风光
+guide-6	新西兰南岛自驾摄影行	新西兰	africa	春季	1-3天	背包游	海洋
+guide-7	微距花卉摄影进阶指南	花园公园	oceania	夏季	8-14天	邮轮游	瀑布
+guide-8	挪威峡湾摄影之旅	挪威	antarctica	秋季	8-14天	房车游	湖泊
+guide-9	北京胡同人文摄影指南	北京	china	冬季	15-30天	火车游	草原

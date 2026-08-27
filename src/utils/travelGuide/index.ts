@@ -24,3 +24,13 @@ export {
   groupProvincesByRegion,
   searchProvinces,
 } from "./provinceUtils";
+
+export function getRandomLandscapeImage(): string {
+  const randomIndex = Math.floor(Math.random() * 21);
+  return `https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/landscape/${randomIndex}.webp`;
+}
+
+export function getRandomAphorismImage(): string {
+  const randomIndex = Math.floor(Math.random() * 41);
+  return `https://mouthhard-website.oss-cn-hangzhou.aliyuncs.com/aphorism/${randomIndex}.webp`;
+}

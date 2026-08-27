@@ -1,208 +1,592 @@
 <template>
-  <!-- PC端 -->
-  <div id="pcMusic">
-    <div id="pcLeft">
-      <h4 @click="router.push('/mobile-music')">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.5rem"
-          height="1.5rem"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="#5dc80c"
-            d="M227.346 21.72C166.6 21.42 106.33 48.002 65.633 99.272c-70.398 88.68-55.576 217.634 33.103 288.032c6.407 5.09 13.482 9.924 20.276 14.13C46.694 328.73 38.35 211.73 103.664 129.462c65.31-82.275 181.147-100.695 268.36-46.756c-5.63-5.66-11.952-11.454-18.358-16.54c-37.412-29.7-81.993-44.23-126.32-44.448zm40.79 68.012c-17.173-.17-34.464 4.025-50.984 13.588l.13.237l-3.91 1.95c32.484 65.062 44.2 140.54 37.956 217.565c-16.43-21.657-45.042-39.13-74.498-43.38c-40.71-5.87-67.6 15.738-60.06 48.265c7.542 32.527 46.656 63.654 87.365 69.525c33.316 4.805 57.36-8.8 60.87-31.726h.005c8.48-53.158 9.01-106.548.57-157.475c59.49-1.135 110.173 84.413 71.965 171.062c80.733-78.593 6.76-226.6-81.28-213.508a395.884 395.884 0 0 0-6.144-20.176c76.357-22.337 165.25 73.996 134.405 190.856C461.34 235.536 366.66 90.718 268.137 89.732zm119.83 14.264c74.538 70.422 86.508 187.106 23.778 271.363c-62.724 84.26-177.937 106.267-266.78 55.062c5.804 5.48 12.3 11.076 18.862 15.96c90.823 67.61 219.258 48.798 286.867-42.028c67.612-90.823 48.798-219.256-42.025-286.868c-6.56-4.887-13.783-9.498-20.703-13.49z"
-          />
-        </svg>
-        高山流水
-      </h4>
-      <div id="leftList">
-        <template v-for="value in musicRouteArr" :key="value.routeId">
-          <router-link :to="value.routeName"
-            >{{ value.pageName }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1.2em"
-              height="1.2em"
-              viewBox="0 0 24 24"
-            >
-              <path fill="#fff" :d="value.pathD" />
-            </svg>
-          </router-link>
-        </template>
-        <div id="listCreated">
-          <button @click="COList('listCreated')">
-            创建的歌单 {{ listStates.listCreated ? "▼" : "▲" }}
-          </button>
-          <span
-            v-for="value in musicCreatedArr"
-            :key="value.routeId"
-            v-show="listStates.listCreated"
-          >
-            <img :src="value.listImg" alt="" />
-            <router-link :to="value.routeName">{{
-              value.pageName
-            }}</router-link>
-          </span>
-        </div>
-        <br />
-        <div id="listCollected">
-          <button @click="COList('listCollected')">
-            收藏的歌单 {{ listStates.listCollected ? "▼" : "▲" }}
-          </button>
-          <span
-            v-for="value in musicCollectedArr"
-            :key="value.routeId"
-            v-show="listStates.listCollected"
-          >
-            <img :src="value.listImg" alt="" />
-            <router-link :to="value.routeName">{{
-              value.pageName
-            }}</router-link>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div id="pcBottom"></div>
-    <div id="pcCenter">
-      <div>
-        <button>◀</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14"
-          />
-        </svg>
-        <input placeholder="国际歌" type="text" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 24 24"
-        >
-          <g fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect width="6" height="12" x="9" y="2" rx="3" />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M5 3v2M1 2v4m18-3v2m4-3v4M5 10v1a7 7 0 0 0 7 7v0a7 7 0 0 0 7-7v-1m-7 8v4m0 0H9m3 0h3"
-            />
-          </g>
-        </svg>
-        <img
-          src="https://images-pc.oss-cn-hongkong.aliyuncs.com/music/mao.webp"
-          alt=""
-        />
-        <p>游音风</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 48 48"
-        >
-          <path
+  <div class="music-app" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
+    <!-- 顶部搜索�?-->
+    <header class="music-header">
+      <div class="header-left">
+        <button class="menu-toggle" @click="toggleSidebar">
+          <svg
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13.116 11.774v24.452M8.804 16.833v14.334M4.5 21.471v5.058m12.957-9.696v14.334m4.49-9.696v5.058m12.722-14.755v24.452m-4.312-19.393v14.334m-4.304-9.696v5.058m12.957-9.696v14.334m4.49-9.696v5.058"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M22 7v9c0 1.1-.9 2-2 2H6l-4 4V4c0-1.1.9-2 2-2h10.1c-.1.3-.1.7-.1 1s0 .7.1 1H4v12h16V7.9c.7-.1 1.4-.5 2-.9m-6-4c0 1.7 1.3 3 3 3s3-1.3 3-3s-1.3-3-3-3s-3 1.3-3 3"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="m9.25 22l-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.338v-.675q0-.163.025-.338L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.674q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2zm2.8-6.5q1.45 0 2.475-1.025T15.55 12q0-1.45-1.025-2.475T12.05 8.5q-1.475 0-2.488 1.025T8.55 12q0 1.45 1.013 2.475T12.05 15.5"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 50 50"
-        >
-          <path
-            fill="currentColor"
-            d="M47.36 14.75c.08.29-.021.61-.19.86l-5.39 8.02c-.2.31-.62.48-.971.48c-.1 0-.38-.02-.489-.05L36 23v19c0 .58-.41 1-1 1H14c-.59 0-1-.42-1-1V23l-3.88 1.07c-.45.14-.84-.04-1.09-.43l-5.35-8c-.17-.26-.22-.55-.14-.84c.07-.3.28-.5.55-.64L14 9h5c.59 0 1 .41 1 1c0 2.06 2.89 3.52 4.95 3.52S30 12.07 30 10c0-.58.41-1 1-1h5l10.8 5.06c.28.14.48.39.56.69"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2em"
-          height="1.2em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            fill-rule="evenodd"
-            d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm3-1h12a1 1 0 0 1 1 1v6.268A1.99 1.99 0 0 0 18 12h-4a2 2 0 0 0-2 2v4c0 .364.097.706.268 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1"
-            clip-rule="evenodd"
-          />
-        </svg>
-        <button>▬</button>
-        <button>口</button>
-        <button @click="router.push('/')">X</button>
+            stroke-width="2"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <button class="home-btn" @click="goHome">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </button>
+        <div class="header-logo">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="3" />
+            <line x1="12" y1="2" x2="12" y2="5" />
+            <line x1="12" y1="19" x2="12" y2="22" />
+          </svg>
+          <span>SoundWave</span>
+        </div>
       </div>
-      <router-view v-slot="{ Component }">
-        <component :is="Component"></component>
-      </router-view>
+
+      <div class="header-search">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            v-model="headerSearchKeyword"
+            type="text"
+            placeholder="搜索音乐、歌手、专�?
+            @keyup.enter="handleHeaderSearch"
+          />
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="header-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </button>
+        <button class="header-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+        </button>
+        <div class="header-user" @click="toggleUserMenu">
+          <div class="user-avatar">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <!-- 用户菜单 -->
+          <transition name="menu-slide">
+            <div v-if="showUserMenu" class="user-menu" @click.stop>
+              <div class="menu-section">
+                <div class="section-title">账号</div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <span>个人主页</span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    />
+                  </svg>
+                  <span>我的收藏</span>
+                  <span class="item-badge">128</span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span>听歌排行</span>
+                </div>
+              </div>
+              <div class="menu-section">
+                <div class="section-title">服务</div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
+                  </svg>
+                  <span>VIP会员</span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                    />
+                  </svg>
+                  <span>音乐商城</span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>消息中心</span>
+                  <span class="item-badge">3</span>
+                </div>
+              </div>
+              <div class="menu-section">
+                <div class="section-title">设置</div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51v.17a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.07A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                    />
+                  </svg>
+                  <span>设置</span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg>
+                  <span>帮助与反�?/span>
+                </div>
+                <div class="menu-item">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                  </svg>
+                  <span>退出登�?/span>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
+    </header>
+
+    <!-- 左侧侧边�?-->
+    <aside class="music-sidebar" :class="{ collapsed: sidebarCollapsed }">
+      <div class="sidebar-content">
+        <Sidebar :active-route="currentRoute" @navigate="handleNavigate" />
+      </div>
+      <button class="sidebar-toggle" @click="toggleSidebar">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="music-main" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
+      <!-- 音乐盘嵌入式页面 -->
+      <transition name="disc-slide">
+        <div v-if="showMusicDisc" class="music-disc-embedded">
+          <MusicDisc
+            :current-song="currentSong"
+            :is-playing="isPlaying"
+            :current-time="currentTime"
+            :lyrics="currentLyrics"
+            @close="closeMusicDisc"
+          />
+        </div>
+      </transition>
+
+      <!-- 正常内容�?-->
+      <div v-show="!showMusicDisc" class="music-content">
+        <router-view v-slot="{ Component }">
+          <transition name="fade-slide" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
+      </div>
+    </main>
+
+    <!-- 底部播放�?-->
+    <div class="music-player">
+      <PlayerBar
+        :current-song="currentSong"
+        :is-playing="isPlaying"
+        :current-time="currentTime"
+        :duration="duration"
+        :volume="volume"
+        :is-muted="isMuted"
+        :play-mode="playMode"
+        :show-lyric="showLyric"
+        @toggle-play="togglePlay"
+        @prev="playPrev"
+        @next="playNext"
+        @seek="handleSeek"
+        @volume-change="handleVolumeChange"
+        @toggle-mute="toggleMute"
+        @toggle-mode="toggleMode"
+        @toggle-lyric="toggleLyric"
+        @toggle-disc="toggleMusicDisc"
+      />
     </div>
-    <div id="buttonGroup">
-      <button @click="router.push('/')">首页</button>
-      <button @click="returnTop">顶部</button>
-    </div>
+
+    <LyricOverlay
+      v-if="showLyric && currentSong"
+      :song="currentSong"
+      :is-playing="isPlaying"
+      :current-time="currentTime"
+      :lyrics="currentLyrics"
+      @close="toggleLyric"
+      @toggle-play="togglePlay"
+      @prev="playPrev"
+      @next="playNext"
+    />
+
+    <!-- 音频元素 -->
+    <audio
+      ref="audioRef"
+      :src="currentAudioSrc"
+      @timeupdate="handleTimeUpdate"
+      @loadedmetadata="handleLoadedMetadata"
+      @ended="handleEnded"
+    ></audio>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import router from "@/router";
+  import { ref, computed, onMounted, onUnmounted, provide, watch } from 'vue';
+  import { useRouter, useRoute } from 'vue-router';
+  import Sidebar from './components/Sidebar/index.vue';
+  import PlayerBar from './components/PlayerBar/index.vue';
+  import LyricOverlay from './components/LyricOverlay/index.vue';
+  import MusicDisc from './components/MusicDisc/index.vue';
+  import { songs, lyrics } from '@/stores/music';
+  import { getNextIndex, getPrevIndex } from '@/utils/music';
+  import type { Song, PlayMode, LyricLine } from '@/types/music';
 
-import {
-  musicCreatedArr,
-  musicCollectedArr,
-  musicRouteArr,
-} from "./data/routes";
+  const getLyricsBySongId = (songId: number): LyricLine[] => {
+    return lyrics[songId] || [{ time: 0, text: '暂无歌词' }];
+  };
 
-// 状态管理
-const listStates = ref({
-  listCreated: true,
-  listCollected: true,
-});
+  const router = useRouter();
+  const route = useRoute();
 
-//返回顶部
-const returnTop = (): void => {
-  const pcCenter = document.getElementById("pcCenter");
-  if (pcCenter) {
-    pcCenter.scrollTo({ top: 0, behavior: "smooth" });
-  }
-};
+  const currentSong = ref<Song | null>(null);
+  const isPlaying = ref(false);
+  const currentTime = ref(0);
+  const duration = ref(0);
+  const volume = ref(80);
+  const isMuted = ref(false);
+  const playMode = ref<PlayMode>('sequence');
+  const showLyric = ref(false);
+  const showMusicDisc = ref(false);
+  const playlist = ref<Song[]>([...songs]);
+  const currentIndex = ref(0);
+  const audioRef = ref<HTMLAudioElement | null>(null);
 
-//PC端收缩和下拉歌单
-const COList = (str: string): void => {
-  listStates.value[str as keyof typeof listStates.value] =
-    !listStates.value[str as keyof typeof listStates.value];
-};
+  // 侧边栏状�?  const sidebarCollapsed = ref(false);
+
+  // 顶部搜索
+  const headerSearchKeyword = ref('');
+
+  // 用户菜单
+  const showUserMenu = ref(false);
+
+  let progressTimer: number | null = null;
+
+  const currentRoute = computed(() => route.path);
+
+  const currentLyrics = computed<LyricLine[]>(() => {
+    if (!currentSong.value) return [];
+    return getLyricsBySongId(currentSong.value.id);
+  });
+
+  // 使用在线音频示例
+  const currentAudioSrc = computed(() => {
+    if (!currentSong.value) return '';
+    // 使用一个免费的在线音频示例
+    return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+  });
+
+  const playSong = (song: Song) => {
+    const index = playlist.value.findIndex((s) => s.id === song.id);
+    if (index >= 0) {
+      currentIndex.value = index;
+    } else {
+      playlist.value.push(song);
+      currentIndex.value = playlist.value.length - 1;
+    }
+    currentSong.value = song;
+    duration.value = song.duration;
+    currentTime.value = 0;
+    isPlaying.value = true;
+    startProgress();
+  };
+
+  const togglePlay = () => {
+    if (!currentSong.value) {
+      if (playlist.value.length > 0) {
+        playSong(playlist.value[0]);
+      }
+      return;
+    }
+    isPlaying.value = !isPlaying.value;
+    if (isPlaying.value) {
+      startProgress();
+      audioRef.value?.play();
+    } else {
+      stopProgress();
+      audioRef.value?.pause();
+    }
+  };
+
+  const playPrev = () => {
+    if (playlist.value.length === 0) return;
+    const prevIdx = getPrevIndex(
+      currentIndex.value,
+      playlist.value.length,
+      playMode.value,
+    );
+    currentIndex.value = prevIdx;
+    currentSong.value = playlist.value[prevIdx];
+    duration.value = currentSong.value.duration;
+    currentTime.value = 0;
+    isPlaying.value = true;
+    startProgress();
+  };
+
+  const playNext = () => {
+    if (playlist.value.length === 0) return;
+    const nextIdx = getNextIndex(
+      currentIndex.value,
+      playlist.value.length,
+      playMode.value,
+    );
+    if (nextIdx === -1) {
+      isPlaying.value = false;
+      stopProgress();
+      return;
+    }
+    currentIndex.value = nextIdx;
+    currentSong.value = playlist.value[nextIdx];
+    duration.value = currentSong.value.duration;
+    currentTime.value = 0;
+    isPlaying.value = true;
+    startProgress();
+  };
+
+  const handleSeek = (time: number) => {
+    currentTime.value = time;
+    if (audioRef.value) {
+      audioRef.value.currentTime = time;
+    }
+  };
+
+  const handleVolumeChange = (val: number) => {
+    volume.value = val;
+    isMuted.value = val === 0;
+    if (audioRef.value) {
+      audioRef.value.volume = val / 100;
+    }
+  };
+
+  const toggleMute = () => {
+    isMuted.value = !isMuted.value;
+    if (audioRef.value) {
+      audioRef.value.muted = isMuted.value;
+    }
+  };
+
+  const toggleMode = () => {
+    const modes: PlayMode[] = ['sequence', 'loop', 'random', 'single'];
+    const idx = modes.indexOf(playMode.value);
+    playMode.value = modes[(idx + 1) % modes.length];
+  };
+
+  const toggleLyric = () => {
+    showLyric.value = !showLyric.value;
+  };
+
+  const toggleMusicDisc = () => {
+    showMusicDisc.value = !showMusicDisc.value;
+  };
+
+  const closeMusicDisc = () => {
+    showMusicDisc.value = false;
+  };
+
+  // 音频事件处理
+  const handleTimeUpdate = () => {
+    if (audioRef.value) {
+      currentTime.value = audioRef.value.currentTime;
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.value) {
+      duration.value = audioRef.value.duration;
+    }
+  };
+
+  const handleEnded = () => {
+    playNext();
+  };
+
+  // 监听播放状�?  watch(isPlaying, (newVal) => {
+    if (audioRef.value) {
+      if (newVal) {
+        audioRef.value.play().catch(() => {
+          // 自动播放可能被浏览器阻止
+        });
+      } else {
+        audioRef.value.pause();
+      }
+    }
+  });
+
+  // 监听音量变化
+  watch(volume, (newVal) => {
+    if (audioRef.value) {
+      audioRef.value.volume = newVal / 100;
+    }
+  });
+
+  const startProgress = () => {
+    stopProgress();
+    progressTimer = window.setInterval(() => {
+      if (currentTime.value < duration.value) {
+        currentTime.value += 0.1;
+      } else {
+        playNext();
+      }
+    }, 100);
+  };
+
+  const stopProgress = () => {
+    if (progressTimer) {
+      clearInterval(progressTimer);
+      progressTimer = null;
+    }
+  };
+
+  const handleNavigate = (path: string) => {
+    // 导航时关闭音乐碟页面
+    showMusicDisc.value = false;
+    router.push(path);
+  };
+
+  // 侧边栏折叠方�?  const toggleSidebar = () => {
+    sidebarCollapsed.value = !sidebarCollapsed.value;
+  };
+
+  // 顶部搜索处理
+  const handleHeaderSearch = () => {
+    if (headerSearchKeyword.value.trim()) {
+      router.push({
+        path: '/music/search',
+        query: { q: headerSearchKeyword.value },
+      });
+    }
+  };
+
+  // 用户菜单切换
+  const toggleUserMenu = () => {
+    showUserMenu.value = !showUserMenu.value;
+  };
+
+  // 返回项目首页
+  const goHome = () => {
+    router.push('/');
+  };
+
+  provide('playSong', playSong);
+  provide('playlist', playlist);
+  provide('currentSong', currentSong);
+
+  onMounted(() => {
+    if (playlist.value.length > 0 && !currentSong.value) {
+      currentSong.value = playlist.value[0];
+      duration.value = playlist.value[0].duration;
+    }
+    if (audioRef.value) {
+      audioRef.value.volume = volume.value / 100;
+    }
+  });
+
+  onUnmounted(() => {
+    stopProgress();
+  });
 </script>
 
-<style scoped src="./index.scss" lang="scss" />
+<style scoped src="./index.scss" lang="scss"></style>

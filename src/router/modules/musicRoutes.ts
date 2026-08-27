@@ -2,159 +2,73 @@ import type { RouteRecordRaw } from "vue-router";
 
 export const musicRoutes: RouteRecordRaw[] = [
   {
-    path: "/mobile-music",
-    name: "MobileMusic",
-    component: () => import("@/pages/Music/MusicSubApp/MobileMusic/index.vue"),
-  },
-  {
     path: "/music",
     name: "music",
     component: () => import("@/pages/Music/index.vue"),
-    redirect: "/music/recommend",
+    redirect: "/music/discover",
     children: [
       {
-        path: "boke",
-        name: "boke",
-        component: () => import("@/pages/Music/MusicSubApp/Boke/index.vue"),
+        path: "discover",
+        name: "music-discover",
+        component: () =>
+          import("@/pages/Music/components/Discover/index.vue"),
       },
       {
-        path: "recommend",
-        name: "recommend",
+        path: "category",
+        name: "music-category",
         component: () =>
-          import("@/pages/Music/MusicSubApp/Recommend/index.vue"),
+          import("@/pages/Music/components/Category/index.vue"),
       },
       {
-        path: "community",
-        name: "community",
+        path: "playlist/:id",
+        name: "music-playlist",
         component: () =>
-          import("@/pages/Music/MusicSubApp/Community/index.vue"),
+          import("@/pages/Music/components/PlaylistDetail/index.vue"),
       },
       {
-        path: "choiceness",
-        name: "choiceness",
+        path: "search",
+        name: "music-search",
         component: () =>
-          import("@/pages/Music/MusicSubApp/Choiceness/index.vue"),
-        redirect: "/music/choiceness/Recommend-C",
+          import("@/pages/Music/components/SearchPage/index.vue"),
+      },
+      {
+        path: "mine",
+        name: "music-mine",
+        component: () =>
+          import("@/pages/Music/components/MyMusic/index.vue"),
+        redirect: "recent",
         children: [
           {
-            path: "MusicPlaza-C",
-            name: "MusicPlaza-C",
+            path: "liked",
+            name: "music-mine-liked",
             component: () =>
-              import("@/pages/Music/MusicSubApp/Choiceness/ChoicenessApp/MusicPlaza-C.vue"),
+              import("@/pages/Music/components/MyMusic/Liked/index.vue"),
           },
           {
-            path: "RankingList-C",
-            name: "RankingList-C",
+            path: "collection",
+            name: "music-mine-collection",
             component: () =>
-              import("@/pages/Music/MusicSubApp/Choiceness/ChoicenessApp/RankingList-C.vue"),
+              import("@/pages/Music/components/MyMusic/Collection/index.vue"),
           },
           {
-            path: "VIP-C",
-            name: "VIP-C",
+            path: "recent",
+            name: "music-mine-recent",
             component: () =>
-              import("@/pages/Music/MusicSubApp/Choiceness/ChoicenessApp/VIP-C.vue"),
+              import("@/pages/Music/components/MyMusic/Recent/index.vue"),
           },
           {
-            path: "Recommend-C",
-            name: "Recommend-C",
+            path: "local",
+            name: "music-mine-local",
             component: () =>
-              import("@/pages/Music/MusicSubApp/Choiceness/ChoicenessApp/Recommend-C.vue"),
-          },
-          {
-            path: "Singer-C",
-            name: "Singer-C",
-            component: () =>
-              import("@/pages/Music/MusicSubApp/Choiceness/ChoicenessApp/Singer-C.vue"),
+              import("@/pages/Music/components/MyMusic/Local/index.vue"),
           },
         ],
       },
       {
-        path: "my-like",
-        name: "my-like",
-        component: () => import("@/pages/Music/MusicSubApp/MyLike/index.vue"),
-      },
-      {
-        path: "recently-played",
-        name: "recently-played",
+        path: "artist/:id",
+        name: "music-artist",
         component: () =>
-          import("@/pages/Music/MusicSubApp/RecentlyPlayed/index.vue"),
-      },
-      {
-        path: "my-boke",
-        name: "my-boke",
-        component: () => import("@/pages/Music/MusicSubApp/MyBoke/index.vue"),
-      },
-      {
-        path: "my-collection",
-        name: "my-collection",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/MyCollection/index.vue"),
-      },
-      {
-        path: "music-download",
-        name: "music-download",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/MusicDownload/index.vue"),
-      },
-      {
-        path: "local-music",
-        name: "local-music",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/LocalMusic/index.vue"),
-      },
-      {
-        path: "music-cloud-disk",
-        name: "music-cloud-disk",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/MusicCloudDisk/index.vue"),
-      },
-      {
-        path: "year-song-list2023",
-        name: "year-song-list2023",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CreatedSongList/YearSongList2023.vue"),
-      },
-      {
-        path: "best-of-decade",
-        name: "best-of-decade",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CreatedSongList/BestOfDecade.vue"),
-      },
-      {
-        path: "casual-collection",
-        name: "casual-collection",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CreatedSongList/CasualCollection.vue"),
-      },
-      {
-        path: "learn-list",
-        name: "learn-list",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CreatedSongList/LearnList.vue"),
-      },
-      {
-        path: "death-stranding",
-        name: "death-stranding",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CollectedSongList/DeathStranding.vue"),
-      },
-      {
-        path: "xenoblade",
-        name: "xenoblade",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CollectedSongList/Xenoblade.vue"),
-      },
-      {
-        path: "dying-light2",
-        name: "dying-light2",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CollectedSongList/DyingLight2.vue"),
-      },
-      {
-        path: "gris",
-        name: "gris",
-        component: () =>
-          import("@/pages/Music/MusicSubApp/CollectedSongList/Gris.vue"),
+          import("@/pages/Music/components/ArtistDetail/index.vue"),
       },
     ],
   },

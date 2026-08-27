@@ -1,0 +1,252 @@
+$steam-blue: #66c0f4;
+$steam-dark: #1b2838;
+$text-primary: #c7d5e0;
+$text-bright: #ffffff;
+$text-dim: #556772;
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  background: $steam-dark;
+
+  &__track {
+    display: flex;
+    height: 400px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 8s linear;
+
+    .hero-banner:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(23, 26, 33, 0.92) 0%, rgba(23, 26, 33, 0.5) 30%, transparent 60%),
+      linear-gradient(to top, rgba(23, 26, 33, 0.8) 0%, transparent 40%);
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 480px;
+    animation: textSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+    @keyframes textSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: $text-bright;
+    background: $steam-blue;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 0 12px rgba($steam-blue, 0.4);
+    animation: tagPulse 2s ease-in-out infinite;
+
+    @keyframes tagPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba($steam-blue, 0.4); }
+      50% { box-shadow: 0 0 20px rgba($steam-blue, 0.6); }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 300;
+    color: $text-bright;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+    transition: text-shadow 0.3s;
+
+    .hero-banner:hover & {
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba($steam-blue, 0.2);
+    }
+  }
+
+  &__sub {
+    margin: 0;
+    font-size: 14px;
+    color: $text-primary;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+
+    .hero-banner:hover & {
+      color: lighten($text-primary, 5%);
+    }
+  }
+
+  &__progress {
+    display: flex;
+    gap: 2px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &__progress-bar {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transition: height 0.3s;
+
+    &:hover {
+      height: 4px;
+    }
+  }
+
+  &__progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, $steam-blue, lighten($steam-blue, 10%));
+    animation: progressGrow linear forwards;
+    box-shadow: 0 0 8px rgba($steam-blue, 0.5);
+
+    @keyframes progressGrow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    &--done {
+      width: 100%;
+      animation: none;
+    }
+  }
+
+  &__thumbs {
+    display: flex;
+    gap: 4px;
+    padding: 8px 24px 12px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &__thumb {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0.5;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    &--active {
+      opacity: 1;
+      box-shadow: 0 0 0 1px $steam-blue, 0 4px 16px rgba(102, 192, 244, 0.3);
+
+      &:hover {
+        transform: translateY(0);
+        box-shadow: 0 0 0 2px $steam-blue, 0 6px 20px rgba(102, 192, 244, 0.4);
+      }
+    }
+  }
+
+  &__thumb-img {
+    width: 100%;
+    height: 54px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .hero-banner__thumb:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__thumb-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2px 6px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  }
+
+  &__thumb-title {
+    font-size: 9px;
+    color: $text-primary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 90px;
+    border: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+
+    .hero-banner:hover & { opacity: 1; }
+
+    &:hover {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
+      color: $text-bright;
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.98);
+      transition-duration: 0.08s;
+    }
+
+    &--prev {
+      left: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+    &--next {
+      right: 0;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+  }
+}

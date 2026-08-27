@@ -1,8 +1,6 @@
 <template>
   <div class="filter-header">
-    <!-- 分类组合区域 -->
     <div class="filters-wrapper">
-      <!-- 状态分类 -->
       <div class="category-filters">
         <button
           class="category-filter-btn"
@@ -48,7 +46,6 @@
         </button>
       </div>
 
-      <!-- 主题分类 -->
       <div class="category-filters">
         <button
           class="category-filter-btn"
@@ -69,11 +66,10 @@
       </div>
     </div>
 
-    <!-- 搜索区域 -->
     <div class="search-section">
       <input
-        type="text"
         v-model="searchQuery"
+        type="text"
         placeholder="搜索展览..."
         class="search-input"
       />
@@ -83,62 +79,62 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+  import { ref, watch } from 'vue';
 
-// Props
-const props = defineProps({
-  statusFilter: {
-    type: String,
-    default: "all",
-  },
-  themeFilter: {
-    type: String,
-    default: "all",
-  },
-  categories: {
-    type: Array as () => Array<{
-      id: number;
-      name: string;
-      count: number;
-      icon: string;
-    }>,
-    default: () => [],
-  },
-});
+  // Props
+  const props = defineProps({
+    statusFilter: {
+      type: String,
+      default: 'all',
+    },
+    themeFilter: {
+      type: String,
+      default: 'all',
+    },
+    categories: {
+      type: Array as () => Array<{
+        id: number;
+        name: string;
+        count: number;
+        icon: string;
+      }>,
+      default: () => [],
+    },
+  });
 
-// Emits
-const emit = defineEmits([
-  "update:statusFilter",
-  "update:themeFilter",
-  "search",
-]);
+  // Emits
+  const emit = defineEmits([
+    'update:statusFilter',
+    'update:themeFilter',
+    'search',
+  ]);
 
-// 搜索查询
-const searchQuery = ref("");
+  // 搜索查询
+  const searchQuery = ref('');
 
-// 更新状态筛选
-const updateStatusFilter = (filter: string) => {
-  emit("update:statusFilter", filter);
-};
+  // 更新状态筛选
+  const updateStatusFilter = (filter: string) => {
+    emit('update:statusFilter', filter);
+  };
 
-// 更新主题筛选
-const updateThemeFilter = (filter: string) => {
-  emit("update:themeFilter", filter);
-};
+  // 更新主题筛选
+  const updateThemeFilter = (filter: string) => {
+    emit('update:themeFilter', filter);
+  };
 
-// 处理搜索
-const handleSearch = () => {
-  emit("search", searchQuery.value);
-};
+  // 处理搜索
+  const handleSearch = () => {
+    emit('search', searchQuery.value);
+  };
 
-// 监听搜索输入，实时搜索
-watch(searchQuery, (newValue) => {
-  if (newValue.includes("\n")) {
-    searchQuery.value = newValue.replace("\n", "");
-  }
-  // 实时触发搜索
-  handleSearch();
-});
+  // 监听搜索输入，实时搜索
+  watch(searchQuery, (newValue) => {
+    if (newValue.includes('\n')) {
+      searchQuery.value = newValue.replace('\n', '');
+    }
+    // 实时触发搜索
+    handleSearch();
+  });
 </script>
 
 <style lang="scss" scoped src="./index.scss"></style>
