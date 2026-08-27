@@ -20,7 +20,7 @@
 
   const props = defineProps<{
     images?: string[];
-    duration?: number;
+
   }>();
 
   const router = useRouter();
@@ -47,6 +47,7 @@
       }
     },
   );
+
 
   function onAfterLeave() {
     emit('complete');
@@ -81,7 +82,7 @@
     object-fit: cover;
     opacity: 0;
     transform: scale(0.3) rotate(-180deg);
-    animation: img-appear v-bind(animDuration + 'ms') ease-out forwards;
+    animation: img-appear 800ms ease-out forwards;
   }
 
   @keyframes img-appear {
@@ -108,7 +109,7 @@
   }
 
   .page-change-leave-active {
-    transition: opacity 0.4s ease-in v-bind(animDuration + 'ms');
+    transition: opacity 0.4s ease-in 800ms;
   }
 
   .page-change-enter-from {
